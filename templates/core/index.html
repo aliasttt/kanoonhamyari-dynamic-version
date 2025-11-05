@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- slider_area_start -->
+<div class="slider_area hero_wrapper">
+    <div class="hero_progress"><span id="heroProgress"></span></div>
+    <div class="owl-carousel hero-carousel">
+        {% for slide in hero_slides %}
+        <div class="hero_slide">
+            <img src="{{ slide.image.url }}" alt="{{ slide.title }}">
+            <div class="hero_overlay"></div>
+            <div class="hero-caption" id="heroCaption{{ forloop.counter }}">
+                <h3>{{ slide.title }}</h3>
+                {% if slide.subtitle %}
+                <p>{{ slide.subtitle }}</p>
+                {% endif %}
+            </div>
+        </div>
+        {% empty %}
+        <div class="hero_slide">
+            <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1600&auto=format&fit=crop" alt="Istanbul Skyline">
+            <div class="hero_overlay"></div>
+            <div class="hero-caption" id="heroCaption1">
+                <h3>کانون همیاری فارسی‌زبانان ترکیه</h3>
+                <p>مجموعه‌ای اجتماعی، خدماتی و حمایتی برای ایرانیان و فارسی‌زبانان مقیم ترکیه</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- slider_area_end -->
+
+<!-- about_area_start  -->
+<div class="about_area black_bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="section_title text-center mb-80">
+                    <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">درباره کانون همیاری</h3>
+                    <p class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".4s">
+                        {% if site_settings %}
+                            {{ site_settings.site_description }}
+                        {% else %}
+                            کانون همیاری فارسی‌زبانان ترکیه مجموعه‌ای اجتماعی، خدماتی و حمایتی است که با هدف ایجاد ارتباط، همبستگی و توسعه میان ایرانیان و فارسی‌زبانان مقیم ترکیه تأسیس شده است.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- about_area_end  -->
+
+<!-- services_area_start  -->
+<div class="services_area black_bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section_title mb-80">
+                    <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">خدمات ما</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                {% for service in services %}
+                <div class="service_item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".{{ forloop.counter|add:2 }}s">
+                    <div class="service_row">
+                        <div class="service_content">
+                            <h3>{{ service.title }}</h3>
+                            <p>{{ service.short_description }}</p>
+                            <a href="{{ service.get_absolute_url }}" class="service_link">ادامه مطلب</a>
+                        </div>
+                        <div class="service_image">
+                            <img src="{{ service.image.url }}" alt="{{ service.title }}">
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <p class="text-center">هیچ خدمتی در حال حاضر موجود نیست.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- services_area_end  -->
+
+<!-- testimonials_area_start  -->
+<div class="testimonials_area black_bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section_title text-center mb-80">
+                    <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">نظرات اعضای کانون همیاری</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="testimonials-carousel owl-carousel">
+                    {% for testimonial in testimonials %}
+                    <div class="testimonial_slide">
+                        <div class="testimonial_item">
+                            <div class="testimonial_content">
+                                <div class="stars">
+                                    {% for i in "12345" %}
+                                    <i class="fa fa-star"></i>
+                                    {% endfor %}
+                                </div>
+                                <p>"{{ testimonial.content }}"</p>
+                            </div>
+                            <div class="testimonial_author">
+                                <div class="author_info">
+                                    <h4>{{ testimonial.name }}</h4>
+                                    {% if testimonial.role %}
+                                    <p>{{ testimonial.role }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p class="text-center">هیچ نظری در حال حاضر موجود نیست.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- testimonials_area_end  -->
+{% endblock %}
+

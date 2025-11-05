@@ -356,11 +356,24 @@ mailChimp();
 
 
       var cursor = document.getElementById('cursor');
-      document.addEventListener('mousemove', function(e){
-      var x = e.clientX;
-      var y = e.clientY;
-      cursor.style.left = x + 'px';
-      cursor.style.top = y + 'px';
-      })
+      if (cursor) {
+          document.addEventListener('mousemove', function(e){
+              var x = e.clientX;
+              var y = e.clientY;
+              cursor.style.left = x + 'px';
+              cursor.style.top = y + 'px';
+          });
+      }
 
 })(jQuery);	
+
+// Load unified footer on all pages that include main.js
+(function(){
+	if (!document.getElementById('kh-footer-loader')) {
+		var s = document.createElement('script');
+		s.id = 'kh-footer-loader';
+		s.src = 'js/footer.js';
+		s.defer = true;
+		document.head.appendChild(s);
+	}
+})();
