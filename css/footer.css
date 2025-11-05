@@ -1,0 +1,52 @@
+/* Unified Footer Styles - Kanoon Hamyari */
+.kh-footer {
+    background: #0b0b0b;
+    color: #d8d8d8;
+    font-family: 'Vazirmatn', 'Noto Sans Arabic', Tahoma, Arial, sans-serif;
+}
+
+.kh-footer a { color: #d8d8d8; text-decoration: none; }
+.kh-footer a:hover { color: #ffffff; text-decoration: none; }
+
+.kh-footer__top { padding: 60px 0 30px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+.kh-footer__bottom { padding: 18px 0; border-top: 1px solid rgba(255,255,255,0.06); background: #0a0a0a; }
+
+.kh-footer__logo img { height: 56px; width: auto; display: block; margin-bottom: 16px; filter: drop-shadow(0 4px 10px rgba(0,0,0,.35)); }
+.kh-footer__about p { margin: 0 0 14px 0; line-height: 1.9; color: #cfcfcf; }
+
+.kh-footer__social { display: flex; gap: 10px; }
+.kh-footer__social a { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.08); transition: all .25s ease; }
+.kh-footer__social a:hover { transform: translateY(-2px); background: rgba(255,255,255,0.16); }
+.kh-footer__social .fa-instagram { color: #E4405F; }
+.kh-footer__social .fa-telegram { color: #2AABEE; }
+.kh-footer__social .fa-youtube-play { color: #FF0000; }
+
+.kh-footer__widget h4 { color: #ffffff; font-size: 18px; font-weight: 800; margin: 0 0 14px 0; position: relative; }
+.kh-footer__widget h4::after { content: ""; position: absolute; right: 0; bottom: -6px; width: 40px; height: 3px; background: linear-gradient(135deg, #ff6b35, #f7931e); border-radius: 2px; }
+
+.kh-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr; gap: 10px; }
+.kh-list--grid { grid-template-columns: repeat(2, minmax(120px, 1fr)); column-gap: 16px; }
+.kh-list li a { display: inline-flex; align-items: center; gap: 8px; color: #cfcfcf; padding: 4px 0; border-bottom: 1px dashed rgba(255,255,255,0.06); }
+.kh-list li a:hover { color: #ffffff; border-color: rgba(255,255,255,0.15); }
+.kh-list i { color: #ff6b35; width: 16px; text-align: center; }
+
+.kh-contact { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.kh-contact li { display: grid; grid-template-columns: 20px 1fr; align-items: start; gap: 8px; color: #cfcfcf; }
+.kh-contact i { color: #ff6b35; }
+.kh-contact a { color: #cfcfcf; }
+.kh-contact a:hover { color: #ffffff; }
+.kh-contact a[href^="tel:"] { direction: ltr; text-align: left; unicode-bidi: bidi-override; }
+
+.kh-footer__bottom p { margin: 0; color: #bdbdbd; }
+.kh-footer__bottom-links { display: flex; justify-content: flex-start; gap: 14px; }
+.kh-footer__bottom-links a { color: #bdbdbd; font-size: 14px; }
+.kh-footer__bottom-links a:hover { color: #ffffff; }
+
+@media (max-width: 992px) {
+    .kh-list--grid { grid-template-columns: 1fr; }
+    .kh-footer__bottom { text-align: center; }
+    .kh-footer__bottom .row > div { margin: 6px 0; }
+    .kh-footer__bottom-links { justify-content: center; flex-wrap: wrap; }
+}
+
+

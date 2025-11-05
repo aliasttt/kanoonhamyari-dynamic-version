@@ -1,0 +1,1021 @@
+﻿<!doctype html>
+<html class="no-js" lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>امور حقوقی - کانون همیاری</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/gijgo.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link id="kh-nav-css" rel="stylesheet" href="css/nav.css">
+    <link id="kh-footer-css" rel="stylesheet" href="css/footer.css">
+    <!-- Beautiful Persian Font Library -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Modern Legal Page Styles -->
+    <style>
+        /* Modern Legal Page Styles */
+        .legal_hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .legal_hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2000&auto=format&fit=crop') center/cover;
+            opacity: 0.4;
+            z-index: 1;
+        }
+        
+        .hero_overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8) 100%);
+            z-index: 2;
+        }
+        
+        .hero_content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero_title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #FF6B35, #F7931E, #FFD23F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+            text-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+        }
+        
+        .hero_subtitle {
+            font-size: 1.6rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+            font-weight: 300;
+        }
+        
+        .hero_search {
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .search_box {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 8px;
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .search_input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 18px 25px;
+            color: white;
+            font-size: 18px;
+            outline: none;
+            font-weight: 500;
+        }
+        
+        .search_input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .search_btn {
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
+            border: none;
+            padding: 18px 30px;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .search_btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
+        }
+        
+        /* Legal Section */
+        .legal_section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            position: relative;
+        }
+        
+        .legal_section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1589994965851-a8f479c573a9?q=80&w=2000&auto=format&fit=crop') center/cover;
+            opacity: 0.05;
+            z-index: 1;
+        }
+        
+        .legal_section > .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section_subtitle {
+            color: #888;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            font-weight: 300;
+        }
+        
+        /* Legal Grid */
+        .legal_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+        
+        /* Legal Cards */
+        .legal_card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 25px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .legal_card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+            border-color: rgba(255, 107, 53, 0.4);
+        }
+        
+        .legal_image {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+        }
+        
+        .legal_image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .legal_card:hover .legal_image img {
+            transform: scale(1.1);
+        }
+        
+        .legal_badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 700;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .legal_badge.consultation {
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
+            color: white;
+            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
+        }
+        
+        .legal_badge.advocacy {
+            background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+            color: white;
+            box-shadow: 0 5px 20px rgba(139, 92, 246, 0.4);
+        }
+        
+        .legal_badge.documents {
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: white;
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.4);
+        }
+        
+        .legal_badge.contracts {
+            background: linear-gradient(135deg, #F59E0B, #D97706);
+            color: white;
+            box-shadow: 0 5px 20px rgba(245, 158, 11, 0.4);
+        }
+        
+        .legal_badge.intellectual {
+            background: linear-gradient(135deg, #EC4899, #DB2777);
+            color: white;
+            box-shadow: 0 5px 20px rgba(236, 72, 153, 0.4);
+        }
+        
+        .legal_badge.family {
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+            color: white;
+            box-shadow: 0 5px 20px rgba(59, 130, 246, 0.4);
+        }
+        
+        
+        .legal_content {
+            padding: 30px;
+        }
+        
+        .legal_header {
+            margin-bottom: 20px;
+        }
+        
+        .legal_title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        .legal_category {
+            display: flex;
+            align-items: center;
+            color: #888;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        
+        .legal_category i {
+            margin-left: 8px;
+            color: #FF6B35;
+            font-size: 16px;
+        }
+        
+        .legal_description {
+            color: #ccc;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+        
+        .legal_features {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .feature_item {
+            display: flex;
+            align-items: center;
+            color: #888;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .feature_item i {
+            margin-left: 8px;
+            color: #FF6B35;
+            width: 18px;
+            font-size: 16px;
+        }
+        
+        .legal_footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .legal_price {
+            flex: 1;
+        }
+        
+        .price_amount {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #FF6B35;
+            text-shadow: 0 0 10px rgba(255, 107, 53, 0.3);
+        }
+        
+        .legal_btn {
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .legal_btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .load_more_btn {
+            background: transparent;
+            color: #FF6B35;
+            border: 3px solid #FF6B35;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .load_more_btn:hover {
+            background: #FF6B35;
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.4);
+            text-decoration: none;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        
+        .legal_card:hover {
+            transform: translateY(-10px);
+            transition: transform 0.3s ease;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .legal_grid {
+                grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+                gap: 35px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero_title {
+                font-size: 3rem;
+            }
+            
+            .hero_subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .legal_grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .legal_card {
+                margin: 0 15px;
+            }
+            
+            .legal_footer {
+                flex-direction: column;
+                gap: 20px;
+                align-items: stretch;
+            }
+            
+            .legal_btn {
+                text-align: center;
+                padding: 18px 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero_title {
+                font-size: 2.5rem;
+            }
+            
+            .search_box {
+                flex-direction: column;
+                border-radius: 20px;
+            }
+            
+            .search_btn {
+                border-radius: 20px;
+                margin-top: 15px;
+            }
+        }
+    </style>
+    
+    
+</head>
+
+<body>
+    <!-- Unified header placeholder -->
+    <header id="header-placeholder"></header>
+
+
+    <!-- legal_area_start -->
+    <div class="legal_area black_bg">
+        <div class="container-fluid px-0">
+            <!-- Hero Section -->
+            <div class="legal_hero">
+                <div class="hero_overlay"></div>
+                <div class="hero_content">
+                    <h1 class="hero_title">⚖️ بخش حقوقی و اقامتی</h1>
+                    <p class="hero_subtitle">تیم حقوقی کانون همیاری متشکل از وکلای رسمی، مشاوران مهاجرتی و کارشناسان امور اقامت است که سال‌ها تجربه فعالیت حرفه‌ای در ترکیه را دارند.</p>
+                    <div class="hero_search">
+                        <div class="search_box">
+                            <input type="text" placeholder="جستجو در خدمات حقوقی..." class="search_input">
+                            <button class="search_btn"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legal Grid -->
+            <div class="legal_section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section_title text-center mb-80">
+                                <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">خدمات حقوقی و اقامتی</h3>
+                                <p class="section_subtitle">ما تمامی فرآیندهای قانونی زندگی، کار، اقامت و سرمایه‌گذاری را برای فارسی‌زبانان تسهیل و مدیریت می‌کنیم. هدف ما، ارائه خدمات حقوقی مطمئن، دقیق و مبتنی بر قوانین روز ترکیه است.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Legal Services -->
+                    <div class="legal_grid">
+                        <!-- Service 1: مشاوره حقوقی تخصصی -->
+                        <div class="legal_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                            <div class="legal_image">
+                                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1000&auto=format&fit=crop" alt="مشاوره حقوقی تخصصی">
+                                <div class="legal_badge consultation">
+                                    <span>مشاوره</span>
+                                </div>
+                            </div>
+                            <div class="legal_content">
+                                <div class="legal_header">
+                                    <h4 class="legal_title">مشاوره حقوقی تخصصی</h4>
+                                    <div class="legal_category">
+                                        <i class="fa fa-gavel"></i>
+                                        <span>مشاوره</span>
+                                    </div>
+                                </div>
+                                <p class="legal_description">بررسی وضعیت اقامت، سرمایه‌گذاری، مالی و قراردادها با وکلای مجرب</p>
+                                <div class="legal_features">
+                                    <div class="feature_item">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>۲۴/۷</span>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-user"></i>
+                                        <span>متخصص</span>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-star"></i>
+                                        <span>۴.۹ امتیاز</span>
+                                    </div>
+                                </div>
+                                <div class="legal_footer">
+                                    <a href="contact.html" class="legal_btn">مشاوره</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 2: دریافت اقامت ترکیه -->
+                        <div class="legal_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+                            <div class="legal_image">
+                                <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?q=80&w=1000&auto=format&fit=crop" alt="دریافت اقامت ترکیه">
+                                <div class="legal_badge advocacy">
+                                    <span>اقامت</span>
+                                </div>
+                            </div>
+                            <div class="legal_content">
+                                <div class="legal_header">
+                                    <h4 class="legal_title">دریافت اقامت ترکیه</h4>
+                                    <div class="legal_category">
+                                        <i class="fa fa-passport"></i>
+                                        <span>اقامت</span>
+                                    </div>
+                                </div>
+                                <p class="legal_description">ارائه کامل خدمات ثبت و تمدید اقامت توریستی، کاری، خانوادگی و دانشجویی</p>
+                                <div class="legal_features">
+                                    <div class="feature_item">
+                                        <i class="fa fa-passport"></i>
+                                        <span>توریستی</span>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-briefcase"></i>
+                                        <span>کاری</span>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-graduation-cap"></i>
+                                        <span>دانشجویی</span>
+                                    </div>
+                                </div>
+                                <div class="legal_footer">
+                                    <a href="contact.html" class="legal_btn">درخواست</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 3: دریافت اجازه کار -->
+                        <div class="legal_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+                            <div class="legal_image">
+                                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1000&auto=format&fit=crop" alt="دریافت اجازه کار">
+                                <div class="legal_badge documents">
+                                    <span>اجازه کار</span>
+                                </div>
+                            </div>
+                            <div class="legal_content">
+                                <div class="legal_header">
+                                    <h4 class="legal_title">دریافت اجازه کار (İzin Çalışma)</h4>
+                                    <div class="legal_category">
+                                        <i class="fa fa-briefcase"></i>
+                                        <span>اجازه کار</span>
+                                    </div>
+                                </div>
+                                <p class="legal_description">آماده‌سازی مدارک، تنظیم پرونده و پیگیری مجوز از وزارت کار ترکیه</p>
+                                <div class="legal_features">
+                                    <div class="feature_item">
+                                        <i class="fa fa-file-text"></i>
+                                        <span>مدارک</span>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-edit"></i>
+                                        <span>تنظیم</span>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-check"></i>
+                                        <span>پیگیری</span>
+                                    </div>
+                                </div>
+                                <div class="legal_footer">
+                                    <a href="contact.html" class="legal_btn">درخواست</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 4: رفع ریجکتی اقامت -->
+                        <div class="legal_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
+                            <div class="legal_image">
+                                <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=1000&auto=format&fit=crop" alt="رفع ریجکتی اقامت">
+                                <div class="legal_badge contracts">
+                                    <span>رفع ریجکتی</span>
+                                </div>
+                            </div>
+                            <div class="legal_content">
+                                <div class="legal_header">
+                                    <h4 class="legal_title">رفع ریجکتی اقامت</h4>
+                                    <div class="legal_category">
+                                        <i class="fa fa-refresh"></i>
+                                        <span>رفع ریجکتی</span>
+                                    </div>
+                                </div>
+                                <p class="legal_description">بررسی علت ریجکت، آماده‌سازی اعتراض رسمی و تشکیل پرونده جدید با استراتژی دقیق</p>
+                                <div class="legal_features">
+                                    <div class="feature_item">
+                                        <i class="fa fa-search"></i>
+                                        <span>بررسی</span>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-exclamation-triangle"></i>
+                                        <span>اعتراض</span>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-file"></i>
+                                        <span>پرونده جدید</span>
+                                    </div>
+                                </div>
+                                <div class="legal_footer">
+                                    <a href="contact.html" class="legal_btn">درخواست</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 5: پیگیری پرونده‌های مالی و مالیاتی -->
+                        <div class="legal_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">
+                            <div class="legal_image">
+                                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1000&auto=format&fit=crop" alt="پیگیری پرونده‌های مالی">
+                                <div class="legal_badge intellectual">
+                                    <span>مالیاتی</span>
+                                </div>
+                            </div>
+                            <div class="legal_content">
+                                <div class="legal_header">
+                                    <h4 class="legal_title">پیگیری پرونده‌های مالی و مالیاتی</h4>
+                                    <div class="legal_category">
+                                        <i class="fa fa-calculator"></i>
+                                        <span>مالیاتی</span>
+                                    </div>
+                                </div>
+                                <p class="legal_description">همکاری با حسابداران رسمی و کارشناسان مالی برای تسویه و اصلاح پرونده‌های مالیاتی</p>
+                                <div class="legal_features">
+                                    <div class="feature_item">
+                                        <i class="fa fa-calculator"></i>
+                                        <span>مالیاتی</span>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-user"></i>
+                                        <span>حسابدار</span>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-check"></i>
+                                        <span>تسویه</span>
+                                    </div>
+                                </div>
+                                <div class="legal_footer">
+                                    <a href="contact.html" class="legal_btn">درخواست</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 6: ثبت رسمی اسناد و قراردادها -->
+                        <div class="legal_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
+                            <div class="legal_image">
+                                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1000&auto=format&fit=crop" alt="ثبت رسمی اسناد">
+                                <div class="legal_badge family">
+                                    <span>ثبت رسمی</span>
+                                </div>
+                                    </div>
+                            <div class="legal_content">
+                                <div class="legal_header">
+                                    <h4 class="legal_title">ثبت رسمی اسناد و قراردادها</h4>
+                                    <div class="legal_category">
+                                        <i class="fa fa-file-text"></i>
+                                        <span>ثبت رسمی</span>
+                                    </div>
+                                </div>
+                                <p class="legal_description">تنظیم و ترجمه رسمی انواع قراردادها (خرید، اجاره، شراکت و…) با مهر نوتر</p>
+                                <div class="legal_features">
+                                    <div class="feature_item">
+                                        <i class="fa fa-file-text"></i>
+                                        <span>اسناد</span>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-handshake-o"></i>
+                                        <span>قرارداد</span>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-stamp"></i>
+                                        <span>مهر نوتر</span>
+                                    </div>
+                                </div>
+                                <div class="legal_footer">
+                                    <a href="contact.html" class="legal_btn">درخواست</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 7: انواع بیمه‌نامه‌ها -->
+                        <div class="legal_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".9s">
+                            <div class="legal_image">
+                                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6f?q=80&w=1000&auto=format&fit=crop" alt="انواع بیمه‌نامه‌ها">
+                                <div class="legal_badge family">
+                                    <span>بیمه</span>
+                                </div>
+                            </div>
+                            <div class="legal_content">
+                                <div class="legal_header">
+                                    <h4 class="legal_title">انواع بیمه‌نامه‌ها</h4>
+                                    <div class="legal_category">
+                                        <i class="fa fa-shield"></i>
+                                        <span>بیمه</span>
+                                    </div>
+                                </div>
+                                <p class="legal_description">ارائه بیمه سلامت، درمانی، کار، خودرو و اقامت برای متقاضیان ایرانی</p>
+                                <div class="legal_features">
+                                    <div class="feature_item">
+                                        <i class="fa fa-heartbeat"></i>
+                                        <span>سلامت</span>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-car"></i>
+                                        <span>خودرو</span>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-home"></i>
+                                        <span>اقامت</span>
+                                    </div>
+                                </div>
+                                <div class="legal_footer">
+                                    <a href="contact.html" class="legal_btn">درخواست</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Load More Button -->
+                    <div class="text-center mt-80">
+                        <a href="contact.html" class="load_more_btn">تماس با ما برای مشاوره</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- legal_area_end -->
+
+    <!-- footer_start -->
+    <footer class="footer kh-footer">
+        <div class="kh-footer__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-md-6">
+                        <div class="kh-footer__about">
+                            <a href="index.html" class="kh-footer__logo">
+                                <img src="img/logo.png" alt="کانون همیاری" onerror="this.src='static/img/kanoonlogo.jpg'">
+                            </a>
+                            <p>کانون همیاری ارائه‌دهنده خدمات جامع در زمینه رویدادها، تورها، املاک، تبلیغات، تحصیلی و امور حقوقی</p>
+                            <div class="kh-footer__social">
+                                <a href="https://www.instagram.com/kanoon.hamyari" target="_blank" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+                                <a href="https://t.me/KANOONEHAMYARI" target="_blank" aria-label="Telegram"><i class="fa fa-telegram"></i></a>
+                                <a href="https://m.youtube.com/@kanoonhamyari" target="_blank" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="kh-footer__widget">
+                            <h4>لینک‌های سریع</h4>
+                            <ul class="kh-list kh-list--grid">
+                                <li><a href="index.html"><i class="fa fa-angle-left"></i> خانه</a></li>
+                                <li><a href="events.html"><i class="fa fa-angle-left"></i> رویدادها</a></li>
+                                <li><a href="tours.html"><i class="fa fa-angle-left"></i> تورها</a></li>
+                                <li><a href="real-estate.html"><i class="fa fa-angle-left"></i> املاک</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                    <div class="col-xl-2 col-sm-6">
+                        <div class="kh-footer__widget">
+                            <h4>خدمات</h4>
+                            <ul class="kh-list">
+                                <li><a href="advertising.html"><i class="fa fa-bullhorn"></i> تبلیغات</a></li>
+                                <li><a href="education.html"><i class="fa fa-graduation-cap"></i> تحصیلی</a></li>
+                                <li><a href="legal.html"><i class="fa fa-balance-scale"></i> امور حقوقی</a></li>
+                                <li><a href="contact.html"><i class="fa fa-phone"></i> تماس</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="kh-footer__widget">
+                            <h4>اطلاعات تماس</h4>
+                            <ul class="kh-contact">
+                                <li><i class="fa fa-map-marker"></i><span>ترکیه، استانبول، بیلیکدوزو، مرکز خرید بیلیسیوم، طبقه ۴</span></li>
+                                <li><i class="fa fa-phone"></i><a href="tel:+905525612221">+90 552 561 22 21</a></li>
+                                <li><i class="fa fa-phone"></i><a href="tel:+905551433288">+90 555 143 32 88</a></li>
+                                <li><i class="fa fa-phone"></i><a href="tel:+905373303440">+90 537 330 34 40</a></li>
+                                <li><i class="fa fa-envelope"></i><a href="mailto:info@kanoonhamyari.com">info@kanoonhamyari.com</a></li>
+                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        <div class="kh-footer__bottom">
+            <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6">
+                        <p>تمام حقوق محفوظ است © <script>document.write(new Date().getFullYear());</script> کانون همیاری</p>
+                                </div>
+                                <div class="col-lg-6">
+                        <div class="kh-footer__bottom-links">
+                            <a href="sitemap.xml">نقشه سایت</a>
+                            <a href="robots.txt">ربات‌ها</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer_end -->
+
+    <!-- JS here -->
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/ajax-form.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/scrollIt.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/gijgo.min.js"></script>
+    <script src="js/nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/tilt.jquery.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script src="js/main.js"></script>
+    
+
+    <!-- WhatsApp Fixed Button -->
+    <div class="whatsapp-fixed">
+        <a href="https://wa.me/9892112345678" target="_blank" class="whatsapp-link">
+            <i class="fa fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Phone Fixed Button -->
+    <div class="phone-fixed">
+        <a href="tel:+905525612221" class="phone-link">
+            <i class="fa fa-phone"></i>
+        </a>
+    </div>
+
+    <style>
+        .whatsapp-fixed {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 9999;
+        }
+        
+        .whatsapp-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-link:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .whatsapp-link i {
+            font-size: 30px;
+        }
+        
+        /* Phone Fixed Button */
+        .phone-fixed {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            z-index: 9999;
+        }
+        
+        .phone-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+            transition: all 0.3s ease;
+            animation: phonePulse 2s infinite;
+        }
+        
+        .phone-link:hover {
+            background: linear-gradient(135deg, #f7931e, #ff6b35);
+            transform: scale(1.1);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .phone-link i {
+            font-size: 30px;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        @keyframes phonePulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 107, 53, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .whatsapp-fixed {
+                bottom: 80px;
+                left: 15px;
+            }
+            
+            .whatsapp-link {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .whatsapp-link i {
+                font-size: 24px;
+            }
+            
+            .phone-fixed {
+                bottom: 80px;
+                right: 15px;
+            }
+            
+            .phone-link {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .phone-link i {
+                font-size: 24px;
+            }
+        }
+    </style>
+    
+    
+    <script src="js/header.js"></script>
+    <script src="js/languages.js"></script>
+    
+    
+</body>
+
+</html>
+
+
+

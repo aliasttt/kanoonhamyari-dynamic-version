@@ -1,0 +1,223 @@
+/* Responsive CSS for Kanoon Hamyari Website */
+
+/* Navigation Menu Fix - Keep all items on single line */
+#navigation {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+#navigation li {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    margin: 0 2px !important;
+}
+
+#navigation li a {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+    white-space: nowrap !important;
+    display: block !important;
+    border-radius: 8px !important;
+}
+
+/* Ensure navigation container doesn't wrap */
+.main-menu {
+    overflow: hidden !important;
+}
+
+.main-menu nav {
+    width: 100% !important;
+}
+
+/* Language switcher positioning */
+.language_switcher {
+    margin-bottom: 0 !important;
+    margin-top: 5px !important;
+}
+
+/* Additional navigation fixes for different screen sizes */
+@media (max-width: 1400px) {
+    #navigation li a {
+        padding: 5px 8px !important;
+        font-size: 10px !important;
+    }
+}
+
+@media (max-width: 1200px) {
+    #navigation li a {
+        padding: 4px 6px !important;
+        font-size: 9px !important;
+    }
+    
+    #navigation li {
+        margin: 0 2px !important;
+    }
+}
+
+@media (max-width: 992px) {
+    #navigation li a {
+        padding: 3px 5px !important;
+        font-size: 8px !important;
+    }
+    
+    #navigation li {
+        margin: 0 1px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    #navigation li a {
+        padding: 6px 10px !important;
+        font-size: 11px !important;
+    }
+    
+    #navigation li {
+        margin: 0 2px !important;
+    }
+}
+
+/* Mobile First Approach */
+@media (max-width: 768px) {
+    /* Navigation responsive */
+    #navigation li a {
+        padding: 3px 5px !important;
+        font-size: 8px !important;
+    }
+    
+    #navigation li {
+        margin: 0 !important;
+    }
+    
+    /* Header responsive */
+    .main-header-area {
+        padding: 10px 0;
+    }
+    
+    .logo img {
+        max-height: 40px;
+    }
+    
+    .main-menu {
+        display: none !important;
+    }
+    
+    .mobile_menu {
+        display: block !important;
+    }
+    
+    /* Language switcher responsive */
+    .language_switcher {
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+    .language_switcher button {
+        font-size: 12px;
+        padding: 3px 8px;
+    }
+    
+    /* Slider responsive */
+    .slider_text h3 {
+        font-size: 2rem;
+    }
+    
+    .slider_text p {
+        font-size: 1rem;
+    }
+    
+    /* Services responsive */
+    .single_service {
+        margin-bottom: 30px;
+    }
+    
+    .service_icon {
+        margin-bottom: 15px;
+    }
+    
+    /* About section responsive */
+    .about_thumb {
+        margin-bottom: 30px;
+    }
+    
+    .about_info {
+        padding-left: 0;
+        text-align: center;
+    }
+    
+    /* Contact info responsive */
+    .contact_info_wrap {
+        text-align: center;
+    }
+    
+    .single_contact_info {
+        margin-bottom: 30px;
+    }
+    
+    /* Footer responsive */
+    .footer_content {
+        text-align: center;
+    }
+    
+    .footer_widget {
+        margin-bottom: 30px;
+    }
+    
+    .footer_bottom_links {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .footer_bottom_links a {
+        display: block;
+        margin: 5px 0;
+    }
+    
+    /* WhatsApp button responsive */
+    .whatsapp-fixed {
+        bottom: 15px;
+        left: 15px;
+    }
+    
+    .whatsapp-link {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .whatsapp-link i {
+        font-size: 24px;
+    }
+}
+
+/* Tablet responsive */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        max-width: 750px;
+    }
+    
+    .single_service {
+        margin-bottom: 30px;
+    }
+    
+    .footer_widget {
+        margin-bottom: 20px;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1170px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .whatsapp-fixed,
+    .mobile_menu,
+    .language_switcher {
+        display: none !important;
+    }
+}

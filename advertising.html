@@ -1,0 +1,951 @@
+﻿<!doctype html>
+<html class="no-js" lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>تبلیغات - کانون همیاری</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/gijgo.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link id="kh-footer-css" rel="stylesheet" href="css/footer.css">
+    <link id="kh-nav-css" rel="stylesheet" href="css/nav.css">
+    <!-- Beautiful Persian Font Library -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Modern Advertising Page Styles -->
+    <style>
+        /* Modern Advertising Page Styles */
+        .advertising_hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .advertising_hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1611224923853-80b023f02d71?q=80&w=2000&auto=format&fit=crop') center/cover;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .hero_overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8) 100%);
+            z-index: 2;
+        }
+        
+        .hero_content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero_title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero_subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        .hero_search {
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .search_box {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 5px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .search_input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 15px 20px;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .search_input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .search_btn {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search_btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+        
+        /* Services Section */
+        .services_section {
+            padding: 100px 0;
+            background: #0a0a0a;
+        }
+        
+        .section_subtitle {
+            color: #888;
+            font-size: 1.1rem;
+            margin-top: 15px;
+        }
+        
+        /* Services Grid */
+        .services_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        /* Service Cards */
+        .service_card {
+            background: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        
+        .service_card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+        
+        .service_image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .service_image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .service_card:hover .service_image img {
+            transform: scale(1.1);
+        }
+        
+        .service_badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .service_badge.design {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+        }
+        
+        .service_badge.digital {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+        }
+        
+        .service_badge.creative {
+            background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+            color: white;
+        }
+        
+        .service_overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service_card:hover .service_overlay {
+            opacity: 1;
+        }
+        
+        .overlay_actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .action_btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .action_btn:hover {
+            background: #ff6b35;
+            transform: scale(1.1);
+        }
+        
+        .service_content {
+            padding: 25px;
+        }
+        
+        .service_header {
+            margin-bottom: 15px;
+        }
+        
+        .service_title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+        
+        .service_location {
+            display: flex;
+            align-items: center;
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .service_location i {
+            margin-left: 5px;
+            color: #ff6b35;
+        }
+        
+        .service_description {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .service_features {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .feature_item {
+            display: flex;
+            align-items: center;
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .feature_item i {
+            margin-left: 8px;
+            color: #ff6b35;
+            width: 16px;
+        }
+        
+        .service_footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .service_price {
+            flex: 1;
+        }
+        
+        .price_amount {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ff6b35;
+        }
+        
+        .service_btn {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .service_btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .load_more_btn {
+            background: transparent;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .load_more_btn:hover {
+            background: #ff6b35;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.3);
+            text-decoration: none;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .services_grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 25px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero_title {
+                font-size: 2.5rem;
+            }
+            
+            .hero_subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .services_grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .service_card {
+                margin: 0 10px;
+            }
+            
+            .service_footer {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+            
+            .service_btn {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero_title {
+                font-size: 2rem;
+            }
+            
+            .search_box {
+                flex-direction: column;
+                border-radius: 15px;
+            }
+            
+            .search_btn {
+                border-radius: 15px;
+                margin-top: 10px;
+            }
+        }
+    </style>
+    
+</head>
+
+<body>
+    <!-- header-start -->
+    <header id="header-placeholder"></header>
+    <!-- header-end -->
+
+
+    <!-- advertising_area_start -->
+    <div class="advertising_area black_bg">
+        <div class="container-fluid px-0">
+            <!-- Hero Section -->
+            <div class="advertising_hero">
+                <div class="hero_overlay"></div>
+                <div class="hero_content">
+                    <h1 class="hero_title">🎨 بخش تبلیغات، چاپ و برندینگ</h1>
+                    <p class="hero_subtitle">تیم خلاقیت و رسانه کانون همیاری با سابقه فعالیت حرفه‌ای در تبلیغات و برندینگ، همراه بیزینس‌های ایرانی در مسیر دیده‌شدن و رشد است.</p>
+                    <div class="hero_search">
+                        <div class="search_box">
+                            <input type="text" placeholder="جستجو در خدمات تبلیغاتی..." class="search_input">
+                            <button class="search_btn"><i class="fa fa-search"></i></button>
+        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="services_section">
+        <div class="container">
+            <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section_title text-center mb-80">
+                                <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">زیرمجموعه خدمات تبلیغات</h3>
+                                <p class="section_subtitle">ما تمامی مراحل از طراحی تا اجرا را به‌صورت حرفه‌ای و خلاقانه انجام می‌دهیم.</p>
+                        </div>
+                    </div>
+                </div>
+                    
+                    <!-- Service Cards -->
+                    <div class="services_grid">
+                        <!-- Service 1 -->
+                        <div class="service_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                            <div class="service_image">
+                                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1000&auto=format&fit=crop" alt="طراحی هویت بصری برند">
+                                <div class="service_badge design">
+                                    <span>طراحی</span>
+                        </div>
+                    </div>
+                            <div class="service_content">
+                                <div class="service_header">
+                                    <h4 class="service_title">طراحی هویت بصری برند</h4>
+                                    <div class="service_location">
+                                        <i class="fa fa-paint-brush"></i>
+                                        <span>لوگو، رنگ سازمانی، ست اداری</span>
+                </div>
+                        </div>
+                                <p class="service_description">طراحی هویت بصری برند (لوگو، رنگ سازمانی، ست اداری)</p>
+                                <div class="service_features">
+                                    <div class="feature_item">
+                                        <i class="fa fa-paint-brush"></i>
+                                        <span>لوگو</span>
+                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-palette"></i>
+                                        <span>رنگ سازمانی</span>
+                </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-file-text"></i>
+                                        <span>ست اداری</span>
+                        </div>
+                    </div>
+                                <div class="service_footer">
+                                    <a href="contact.html" class="service_btn">مشاوره</a>
+                </div>
+                        </div>
+                    </div>
+
+                        <!-- Service 2 -->
+                        <div class="service_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+                            <div class="service_image">
+                                <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?q=80&w=1000&auto=format&fit=crop" alt="طراحی و چاپ">
+                                <div class="service_badge design">
+                                    <span>چاپ</span>
+                </div>
+                        </div>
+                            <div class="service_content">
+                                <div class="service_header">
+                                    <h4 class="service_title">طراحی و چاپ</h4>
+                                    <div class="service_location">
+                                        <i class="fa fa-print"></i>
+                                        <span>پوستر، بروشور و بنرهای تبلیغاتی</span>
+                    </div>
+                </div>
+                                <p class="service_description">طراحی و چاپ پوستر، بروشور و بنرهای تبلیغاتی</p>
+                                <div class="service_features">
+                                    <div class="feature_item">
+                                        <i class="fa fa-image"></i>
+                                        <span>پوستر</span>
+            </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-file-pdf-o"></i>
+                                        <span>بروشور</span>
+        </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-flag"></i>
+                                        <span>بنر</span>
+                                    </div>
+                                </div>
+                                <div class="service_footer">
+                                    <a href="contact.html" class="service_btn">درخواست</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 3 -->
+                        <div class="service_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+                            <div class="service_image">
+                                <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?q=80&w=1000&auto=format&fit=crop" alt="مدیریت شبکه‌های اجتماعی">
+                                <div class="service_badge digital">
+                                    <span>دیجیتال</span>
+                                </div>
+                            </div>
+                            <div class="service_content">
+                                <div class="service_header">
+                                    <h4 class="service_title">مدیریت شبکه‌های اجتماعی</h4>
+                                    <div class="service_location">
+                                        <i class="fa fa-share-alt"></i>
+                                        <span>تولید محتوای تخصصی فارسی-ترکی</span>
+                                    </div>
+                                </div>
+                                <p class="service_description">مدیریت شبکه‌های اجتماعی و تولید محتوای تخصصی فارسی-ترکی</p>
+                                <div class="service_features">
+                    <div class="feature_item">
+                                        <i class="fa fa-facebook"></i>
+                                        <span>فیس‌بوک</span>
+                        </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-instagram"></i>
+                                        <span>اینستاگرام</span>
+                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-telegram"></i>
+                                        <span>تلگرام</span>
+                </div>
+                                </div>
+                                <div class="service_footer">
+                                    <a href="contact.html" class="service_btn">درخواست</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 4 -->
+                        <div class="service_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
+                            <div class="service_image">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="تبلیغات هدفمند">
+                                <div class="service_badge digital">
+                                    <span>تبلیغات</span>
+                                </div>
+                            </div>
+                            <div class="service_content">
+                                <div class="service_header">
+                                    <h4 class="service_title">تبلیغات هدفمند</h4>
+                                    <div class="service_location">
+                                        <i class="fa fa-bullseye"></i>
+                                        <span>اینستاگرامی و گوگل ادز</span>
+                                    </div>
+                                </div>
+                                <p class="service_description">تبلیغات هدفمند اینستاگرامی و گوگل ادز</p>
+                                <div class="service_features">
+                    <div class="feature_item">
+                                        <i class="fa fa-instagram"></i>
+                                        <span>اینستاگرام</span>
+                        </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-google"></i>
+                                        <span>گوگل ادز</span>
+                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-target"></i>
+                                        <span>هدفمند</span>
+                </div>
+                                </div>
+                                <div class="service_footer">
+                                    <a href="contact.html" class="service_btn">درخواست</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 5 -->
+                        <div class="service_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">
+                            <div class="service_image">
+                                <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop" alt="عکاسی و فیلم‌برداری">
+                                <div class="service_badge creative">
+                                    <span>خلاقانه</span>
+                                </div>
+                            </div>
+                            <div class="service_content">
+                                <div class="service_header">
+                                    <h4 class="service_title">عکاسی و فیلم‌برداری</h4>
+                                    <div class="service_location">
+                                        <i class="fa fa-camera"></i>
+                                        <span>صنعتی و تبلیغاتی</span>
+                                    </div>
+                                </div>
+                                <p class="service_description">عکاسی و فیلم‌برداری صنعتی و تبلیغاتی</p>
+                                <div class="service_features">
+                    <div class="feature_item">
+                                        <i class="fa fa-camera"></i>
+                                        <span>عکاسی</span>
+                        </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-video-camera"></i>
+                                        <span>فیلم‌برداری</span>
+                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-industry"></i>
+                                        <span>صنعتی</span>
+                </div>
+            </div>
+                                <div class="service_footer">
+                                    <a href="contact.html" class="service_btn">درخواست</a>
+        </div>
+                            </div>
+                        </div>
+
+                        <!-- Service 6 -->
+                        <div class="service_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
+                            <div class="service_image">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" alt="طراحی وب‌سایت">
+                                <div class="service_badge digital">
+                                    <span>وب</span>
+        </div>
+                            </div>
+                            <div class="service_content">
+                                <div class="service_header">
+                                    <h4 class="service_title">طراحی وب‌سایت و فروشگاه آنلاین</h4>
+                                    <div class="service_location">
+                                        <i class="fa fa-laptop"></i>
+                                        <span>برای بیزینس‌ها</span>
+                                    </div>
+                                </div>
+                                <p class="service_description">طراحی وب‌سایت و فروشگاه آنلاین برای بیزینس‌ها</p>
+                                <div class="service_features">
+                                    <div class="feature_item">
+                                        <i class="fa fa-laptop"></i>
+                                        <span>وب‌سایت</span>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <span>فروشگاه آنلاین</span>
+                                    </div>
+                                    <div class="feature_item">
+                                        <i class="fa fa-briefcase"></i>
+                                        <span>بیزینس</span>
+                                    </div>
+                                </div>
+                                <div class="service_footer">
+                                    <a href="contact.html" class="service_btn">درخواست</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Load More Button -->
+                    <div class="text-center mt-80">
+                        <a href="contact.html" class="load_more_btn">تماس با ما برای مشاوره</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- advertising_area_end -->
+
+    <!-- footer_start -->
+    <footer class="footer kh-footer">
+        <div class="kh-footer__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-md-6">
+                        <div class="kh-footer__about">
+                            <a href="index.html" class="kh-footer__logo">
+                                <img src="img/logo.png" alt="کانون همیاری" onerror="this.src='static/img/kanoonlogo.jpg'">
+                            </a>
+                            <p>کانون همیاری ارائه‌دهنده خدمات جامع در زمینه رویدادها، تورها، املاک، تبلیغات، تحصیلی و امور حقوقی</p>
+                            <div class="kh-footer__social">
+                                <a href="https://www.instagram.com/kanoon.hamyari" target="_blank" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+                                <a href="https://t.me/KANOONEHAMYARI" target="_blank" aria-label="Telegram"><i class="fa fa-telegram"></i></a>
+                                <a href="https://m.youtube.com/@kanoonhamyari" target="_blank" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="kh-footer__widget">
+                            <h4>لینک‌های سریع</h4>
+                            <ul class="kh-list kh-list--grid">
+                                <li><a href="index.html"><i class="fa fa-angle-left"></i> خانه</a></li>
+                                <li><a href="events.html"><i class="fa fa-angle-left"></i> رویدادها</a></li>
+                                <li><a href="tours.html"><i class="fa fa-angle-left"></i> تورها</a></li>
+                                <li><a href="real-estate.html"><i class="fa fa-angle-left"></i> املاک</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-sm-6">
+                        <div class="kh-footer__widget">
+                            <h4>خدمات</h4>
+                            <ul class="kh-list">
+                                <li><a href="advertising.html"><i class="fa fa-bullhorn"></i> تبلیغات</a></li>
+                                <li><a href="education.html"><i class="fa fa-graduation-cap"></i> تحصیلی</a></li>
+                                <li><a href="legal.html"><i class="fa fa-balance-scale"></i> امور حقوقی</a></li>
+                                <li><a href="contact.html"><i class="fa fa-phone"></i> تماس</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="kh-footer__widget">
+                            <h4>اطلاعات تماس</h4>
+                            <ul class="kh-contact">
+                                <li><i class="fa fa-map-marker"></i><span>ترکیه، استانبول، بیلیکدوزو، مرکز خرید بیلیسیوم، طبقه ۴</span></li>
+                                <li><i class="fa fa-phone"></i><a href="tel:+905525612221">+90 552 561 22 21</a></li>
+                                <li><i class="fa fa-phone"></i><a href="tel:+905551433288">+90 555 143 32 88</a></li>
+                                <li><i class="fa fa-phone"></i><a href="tel:+905373303440">+90 537 330 34 40</a></li>
+                                <li><i class="fa fa-envelope"></i><a href="mailto:info@kanoonhamyari.com">info@kanoonhamyari.com</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="kh-footer__bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <p>تمام حقوق محفوظ است © <script>document.write(new Date().getFullYear());</script> کانون همیاری</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="kh-footer__bottom-links">
+                            <a href="sitemap.xml">نقشه سایت</a>
+                            <a href="robots.txt">ربات‌ها</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer_end -->
+
+    <!-- JS here -->
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/ajax-form.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/scrollIt.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/gijgo.min.js"></script>
+    <script src="js/nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/tilt.jquery.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script src="js/main.js"></script>
+    
+
+    <!-- WhatsApp Fixed Button -->
+    <div class="whatsapp-fixed">
+        <a href="https://wa.me/9892112345678" target="_blank" class="whatsapp-link">
+            <i class="fa fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Phone Fixed Button -->
+    <div class="phone-fixed">
+        <a href="tel:+905525612221" class="phone-link">
+            <i class="fa fa-phone"></i>
+        </a>
+    </div>
+
+    <style>
+        .whatsapp-fixed {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 9999;
+        }
+        
+        .whatsapp-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-link:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .whatsapp-link i {
+            font-size: 30px;
+        }
+        
+        /* Phone Fixed Button */
+        .phone-fixed {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            z-index: 9999;
+        }
+        
+        .phone-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+            transition: all 0.3s ease;
+            animation: phonePulse 2s infinite;
+        }
+        
+        .phone-link:hover {
+            background: linear-gradient(135deg, #f7931e, #ff6b35);
+            transform: scale(1.1);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .phone-link i {
+            font-size: 30px;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        @keyframes phonePulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 107, 53, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .whatsapp-fixed {
+                bottom: 80px;
+                left: 15px;
+            }
+            
+            .whatsapp-link {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .whatsapp-link i {
+                font-size: 24px;
+            }
+            
+            .phone-fixed {
+                bottom: 80px;
+                right: 15px;
+            }
+            
+            .phone-link {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .phone-link i {
+                font-size: 24px;
+            }
+        }
+    </style>
+    
+    
+    <script src="js/header.js"></script>
+    <script src="js/languages.js"></script>
+    
+    
+</body>
+
+</html>

@@ -1,0 +1,751 @@
+﻿<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>EventCon</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/gijgo.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link id="kh-footer-css" rel="stylesheet" href="css/footer.css">
+    <link id="kh-nav-css" rel="stylesheet" href="css/nav.css">
+    <!-- <link rel="stylesheet" href="css/responsive.css">
+    <!-- Dark Theme Navigation Menu with FOUC Prevention -->
+    <style>
+        /* Prevent FOUC - Hide content until styles are loaded */
+        #navigation, .brand_tools, .language_dropdown {
+            visibility: hidden;
+        }
+        
+        /* Show content after styles are loaded */
+        .menu-loaded #navigation, 
+        .menu-loaded .brand_tools, 
+        .menu-loaded .language_dropdown {
+            visibility: visible;
+        }
+        
+        /* Main Navigation Container - Dark Theme */
+        #navigation {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            white-space: nowrap !important;
+            list-style: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 1px !important;
+            background: rgba(0, 0, 0, 0.85) !important;
+            backdrop-filter: blur(20px) !important;
+            border-radius: 15px !important;
+            padding: 6px 8px !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            max-width: 100% !important;
+            overflow: hidden !important;
+        }
+        
+        #navigation li {
+            flex-shrink: 0 !important;
+            white-space: nowrap !important;
+            margin: 0 !important;
+            display: inline-block !important;
+            position: relative !important;
+        }
+        
+        #navigation li a {
+            padding: 6px 10px !important;
+            font-size: 11px !important;
+            font-weight: 500 !important;
+            white-space: nowrap !important;
+            display: block !important;
+            text-decoration: none !important;
+            color: #ffffff !important;
+            transition: all 0.3s ease !important;
+            border-radius: 8px !important;
+            position: relative !important;
+            background: transparent !important;
+            border: 1px solid transparent !important;
+        }
+        
+        #navigation li a:hover {
+            color: #ffffff !important;
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+        }
+        
+        #navigation li a:active {
+            transform: translateY(0) !important;
+        }
+        
+        /* Active page indicator */
+        #navigation li a.active {
+            background: rgba(255, 255, 255, 0.15) !important;
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.3) !important;
+        }
+        
+        .main-menu {
+            overflow: hidden !important;
+            width: 100% !important;
+        }
+        
+        .main-menu nav {
+            width: 100% !important;
+            display: flex !important;
+            justify-content: center !important;
+        }
+        
+        /* Hide scrollbars completely */
+        #navigation::-webkit-scrollbar {
+            display: none !important;
+        }
+        
+        #navigation {
+            -ms-overflow-style: none !important;
+            scrollbar-width: none !important;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1400px) {
+            #navigation li a {
+                padding: 5px 8px !important;
+                font-size: 10px !important;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            #navigation {
+                padding: 3px 4px !important;
+                border-radius: 10px !important;
+            }
+            
+            #navigation li a {
+                padding: 4px 6px !important;
+                font-size: 9px !important;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            #navigation {
+                flex-wrap: nowrap !important;
+                justify-content: flex-start !important;
+                padding: 2px !important;
+                border-radius: 8px !important;
+                overflow-x: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+            
+            #navigation li a {
+                padding: 3px 5px !important;
+                font-size: 8px !important;
+                margin: 0 1px !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            #navigation {
+                flex-direction: row !important;
+                overflow-x: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+                padding: 2px !important;
+            }
+            
+            #navigation li {
+                flex-shrink: 0 !important;
+                margin: 0 !important;
+            }
+            
+            #navigation li a {
+                padding: 3px 5px !important;
+                font-size: 8px !important;
+                white-space: nowrap !important;
+            }
+        }
+        
+        /* Smooth animations */
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        #navigation {
+            animation: fadeInUp 0.5s ease-out !important;
+        }
+        
+        /* Subtle glow effect */
+        #navigation:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8) !important;
+        }
+        
+        /* Ensure no horizontal scrollbar */
+        .main-menu nav {
+            overflow: hidden !important;
+        }
+        
+        /* Perfect fit for dark theme */
+        #navigation {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(20, 20, 20, 0.8)) !important;
+        }
+        
+        /* Typography */
+        html[lang="fa"], body {
+            font-family: 'Vazirmatn', 'Noto Sans Arabic', Tahoma, Arial, sans-serif !important;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Vazirmatn', 'Noto Sans Arabic', Tahoma, Arial, sans-serif !important;
+            font-weight: 700 !important;
+        }
+
+        /* Brand tools (Logo + Language) */
+        .brand_tools {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 6px 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+        }
+        .brand_tools .logo img {
+            height: 38px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,.4));
+        }
+        
+        /* Language Dropdown Styles */
+        .language_dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .language_dropdown_btn {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            font-family: 'Vazirmatn', 'Noto Sans Arabic', Tahoma, Arial, sans-serif !important;
+        }
+        
+        .language_dropdown_btn:hover {
+            background: #e55a2b;
+        }
+        
+        .language_dropdown_btn i {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .language_dropdown_btn.active i {
+            transform: rotate(180deg);
+        }
+        
+        .language_dropdown_content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 5px;
+            top: 100%;
+            right: 0;
+            margin-top: 5px;
+        }
+        
+        .language_dropdown_content.show {
+            display: block;
+        }
+        
+        .language-option {
+            color: #333;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+            font-family: 'Vazirmatn', 'Noto Sans Arabic', Tahoma, Arial, sans-serif !important;
+        }
+        
+        .language-option:hover {
+            background-color: #f1f1f1;
+            color: #ff6b35;
+        }
+        
+        .language-option.active {
+            background-color: #ff6b35;
+            color: white;
+        }
+    </style>
+    
+     -->
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+            <!-- header-start -->
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3 col-lg-3">
+                                <div class="brand_tools">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="img/logo.png" alt="">
+                                    </a>
+                                </div>
+                                    <div class="language_dropdown">
+                                        <button class="language_dropdown_btn" id="languageBtn">
+                                            <span id="currentLang">ÙØ§</span>
+                                            <i class="fa fa-chevron-down"></i>
+                                        </button>
+                                        <div class="language_dropdown_content" id="languageDropdown">
+                                            <a href="#" class="language-option" data-lang="fa">ÙØ§Ø±Ø³ÛŒ</a>
+                                            <a href="#" class="language-option" data-lang="en">English</a>
+                                            <a href="#" class="language-option" data-lang="tr">Türkçe</a>
+                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-9 col-lg-9">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="index.html" data-translate="home">خانه</a></li>
+                                            <li><a href="events.html" data-translate="events">رویدادها</a></li>
+                                            <li><a href="tours.html" data-translate="tours">تورها</a></li>
+                                            <li><a href="real-estate.html" data-translate="realEstate">املاک</a></li>
+                                            <li><a href="advertising.html" data-translate="advertising">تبلیغات</a></li>
+                                            <li><a href="education.html" data-translate="educationMenu">دانشجویی</a></li>
+                                            <li><a href="business.html" data-translate="business">بیزینس</a></li>
+                                            <li><a href="decoration.html" data-translate="decoration">دکوراسیون</a></li>
+                                            <li><a href="legal.html" data-translate="legalMenu">حقوقی</a></li>
+                                            <li><a href="about.html" data-translate="about">درباره ما</a></li>
+                                            <li><a href="contact.html" data-translate="contact">تماس</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+
+     <!-- bradcam_area -->
+     <div class="bradcam_area">
+        <div class="single_bradcam  d-flex align-items-center bradcam_bg_1 overlay">
+              <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                       <div class="col-xl-12">
+                          <div class="bradcam_text text-center">
+                            <div class="shape_1 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                                <img src="img/shape/shape_1.svg" alt="">
+                            </div>
+                            <div class="shape_2 wow fadeInDown" data-wow-duration="1s" data-wow-delay=".3s">
+                                <img src="img/shape/shape_2.svg" alt="">
+                            </div>
+                                <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s" data-translate="programs">برنامه‌ها</h3>
+                          </div>
+                       </div>
+                    </div>
+              </div>
+           </div>
+     </div>
+    <!-- bradcam_area end -->
+
+    <div class="program_details_area detials_bg_1 overlay2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section_title text-center mb-80  wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">
+                        <h3 data-translate="programDetails">جزئیات برنامه</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="program_detail_wrap">
+                        <div class="single_propram">
+                            <div class="inner_wrap">
+                                <div class="circle_img"></div>
+                                <div class="porgram_top">
+                                    <span class=" wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s">3.00-4.00pm</span>
+                                    <h4 class=" wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">12 Feb 2020</h4>
+                                </div>
+                                <div class="thumb wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+                                    <img src="img/program_details/1.png" alt="">
+                                </div>
+                                <h4 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">Mr. Zosoldos</h4>
+                            </div>
+                        </div>
+                        <div class="single_propram">
+                            <div class="inner_wrap">
+                                <div class="circle_img"></div>
+                                <div class="porgram_top">
+                                    <span class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">3.00-4.00pm</span>
+                                    <h4 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".4s">12 Feb 2020</h4>
+                                </div>
+                                <div class="thumb wow fadeInRight" data-wow-duration="1s" data-wow-delay=".5s">
+                                    <img src="img/program_details/2.png" alt="">
+                                </div>
+                                <h4 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".6s">Mr. Zosoldos</h4>
+                            </div>
+                        </div>
+                        <div class="single_propram">
+                            <div class="inner_wrap">
+                                <div class="circle_img"></div>
+                                <div class="porgram_top">
+                                    <span class=" wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s">3.00-4.00pm</span>
+                                    <h4 class=" wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">12 Feb 2020</h4>
+                                </div>
+                                <div class="thumb  wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+                                    <img src="img/program_details/3.png" alt="">
+                                </div>
+                                <h4 class=" wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">Mr. Zosoldos</h4>
+                            </div>
+                        </div>
+                        <div class="single_propram">
+                            <div class="inner_wrap">
+                                <div class="circle_img"></div>
+                                <div class="porgram_top">
+                                    <span class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">3.00-4.00pm</span>
+                                    <h4 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".4s">12 Feb 2020</h4>
+                                </div>
+                                <div class="thumb wow fadeInRight" data-wow-duration="1s" data-wow-delay=".5s">
+                                    <img src="img/program_details/4.png" alt="">
+                                </div>
+                                <h4 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".6s">Mr. Zosoldos</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- performar_area_start  -->
+    <div class="performar_area black_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section_title mb-80">
+                        <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s" data-translate="performerTitle">اجراکنندگان</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div  class="single_performer wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                                <div data-tilt class="thumb">
+                                    <img src="img/performer/1.png" alt="">
+                                </div>
+                                <div class="performer_heading">
+                                    <h4>Mr. Zosoldos</h4>
+                                    <span>Acoustic drum</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div  class="single_performer wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+                                <div  data-tilt class="thumb">
+                                    <img src="img/performer/2.png" alt="">
+                                </div>
+                                <div class="performer_heading">
+                                    <h4>Protik Hasan</h4>
+                                    <span>Acoustic drum</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div  class="single_performer wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+                                <div data-tilt class="thumb">
+                                    <img src="img/performer/3.png" alt="">
+                                </div>
+                                <div class="performer_heading">
+                                    <h4>Salmon Vicky</h4>
+                                    <span>Acoustic drum</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div  class="single_performer wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
+                                <div  data-tilt class="thumb">
+                                    <img src="img/performer/4.png" alt="">
+                                </div>
+                                <div class="performer_heading">
+                                    <h4>Filaris Habol</h4>
+                                    <span>Acoustic drum</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- performar_area_end  -->
+
+    <!-- map_area_start  -->
+    <div class="map_area">
+        <div id="map" style="height: 600px; position: relative; overflow: hidden;">
+        
+        </div>
+        <script>
+            function initMap() {
+                var uluru = {
+                    lat: -25.363,
+                    lng: 131.044
+                };
+                var grayStyles = [{
+                        featureType: "all",
+                        stylers: [{
+                                saturation: -90
+                            },
+                            {
+                                lightness: 50
+                            }
+                        ]
+                    },
+                    {
+                        elementType: 'labels.text.fill',
+                        stylers: [{
+                            color: '#ccdee9'
+                        }]
+                    }
+                ];
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    center: {
+                        lat: -31.197,
+                        lng: 150.744
+                    },
+                    zoom: 9,
+                    styles: grayStyles,
+                    scrollwheel: false
+                });
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&amp;callback=initMap">
+        </script>
+        <div class="location_information black_bg wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+            <h3 data-translate="concert2020">کنسرت ۲۰۲۰</h3>
+            <div class="info_wrap">
+                <div class="single_info">
+                    <span data-translate="venueLabel">مکان:</span>
+                    <p data-translate="venueAddress">۲۶/آ، خیابان کونتوم\nنیویورک-۲۷۸۳</p>
+                </div>
+                <div class="single_info">
+                    <span data-translate="phoneLabel">تلفن:</span>
+                    <p data-translate="phone">+90 552 561 22 21</p>
+                </div>
+                <!-- Email section commented out - no email available yet -->
+                <!--
+                <div class="single_info">
+                    <span data-translate="emailLabel">ایمیل:</span>
+                    <p data-translate="email">contact@concert20.com</p>
+                </div>
+                -->
+            </div>
+        </div>
+    </div>
+    <!-- map_area_end  -->
+
+    <!-- brand_area_start  -->
+    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="brand_wrap">
+                        <div class="brand_active owl-carousel">
+                            <div class="single_brand text-center">
+                                <img src="img/brand/1.png" alt="">
+                            </div>
+                            <div class="single_brand text-center">
+                                <img src="img/brand/2.png" alt="">
+                            </div>
+                            <div class="single_brand text-center">
+                                <img src="img/brand/3.png" alt="">
+                            </div>
+                            <div class="single_brand text-center">
+                                <img src="img/brand/4.png" alt="">
+                            </div>
+                            <div class="single_brand text-center">
+                                <img src="img/brand/5.png" alt="">
+                            </div>
+                            <div class="single_brand text-center">
+                                <img src="img/brand/1.png" alt="">
+                            </div>
+                            <div class="single_brand text-center">
+                                <img src="img/brand/2.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- brand_area_end  -->
+    <!-- footer_start  -->
+    <footer class="footer kh-footer">
+        <div class="kh-footer__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-md-6">
+                        <div class="kh-footer__about">
+                            <a href="index.html" class="kh-footer__logo">
+                                <img src="img/logo.png" alt="کانون همیاری" onerror="this.src='static/img/kanoonlogo.jpg'">
+                            </a>
+                            <p data-translate="aboutDesc">کانون همیاری ارائه‌دهنده خدمات جامع در زمینه رویدادها، تورها، املاک، تبلیغات، تحصیلی و امور حقوقی</p>
+                            <div class="kh-footer__social">
+                                <a href="https://www.instagram.com/kanoon.hamyari" target="_blank" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+                                <a href="https://t.me/KANOONEHAMYARI" target="_blank" aria-label="Telegram"><i class="fa fa-telegram"></i></a>
+                                <a href="https://m.youtube.com/@kanoonhamyari" target="_blank" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="kh-footer__widget">
+                            <h4 data-translate="quickLinks">لینک‌های سریع</h4>
+                            <ul class="kh-list kh-list--grid">
+                                <li><a href="index.html"><i class="fa fa-angle-left"></i> <span data-translate="home">خانه</span></a></li>
+                                <li><a href="events.html"><i class="fa fa-angle-left"></i> <span data-translate="events">رویدادها</span></a></li>
+                                <li><a href="tours.html"><i class="fa fa-angle-left"></i> <span data-translate="tours">تورها</span></a></li>
+                                <li><a href="real-estate.html"><i class="fa fa-angle-left"></i> <span data-translate="realEstate">املاک</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-sm-6">
+                        <div class="kh-footer__widget">
+                            <h4 data-translate="services">خدمات</h4>
+                            <ul class="kh-list">
+                                <li><a href="advertising.html"><i class="fa fa-bullhorn"></i> <span data-translate="advertising">تبلیغات</span></a></li>
+                                <li><a href="education.html"><i class="fa fa-graduation-cap"></i> <span data-translate="education">تحصیلی</span></a></li>
+                                <li><a href="legal.html"><i class="fa fa-balance-scale"></i> <span data-translate="legal">امور حقوقی</span></a></li>
+                                <li><a href="contact.html"><i class="fa fa-phone"></i> <span data-translate="contact">تماس</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="kh-footer__widget">
+                            <h4 data-translate="contactInfo">اطلاعات تماس</h4>
+                            <ul class="kh-contact">
+                                <li><i class="fa fa-map-marker"></i><span data-translate="address">ترکیه، استانبول، بیلیکدوزو، مرکز خرید بیلیسیوم، طبقه ۴</span></li>
+                                <li><i class="fa fa-phone"></i><a href="tel:+905525612221">+90 552 561 22 21</a></li>
+                                <li><i class="fa fa-phone"></i><a href="tel:+905551433288">+90 555 143 32 88</a></li>
+                                <li><i class="fa fa-phone"></i><a href="tel:+905373303440">+90 537 330 34 40</a></li>
+                                <li><i class="fa fa-envelope"></i><a href="mailto:info@kanoonhamyari.com">info@kanoonhamyari.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="kh-footer__bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <p data-translate="copyright">تمام حقوق محفوظ است © <script>document.write(new Date().getFullYear());</script> کانون همیاری</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="kh-footer__bottom-links">
+                            <a href="sitemap.xml" data-translate="sitemap">نقشه سایت</a>
+                            <a href="robots.txt" data-translate="robots">ربات‌ها</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer_end  -->
+
+    <!-- JS here -->
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/ajax-form.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/scrollIt.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/gijgo.min.js"></script>
+    <script src="js/nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/tilt.jquery.js"></script>
+    <script src="js/plugins.js"></script>
+    
+    
+    
+    <!--contact js-->
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+
+
+    <script src="js/main.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/languages.js"></script>
+    
+</body>
+
+</html>
+
+
+
+

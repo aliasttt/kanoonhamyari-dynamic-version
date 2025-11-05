@@ -1,0 +1,1409 @@
+﻿<!doctype html>
+<html class="no-js" lang="fa" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>درباره ما - کانون همیاری</title>
+    <meta name="description" content="درباره کانون همیاری - ارائه‌دهنده خدمات جامع در زمینه رویدادها، تورها، املاک، تبلیغات، تحصیلی و امور حقوقی">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/gijgo.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link id="kh-footer-css" rel="stylesheet" href="css/footer.css">
+    <link id="kh-nav-css" rel="stylesheet" href="css/nav.css">
+    
+    <!-- Beautiful Persian Font Library -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom About Page Styles -->
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Vazirmatn', 'Noto Sans Arabic', Tahoma, Arial, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        
+        
+        /* Brand tools */
+        .brand_tools {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 6px 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .brand_tools .logo img {
+            height: 38px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,.3));
+        }
+        
+        /* Language Dropdown */
+        .language_dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .language_dropdown_btn {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .language_dropdown_btn:hover {
+            background: linear-gradient(135deg, #e55a2b, #d67e0a);
+        }
+        
+        .language_dropdown_content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 5px;
+            top: 100%;
+            right: 0;
+            margin-top: 5px;
+        }
+        
+        .language_dropdown_content.show {
+            display: block;
+        }
+        
+        .language-option {
+            color: #333;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+        
+        .language-option:hover {
+            background-color: #f1f1f1;
+            color: #ff6b35;
+        }
+        
+        .language-option.active {
+            background-color: #ff6b35;
+            color: white;
+        }
+        
+        /* Hero Section */
+        .about-hero {
+            position: relative;
+            height: 100vh;
+            background: #0a0a0a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop') center/cover;
+            opacity: 0.1;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #ff6b35, #ffffff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+            font-weight: 300;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+        
+        /* Company Story Section */
+        .company-story {
+            padding: 120px 0;
+            background: #0a0a0a;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .section-title p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .story-text {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .story-text.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .story-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ffffff, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .story-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .story-image {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .story-image.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .story-image img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Services Overview Section */
+        .services-overview {
+            padding: 120px 0;
+            background: #0a0a0a;
+            position: relative;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .service-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-icon {
+            font-size: 4rem;
+            color: #ffffff;
+            margin-bottom: 25px;
+            display: block;
+            animation: pulse 2s infinite;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .service-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .service-description {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: 120px 0;
+            background: #0a0a0a;
+            position: relative;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .team-member {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .team-member.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-15px);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .member-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            padding: 5px;
+            position: relative;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .member-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .member-position {
+            color: #ff6b35;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .member-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        /* Achievements Section */
+        .achievements-section {
+            padding: 120px 0;
+            background: #0a0a0a;
+            position: relative;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .achievement-item {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 40px 30px;
+        }
+        
+        .achievement-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .achievement-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .achievement-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #ff6b35;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+        }
+        
+        .achievement-label {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 120px 0;
+            background: #0a0a0a;
+            position: relative;
+        }
+        
+        .testimonials-carousel {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .testimonial-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 50px 40px;
+            text-align: center;
+            margin: 0 20px;
+        }
+        
+        .testimonial-quote {
+            font-size: 1.4rem;
+            color: #ffffff;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            font-style: italic;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+        }
+        
+        .author-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            padding: 4px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .author-photo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .author-info p {
+            color: #ff6b35;
+            font-size: 1rem;
+            font-weight: 600;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            background: #0a0a0a;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop') center/cover;
+            opacity: 0.1;
+            animation: float 10s ease-in-out infinite;
+        }
+        
+        .cta-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .cta-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 25px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-description {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out 1s forwards;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out 1.5s forwards;
+        }
+        
+        .cta-button {
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-button.primary {
+            background: #ffffff;
+            color: #ff6b35;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button.primary:hover {
+            background: #f0f0f0;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 3px solid #ffffff;
+        }
+        
+        .cta-button.secondary:hover {
+            background: #ffffff;
+            color: #ff6b35;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .story-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* WhatsApp Fixed Button */
+        .whatsapp-fixed {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 9999;
+        }
+        
+        .whatsapp-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-link:hover {
+            background: linear-gradient(135deg, #128C7E, #25D366);
+            transform: scale(1.1);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .whatsapp-link i {
+            font-size: 30px;
+        }
+        
+        /* Phone Fixed Button */
+        .phone-fixed {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            z-index: 9999;
+        }
+        
+        .phone-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+            transition: all 0.3s ease;
+            animation: phonePulse 2s infinite;
+        }
+        
+        .phone-link:hover {
+            background: linear-gradient(135deg, #f7931e, #ff6b35);
+            transform: scale(1.1);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .phone-link i {
+            font-size: 30px;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        @keyframes phonePulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 107, 53, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .whatsapp-fixed {
+                bottom: 80px;
+                left: 15px;
+            }
+            
+            .whatsapp-link {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .whatsapp-link i {
+                font-size: 24px;
+            }
+            
+            .phone-fixed {
+                bottom: 80px;
+                right: 15px;
+            }
+            
+            .phone-link {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .phone-link i {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- header-start -->
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3 col-lg-3">
+                                <div class="brand_tools">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="img/logo.png?v=2" alt="">
+                                    </a>
+                                </div>
+                                    <div class="language_dropdown">
+                                        <button class="language_dropdown_btn" id="languageBtn">
+                                            <span id="currentLang">فا</span>
+                                            <i class="fa fa-chevron-down"></i>
+                                        </button>
+                                        <div class="language_dropdown_content" id="languageDropdown">
+                                            <a href="#" class="language-option" data-lang="fa">فارسی</a>
+                                            <a href="#" class="language-option" data-lang="en">English</a>
+                                            <a href="#" class="language-option" data-lang="tr">Türkçe</a>
+                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-9 col-lg-9">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="index.html" data-translate="home">خانه</a></li>
+                                            <li><a href="events.html" data-translate="events">رویدادها</a></li>
+                                            <li><a href="tours.html" data-translate="tours">تورها</a></li>
+                                            <li><a href="real-estate.html" data-translate="realEstate">املاک</a></li>
+                                            <li><a href="advertising.html" data-translate="advertising">تبلیغات</a></li>
+                                            <li><a href="education.html" data-translate="educationMenu">دانشجویی</a></li>
+                                            <li><a href="business.html" data-translate="business">بیزینس</a></li>
+                                            <li><a href="decoration.html" data-translate="decoration">دکوراسیون</a></li>
+                                            <li><a href="legal.html" data-translate="legalMenu">حقوقی</a></li>
+                                            <li><a href="about.html" class="active" data-translate="about">درباره ما</a></li>
+                                            <li><a href="contact.html" data-translate="contact">تماس</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="hero-content">
+            <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000">درباره کانون همیاری فارسی‌زبانان ترکیه</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">تیمی حرفه‌ای از کارشناسان، مشاوران و فعالان اجتماعی</p>
+            <p class="hero-description" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                کانون همیاری فارسی‌زبانان ترکیه با تکیه بر تیمی حرفه‌ای از کارشناسان، مشاوران و فعالان اجتماعی شکل گرفته است تا پلی باشد میان جامعه فارسی‌زبان و فرصت‌های زندگی، تحصیل و کار در ترکیه.
+                ما در کانون همیاری، خدمات خود را بر پایه سه اصل ارائه می‌دهیم: اعتماد، تخصص و ارتباط مؤثر.
+                تیم ما متشکل از کارشناسان حقوقی، املاک، مهاجرت، آموزش، دکوراسیون، تبلیغات و بیزینس است که هر یک در حوزه تخصصی خود تجربه‌ای ارزشمند در بازار ترکیه دارند.
+                ماموریت ما ساده است: فراهم کردن آرامش و موفقیت برای هر ایرانی و فارسی‌زبانی که در ترکیه زندگی می‌کند یا قصد مهاجرت دارد.
+            </p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fa fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Company Story Section -->
+    <section class="company-story">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>🏠 بخش املاک و سرمایه‌گذاری</h2>
+                <p>تیم متخصص املاک با تجربه در بازار ترکیه</p>
+            </div>
+            
+            <div class="story-content">
+                <div class="story-text" data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="story-title">خدمات املاک و سرمایه‌گذاری</h2>
+                    <p class="story-description">
+                        تیم املاک کانون همیاری متشکل از مشاوران رسمی، مسلط به زبان فارسی و ترکی، و آشنا به قوانین خرید و فروش ملک در ترکیه است.
+                        ما در تمام مراحل خرید، فروش یا اجاره ملک — از انتخاب منطقه و بازدید میدانی تا عقد قرارداد و دریافت تاپو — در کنار مشتریان خود هستیم.
+                        تخصص ما، ارائه راه‌حل‌های سرمایه‌گذاری مطمئن و سودآور است.
+                    </p>
+                    <div class="features-list">
+                        <p>✅ دارای همکاری با شرکت‌های معتبر ساختمانی</p>
+                        <p>✅ تیم حقوقی همراه برای بررسی قراردادها</p>
+                        <p>✅ ارائه مشاوره شخصی‌سازی‌شده برای هر پرونده</p>
+                    </div>
+                </div>
+                
+                <div class="story-image" data-aos="fade-left" data-aos-duration="1000">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop" alt="املاک و سرمایه‌گذاری">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview Section -->
+    <section class="services-overview">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>⚖️ بخش حقوقی و اقامتی</h2>
+                <p>تیم حقوقی متخصص با تجربه در قوانین مهاجرت ترکیه</p>
+            </div>
+            
+            <div class="story-content">
+                <div class="story-text" data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="story-title">خدمات حقوقی و اقامتی</h2>
+                    <p class="story-description">
+                        تیم حقوقی و اقامتی کانون همیاری متشکل از وکلای مجرب و مشاوران رسمی اقامت است که سال‌ها تجربه فعالیت در حوزه قوانین مهاجرت ترکیه را دارند.
+                        ما تمام مراحل دریافت اقامت توریستی، اقامت کاری، اجازه کار، تمدید اقامت، دریافت بیمه‌نامه و ثبت قانونی اسناد را با دقت، شفافیت و پشتیبانی کامل انجام می‌دهیم.
+                        هدف ما، تبدیل پیچیدگی‌های اداری به تجربه‌ای آرام و قابل اعتماد برای اعضای کانون است.
+                    </p>
+                    <div class="features-list">
+                        <p>✅ همکاری با وکلای ثبت‌شده در باروی ترکیه</p>
+                        <p>✅ پشتیبانی کامل فارسی و ترکی</p>
+                        <p>✅ ارائه مشاوره حضوری و آنلاین</p>
+                </div>
+                </div>
+                
+                <div class="story-image" data-aos="fade-left" data-aos-duration="1000">
+                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=800&auto=format&fit=crop" alt="خدمات حقوقی و اقامتی">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interior Design Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>🛠️ دکوراسیون داخلی و بازسازی</h2>
+                <p>تیم متخصص طراحی و اجرای پروژه‌های ساختمانی</p>
+                </div>
+                
+            <div class="story-content">
+                <div class="story-text" data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="story-title">خدمات دکوراسیون داخلی و بازسازی</h2>
+                    <p class="story-description">
+                        تیم دکوراسیون داخلی ما ترکیبی از طراحان خلاق، مهندسان فنی و مجریان پروژه‌های ساختمانی است.
+                        ما با استفاده از متریال باکیفیت و طراحی مدرن، فضاهای مسکونی، اداری و تجاری را بازطراحی و بازسازی می‌کنیم.
+                        در پروژه‌های ما، زیبایی، عملکرد و بودجه مشتری هم‌زمان در نظر گرفته می‌شود.
+                    </p>
+                    <div class="features-list">
+                        <p>✅ طراحی سه‌بعدی قبل از اجرا</p>
+                        <p>✅ زمان‌بندی دقیق پروژه</p>
+                        <p>✅ نظارت فنی و ضمانت کیفیت</p>
+                    </div>
+                </div>
+                
+                <div class="story-image" data-aos="fade-left" data-aos-duration="1000">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=800&auto=format&fit=crop" alt="دکوراسیون داخلی و بازسازی">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tours Section -->
+    <section class="achievements-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>🌲 تورها و برنامه‌های تفریحی</h2>
+                <p>تورهای متنوع شهری و طبیعت‌گردی در سراسر ترکیه</p>
+            </div>
+            
+            <div class="story-content">
+                <div class="story-text" data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="story-title">تورهای تفریحی و طبیعت‌گردی</h2>
+                    <p class="story-description">
+                        کانون همیاری با تیمی از راهنمایان گردشگری و برنامه‌ریزان سفر، تورهای متنوع شهری و طبیعت‌گردی در سراسر ترکیه برگزار می‌کند.
+                        هدف ما، ایجاد لحظاتی شاد و خاطره‌انگیز در کنار هموطنان عزیز است.
+                        از تورهای جنگل و دریا گرفته تا بازدید از شهرهای تاریخی، همه با برنامه‌ریزی دقیق و همراهی لیدر فارسی‌زبان انجام می‌شود.
+                    </p>
+                    <div class="features-list">
+                        <p>✅ تورهای اختصاصی و گروهی</p>
+                        <p>✅ لیدر فارسی‌زبان و بیمه مسافرتی</p>
+                        <p>✅ ثبت خاطرات تصویری و محتوای ویژه برای شرکت‌کنندگان</p>
+                    </div>
+                </div>
+                
+                <div class="story-image" data-aos="fade-left" data-aos-duration="1000">
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=800&auto=format&fit=crop" alt="تورها و برنامه‌های تفریحی">
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>🎉 رویدادها و جشن‌ها</h2>
+                <p>زنده نگه داشتن فرهنگ و حس ایرانی در ترکیه</p>
+                    </div>
+            
+            <div class="story-content">
+                <div class="story-text" data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="story-title">رویدادها و جشن‌های فرهنگی</h2>
+                    <p class="story-description">
+                        بخش رویدادهای کانون همیاری، با هدف زنده نگه داشتن فرهنگ و حس ایرانی در ترکیه فعالیت می‌کند.
+                        ما با برگزاری جشن‌های مناسبتی، گردهمایی‌ها و رویدادهای فرهنگی، فرصتی برای ارتباط، دوستی و شبکه‌سازی میان ایرانیان ایجاد کرده‌ایم.
+                        از طراحی دکور و برنامه گرفته تا پذیرایی و اجرا، تمامی مراحل توسط تیم تشریفات و برنامه‌ریزی کانون انجام می‌شود.
+                    </p>
+                    <div class="features-list">
+                        <p>✅ برگزاری جشن نوروز، یلدا و مناسبت‌های ایرانی</p>
+                        <p>✅ همکاری با هنرمندان و مجریان فارسی‌زبان</p>
+                        <p>✅ طراحی و اجرای کامل رویداد</p>
+                    </div>
+                </div>
+                
+                <div class="story-image" data-aos="fade-left" data-aos-duration="1000">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=800&auto=format&fit=crop" alt="رویدادها و جشن‌ها">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>🎓 پذیرش تحصیلی و خدمات دانشجویی</h2>
+                <p>همراهی در مسیر تحصیل و موفقیت دانشجویان</p>
+            </div>
+            
+            <div class="story-content">
+                <div class="story-text" data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="story-title">خدمات تحصیلی و دانشجویی</h2>
+                    <p class="story-description">
+                        تیم آموزشی و تحصیلی کانون همیاری با همکاری دانشگاه‌ها و مؤسسات معتبر ترکیه، خدمات پذیرش و پشتیبانی دانشجویان را ارائه می‌دهد.
+                        ما از انتخاب رشته تا دریافت کارت اقامت دانشجویی در کنار شما هستیم.
+                    </p>
+                    <div class="features-list">
+                        <p>✅ معرفی دانشگاه‌های معتبر و رشته‌های مناسب</p>
+                        <p>✅ آماده‌سازی مدارک، ترجمه رسمی و ثبت‌نام</p>
+                        <p>✅ پشتیبانی کامل پس از ورود به ترکیه</p>
+                </div>
+                </div>
+                
+                <div class="story-image" data-aos="fade-left" data-aos-duration="1000">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop" alt="پذیرش تحصیلی و خدمات دانشجویی">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Section -->
+    <section class="company-story">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>💼 مشاوره بیزینس و رشد کسب‌وکار</h2>
+                <p>تیم متخصص در راه‌اندازی و توسعه کسب‌وکار</p>
+            </div>
+            
+            <div class="story-content">
+                <div class="story-text" data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="story-title">مشاوره کسب‌وکار و توسعه</h2>
+                    <p class="story-description">
+                        تیم بیزینس کانون همیاری شامل مشاوران باتجربه در زمینه ثبت شرکت، راه‌اندازی استارتاپ، بازاریابی، برندینگ و توسعه کسب‌وکار است.
+                        ما به کسب‌وکارهای ایرانی کمک می‌کنیم تا با شناخت بازار ترکیه، فعالیت خود را به‌صورت حرفه‌ای و قانونی گسترش دهند.
+                    </p>
+                    <div class="features-list">
+                        <p>✅ مشاوره تجاری و مالیاتی</p>
+                        <p>✅ تحلیل بازار و فرصت‌های سرمایه‌گذاری</p>
+                        <p>✅ طراحی مدل رشد و بازاریابی</p>
+                    </div>
+                </div>
+                
+                <div class="story-image" data-aos="fade-left" data-aos-duration="1000">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800&auto=format&fit=crop" alt="مشاوره بیزینس و رشد کسب‌وکار">
+                        </div>
+                        </div>
+                    </div>
+    </section>
+
+    <!-- Advertising Section -->
+    <section class="services-overview">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>📢 تبلیغات، چاپ، تولید محتوا و برندینگ</h2>
+                <p>تیم خلاقیت و رسانه برای دیده شدن برند شما</p>
+                </div>
+                
+            <div class="story-content">
+                <div class="story-text" data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="story-title">خدمات تبلیغاتی و برندینگ</h2>
+                    <p class="story-description">
+                        در دنیای مدرن، دیده شدن مهم‌ترین اصل موفقیت است.
+                        تیم خلاقیت و رسانه کانون همیاری با ترکیبی از طراحان گرافیک، کارشناسان دیجیتال مارکتینگ و متخصصان برندینگ، خدمات حرفه‌ای در زمینه تبلیغات، طراحی، چاپ، عکاسی و تولید محتوا ارائه می‌دهد.
+                        از طراحی هویت بصری برند تا اجرای کمپین تبلیغاتی، همه‌چیز با استانداردهای بین‌المللی انجام می‌شود.
+                    </p>
+                    <div class="features-list">
+                        <p>✅ طراحی لوگو، پوستر و هویت برند</p>
+                        <p>✅ مدیریت شبکه‌های اجتماعی و تبلیغات هدفمند</p>
+                        <p>✅ ساخت ویدیو و محتوای دیجیتال</p>
+                        </div>
+                        </div>
+                
+                <div class="story-image" data-aos="fade-left" data-aos-duration="1000">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop" alt="تبلیغات، چاپ، تولید محتوا و برندینگ">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>❤️ تیم ما</h2>
+                <p>مجموعه‌ای از متخصصان با تجربه در حوزه‌های مختلف</p>
+            </div>
+            
+            <div class="story-content">
+                <div class="story-text" data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="story-title">تیم کانون همیاری</h2>
+                    <p class="story-description">
+                        ما مجموعه‌ای از متخصصان با تجربه هستیم که در حوزه‌های مختلف از حقوق و مهاجرت تا بازاریابی، املاک و طراحی فعالیت داریم.
+                        تیم کانون همیاری بر پایه‌ی تعهد، تخصص و صداقت ساخته شده است.
+                        هر عضو تیم با دانش تخصصی خود، در مسیر تحقق هدف مشترک ما — ایجاد جامعه‌ای موفق و همدل از فارسی‌زبانان در ترکیه — نقش دارد.
+                    </p>
+                </div>
+                
+                <div class="story-image" data-aos="fade-left" data-aos-duration="1000">
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=800&auto=format&fit=crop" alt="تیم کانون همیاری">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer_start  -->
+    <footer class="footer kh-footer">
+        <div class="kh-footer__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-md-6">
+                        <div class="kh-footer__about">
+                            <a href="index.html" class="kh-footer__logo">
+                                <img src="img/logo.png" alt="کانون همیاری" onerror="this.src='static/img/kanoonlogo.jpg'">
+                            </a>
+                            <p>کانون همیاری ارائه‌دهنده خدمات جامع در زمینه رویدادها، تورها، املاک، تبلیغات، تحصیلی و امور حقوقی</p>
+                            <div class="kh-footer__social">
+                                <a href="https://www.instagram.com/kanoon.hamyari" target="_blank" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+                                <a href="https://t.me/KANOONEHAMYARI" target="_blank" aria-label="Telegram"><i class="fa fa-telegram"></i></a>
+                                <a href="https://m.youtube.com/@kanoonhamyari" target="_blank" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="kh-footer__widget">
+                            <h4>لینک‌های سریع</h4>
+                            <ul class="kh-list kh-list--grid">
+                                <li><a href="index.html"><i class="fa fa-angle-left"></i> خانه</a></li>
+                                <li><a href="events.html"><i class="fa fa-angle-left"></i> رویدادها</a></li>
+                                <li><a href="tours.html"><i class="fa fa-angle-left"></i> تورها</a></li>
+                                <li><a href="real-estate.html"><i class="fa fa-angle-left"></i> املاک</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-sm-6">
+                        <div class="kh-footer__widget">
+                            <h4>خدمات</h4>
+                            <ul class="kh-list">
+                                <li><a href="advertising.html"><i class="fa fa-bullhorn"></i> تبلیغات</a></li>
+                                <li><a href="education.html"><i class="fa fa-graduation-cap"></i> تحصیلی</a></li>
+                                <li><a href="legal.html"><i class="fa fa-balance-scale"></i> امور حقوقی</a></li>
+                                <li><a href="contact.html"><i class="fa fa-phone"></i> تماس</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="kh-footer__widget">
+                            <h4>اطلاعات تماس</h4>
+                            <ul class="kh-contact">
+                                <li><i class="fa fa-map-marker"></i><span>ترکیه، استانبول، بیلیکدوزو، مرکز خرید بیلیسیوم، طبقه ۴</span></li>
+                                <li><i class="fa fa-phone"></i><a href="tel:+905525612221">+90 552 561 22 21</a></li>
+                                <li><i class="fa fa-phone"></i><a href="tel:+905551433288">+90 555 143 32 88</a></li>
+                                <li><i class="fa fa-phone"></i><a href="tel:+905373303440">+90 537 330 34 40</a></li>
+                                <li><i class="fa fa-envelope"></i><a href="mailto:info@kanoonhamyari.com">info@kanoonhamyari.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="kh-footer__bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <p>تمام حقوق محفوظ است © <script>document.write(new Date().getFullYear());</script> کانون همیاری</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="kh-footer__bottom-links">
+                            <a href="sitemap.xml">نقشه سایت</a>
+                            <a href="robots.txt">ربات‌ها</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer_end  -->
+
+    <!-- JS here -->
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/ajax-form.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/scrollIt.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/gijgo.min.js"></script>
+    <script src="js/nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/tilt.jquery.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/languages.js"></script>
+    
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100
+            });
+            
+            // Initialize testimonials carousel
+            $('.testimonials-carousel').owlCarousel({
+                items: 1,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                smartSpeed: 650,
+                rtl: true,
+                dots: true,
+                nav: false
+            });
+            
+            // Counter animation for achievements
+            function animateCounters() {
+                $('.achievement-number').each(function() {
+                    const $this = $(this);
+                    const countTo = $this.attr('data-count');
+                    
+                    $({ countNum: $this.text() }).animate({
+                        countNum: countTo
+                    }, {
+                        duration: 2000,
+                        easing: 'linear',
+                        step: function() {
+                            $this.text(Math.floor(this.countNum));
+                        },
+                        complete: function() {
+                            $this.text(this.countNum);
+                        }
+                    });
+                });
+            }
+            
+            // Trigger counter animation when achievements section is visible
+            $(window).scroll(function() {
+                const achievementsSection = $('.achievements-section');
+                const scrollTop = $(window).scrollTop();
+                const windowHeight = $(window).height();
+                const sectionTop = achievementsSection.offset().top;
+                
+                if (scrollTop + windowHeight > sectionTop + 200) {
+                    if (!achievementsSection.hasClass('counters-animated')) {
+                        achievementsSection.addClass('counters-animated');
+                        animateCounters();
+                    }
+                }
+            });
+            
+            // Language dropdown is handled by js/header.js
+        });
+    </script>
+
+    <!-- WhatsApp Fixed Button -->
+    <div class="whatsapp-fixed">
+        <a href="https://wa.me/9892112345678" target="_blank" class="whatsapp-link">
+            <i class="fa fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Phone Fixed Button -->
+    <div class="phone-fixed">
+        <a href="tel:+905525612221" class="phone-link">
+            <i class="fa fa-phone"></i>
+        </a>
+    </div>
+    <script src="js/header.js"></script>
+    <script src="js/languages.js"></script>
+</body>
+
+</html>

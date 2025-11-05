@@ -1,0 +1,1225 @@
+﻿<!doctype html>
+<html class="no-js" lang="fa" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>تماس - کانون همیاری</title>
+    <meta name="description" content="تماس با کانون همیاری - ارائه‌دهنده خدمات جامع در زمینه رویدادها، تورها، املاک، تبلیغات، تحصیلی و امور حقوقی">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/gijgo.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link id="kh-footer-css" rel="stylesheet" href="css/footer.css">
+    <link id="kh-nav-css" rel="stylesheet" href="css/nav.css">
+    
+    <!-- Beautiful Persian Font Library -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom Contact Page Styles -->
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Vazirmatn', 'Noto Sans Arabic', Tahoma, Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        
+        
+        /* Brand tools */
+        .brand_tools {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 6px 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .brand_tools .logo img {
+            height: 38px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,.3));
+        }
+        
+        /* Language Dropdown */
+        .language_dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .language_dropdown_btn {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .language_dropdown_btn:hover {
+            background: linear-gradient(135deg, #e55a2b, #d67e0a);
+        }
+        
+        .language_dropdown_content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 5px;
+            top: 100%;
+            right: 0;
+            margin-top: 5px;
+        }
+        
+        .language_dropdown_content.show {
+            display: block;
+        }
+        
+        .language-option {
+            color: #333;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+        
+        .language-option:hover {
+            background-color: #f1f1f1;
+            color: #ff6b35;
+        }
+        
+        .language-option.active {
+            background-color: #ff6b35;
+            color: white;
+        }
+        
+        /* Hero Section */
+        .contact-hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop') center/cover;
+            opacity: 0.1;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #ff6b35, #ffffff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+            font-weight: 300;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+        
+        /* Contact Form Section */
+        .contact-form-section {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .section-title p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 50px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .contact-form:hover::before {
+            left: 100%;
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 18px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #ff6b35;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .form-control textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #e55a2b, #d67e0a);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
+        }
+        
+        /* Contact Info Section */
+        .contact-info-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 50px 40px;
+            height: fit-content;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .contact-info-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 20px;
+            font-size: 1.8rem;
+            color: white;
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .contact-info-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact-info-content p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        
+        /* Map Section */
+        .map-section {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #2d2d2d 0%, #1a1a1a 50%, #2d2d2d 100%);
+            position: relative;
+        }
+        
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .map-wrapper {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 40px;
+            overflow: hidden;
+        }
+        
+        .map-embed {
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .map-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+        
+        /* Social Media Section */
+        .social-section {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            position: relative;
+        }
+        
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .social-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .social-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .social-item:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon.facebook {
+            background: linear-gradient(135deg, #3b5998, #2d4373);
+        }
+        
+        .social-icon.twitter {
+            background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+        }
+        
+        .social-icon.instagram {
+            background: linear-gradient(135deg, #e4405f, #c13584);
+        }
+        
+        .social-icon.linkedin {
+            background: linear-gradient(135deg, #0077b5, #005885);
+        }
+        
+        .social-icon.whatsapp {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+        }
+        
+        .social-icon.telegram {
+            background: linear-gradient(135deg, #0088cc, #006699);
+        }
+        
+        .social-icon.youtube {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+        }
+        
+        .social-item:hover .social-icon {
+            transform: scale(1.1);
+        }
+        
+        .social-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .social-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            display: inline-block;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            color: #ffffff;
+            text-decoration: none;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #2d2d2d, #1a1a1a, #2d2d2d);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop') center/cover;
+            opacity: 0.1;
+            animation: float 10s ease-in-out infinite;
+        }
+        
+        .cta-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .cta-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 25px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-description {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out 1s forwards;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out 1.5s forwards;
+        }
+        
+        .cta-button {
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-button.primary {
+            background: #ffffff;
+            color: #ff6b35;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button.primary:hover {
+            background: #f0f0f0;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 3px solid #ffffff;
+        }
+        
+        .cta-button.secondary:hover {
+            background: #ffffff;
+            color: #ff6b35;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* WhatsApp Fixed Button */
+        .whatsapp-fixed {
+            position: fixed;
+            bottom: 90px;
+            left: 20px;
+            z-index: 9999;
+        }
+        
+        .whatsapp-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-link:hover {
+            background: linear-gradient(135deg, #128C7E, #25D366);
+            transform: scale(1.1);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .whatsapp-link i {
+            font-size: 30px;
+        }
+        
+        /* Phone Fixed Button */
+        .phone-fixed {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            z-index: 9999;
+        }
+        
+        .phone-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+            transition: all 0.3s ease;
+            animation: phonePulse 2s infinite;
+        }
+        
+        .phone-link:hover {
+            background: linear-gradient(135deg, #f7931e, #ff6b35);
+            transform: scale(1.1);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .phone-link i {
+            font-size: 30px;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        @keyframes phonePulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 107, 53, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .whatsapp-fixed {
+                bottom: 80px;
+                left: 15px;
+            }
+            
+            .whatsapp-link {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .whatsapp-link i {
+                font-size: 24px;
+            }
+            
+            .phone-fixed {
+                bottom: 80px;
+                right: 15px;
+            }
+            
+            .phone-link {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .phone-link i {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- header-start -->
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3 col-lg-3">
+                                <div class="brand_tools">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="img/logo.png?v=2" alt="">
+                                    </a>
+                                </div>
+                                    <div class="language_dropdown">
+                                        <button class="language_dropdown_btn" id="languageBtn">
+                                            <span id="currentLang">فا</span>
+                                            <i class="fa fa-chevron-down"></i>
+                                        </button>
+                                        <div class="language_dropdown_content" id="languageDropdown">
+                                            <a href="#" class="language-option" data-lang="fa">فارسی</a>
+                                            <a href="#" class="language-option" data-lang="en">English</a>
+                                            <a href="#" class="language-option" data-lang="tr">Türkçe</a>
+                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-9 col-lg-9">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="index.html" data-translate="home">خانه</a></li>
+                                            <li><a href="events.html" data-translate="events">رویدادها</a></li>
+                                            <li><a href="tours.html" data-translate="tours">تورها</a></li>
+                                            <li><a href="real-estate.html" data-translate="realEstate">املاک</a></li>
+                                            <li><a href="advertising.html" data-translate="advertising">تبلیغات</a></li>
+                                            <li><a href="education.html" data-translate="educationMenu">دانشجویی</a></li>
+                                            <li><a href="business.html" data-translate="business">بیزینس</a></li>
+                                            <li><a href="decoration.html" data-translate="decoration">دکوراسیون</a></li>
+                                            <li><a href="legal.html" data-translate="legalMenu">حقوقی</a></li>
+                                            <li><a href="about.html" data-translate="about">درباره ما</a></li>
+                                            <li><a href="contact.html" class="active" data-translate="contact">تماس</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="hero-content">
+            <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000">تماس با ما</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">آماده پاسخگویی به شما هستیم</p>
+            <p class="hero-description" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                تیم کانون همیاری آماده پاسخگویی به تمام سوالات شماست. 
+                از طریق فرم تماس، شبکه‌های اجتماعی یا تماس مستقیم با ما در ارتباط باشید.
+            </p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fa fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>ارسال پیام</h2>
+                <p>پیام خود را برای ما ارسال کنید و در کمترین زمان پاسخ دریافت کنید</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-grid">
+                    <div class="contact-form" data-aos="fade-right" data-aos-duration="1000">
+                        <form action="mailto:info@kanoonhamyari.com" method="post" id="contactForm">
+                            <div class="form-group">
+                                <input type="text" name="name" id="name" class="form-control" placeholder="نام و نام خانوادگی" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" id="email" class="form-control" placeholder="آدرس ایمیل" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="subject" id="subject" class="form-control" placeholder="موضوع پیام" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" id="message" class="form-control" rows="6" placeholder="متن پیام خود را بنویسید..." required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">ارسال پیام</button>
+                        </form>
+                    </div>
+                    
+                    <div class="contact-info-section" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h3>آدرس دفتر مرکزی</h3>
+                                <p>تهران، خیابان ولیعصر، پلاک ۱۲۳<br>ساختمان کانون همیاری، طبقه سوم</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h3>شماره تماس</h3>
+                                <p>+۹۸ ۲۱ ۱۲۳۴ ۵۶۷۸<br>شنبه تا پنج‌شنبه: ۹ صبح تا ۶ عصر</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h3>ایمیل</h3>
+                                <p>info@kanoonhamyari.com<br>پاسخگویی ۲۴ ساعته</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fa fa-clock-o"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <h3>ساعات کاری</h3>
+                                <p>شنبه تا پنج‌شنبه: ۹:۰۰ - ۱۸:۰۰<br>جمعه: تعطیل</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <div class="map-wrapper" data-aos="fade-up" data-aos-duration="1000">
+                <div class="map-embed">
+                    <iframe
+                        title="نقشه گوگل کانون همیاری"
+                        src="https://www.google.com/maps?q=41.0431,29.0082&z=15&output=embed"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>شبکه‌های اجتماعی</h2>
+                <p>ما را در شبکه‌های اجتماعی دنبال کنید</p>
+            </div>
+            
+            <div class="social-grid">
+                <div class="social-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="social-icon telegram">
+                        <i class="fa fa-telegram"></i>
+                    </div>
+                    <h3 class="social-title">تلگرام</h3>
+                    <p class="social-description">کانال رسمی کانون همیاری</p>
+                    <a href="https://t.me/KANOONEHAMYARI" target="_blank" class="social-link">عضویت</a>
+                </div>
+                
+                <div class="social-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="social-icon youtube">
+                        <i class="fa fa-youtube-play"></i>
+                    </div>
+                    <h3 class="social-title">یوتیوب</h3>
+                    <p class="social-description">ویدیوهای آموزشی و معرفی خدمات</p>
+                    <a href="https://m.youtube.com/%40kanoonhamyari" target="_blank" class="social-link">مشاهده کنید</a>
+                </div>
+                
+                <div class="social-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                    <div class="social-icon instagram">
+                        <i class="fa fa-instagram"></i>
+                    </div>
+                    <h3 class="social-title">اینستاگرام</h3>
+                    <p class="social-description">تصاویر و ویدیوهای جذاب از خدمات ما</p>
+                    <a href="https://www.instagram.com/kanoon.hamyari" target="_blank" class="social-link">دنبال کنید</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">آماده شروع همکاری هستید؟</h2>
+            <p class="cta-description">
+                با ما در تماس باشید و از خدمات حرفه‌ای ما بهره‌مند شوید. 
+                تیم ما آماده پاسخگویی به تمام سوالات شماست.
+            </p>
+            <div class="cta-buttons">
+                <a href="tel:+905525612221" class="cta-button primary">تماس مستقیم</a>
+                <a href="index.html" class="cta-button secondary">بازگشت به خانه</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer_start  -->
+    <footer class="footer kh-footer">
+        <div class="kh-footer__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-md-6">
+                        <div class="kh-footer__about">
+                            <a href="index.html" class="kh-footer__logo">
+                                <img src="img/logo.png" alt="کانون همیاری" onerror="this.src='static/img/kanoonlogo.jpg'">
+                            </a>
+                            <p>کانون همیاری ارائه‌دهنده خدمات جامع در زمینه رویدادها، تورها، املاک، تبلیغات، تحصیلی و امور حقوقی</p>
+                            <div class="kh-footer__social">
+                                <a href="https://www.instagram.com/kanoon.hamyari" target="_blank" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+                                <a href="https://t.me/KANOONEHAMYARI" target="_blank" aria-label="Telegram"><i class="fa fa-telegram"></i></a>
+                                <a href="https://m.youtube.com/@kanoonhamyari" target="_blank" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="kh-footer__widget">
+                            <h4>لینک‌های سریع</h4>
+                            <ul class="kh-list kh-list--grid">
+                                <li><a href="index.html"><i class="fa fa-angle-left"></i> خانه</a></li>
+                                <li><a href="events.html"><i class="fa fa-angle-left"></i> رویدادها</a></li>
+                                <li><a href="tours.html"><i class="fa fa-angle-left"></i> تورها</a></li>
+                                <li><a href="real-estate.html"><i class="fa fa-angle-left"></i> املاک</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                    <div class="col-xl-2 col-sm-6">
+                        <div class="kh-footer__widget">
+                            <h4>خدمات</h4>
+                            <ul class="kh-list">
+                                <li><a href="advertising.html"><i class="fa fa-bullhorn"></i> تبلیغات</a></li>
+                                <li><a href="education.html"><i class="fa fa-graduation-cap"></i> تحصیلی</a></li>
+                                <li><a href="legal.html"><i class="fa fa-balance-scale"></i> امور حقوقی</a></li>
+                                <li><a href="contact.html"><i class="fa fa-phone"></i> تماس</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="kh-footer__widget">
+                            <h4>اطلاعات تماس</h4>
+                            <ul class="kh-contact">
+                                <li><i class="fa fa-map-marker"></i><span>ترکیه، استانبول، بیلیکدوزو، مرکز خرید بیلیسیوم، طبقه ۴</span></li>
+                                <li><i class="fa fa-phone"></i><a href="tel:+905525612221">+90 552 561 22 21</a></li>
+                                <li><i class="fa fa-phone"></i><a href="tel:+905551433288">+90 555 143 32 88</a></li>
+                                <li><i class="fa fa-phone"></i><a href="tel:+905373303440">+90 537 330 34 40</a></li>
+                                <li><i class="fa fa-envelope"></i><a href="mailto:info@kanoonhamyari.com">info@kanoonhamyari.com</a></li>
+                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        <div class="kh-footer__bottom">
+            <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6">
+                        <p>تمام حقوق محفوظ است © <script>document.write(new Date().getFullYear());</script> کانون همیاری</p>
+                                </div>
+                                <div class="col-lg-6">
+                        <div class="kh-footer__bottom-links">
+                            <a href="sitemap.xml">نقشه سایت</a>
+                            <a href="robots.txt">ربات‌ها</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer_end  -->
+
+    <!-- JS here -->
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/ajax-form.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/scrollIt.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/gijgo.min.js"></script>
+    <script src="js/nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/tilt.jquery.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/languages.js"></script>
+    
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100
+            });
+            
+            // Animate social items on scroll
+            function animateSocialItems() {
+                const socialItems = document.querySelectorAll('.social-item');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate');
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                socialItems.forEach(item => {
+                    observer.observe(item);
+                });
+            }
+            
+            animateSocialItems();
+            
+            // Language dropdown is handled by js/header.js
+            
+            // Form validation and submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Basic validation
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const subject = document.getElementById('subject').value.trim();
+                    const message = document.getElementById('message').value.trim();
+                    
+                    if (!name || !email || !subject || !message) {
+                        alert('لطفاً تمام فیلدها را پر کنید');
+                        return;
+                    }
+                    
+                    // Email validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        alert('لطفاً یک ایمیل معتبر وارد کنید');
+                        return;
+                    }
+                    
+                    // Show success message
+                    alert('پیام شما با موفقیت ارسال شد. به زودی با شما تماس خواهیم گرفت.');
+                    
+                    // Reset form
+                    contactForm.reset();
+                });
+            }
+        });
+    </script>
+
+    <!-- WhatsApp Fixed Button -->
+    <div class="whatsapp-fixed">
+        <a href="https://wa.me/9892112345678" target="_blank" class="whatsapp-link">
+            <i class="fa fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Phone Fixed Button -->
+    <div class="phone-fixed">
+        <a href="tel:+905525612221" class="phone-link">
+            <i class="fa fa-phone"></i>
+        </a>
+    </div>
+</body>
+
+</html>
