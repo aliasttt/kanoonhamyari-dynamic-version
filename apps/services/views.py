@@ -10,8 +10,12 @@ def service_list(request):
     # فیلتر بر اساس دسته‌بندی
     category_slug = request.GET.get('category')
     if category_slug:
-        category = get_object_or_404(ServiceCategory, slug=category_slug, is_active=True)
-        services = services.filter(category=category)
+        try:
+            category = ServiceCategory.objects.get(slug=category_slug, is_active=True)
+            services = services.filter(category=category)
+        except ServiceCategory.DoesNotExist:
+            # اگر دسته‌بندی وجود نداشت، همه خدمات را نشان بده
+            pass
     
     # جستجو
     search_query = request.GET.get('search')
@@ -43,4 +47,30 @@ def service_detail(request, slug):
     }
     
     return render(request, 'services/detail.html', context)
+
+
+# صفحات جداگانه برای هر دسته‌بندی
+def advertising_page(request):
+    """صفحه تبلیغات"""
+    return render(request, 'services/advertising.html')
+
+
+def education_page(request):
+    """صفحه تحصیلی"""
+    return render(request, 'services/education.html')
+
+
+def business_page(request):
+    """صفحه بیزینس"""
+    return render(request, 'services/business.html')
+
+
+def decoration_page(request):
+    """صفحه دکوراسیون"""
+    return render(request, 'services/decoration.html')
+
+
+def legal_page(request):
+    """صفحه حقوقی"""
+    return render(request, 'services/legal.html')
 

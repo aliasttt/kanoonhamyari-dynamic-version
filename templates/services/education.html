@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}تحصیلی - کانون همیاری{% endblock %}
+
+{% block extra_css %}
+<style>
+    .education_hero { position: relative; height: 100vh; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .education_hero::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2000&auto=format&fit=crop') center/cover; opacity: .4; z-index: 1; }
+    .hero_overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,.6) 50%, rgba(0,0,0,.8) 100%); z-index: 2; }
+    .hero_content { position: relative; z-index: 3; text-align: center; color: #fff; max-width: 800px; padding: 0 20px; }
+    .hero_title { font-size: 4.5rem; font-weight: 800; margin-bottom: 25px; background: linear-gradient(135deg, #4CAF50, #8BC34A, #CDDC39); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 0 30px rgba(76, 175, 80, 0.5); }
+    .hero_subtitle { font-size: 1.6rem; margin-bottom: 50px; opacity: .9; font-weight: 300; }
+
+    .education_section { padding: 120px 0; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%); position: relative; }
+    .education_section::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2000&auto=format&fit=crop') center/cover; opacity: .05; z-index: 1; }
+    .education_section > .container { position: relative; z-index: 2; }
+
+    .education_grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 40px; margin-top: 80px; }
+    .education_card { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); border-radius: 25px; overflow: hidden; transition: all .5s ease; border: 2px solid rgba(255,255,255,.1); position: relative; box-shadow: 0 10px 40px rgba(0,0,0,.3); }
+    .education_card:hover { transform: translateY(-15px) scale(1.02); box-shadow: 0 25px 80px rgba(0,0,0,.6); border-color: rgba(76,175,80,.4); }
+    .education_image { position: relative; height: 280px; overflow: hidden; }
+    .education_image img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .education_card:hover .education_image img { transform: scale(1.1); }
+    .education_badge { position: absolute; top: 20px; right: 20px; padding: 10px 20px; border-radius: 25px; font-size: 14px; font-weight: 700; z-index: 2; }
+    .education_badge.consultation { background: linear-gradient(135deg, #4CAF50, #8BC34A); color: #fff; }
+    .education_badge.private { background: linear-gradient(135deg, #2196F3, #1976D2); color: #fff; }
+    .education_content { padding: 30px; }
+    .education_title { font-size: 1.6rem; font-weight: 700; color: #fff; margin-bottom: 10px; line-height: 1.3; }
+    .education_category { display: flex; align-items: center; color: #888; font-size: 15px; font-weight: 500; }
+    .education_category i { margin-left: 8px; color: #4CAF50; }
+    .education_description { color: #ccc; line-height: 1.7; margin-bottom: 25px; font-size: 15px; }
+    .education_btn { background: linear-gradient(135deg, #4CAF50, #8BC34A); color: #fff; padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: 700; transition: all .3s ease; border: none; cursor: pointer; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; }
+    .education_btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(76,175,80,.5); color: #fff; text-decoration: none; }
+
+    @media (max-width: 768px) {
+        .hero_title { font-size: 3rem; }
+        .hero_subtitle { font-size: 1.3rem; }
+        .education_grid { grid-template-columns: 1fr; gap: 30px; }
+        .education_card { margin: 0 15px; }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="education_area black_bg">
+    <div class="container-fluid px-0">
+        <div class="education_hero">
+            <div class="hero_overlay"></div>
+            <div class="hero_content">
+                <h1 class="hero_title">بخش تحصیلی و دانشجویی</h1>
+                <p class="hero_subtitle">پذیرش تحصیلی، ترجمه رسمی، اقامت دانشجویی و پشتیبانی کامل</p>
+            </div>
+        </div>
+
+        <div class="education_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section_title text-center mb-80">
+                            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">زیرمجموعه خدمات تحصیلی</h3>
+                            <p class="section_subtitle">خدمات کامل پذیرش و پشتیبانی دانشجویان در ترکیه</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="education_grid">
+                    <div class="education_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                        <div class="education_image">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1000&auto=format&fit=crop" alt="مشاوره تحصیلی">
+                            <div class="education_badge consultation"><span>مشاوره</span></div>
+                        </div>
+                        <div class="education_content">
+                            <h4 class="education_title">مشاوره انتخاب رشته و دانشگاه</h4>
+                            <div class="education_category"><i class="fa fa-graduation-cap"></i><span>مشاوره</span></div>
+                            <p class="education_description">معرفی گزینه‌های مناسب با توجه به علاقه و بودجه</p>
+                            <a href="{% url 'contact:contact' %}" class="education_btn">مشاوره</a>
+                        </div>
+                    </div>
+
+                    <div class="education_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+                        <div class="education_image">
+                            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1000&auto=format&fit=crop" alt="پذیرش دانشگاه">
+                            <div class="education_badge private"><span>پذیرش</span></div>
+                        </div>
+                        <div class="education_content">
+                            <h4 class="education_title">پذیرش در دانشگاه‌های دولتی و خصوصی</h4>
+                            <div class="education_category"><i class="fa fa-university"></i><span>پذیرش</span></div>
+                            <p class="education_description">آماده‌سازی مدارک و پیگیری پذیرش رسمی</p>
+                            <a href="{% url 'contact:contact' %}" class="education_btn">درخواست</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

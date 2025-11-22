@@ -23,14 +23,621 @@
     <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/rtl.css' %}">
-    <link id="kh-footer-css" rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link id="kh-nav-css" rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link id="kh-footer-css" rel="stylesheet" href="{% static 'css/footer.css' %}">
     
     <!-- Beautiful Persian Font Library -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    
+    <style>
+        /* Background Image for Goals Section */
+        .program_details_area.detials_bg_1 {
+            background-image: url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=2000&auto=format&fit=crop') !important;
+            background-size: cover !important;
+            background-position: center center !important;
+            background-repeat: no-repeat !important;
+            position: relative;
+        }
+        
+        .program_details_area.detials_bg_1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+        
+        .program_details_area.detials_bg_1 .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Hero Carousel */
+        .hero_wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .hero-carousel .hero_slide {
+            position: relative;
+            height: 70vh;
+            min-height: 420px;
+        }
+        .hero-carousel .hero_slide img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+            filter: brightness(0.55);
+        }
+        .hero_overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,.5), rgba(0,0,0,.7), rgba(0,0,0,.4));
+        }
+        .hero-caption {
+            position: absolute;
+            top: 18%;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+            text-align: center;
+            color: #fff;
+            padding: 0 16px;
+            opacity: 0;
+            transform: translateY(-24px);
+            transition: all .6s ease;
+            max-width: 960px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+        .hero-caption.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero-caption span {
+            display: inline-block;
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+            background: linear-gradient(135deg, #ffd700, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        .hero-caption h3 {
+            margin: 10px 0 8px 0;
+            font-size: 48px;
+            line-height: 1.2;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            padding: 20px 40px;
+            background: none;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 1;
+            transition: all 0.3s ease;
+            text-shadow: none;
+            filter: none;
+        }
+        
+        /* Slide 1 - Blue Gradient with Clear Glow */
+        #heroCaption1 h3 {
+            background: linear-gradient(135deg, #5db2ff 0%, #65b4f9 50%, #7db9e8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 25px rgba(93, 178, 255, 0.9)) 
+                    drop-shadow(0 0 50px rgba(93, 178, 255, 0.7))
+                    drop-shadow(0 0 75px rgba(93, 178, 255, 0.5));
+            animation: blueGlow 3s ease-in-out infinite, textPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes blueGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 25px rgba(93, 178, 255, 0.9)) 
+                        drop-shadow(0 0 50px rgba(93, 178, 255, 0.7))
+                        drop-shadow(0 0 75px rgba(93, 178, 255, 0.5));
+            }
+            50% {
+                filter: drop-shadow(0 0 35px rgba(93, 178, 255, 1)) 
+                        drop-shadow(0 0 60px rgba(93, 178, 255, 0.8))
+                        drop-shadow(0 0 90px rgba(93, 178, 255, 0.6));
+            }
+        }
+        
+        /* Slide 2 - Orange Gradient with Clear Glow */
+        #heroCaption2 h3 {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 50%, #ffa366 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 25px rgba(255, 107, 53, 0.9)) 
+                    drop-shadow(0 0 50px rgba(255, 107, 53, 0.7))
+                    drop-shadow(0 0 75px rgba(255, 107, 53, 0.5));
+            animation: orangeGlow 3s ease-in-out infinite, textPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes orangeGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 25px rgba(255, 107, 53, 0.9)) 
+                        drop-shadow(0 0 50px rgba(255, 107, 53, 0.7))
+                        drop-shadow(0 0 75px rgba(255, 107, 53, 0.5));
+            }
+            50% {
+                filter: drop-shadow(0 0 35px rgba(255, 107, 53, 1)) 
+                        drop-shadow(0 0 60px rgba(255, 107, 53, 0.8))
+                        drop-shadow(0 0 90px rgba(255, 107, 53, 0.6));
+            }
+        }
+        
+        /* Slide 3 - Green Gradient with Clear Glow */
+        #heroCaption3 h3 {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #6ee7b7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 25px rgba(16, 185, 129, 0.9)) 
+                    drop-shadow(0 0 50px rgba(16, 185, 129, 0.7))
+                    drop-shadow(0 0 75px rgba(16, 185, 129, 0.5));
+            animation: greenGlow 3s ease-in-out infinite, textPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes greenGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 25px rgba(16, 185, 129, 0.9)) 
+                        drop-shadow(0 0 50px rgba(16, 185, 129, 0.7))
+                        drop-shadow(0 0 75px rgba(16, 185, 129, 0.5));
+            }
+            50% {
+                filter: drop-shadow(0 0 35px rgba(16, 185, 129, 1)) 
+                        drop-shadow(0 0 60px rgba(16, 185, 129, 0.8))
+                        drop-shadow(0 0 90px rgba(16, 185, 129, 0.6));
+            }
+        }
+        
+        @keyframes textPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.01);
+            }
+        }
+        
+        .hero-caption h3::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(255, 255, 255, 0.3) 50%, 
+                transparent 70%);
+            animation: shimmer 3s infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+        
+        #heroCaption1 h3::before {
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(93, 178, 255, 0.5) 50%, 
+                transparent 70%);
+        }
+        
+        #heroCaption2 h3::before {
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(255, 107, 53, 0.5) 50%, 
+                transparent 70%);
+        }
+        
+        #heroCaption3 h3::before {
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(16, 185, 129, 0.5) 50%, 
+                transparent 70%);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-caption h3 {
+                font-size: 32px;
+                padding: 15px 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-caption h3 {
+                font-size: 24px;
+                padding: 12px 20px;
+            }
+        }
+        
+        .hero-caption p {
+            font-size: 18px;
+            font-weight: 400;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center !important;
+        }
+        
+        .hero_progress {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            height: 4px;
+            background: rgba(255,255,255,.2);
+            z-index: 5;
+        }
+        
+        .hero_progress span {
+            display: block;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #ff6b35, #ff9f43);
+        }
+        
+        /* Large Services with alternating layout */
+        .service_item {
+            background: #141414;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,.08);
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        .service_item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+        .service_item .service_row {
+            display: flex;
+            align-items: center;
+            min-height: 300px;
+        }
+        .service_item .service_content {
+            flex: 1;
+            padding: 40px;
+            direction: rtl;
+        }
+        .service_item .service_image {
+            flex: 1;
+            height: 300px;
+            overflow: hidden;
+        }
+        .service_item .service_image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .6s ease;
+        }
+        .service_item:hover .service_image img {
+            transform: scale(1.05);
+        }
+        .service_item .service_content h3 {
+            font-size: 28px;
+            margin-bottom: 16px;
+            color: #fff;
+            font-weight: 700;
+        }
+        .service_item .service_content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #ccc;
+            margin-bottom: 24px;
+        }
+        .service_item .service_link {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            background: transparent;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all .3s ease;
+        }
+        .service_item .service_link:hover {
+            background: #ff6b35;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        
+        .service_item:nth-child(even) .service_row {
+            flex-direction: row-reverse;
+        }
+        
+        @media (max-width: 768px) {
+            .service_item .service_row {
+                flex-direction: column !important;
+            }
+            .service_item .service_image {
+                height: 200px;
+            }
+            .service_item .service_content {
+                padding: 24px;
+            }
+            .service_item .service_content h3 {
+                font-size: 24px;
+            }
+        }
+        
+        /* Testimonials Section */
+        .testimonials_area {
+            padding: 80px 0;
+            background: #0a0a0a;
+            position: relative;
+        }
+        
+        .testimonials_area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="testimonialPattern" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,107,53,0.1)"/><circle cx="10" cy="10" r="0.5" fill="rgba(255,107,53,0.05)"/><circle cx="40" cy="40" r="0.5" fill="rgba(255,107,53,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23testimonialPattern)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .testimonial_item {
+            background: #141414;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial_item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+        
+        .testimonial_content {
+            margin-bottom: 25px;
+        }
+        
+        .stars {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 3px;
+        }
+        
+        .stars i {
+            color: #ffd700;
+            font-size: 16px;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+        
+        .testimonial_content p {
+            color: #e0e0e0;
+            font-size: 16px;
+            line-height: 1.8;
+            font-style: italic;
+            position: relative;
+            padding-right: 20px;
+        }
+        
+        .testimonial_content p::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            right: 0;
+            font-size: 40px;
+            color: #ff6b35;
+            opacity: 0.3;
+            font-family: serif;
+        }
+        
+        .testimonial_author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .author_info h4 {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .testimonials-carousel {
+            padding: 20px 0;
+        }
+        
+        .testimonials-carousel .testimonial_slide {
+            padding: 0 15px;
+        }
+        
+        .testimonials-carousel .testimonial_item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .testimonials-carousel .testimonial_item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* WhatsApp Fixed Button */
+        .whatsapp-fixed {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 9999;
+        }
+        
+        .whatsapp-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-link:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .whatsapp-link i {
+            font-size: 30px;
+        }
+        
+        /* Phone Fixed Button */
+        .phone-fixed {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            z-index: 9999;
+        }
+        
+        .phone-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+            transition: all 0.3s ease;
+            animation: phonePulse 2s infinite;
+        }
+        
+        .phone-link:hover {
+            background: linear-gradient(135deg, #f7931e, #ff6b35);
+            transform: scale(1.1);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .phone-link i {
+            font-size: 30px;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        @keyframes phonePulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 107, 53, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+            }
+        }
+        
+        .boxed-btn3 {
+            background: #ff6b35 !important;
+            color: #fff !important;
+            border: 2px solid #ff6b35 !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .boxed-btn3:hover {
+            background: #e55a2b !important;
+            border-color: #e55a2b !important;
+            color: #fff !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4) !important;
+        }
+        
+        @media (max-width: 768px) {
+            .whatsapp-fixed {
+                bottom: 80px;
+                left: 15px;
+            }
+            
+            .whatsapp-link {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .whatsapp-link i {
+                font-size: 24px;
+            }
+            
+            .phone-fixed {
+                bottom: 80px;
+                right: 15px;
+            }
+            
+            .phone-link {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .phone-link i {
+                font-size: 24px;
+            }
+        }
+    </style>
     
     {% block extra_css %}{% endblock %}
 </head>
@@ -39,89 +646,11 @@
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
 
-    <!-- Unified header placeholder -->
-    <header id="header-placeholder"></header>
+    {% include 'partials/header.html' %}
 
     {% block content %}{% endblock %}
 
-    <!-- footer_start  -->
-    <footer class="footer kh-footer">
-        <div class="kh-footer__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-4 col-md-6">
-                        <div class="kh-footer__about">
-                            <a href="{% url 'core:index' %}" class="kh-footer__logo">
-                                <img src="{% if site_settings and site_settings.site_logo %}{{ site_settings.site_logo.url }}{% else %}{% static 'img/logo.png' %}{% endif %}" alt="کانون همیاری">
-                            </a>
-                            <p>{% if site_settings %}{{ site_settings.site_description }}{% else %}کانون همیاری ارائه‌دهنده خدمات جامع در زمینه رویدادها، تورها، املاک، تبلیغات، تحصیلی و امور حقوقی{% endif %}</p>
-                            {% if site_settings %}
-                            <div class="kh-footer__social">
-                                {% if site_settings.instagram %}
-                                <a href="{{ site_settings.instagram }}" target="_blank" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
-                                {% endif %}
-                                {% if site_settings.telegram %}
-                                <a href="{{ site_settings.telegram }}" target="_blank" aria-label="Telegram"><i class="fa fa-telegram"></i></a>
-                                {% endif %}
-                                {% if site_settings.youtube %}
-                                <a href="{{ site_settings.youtube }}" target="_blank" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
-                                {% endif %}
-                            </div>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-sm-6">
-                        <div class="kh-footer__widget">
-                            <h4>لینک‌های سریع</h4>
-                            <ul class="kh-list kh-list--grid">
-                                <li><a href="{% url 'core:index' %}"><i class="fa fa-angle-left"></i> خانه</a></li>
-                                <li><a href="{% url 'events:list' %}"><i class="fa fa-angle-left"></i> رویدادها</a></li>
-                                <li><a href="{% url 'tours:list' %}"><i class="fa fa-angle-left"></i> تورها</a></li>
-                                <li><a href="{% url 'real_estate:list' %}"><i class="fa fa-angle-left"></i> املاک</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-sm-6">
-                        <div class="kh-footer__widget">
-                            <h4>خدمات</h4>
-                            <ul class="kh-list">
-                                <li><a href="{% url 'services:list' %}"><i class="fa fa-bullhorn"></i> خدمات</a></li>
-                                <li><a href="{% url 'blog:list' %}"><i class="fa fa-graduation-cap"></i> وبلاگ</a></li>
-                                <li><a href="{% url 'contact:contact' %}"><i class="fa fa-phone"></i> تماس</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="kh-footer__widget">
-                            <h4>اطلاعات تماس</h4>
-                            <ul class="kh-contact">
-                                {% if site_settings %}
-                                <li><i class="fa fa-map-marker"></i><span>{{ site_settings.address }}</span></li>
-                                <li><i class="fa fa-phone"></i><a href="tel:{{ site_settings.phone_1 }}">{{ site_settings.phone_1 }}</a></li>
-                                {% if site_settings.phone_2 %}
-                                <li><i class="fa fa-phone"></i><a href="tel:{{ site_settings.phone_2 }}">{{ site_settings.phone_2 }}</a></li>
-                                {% endif %}
-                                {% if site_settings.phone_3 %}
-                                <li><i class="fa fa-phone"></i><a href="tel:{{ site_settings.phone_3 }}">{{ site_settings.phone_3 }}</a></li>
-                                {% endif %}
-                                {% endif %}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="kh-footer__bottom">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <p>تمام حقوق محفوظ است © {% now "Y" %} کانون همیاری</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- footer_end  -->
+    {% include 'partials/footer.html' %}
 
     <!-- JS here -->
     <script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
@@ -143,11 +672,105 @@
     <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
     <script src="{% static 'js/tilt.jquery.js' %}"></script>
     <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'js/jquery.form.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/header.js' %}"></script>
     <script src="{% static 'js/languages.js' %}"></script>
     
+    <!-- Testimonials Carousel JavaScript -->
+    <script>
+        $(document).ready(function() {
+            if ($('.testimonials-carousel').length) {
+                $('.testimonials-carousel').owlCarousel({
+                    loop: true,
+                    margin: 30,
+                    nav: false,
+                    dots: true,
+                    autoplay: true,
+                    autoplayTimeout: 4000,
+                    autoplayHoverPause: true,
+                    smartSpeed: 800,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        768: {
+                            items: 2
+                        },
+                        992: {
+                            items: 3
+                        }
+                    },
+                    rtl: true
+                });
+            }
+        });
+    </script>
+    
+    <!-- Language Dropdown JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hero carousel init
+            try {
+                const $hero = $('.hero-carousel');
+                const $progress = document.getElementById('heroProgress');
+                if ($hero.length) {
+                    $hero.on('changed.owl.carousel', function(event){
+                        const current = event.item.index;
+                        const $slide = $(event.target).find('.owl-item').eq(current).find('.hero-caption');
+                        $('.hero-caption').removeClass('show');
+                        setTimeout(()=>{$slide.addClass('show');}, 50);
+                        if ($progress) {
+                            $progress.style.transition = 'none';
+                            $progress.style.width = '0%';
+                            setTimeout(()=>{
+                                $progress.style.transition = 'width 3s linear';
+                                $progress.style.width = '100%';
+                            }, 50);
+                        }
+                    });
+                    $hero.owlCarousel({
+                        items: 1,
+                        loop: true,
+                        autoplay: true,
+                        autoplayTimeout: 3000,
+                        autoplayHoverPause: false,
+                        smartSpeed: 650,
+                        rtl: true,
+                        dots: false,
+                        nav: false
+                    });
+                    if ($progress) {
+                        setTimeout(()=>{
+                            $progress.style.transition = 'width 3s linear';
+                            $progress.style.width = '100%';
+                        }, 200);
+                    }
+                }
+            } catch(err) { /* ignore */ }
+        });
+    </script>
+
+    <!-- WhatsApp Fixed Button -->
+    {% if site_settings and site_settings.whatsapp %}
+    <div class="whatsapp-fixed">
+        <a href="https://wa.me/{{ site_settings.whatsapp }}" target="_blank" class="whatsapp-link">
+            <i class="fa fa-whatsapp"></i>
+        </a>
+    </div>
+    {% endif %}
+
+    <!-- Phone Fixed Button -->
+    {% if site_settings %}
+    <div class="phone-fixed">
+        <a href="tel:{{ site_settings.phone_1 }}" class="phone-link">
+            <i class="fa fa-phone"></i>
+        </a>
+    </div>
+    {% endif %}
+    
     {% block extra_js %}{% endblock %}
 </body>
 </html>
-

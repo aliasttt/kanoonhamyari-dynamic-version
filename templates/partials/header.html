@@ -1,0 +1,66 @@
+{% load static %}
+<header id="site-header">
+    <div class="header-area">
+        <div id="sticky-header" class="main-header-area">
+            <div class="container">
+                <div class="header_bottom_border">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-3">
+                            <div class="brand_tools">
+                                <button class="kh-hamburger d-lg-none" id="khHamburger" aria-label="Toggle navigation" aria-expanded="false">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                                <div class="logo">
+                                    <a href="{% url 'core:index' %}">
+                                        {% if site_settings and site_settings.site_logo %}
+                                        <img src="{{ site_settings.site_logo.url }}" alt="{{ site_settings.site_name|default:'کانون همیاری' }}">
+                                        {% else %}
+                                        <img src="{% static 'img/kanoonlogo.jpg' %}" alt="کانون همیاری">
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                <div class="language_dropdown">
+                                    <button class="language_dropdown_btn" id="languageBtn">
+                                        <span id="currentLang">فا</span>
+                                        <i class="fa fa-chevron-down"></i>
+                                    </button>
+                                    <div class="language_dropdown_content" id="languageDropdown">
+                                        <a href="#" class="language-option" data-lang="fa">فارسی</a>
+                                        <a href="#" class="language-option" data-lang="en">English</a>
+                                        <a href="#" class="language-option" data-lang="tr">Türkçe</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-9">
+                            <div class="main-menu d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a href="{% url 'core:index' %}" data-translate="home">خانه</a></li>
+                                        <li><a href="{% url 'events:list' %}" data-translate="events">رویدادها</a></li>
+                                        <li><a href="{% url 'tours:list' %}" data-translate="tours">تورها</a></li>
+                                        <li><a href="{% url 'real_estate:list' %}" data-translate="realEstate">املاک</a></li>
+                                        <li><a href="{% url 'services:advertising' %}" data-translate="advertising">تبلیغات</a></li>
+                                        <li><a href="{% url 'services:education' %}" data-translate="educationMenu">دانشجویی</a></li>
+                                        <li><a href="{% url 'services:business' %}" data-translate="business">بیزینس</a></li>
+                                        <li><a href="{% url 'services:decoration' %}" data-translate="decoration">دکوراسیون</a></li>
+                                        <li><a href="{% url 'services:legal' %}" data-translate="legalMenu">حقوقی</a></li>
+                                        <li><a href="{% url 'about:about' %}" data-translate="about">درباره ما</a></li>
+                                        <li><a href="{% url 'contact:contact' %}" data-translate="contact">تماس</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="kh-mobile-nav" id="khMobileNav" aria-hidden="true">
+        <ul id="khMobileNavigation"></ul>
+    </nav>
+    <div class="kh-mobile-overlay" id="khMobileOverlay"></div>
+</header>
+
