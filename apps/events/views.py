@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from .models import Event, EventCategory, EventRegistration
+from django.views.decorators.cache import cache_page
 from .forms import EventRegistrationForm
 
 
+@cache_page(60 * 10)
 def event_list(request):
     """لیست رویدادها"""
     events = Event.objects.filter(is_active=True, is_published=True)

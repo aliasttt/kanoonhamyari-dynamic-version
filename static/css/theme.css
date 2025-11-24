@@ -1,0 +1,91 @@
+/* Kanoon Hamiari - Theme overrides for UX consistency */
+:root{
+  --kh-primary:#ff6b35;
+  --kh-primary-dark:#e55a2b;
+  --kh-bg:#0a0a0a;
+  --kh-card:#141414;
+  --kh-text:#e8e8e8;
+  --kh-muted:#bdbdbd;
+  --kh-radius:12px;
+  --kh-section-y:72px;
+}
+
+/* Typography */
+html[lang="fa"], body{
+  font-size:16px;
+  line-height:1.75;
+  color:var(--kh-text);
+  letter-spacing:.01em;
+}
+p{color:#ccc;margin-bottom:1rem;}
+h1,h2,h3,h4,h5,h6{color:#fff;margin:0 0 .6rem 0;line-height:1.25;}
+h1{font-size:40px;font-weight:800}
+h2{font-size:32px;font-weight:800}
+h3{font-size:26px;font-weight:800}
+h4{font-size:20px;font-weight:700}
+
+/* Buttons */
+.boxed-btn3{
+  background:var(--kh-primary)!important;
+  border:2px solid var(--kh-primary)!important;
+  color:#fff!important;
+  padding:10px 18px!important;
+  border-radius:10px!important;
+  font-weight:700!important;
+  line-height:1.1!important;
+  display:inline-flex;align-items:center;white-space:nowrap;
+  transition:all .2s ease!important;
+}
+.boxed-btn3:hover{background:var(--kh-primary-dark)!important;border-color:var(--kh-primary-dark)!important;transform:translateY(-1px)!important}
+.boxed-btn3--outline{background:transparent!important;color:var(--kh-primary)!important;border-color:var(--kh-primary)!important}
+.boxed-btn3--outline:hover{background:var(--kh-primary)!important;color:#fff!important}
+
+/* Forms */
+input[type="text"],input[type="email"],input[type="tel"],input[type="password"],select,textarea{
+  width:100%;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.12);
+  color:#fff;border-radius:10px;padding:10px 12px;outline:none;transition:border-color .2s ease;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--kh-primary)}
+label{color:#ddd;font-weight:600;margin-bottom:6px}
+
+/* Cards/sections */
+.card{background:var(--kh-card);border:1px solid rgba(255,255,255,.08);border-radius:var(--kh-radius);}
+.black_bg{background:var(--kh-bg);}
+.section_title{margin-bottom:28px}
+.about_area,.mission_area,.services_area,.testimonials_area,.contact_area,.map_area{padding:var(--kh-section-y) 0;}
+
+/* Header brand area (fit auth buttons) */
+.brand_tools{padding-left:18px;padding-right:12px}
+.brand_tools .auth_links .boxed-btn3{font-size:13px!important;padding:8px 12px!important;border-radius:8px!important}
+.brand_tools .auth_links .boxed-btn3 + .boxed-btn3{margin-right:6px}
+
+/* Reduce empty space between header and hero */
+.hero_wrapper{margin-top:6px}
+.hero-caption{top:16%}
+.hero-caption .hero-cta-group{margin-top:14px;display:flex;gap:10px;justify-content:center}
+
+/* Services spacing consistency */
+.service_item{margin-bottom:28px}
+.service_item .service_content p{margin-bottom:18px}
+
+/* Testimonials readable */
+.testimonial_content p{line-height:1.9}
+
+/* Responsive tuning */
+@media (max-width: 992px){
+  html[lang="fa"], body{font-size:15px}
+  h1{font-size:34px} h2{font-size:28px} h3{font-size:22px}
+  .hero-caption{top:12%}
+}
+@media (max-width: 576px){
+  html[lang="fa"], body{font-size:14px}
+  h1{font-size:28px} h2{font-size:24px} h3{font-size:20px}
+  .brand_tools{gap:8px}
+  .brand_tools .auth_links .boxed-btn3{padding:7px 10px!important}
+  .hero-caption{top:10%}
+}
+
+
+
+
+

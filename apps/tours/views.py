@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from .models import Tour, TourCategory, TourRegistration
+from django.views.decorators.cache import cache_page
 from .forms import TourRegistrationForm
 
 
+@cache_page(60 * 10)
 def tour_list(request):
     """لیست تورها"""
     tours = Tour.objects.filter(is_active=True, is_published=True)

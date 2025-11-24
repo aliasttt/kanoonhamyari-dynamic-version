@@ -9,6 +9,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('courses/', include('apps.courses.urls')),
+    path('accounts/', include('apps.accounts.urls')),
     path('', include('apps.core.urls')),
     path('events/', include('apps.events.urls')),
     path('tours/', include('apps.tours.urls')),

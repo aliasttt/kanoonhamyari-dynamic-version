@@ -33,6 +33,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'django_cleanup.apps.CleanupConfig',
+    'apps.accounts',
+    'apps.courses',
     'apps.core',
     'apps.events',
     'apps.tours',
@@ -44,7 +46,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # Static compression and caching
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.gzip.GZipMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -126,6 +131,21 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
+# Whitenoise static files compression (gzip/brotli) without changing styles
+# Django 4+ STORAGES configuration for hashed & compressed static files
+STORAGES = {
+    'default': {
+        'BACKEND': 'django.core.files.storage.FileSystemStorage',
+    },
+    'staticfiles': {
+        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    },
+}
+# In development, auto-refresh static files for convenience
+WHITENOISE_AUTOREFRESH = DEBUG
+WHITENOISE_MAX_AGE = 60 * 60 * 24 * 30  # 30 days
+WHITENOISE_USE_FINDERS = DEBUG
+
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -150,4 +170,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ADMIN_SITE_HEADER = 'پنل مدیریت کانون همیاری'
 ADMIN_SITE_TITLE = 'پنل مدیریت'
 ADMIN_INDEX_TITLE = 'مدیریت کانون همیاری'
+
+# Base cache (in‑memory) to speed up template fragments and per‑view caching
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'kanoon-dinamic-cache',
+    }
+}
 

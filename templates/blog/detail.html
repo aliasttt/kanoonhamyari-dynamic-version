@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block extra_css %}
+<style>
+    html, body { background:#ffffff !important; color:#222; }
+    .blog-detail-wrap { background:#fff; }
+    .card { background:#fff !important; border:1px solid #eee !important; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,.06); }
+    .card h1 { color:#111 !important; }
+    .post-content { color:#333 !important; }
+    .service_item { background:#fff !important; border:1px solid #eee !important; border-radius:12px; overflow:hidden; }
+    .service_image { height:180px; }
+    .service_image img { width:100%; height:100%; object-fit:cover; display:block; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="blog-detail-wrap" style="padding: 60px 0;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card">
+                    <div class="card-body" style="padding:24px;">
+                        <h1 style="margin-bottom:8px; font-size:28px; font-weight:800;">{{ post.title }}</h1>
+                        <div style="color:#777; font-size:14px; margin-bottom:16px;">
+                            <span>نویسنده: {{ post.author|default:'مدیر سایت' }}</span>
+                            {% if post.published_at %}<span style="margin:0 8px;">|</span><span>{{ post.published_at|date:"Y/m/d" }}</span>{% endif %}
+                            <span style="margin:0 8px;">|</span><span>بازدید: {{ post.views_count }}</span>
+                            {% if post.category %}<span style="margin:0 8px;">|</span><span style="background:#fff3ec; color:#ff6b35; padding:2px 8px; border-radius:999px; border:1px solid #ffd8c2;">{{ post.category.name }}</span>{% endif %}
+                        </div>
+                        {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}" style="width:100%; border-radius:10px; margin-bottom:16px;" loading="lazy" decoding="async">
+                        {% endif %}
+                        <div class="post-content" style="line-height:1.9;">
+                            {{ post.content|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if related_posts %}
+        <div class="row" style="margin-top:24px;">
+            <div class="col-12">
+                <h3 style="color:#fff; margin-bottom:16px;">مطالب مرتبط</h3>
+            </div>
+            {% for rp in related_posts %}
+            <div class="col-lg-4 col-md-6">
+                <div class="service_item">
+                    <div class="service_row" style="min-height:auto;">
+                        <div class="service_image" style="height:180px;">
+                            {% if rp.image %}
+                            <a href="{{ rp.get_absolute_url }}"><img src="{{ rp.image.url }}" alt="{{ rp.title }}" loading="lazy" decoding="async"></a>
+                            {% endif %}
+                        </div>
+                        <div class="service_content">
+                            <h3 style="margin-bottom:8px;"><a href="{{ rp.get_absolute_url }}" style="color:#fff; text-decoration:none;">{{ rp.title }}</a></h3>
+                            <p>{{ rp.short_description|truncatechars:120 }}</p>
+                            <a href="{{ rp.get_absolute_url }}" class="service_link">ادامه مطلب</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="row" style="margin-top:24px;">
+            <div class="col-lg-8">
+                <h4 style="color:#fff; margin-bottom:12px;">نظرات</h4>
+                {% if comments %}
+                    {% for c in comments %}
+                    <div style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:10px; padding:12px; margin-bottom:10px;">
+                        <strong style="color:#fff;">{{ c.name }}</strong>
+                        <span style="color:#aaa; font-size:12px; margin-right:8px;">{{ c.created_at|date:"Y/m/d H:i" }}</span>
+                        <p style="margin:8px 0 0 0; color:#ddd;">{{ c.content }}</p>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p style="color:#bbb;">نظری ثبت نشده است.</p>
+                {% endif %}
+                <h5 style="color:#fff; margin-top:16px;">افزودن نظر</h5>
+                <form method="post" action="{% url 'blog:comment' post.slug %}" style="margin-top:8px;">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">نام</label>
+                        <input id="name" type="text" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">ایمیل (اختیاری)</label>
+                        <input id="email" type="email" name="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="content">متن نظر</label>
+                        <textarea id="content" name="content" class="form-control" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="boxed-btn3">ارسال نظر</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

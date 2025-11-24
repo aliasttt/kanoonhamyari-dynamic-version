@@ -22,10 +22,10 @@ body.menu-loaded .language_dropdown {
     align-items: center !important;
     gap: 0px !important;
     background: rgba(0, 0, 0, 0.85) !important; /* Black background */
-    backdrop-filter: blur(20px) !important;
+    backdrop-filter: blur(8px) !important;
     border-radius: 12px !important;
     padding: 4px 6px !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
+    box-shadow: none !important; /* remove heavy shadow */
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     max-width: 100% !important;
     overflow: hidden !important;
@@ -58,8 +58,8 @@ body.menu-loaded .language_dropdown {
     color: #ffffff !important;
     background: #ff6b35 !important; /* Orange hover */
     border-color: #ff6b35 !important;
-    transform: translateY(-1px) !important;
-    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3) !important;
+    transform: translateY(0) !important;
+    box-shadow: none !important; /* remove hover shadow */
 }
 
 #navigation li a:active {
@@ -165,12 +165,12 @@ body.menu-loaded .language_dropdown {
 }
 
 #navigation {
-    animation: fadeInUp 0.5s ease-out !important;
+    animation: fadeInUp 0.35s ease-out !important;
 }
 
 /* Subtle glow effect */
 #navigation:hover {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8) !important;
+    box-shadow: none !important; /* no shadow on hover */
 }
 
 /* Ensure no horizontal scrollbar */
@@ -329,7 +329,7 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    padding: 6px 10px;
+    padding: 6px 12px 6px 18px; /* extra left padding so auth buttons fully fit */
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }
 .brand_tools .logo img {

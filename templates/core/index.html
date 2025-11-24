@@ -14,13 +14,7 @@
         background-repeat: no-repeat !important;
         position: relative;
     }
-    .program_details_area.detials_bg_1::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 1;
-    }
+    .program_details_area.detials_bg_1::before { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,.7); z-index:1; }
     .program_details_area.detials_bg_1 .container { position: relative; z-index: 2; }
 
     /* Hero Carousel */
@@ -33,19 +27,13 @@
     .hero-caption span { display: inline-block; font-size: 18px; font-weight: 600; color: #ffd700; text-shadow: 2px 2px 4px rgba(0,0,0,0.9); background: linear-gradient(135deg, #ffd700, #ff6b35); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 10px; }
     .hero-caption h3 { margin: 10px 0 8px 0; font-size: 48px; line-height: 1.2; font-weight: 700; position: relative; display: inline-block; padding: 20px 40px; background: none; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; opacity: 1; transition: all 0.3s ease; text-shadow: none; filter: none; }
 
-    /* Slide 1 */
-    #heroCaption1 h3 { background: linear-gradient(135deg, #5db2ff 0%, #65b4f9 50%, #7db9e8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 0 25px rgba(93, 178, 255, 0.9)) drop-shadow(0 0 50px rgba(93, 178, 255, 0.7)) drop-shadow(0 0 75px rgba(93, 178, 255, 0.5)); animation: blueGlow 3s ease-in-out infinite, textPulse 2s ease-in-out infinite; }
+    #heroCaption1 h3 { background: linear-gradient(135deg, #5db2ff 0%, #65b4f9 50%, #7db9e8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 0 25px rgba(93,178,255,.9)) drop-shadow(0 0 50px rgba(93,178,255,.7)) drop-shadow(0 0 75px rgba(93,178,255,.5)); animation: blueGlow 3s ease-in-out infinite, textPulse 2s ease-in-out infinite; }
     @keyframes blueGlow { 0%,100%{ filter: drop-shadow(0 0 25px rgba(93,178,255,.9)) drop-shadow(0 0 50px rgba(93,178,255,.7)) drop-shadow(0 0 75px rgba(93,178,255,.5)); } 50%{ filter: drop-shadow(0 0 35px rgba(93,178,255,1)) drop-shadow(0 0 60px rgba(93,178,255,.8)) drop-shadow(0 0 90px rgba(93,178,255,.6)); } }
-
-    /* Slide 2 */
     #heroCaption2 h3 { background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 50%, #ffa366 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 0 25px rgba(255,107,53,.9)) drop-shadow(0 0 50px rgba(255,107,53,.7)) drop-shadow(0 0 75px rgba(255,107,53,.5)); animation: orangeGlow 3s ease-in-out infinite, textPulse 2s ease-in-out infinite; }
     @keyframes orangeGlow { 0%,100%{ filter: drop-shadow(0 0 25px rgba(255,107,53,.9)) drop-shadow(0 0 50px rgba(255,107,53,.7)) drop-shadow(0 0 75px rgba(255,107,53,.5)); } 50%{ filter: drop-shadow(0 0 35px rgba(255,107,53,1)) drop-shadow(0 0 60px rgba(255,107,53,.8)) drop-shadow(0 0 90px rgba(255,107,53,.6)); } }
-
-    /* Slide 3 */
     #heroCaption3 h3 { background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #6ee7b7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 0 25px rgba(16,185,129,.9)) drop-shadow(0 0 50px rgba(16,185,129,.7)) drop-shadow(0 0 75px rgba(16,185,129,.5)); animation: greenGlow 3s ease-in-out infinite, textPulse 2s ease-in-out infinite; }
     @keyframes greenGlow { 0%,100%{ filter: drop-shadow(0 0 25px rgba(16,185,129,.9)) drop-shadow(0 0 50px rgba(16,185,129,.7)) drop-shadow(0 0 75px rgba(16,185,129,.5)); } 50%{ filter: drop-shadow(0 0 35px rgba(16,185,129,1)) drop-shadow(0 0 60px rgba(16,185,129,.8)) drop-shadow(0 0 90px rgba(16,185,129,.6)); } }
-
-    .hero-caption h3::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,.3) 50%, transparent 70%); animation: shimmer 3s infinite; pointer-events:none; }
+    .hero-caption h3::before { content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,.3) 50%, transparent 70%); animation: shimmer 3s infinite; pointer-events:none; }
     @keyframes shimmer { 0%{ transform: translateX(-100%) translateY(-100%) rotate(45deg);} 100%{ transform: translateX(100%) translateY(100%) rotate(45deg);} }
     @keyframes textPulse { 0%,100%{ transform: scale(1);} 50%{ transform: scale(1.01);} }
     #heroCaption1 h3::before { background: linear-gradient(45deg, transparent 30%, rgba(93,178,255,.5) 50%, transparent 70%); }
@@ -57,7 +45,18 @@
     .hero_progress { position: absolute; bottom: 0; right: 0; left: 0; height: 4px; background: rgba(255,255,255,.2); z-index: 5; }
     .hero_progress span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #ff6b35, #ff9f43); }
 
-    /* Large Services with alternating layout */
+    /* Alternating timeline for goals */
+    .program_detail_wrap { position: relative; max-width: 1100px; margin: 0 auto; }
+    .program_detail_wrap::before { content:''; position:absolute; top:0; bottom:0; left:50%; width:2px; background: rgba(255,255,255,.25); }
+    .single_propram { position: relative; display: flex; padding: 30px 0; }
+    .single_propram .inner_wrap { width: 48%; }
+    .single_propram:nth-child(odd) { justify-content: flex-end; }
+    .single_propram:nth-child(odd) .inner_wrap { text-align: right; }
+    .single_propram:nth-child(even) { justify-content: flex-start; }
+    .single_propram:nth-child(even) .inner_wrap { text-align: left; }
+    .single_propram::before { content:''; position:absolute; top:50%; left:50%; transform: translate(-50%,-50%); width:16px; height:16px; background:#07d1b2; border-radius:50%; border:3px solid #0a0a0a; z-index:3; }
+
+    /* Services */
     .service_item { background: #141414; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); margin-bottom: 40px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); transition: all 0.3s ease; }
     .service_item:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4); }
     .service_item .service_row { display: flex; align-items: center; min-height: 300px; }
@@ -79,16 +78,6 @@
     .mission_image { text-align: center; }
     .mission_image img { width: 100%; height: 400px; object-fit: cover; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
 
-    /* Together Section (unused in markup but preserved if needed) */
-    .together_section { padding: 80px 0; background: linear-gradient(135deg, #ff6b35, #ff9f43); position: relative; }
-    .together_section::before { content: ''; position: absolute; top:0; left:0; right:0; bottom:0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="40" r="0.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>'); opacity: .3; }
-    .together_content { position: relative; z-index: 2; }
-    .together_content h2 { font-size: 42px; color: #fff; margin-bottom: 24px; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
-    .together_content p { font-size: 18px; line-height: 1.8; color: #fff; margin-bottom: 20px; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
-
-    /* Goal Images */
-    .program_detail_wrap .thumb img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
-
     /* Map Section */
     .map_area { padding: 80px 0; background: #f8f9fa; }
     .map_area .section_title h3 { color: #000 !important; }
@@ -99,20 +88,13 @@
     /* Testimonials Section */
     .testimonials_area { padding: 80px 0; background: #0a0a0a; position: relative; }
     .testimonials_area::before { content: ''; position: absolute; inset: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="testimonialPattern" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,107,53,0.1)"/><circle cx="10" cy="10" r="0.5" fill="rgba(255,107,53,0.05)"/><circle cx="40" cy="40" r="0.5" fill="rgba(255,107,53,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23testimonialPattern)"/></svg>'); opacity: .3; }
-    .testimonial_item { background: #141414; border-radius: 20px; padding: 30px; margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.3); transition: all 0.3s ease; position: relative; overflow: hidden; }
-    .testimonial_item::before { content: ''; position: absolute; top:0; left:-100%; width:100%; height:100%; background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent); transition: left .5s ease; }
-    .testimonial_item:hover::before { left: 100%; }
-    .testimonial_item:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.4); border-color: rgba(255,107,53,0.3); }
-    .testimonial_content { margin-bottom: 25px; }
+    .testimonials-carousel { padding: 20px 0; }
+    .testimonials-carousel .testimonial_item { background: rgba(255,255,255,.05); border-radius: 12px; padding: 30px; transition: all .3s ease; border: 1px solid rgba(255,255,255,.1); height: 100%; display:flex; flex-direction:column; justify-content:space-between; }
+    .testimonials-carousel .testimonial_item:hover { background: rgba(255,255,255,.08); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,.3); }
     .stars { margin-bottom: 15px; display: flex; gap: 3px; }
-    .stars i { color: #ffd700; font-size: 16px; text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
-    .testimonial_content p { color: #e0e0e0; font-size: 16px; line-height: 1.8; font-style: italic; position: relative; padding-right: 20px; }
-    .testimonial_content p::before { content: '"'; position: absolute; top: -10px; right: 0; font-size: 40px; color: #ff6b35; opacity: 0.3; font-family: serif; }
-    .testimonial_author { display: flex; align-items: center; justify-content: center; }
+    .stars i { color: #ffd700; font-size: 16px; text-shadow: 0 0 5px rgba(255,215,0,.5); }
+    .testimonial_content p { color: #e0e0e0; font-size: 16px; line-height: 1.8; font-style: italic; }
     .author_info h4 { color: #ffffff; font-size: 18px; font-weight: 700; text-align: center; }
-
-    /* Responsive tweaks */
-    @media (max-width: 768px){ .testimonials_area{ padding:60px 0; } .testimonial_item{ padding:25px; margin-bottom:25px; } .testimonial_content p{ font-size:15px; } .author_info h4{ font-size:16px; } .mission_area{ padding:60px 0; } .mission_content h3{ font-size:28px; } .mission_image img{ height:300px; margin-top:30px; } .program_detail_wrap .thumb img{ height:150px; } .map_area{ padding:60px 0; } .map_wrapper iframe{ height:300px; } }
 
     /* Buttons / links theme */
     .about_info h4 { color: #ff6b35 !important; font-weight: 700 !important; }
@@ -131,7 +113,7 @@
     @keyframes pulse { 0%{ box-shadow:0 0 0 0 rgba(37,211,102,.7);} 70%{ box-shadow:0 0 0 10px rgba(37,211,102,0);} 100%{ box-shadow:0 0 0 0 rgba(37,211,102,0);} }
     @keyframes phonePulse { 0%{ box-shadow:0 0 0 0 rgba(255,107,53,.7);} 70%{ box-shadow:0 0 0 10px rgba(255,107,53,0);} 100%{ box-shadow:0 0 0 0 rgba(255,107,53,0);} }
 
-    /* Phone numbers RTL fix */
+    /* Contact numbers direction */
     .single_contact_info p:not([data-translate="address"]) { direction: ltr !important; text-align: left !important; unicode-bidi: bidi-override !important; }
 </style>
 {% endblock %}
@@ -142,27 +124,39 @@
     <div class="hero_progress"><span id="heroProgress"></span></div>
     <div class="owl-carousel hero-carousel">
         <div class="hero_slide">
-            <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1600&auto=format&fit=crop" alt="Istanbul Skyline">
+            <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1600&q=70&auto=format&fit=crop" alt="Istanbul Skyline" loading="eager" fetchpriority="high" decoding="async">
             <div class="hero_overlay"></div>
             <div class="hero-caption" id="heroCaption1">
                 <h3 data-translate="mainTitle">کانون همیاری فارسی‌زبانان ترکیه</h3>
                 <p data-translate="subtitle">مجموعه‌ای اجتماعی، خدماتی و حمایتی برای ایرانیان و فارسی‌زبانان مقیم ترکیه</p>
+                <div class="hero-cta-group">
+                    <a href="{% url 'accounts:signup' %}" class="boxed-btn3">عضویت</a>
+                    <a href="{% url 'contact:contact' %}" class="boxed-btn3 boxed-btn3--outline">تماس با ما</a>
+                </div>
             </div>
         </div>
         <div class="hero_slide">
-            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&auto=format&fit=crop" alt="Community Meeting">
+            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600&q=70&auto=format&fit=crop" alt="Community Meeting" loading="lazy" decoding="async">
             <div class="hero_overlay"></div>
             <div class="hero-caption" id="heroCaption2">
                 <h3 data-translate="slide2Title">ایجاد جامعه‌ای پویا و همدل</h3>
                 <p data-translate="slide2Description">جایی که هر فارسی‌زبان در ترکیه احساس تعلق، امنیت و فرصت کند</p>
+                <div class="hero-cta-group">
+                    <a href="{% url 'courses:list' %}" class="boxed-btn3">دوره‌های آموزشی</a>
+                    <a href="{% url 'events:list' %}" class="boxed-btn3 boxed-btn3--outline">رویدادها</a>
+                </div>
             </div>
         </div>
         <div class="hero_slide">
-            <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=1600&auto=format&fit=crop" alt="Business Services">
+            <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=1600&q=70&auto=format&fit=crop" alt="Business Services" loading="lazy" decoding="async">
             <div class="hero_overlay"></div>
             <div class="hero-caption" id="heroCaption3">
                 <h3 data-translate="slide3Title">همبستگی و رشد جامعه فارسی‌زبان</h3>
                 <p data-translate="slide3Description">ایجاد شبکه ارتباطی، ارائه خدمات حرفه‌ای و برگزاری رویدادها و تورها</p>
+                <div class="hero-cta-group">
+                    <a href="{% url 'services:list' %}" class="boxed-btn3">خدمات ما</a>
+                    <a href="{% url 'real_estate:list' %}" class="boxed-btn3 boxed-btn3--outline">املاک</a>
+                </div>
             </div>
         </div>
     </div>
@@ -184,7 +178,7 @@
             <div class="col-lg-7 col-md-6">
                 <div class="about_thumb">
                     <div class="thumb_inner  wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
-                        <img src="{% static 'img/WhatsApp Image 2025-11-03 at 2.26.37 PM (3).jpeg' %}" alt="همراه هم، قوی‌تر">
+                        <img src="{% static 'img/WhatsApp Image 2025-11-03 at 2.26.37 PM (3).jpeg' %}" alt="همراه هم، قوی‌تر" loading="lazy" decoding="async" onerror="this.src='{% static 'img/about/about.png' %}'">
                     </div>
                 </div>
             </div>
@@ -213,7 +207,7 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="mission_image wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s">
-                    <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=1200&auto=format&fit=crop" alt="مأموریت کانون همیاری">
+                    <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=1200&q=70&auto=format&fit=crop" alt="مأموریت کانون همیاری" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -224,24 +218,16 @@
 <!-- Goals Section -->
 <div class="program_details_area detials_bg_1 overlay2">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section_title text-center mb-80  wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">
-                    <h3 data-translate="goalsTitle">اهداف ما</h3>
-                </div>
+        <div class="row"><div class="col-lg-12"><div class="section_title text-center mb-80  wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s"><h3 data-translate="goalsTitle">اهداف ما</h3></div></div></div>
+        <div class="row justify-content-center"><div class="col-lg-12">
+            <div class="program_detail_wrap">
+                <div class="single_propram"><div class="inner_wrap"><div class="porgram_top"><span class=" wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s" data-translate="goal1">هدف ۱</span><h4 class=" wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s" data-translate="goal1Title">ایجاد شبکه ارتباطی میان ایرانیان و فارسی‌زبانان ترکیه</h4></div><div class="thumb wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&q=70&auto=format&fit=crop" alt="شبکه ارتباطی" loading="lazy" decoding="async"></div></div></div>
+                <div class="single_propram"><div class="inner_wrap"><div class="porgram_top"><span class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s" data-translate="goal2">هدف ۲</span><h4 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".4s" data-translate="goal2Title">ارائه خدمات حرفه‌ای در حوزه حقوقی، اقامت، املاک و آموزش</h4></div><div class="thumb wow fadeInRight" data-wow-duration="1s" data-wow-delay=".5s"><img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1200&q=70&auto=format&fit=crop" alt="خدمات حرفه‌ای" loading="lazy" decoding="async"></div></div></div>
+                <div class="single_propram"><div class="inner_wrap"><div class="porgram_top"><span class=" wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s" data-translate="goal3">هدف ۳</span><h4 class=" wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s" data-translate="goal3Title">حمایت از کسب‌وکارهای ایرانی و رشد اقتصادی جامعه فارسی‌زبان</h4></div><div class="thumb  wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=70&auto=format&fit=crop" alt="کسب‌وکار و رشد اقتصادی" loading="lazy" decoding="async"></div></div></div>
+                <div class="single_propram"><div class="inner_wrap"><div class="porgram_top"><span class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s" data-translate="goal4">هدف ۴</span><h4 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".4s" data-translate="goal4Title">برگزاری رویدادها، جشن‌ها و تورهای فرهنگی برای حفظ ارتباط اجتماعی</h4></div><div class="thumb wow fadeInRight" data-wow-duration="1s" data-wow-delay=".5s"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&q=70&auto=format&fit=crop" alt="رویدادها و تورهای فرهنگی" loading="lazy" decoding="async"></div></div></div>
+                <div class="single_propram"><div class="inner_wrap"><div class="porgram_top"><span class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s" data-translate="goal5">هدف ۵</span><h4 class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".4s" data-translate="goal5Title">کمک به معرفی فرصت‌های تحصیلی، شغلی و سرمایه‌گذاری در ترکیه</h4></div><div class="thumb wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=70&auto=format&fit=crop" alt="فرصت‌های تحصیلی، شغلی و سرمایه‌گذاری" loading="lazy" decoding="async"></div></div></div>
             </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="program_detail_wrap">
-                    <div class="single_propram"><div class="inner_wrap"><div class="circle_img"></div><div class="porgram_top"><span class=" wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s" data-translate="goal1">هدف ۱</span><h4 class=" wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s" data-translate="goal1Title">ایجاد شبکه ارتباطی میان ایرانیان و فارسی‌زبانان ترکیه</h4></div><div class="thumb wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1200&auto=format&fit=crop" alt="شبکه ارتباطی"></div></div></div>
-                    <div class="single_propram"><div class="inner_wrap"><div class="circle_img"></div><div class="porgram_top"><span class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s" data-translate="goal2">هدف ۲</span><h4 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".4s" data-translate="goal2Title">ارائه خدمات حرفه‌ای در حوزه حقوقی، اقامت، املاک و آموزش</h4></div><div class="thumb wow fadeInRight" data-wow-duration="1s" data-wow-delay=".5s"><img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=1200&auto=format&fit=crop" alt="خدمات حرفه‌ای"></div></div></div>
-                    <div class="single_propram"><div class="inner_wrap"><div class="circle_img"></div><div class="porgram_top"><span class=" wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s" data-translate="goal3">هدف ۳</span><h4 class=" wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s" data-translate="goal3Title">حمایت از کسب‌وکارهای ایرانی و رشد اقتصادی جامعه فارسی‌زبان</h4></div><div class="thumb  wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop" alt="کسب‌وکار و رشد اقتصادی"></div></div></div>
-                    <div class="single_propram"><div class="inner_wrap"><div class="circle_img"></div><div class="porgram_top"><span class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s" data-translate="goal4">هدف ۴</span><h4 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".4s" data-translate="goal4Title">برگزاری رویدادها، جشن‌ها و تورهای فرهنگی برای حفظ ارتباط اجتماعی</h4></div><div class="thumb wow fadeInRight" data-wow-duration="1s" data-wow-delay=".5s"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1200&auto=format&fit=crop" alt="رویدادها و تورهای فرهنگی"></div></div></div>
-                    <div class="single_propram"><div class="inner_wrap"><div class="circle_img"></div><div class="porgram_top"><span class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s" data-translate="goal5">هدف ۵</span><h4 class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".4s" data-translate="goal5Title">کمک به معرفی فرصت‌های تحصیلی، شغلی و سرمایه‌گذاری در ترکیه</h4></div><div class="thumb wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="فرصت‌های تحصیلی، شغلی و سرمایه‌گذاری"></div></div></div>
-                </div>
-            </div>
-        </div>
+        </div></div>
     </div>
 </div>
 
@@ -250,18 +236,12 @@
     <div class="container">
         <div class="row"><div class="col-lg-12"><div class="section_title mb-80"><h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s" data-translate="ourServices">خدمات ما</h3></div></div></div>
         <div class="row justify-content-center"><div class="col-lg-12">
-            <!-- Events Service -->
-            <div class="service_item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s"><div class="service_row"><div class="service_content"><h3 data-translate="events">رویدادها</h3><p data-translate="eventsDesc">از نوروز گرفته تا یلدا، روز زن یا جشن‌های فرهنگی — کانون همیاری همواره در کنار ایرانیان است تا حس وطن و شادی در غربت زنده بماند. برگزاری رویدادها و جشن‌های ایرانی در محیطی خانوادگی و فرهنگی، فرصتی برای آشنایی، شبکه‌سازی و لذت بردن از لحظات ارزشمند زندگی‌ست.</p><a href="{% url 'events:list' %}" class="service_link" data-translate="learnMore">ادامه مطلب</a></div><div class="service_image"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1200&auto=format&fit=crop" alt="رویدادها"></div></div></div>
-            <!-- Tours Service -->
-            <div class="service_item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s"><div class="service_row"><div class="service_content"><h3 data-translate="tours">تورها</h3><p data-translate="toursDesc">زندگی تنها کار و اقامت نیست؛ تجربه زیبایی‌های ترکیه بخش مهمی از حس خوب زندگی در این کشور است. کانون همیاری با برگزاری تورهای تفریحی، گردش در جنگل‌ها، سفرهای گروهی، کمپینگ و بازدید از مناطق دیدنی ترکیه، فرصتی برای آشنایی، دوستی و استراحت فراهم می‌کند.</p><a href="{% url 'tours:list' %}" class="service_link" data-translate="learnMore">ادامه مطلب</a></div><div class="service_image"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop" alt="تورها"></div></div></div>
-            <!-- Real Estate Service -->
-            <div class="service_item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s"><div class="service_row"><div class="service_content"><h3 data-translate="realEstate">املاک</h3><p data-translate="realEstateDesc">کانون همیاری با همکاری مشاوران متخصص و دارای مجوز رسمی، خدمات کامل در حوزه خرید و فروش ملک، اجاره سالانه و کوتاه‌مدت در سراسر ترکیه ارائه می‌دهد. از انتخاب منطقه مناسب گرفته تا انتقال سند و دریافت تاپو، تمامی مراحل با شفافیت، مشاوره دقیق و پشتیبانی حقوقی انجام می‌شود تا اعضا با اطمینان سرمایه‌گذاری کنند.</p><a href="{% url 'real_estate:list' %}" class="service_link" data-translate="learnMore">ادامه مطلب</a></div><div class="service_image"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop" alt="املاک"></div></div></div>
-            <!-- Advertising Service -->
-            <div class="service_item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s"><div class="service_row"><div class="service_content"><h3 data-translate="advertising">تبلیغات</h3><p data-translate="advertisingDesc">در دنیای امروز، دیده شدن کلید رشد است. کانون همیاری با تیمی متخصص در زمینه تبلیغات، طراحی گرافیک، چاپ، تولید محتوا، مدیریت شبکه‌های اجتماعی و برندینگ، به کسب‌وکارها کمک می‌کند تا در بازار رقابتی ترکیه بدرخشند. از طراحی لوگو تا ساخت ویدیو و تبلیغات هدفمند، همه چیز در یک مجموعه.</p><a href="{% url 'services:advertising' %}" class="service_link" data-translate="learnMore">ادامه مطلب</a></div><div class="service_image"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop" alt="تبلیغات"></div></div></div>
-            <!-- Education Service -->
-            <div class="service_item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s"><div class="service_row"><div class="service_content"><h3 data-translate="education">تحصیلی</h3><p data-translate="educationDesc">دانشجویان فارسی‌زبان یکی از مهم‌ترین بخش‌های جامعه ما هستند. کانون همیاری خدمات کامل مشاوره تحصیلی و پذیرش در دانشگاه‌های معتبر ترکیه را ارائه می‌دهد. از انتخاب رشته و دانشگاه تا ثبت‌نام، اقامت دانشجویی، بیمه و پشتیبانی بعد از ورود، همراه شما خواهیم بود.</p><a href="{% url 'services:education' %}" class="service_link" data-translate="learnMore">ادامه مطلب</a></div><div class="service_image"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="تحصیلی"></div></div></div>
-            <!-- Legal Service -->
-            <div class="service_item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s"><div class="service_row"><div class="service_content"><h3 data-translate="legal">امور حقوقی</h3><p data-translate="legalDesc">زندگی در کشور جدید نیاز به شناخت دقیق قوانین دارد. کانون همیاری با همکاری وکلای مجرب و مشاوران قانونی، خدمات کامل مشاوره در زمینه اقامت توریستی، اقامت کاری، تمدید اقامت، اخذ اجازه کار و انواع بیمه‌نامه‌ها را ارائه می‌دهد. هدف ما اطمینان از طی شدن روند قانونی و بدون خطا در تمام مراحل است.</p><a href="{% url 'services:legal' %}" class="service_link" data-translate="learnMore">ادامه مطلب</a></div><div class="service_image"><img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=1200&auto=format&fit=crop" alt="امور حقوقی"></div></div></div>
+            <div class="service_item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s"><div class="service_row"><div class="service_content"><h3 data-translate="events">رویدادها</h3><p data-translate="eventsDesc">از نوروز گرفته تا یلدا، روز زن یا جشن‌های فرهنگی — کانون همیاری همواره در کنار ایرانیان است تا حس وطن و شادی در غربت زنده بماند. برگزاری رویدادها و جشن‌های ایرانی در محیطی خانوادگی و فرهنگی، فرصتی برای آشنایی، شبکه‌سازی و لذت بردن از لحظات ارزشمند زندگی‌ست.</p><a href="{% url 'events:list' %}" class="service_link" data-translate="learnMore">ادامه مطلب</a></div><div class="service_image"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&q=70&auto=format&fit=crop" alt="رویدادها" loading="lazy" decoding="async"></div></div></div>
+            <div class="service_item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s"><div class="service_row"><div class="service_content"><h3 data-translate="tours">تورها</h3><p data-translate="toursDesc">زندگی تنها کار و اقامت نیست؛ تجربه زیبایی‌های ترکیه بخش مهمی از حس خوب زندگی در این کشور است. کانون همیاری با برگزاری تورهای تفریحی، گردش در جنگل‌ها، سفرهای گروهی، کمپینگ و بازدید از مناطق دیدنی ترکیه، فرصتی برای آشنایی، دوستی و استراحت فراهم می‌کند.</p><a href="{% url 'tours:list' %}" class="service_link" data-translate="learnMore">ادامه مطلب</a></div><div class="service_image"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200&q=70&auto=format&fit=crop" alt="تورها" loading="lazy" decoding="async"></div></div></div>
+            <div class="service_item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s"><div class="service_row"><div class="service_content"><h3 data-translate="realEstate">املاک</h3><p data-translate="realEstateDesc">کانون همیاری با همکاری مشاوران متخصص و دارای مجوز رسمی، خدمات کامل در حوزه خرید و فروش ملک، اجاره سالانه و کوتاه‌مدت در سراسر ترکیه ارائه می‌دهد. از انتخاب منطقه مناسب گرفته تا انتقال سند و دریافت تاپو، تمامی مراحل با شفافیت، مشاوره دقیق و پشتیبانی حقوقی انجام می‌شود تا اعضا با اطمینان سرمایه‌گذاری کنند.</p><a href="{% url 'real_estate:list' %}" class="service_link" data-translate="learnMore">ادامه مطلب</a></div><div class="service_image"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=70&auto=format&fit=crop" alt="املاک" loading="lazy" decoding="async"></div></div></div>
+            <div class="service_item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s"><div class="service_row"><div class="service_content"><h3 data-translate="advertising">تبلیغات</h3><p data-translate="advertisingDesc">در دنیای امروز، دیده شدن کلید رشد است. کانون همیاری با تیمی متخصص در زمینه تبلیغات، طراحی گرافیک، چاپ، تولید محتوا، مدیریت شبکه‌های اجتماعی و برندینگ، به کسب‌وکارها کمک می‌کند تا در بازار رقابتی ترکیه بدرخشند. از طراحی لوگو تا ساخت ویدیو و تبلیغات هدفمند، همه چیز در یک مجموعه.</p><a href="{% url 'services:advertising' %}" class="service_link" data-translate="learnMore">ادامه مطلب</a></div><div class="service_image"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=70&auto=format&fit=crop" alt="تبلیغات" loading="lazy" decoding="async"></div></div></div>
+            <div class="service_item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s"><div class="service_row"><div class="service_content"><h3 data-translate="education">تحصیلی</h3><p data-translate="educationDesc">دانشجویان فارسی‌زبان یکی از مهم‌ترین بخش‌های جامعه ما هستند. کانون همیاری خدمات کامل مشاوره تحصیلی و پذیرش در دانشگاه‌های معتبر ترکیه را ارائه می‌دهد. از انتخاب رشته و دانشگاه تا ثبت‌نام، اقامت دانشجویی، بیمه و پشتیبانی بعد از ورود، همراه شما خواهیم بود.</p><a href="{% url 'services:education' %}" class="service_link" data-translate="learnMore">ادامه مطلب</a></div><div class="service_image"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=70&auto=format&fit=crop" alt="تحصیلی" loading="lazy" decoding="async"></div></div></div>
+            <div class="service_item wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s"><div class="service_row"><div class="service_content"><h3 data-translate="legal">امور حقوقی</h3><p data-translate="legalDesc">زندگی در کشور جدید نیاز به شناخت دقیق قوانین دارد. کانون همیاری با همکاری وکلای مجرب و مشاوران قانونی، خدمات کامل مشاوره در زمینه اقامت توریستی، اقامت کاری، تمدید اقامت، اخذ اجازه کار و انواع بیمه‌نامه‌ها را ارائه می‌دهد. هدف ما اطمینان از طی شدن روند قانونی و بدون خطا در تمام مراحل است.</p><a href="{% url 'services:legal' %}" class="service_link" data-translate="learnMore">ادامه مطلب</a></div><div class="service_image"><img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1200&q=70&auto=format&fit=crop" alt="امور حقوقی" loading="lazy" decoding="async"></div></div></div>
         </div></div>
     </div>
 </div>
@@ -339,6 +319,25 @@
                         $progress.style.width = '100%';
                     }, 200);
                 }
+            }
+        } catch(err) {}
+
+        // Testimonials carousel continuous autoplay
+        try {
+            const $test = $('.testimonials-carousel');
+            if ($test.length) {
+                $test.owlCarousel({
+                    loop: true,
+                    margin: 30,
+                    nav: false,
+                    dots: false,
+                    autoplay: true,
+                    autoplayTimeout: 2500,
+                    autoplayHoverPause: false,
+                    smartSpeed: 800,
+                    rtl: true,
+                    responsive: { 0:{items:1}, 768:{items:2}, 992:{items:3} }
+                });
             }
         } catch(err) {}
     });

@@ -1,4 +1,6 @@
 {% load static %}
+{% load cache %}
+{% cache 600 header_cache request.user.is_authenticated %}
 <header id="site-header">
     <div class="header-area">
         <div id="sticky-header" class="main-header-area">
@@ -30,6 +32,15 @@
                                         <a href="#" class="language-option" data-lang="tr">Türkçe</a>
                                     </div>
                                 </div>
+                                <div class="auth_links" style="display:flex; align-items:center; gap:8px; margin-right:12px;">
+                                    {% if request.user.is_authenticated %}
+                                    <a href="{% url 'accounts:dashboard' %}" class="boxed-btn3" style="padding:6px 12px; border-radius:8px;">پنل کاربر</a>
+                                    <a href="{% url 'accounts:logout' %}" class="boxed-btn3" style="padding:6px 12px; border-radius:8px; background:transparent !important; color:#ff6b35 !important;">خروج</a>
+                                    {% else %}
+                                    <a href="{% url 'accounts:login' %}" class="boxed-btn3" style="padding:6px 12px; border-radius:8px;">ورود</a>
+                                    <a href="{% url 'accounts:signup' %}" class="boxed-btn3" style="padding:6px 12px; border-radius:8px; background:transparent !important; color:#ff6b35 !important;">عضویت</a>
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                         <div class="col-xl-9 col-lg-9">
@@ -45,8 +56,10 @@
                                         <li><a href="{% url 'services:business' %}" data-translate="business">بیزینس</a></li>
                                         <li><a href="{% url 'services:decoration' %}" data-translate="decoration">دکوراسیون</a></li>
                                         <li><a href="{% url 'services:legal' %}" data-translate="legalMenu">حقوقی</a></li>
+                                        <li><a href="{% url 'blog:list' %}">وبلاگ</a></li>
                                         <li><a href="{% url 'about:about' %}" data-translate="about">درباره ما</a></li>
                                         <li><a href="{% url 'contact:contact' %}" data-translate="contact">تماس</a></li>
+                                        <li><a href="{% url 'courses:list' %}">دوره آموزشی</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -63,4 +76,5 @@
     </nav>
     <div class="kh-mobile-overlay" id="khMobileOverlay"></div>
 </header>
+{% endcache %}
 

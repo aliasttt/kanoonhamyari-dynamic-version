@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}پنل کاربر{% endblock %}
+
+{% block extra_css %}
+<style>
+    html, body { background: #ffffff !important; color:#222; }
+    .dashboard-wrap { background:#fff; }
+    .dash-hero { background: linear-gradient(135deg,#fff 0%, #fff 60%, #fff 100%); border-radius:14px; padding:18px 20px; border:1px solid #eee; display:flex; justify-content:space-between; align-items:center; }
+    .dash-hello { font-weight:800; font-size:22px; color:#111; }
+    .dash-stats { display:flex; gap:12px; }
+    .dash-card { background:#fff; border:1px solid #eee; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,.06); }
+    .dash-card .card-body { padding:18px; }
+    .dash-side a { color:#444; text-decoration:none; display:block; padding:8px 0; }
+    .dash-side a:hover { color:#ff6b35; }
+    .stat { display:flex; align-items:center; gap:10px; }
+    .stat .num { font-size:20px; font-weight:800; color:#111; }
+    .stat .lbl { color:#666; }
+    .cert-item { border:1px dashed #e6e6e6; border-radius:10px; padding:10px 12px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center; }
+    .empty { color:#777; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-wrap" style="padding: 40px 0;">
+    <div class="container">
+        <div class="dash-hero">
+            <div class="dash-hello">
+                سلام، {{ request.user.username }}
+                <div style="font-size:13px; color:#777; font-weight:400;">ایمیل: {{ request.user.email|default:'—' }}</div>
+            </div>
+            <div class="dash-stats">
+                <div class="stat"><span class="num">{{ enrollments|length }}</span><span class="lbl">دوره</span></div>
+                <div class="stat"><span class="num">{{ certificates|length }}</span><span class="lbl">گواهینامه</span></div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:16px;">
+            <div class="col-lg-3">
+                <div class="dash-card dash-side">
+                    <div class="card-body">
+                        <h5 style="color:#111; font-weight:800;">منو</h5>
+                        <a href="{% url 'accounts:dashboard' %}">داشبورد</a>
+                        <a href="{% url 'courses:list' %}">دوره‌ها</a>
+                        <a href="{% url 'blog:list' %}">وبلاگ</a>
+                        <a href="{% url 'accounts:logout' %}">خروج</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="dash-card">
+                    <div class="card-body">
+                        <h4 style="color:#111; margin-bottom:16px; font-weight:800;">اطلاعات کاربر</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>نام کاربری:</strong> {{ request.user.username }}</p>
+                                <p><strong>ایمیل:</strong> {{ request.user.email|default:'—' }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                {% if request.user.profile %}
+                                    <p><strong>تلفن:</strong> {{ request.user.profile.phone|default:'—' }}</p>
+                                    <p><strong>آدرس:</strong> {{ request.user.profile.address|default:'—' }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:14px;">
+                    <div class="col-md-6">
+                        <div class="dash-card">
+                            <div class="card-body">
+                                <h5 style="color:#111; font-weight:800; margin-bottom:10px;">دوره‌های من</h5>
+                                {% if enrollments %}
+                                    <ul class="list-unstyled" style="margin:0;">
+                                        {% for e in enrollments|slice:":4" %}
+                                        <li class="cert-item">
+                                            <span>{{ e.course.title }}</span>
+                                            {% if e.passed %}<span class="boxed-btn3" style="padding:6px 10px;">قبول</span>{% else %}<a class="boxed-btn3" style="padding:6px 10px;" href="{{ e.course.get_absolute_url }}">ادامه</a>{% endif %}
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    <p class="empty">هنوز در دوره‌ای ثبت‌نام نکرده‌اید.</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="dash-card">
+                            <div class="card-body">
+                                <h5 style="color:#111; font-weight:800; margin-bottom:10px;">مدارک و گواهینامه‌ها</h5>
+                                <div id="certificatesWrap">
+                            {% if certificates %}
+                                <ul class="list-unstyled">
+                                    {% for cert in certificates %}
+                                    <li class="cert-item">
+                                        <span>{{ cert.course.title }} — <small>کد: {{ cert.certificate_code }}</small></span>
+                                        <a class="boxed-btn3" style="padding:6px 10px;" href="{% url 'courses:certificate' cert.course.slug %}">مشاهده</a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p class="empty">در حال حاضر مدرکی ثبت نشده است.</p>
+                            {% endif %}
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

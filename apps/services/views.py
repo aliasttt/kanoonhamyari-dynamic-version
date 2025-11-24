@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from apps.core.models import Service, ServiceCategory
+from django.views.decorators.cache import cache_page
 
 
+@cache_page(60 * 10)
 def service_list(request):
     """لیست خدمات"""
     services = Service.objects.filter(is_active=True)

@@ -1,0 +1,255 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ course.title }}{% endblock %}
+
+{% block extra_css %}
+<style>
+    html, body { background:#ffffff !important; color:#222; }
+    .courses-light { background:#ffffff; }
+    .section_title h3, h4 { color:#111 !important; }
+    .section_title p { color:#444 !important; }
+    .nav-tabs { border-color:#eee !important; }
+    .nav-tabs .nav-link { color:#555; border:1px solid #eee; background:#fff; }
+    .nav-tabs .nav-link.disabled { opacity:.65; }
+    .nav-tabs .nav-link.active { background:#ff6b35; color:#fff; border-color:#ff6b35; }
+    .card { background:#fff !important; border:1px solid #eee !important; border-radius:12px; }
+    .card h4, .card p, label, .form-check-label { color:#333 !important; }
+    #courseTabsContent { background:#fff; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="courses-light" style="padding: 60px 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section_title mb-20">
+                    <h3>{{ course.title }}</h3>
+                    <p>{{ course.description }}</p>
+                </div>
+            </div>
+            <div class="col-12">
+                <ul class="nav nav-tabs" id="courseTabs" role="tablist" style="gap:8px; border-bottom: 1px solid #eee;">
+                    <li class="nav-item"><a class="nav-link active" id="tab-intro" data-toggle="tab" href="#intro" role="tab">فرم اولیه</a></li>
+                    {% for v in videos %}
+                    <li class="nav-item"><a class="nav-link disabled" id="tab-video-{{ v.id }}" data-toggle="tab" href="#video-{{ v.id }}" role="tab">ویدیو {{ forloop.counter }}</a></li>
+                    {% endfor %}
+                    <li class="nav-item"><a class="nav-link disabled" id="tab-quiz" data-toggle="tab" href="#quiz" role="tab">آزمون</a></li>
+                </ul>
+                <div class="tab-content" id="courseTabsContent" style="padding-top:16px;">
+                    <div class="tab-pane fade show active" id="intro" role="tabpanel">
+                        {% if initial_form_submitted %}
+                            <div class="alert alert-success">فرم اولیه ثبت شده است. می‌توانید به ویدیو اول بروید.</div>
+                            <button class="boxed-btn3" id="goFirstVideoBtn">رفتن به ویدیو 1</button>
+                        {% else %}
+                            <div class="card" style="background:#fff; border:1px solid #eee; border-radius:12px;">
+                                <div class="card-body" style="padding:24px;">
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="action" value="initial_form">
+                                        <div class="form-group">
+                                            <label for="id_full_name">نام و نام خانوادگی</label>
+                                            {{ initial_form.full_name }}
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="id_phone">شماره تماس</label>
+                                            {{ initial_form.phone }}
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="id_city">شهر</label>
+                                            {{ initial_form.city }}
+                                        </div>
+                                        <button type="submit" class="boxed-btn3">ثبت و ادامه</button>
+                                    </form>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    {% for v in videos %}
+                    <div class="tab-pane fade" id="video-{{ v.id }}" role="tabpanel">
+                        <div class="card" style="background:#fff; border:1px solid #eee; border-radius:12px;">
+                            <div class="card-body" style="padding:16px;">
+                                <h4 style="color:#111; margin-bottom:12px;">{{ v.title }}</h4>
+                                {% if v.video_file %}
+                                <video id="videoEl-{{ v.id }}" width="100%" controls preload="metadata" style="border-radius:8px;">
+                                    <source src="{{ v.video_file.url }}" type="video/mp4">
+                                </video>
+                                {% elif v.video_url %}
+                                <video id="videoEl-{{ v.id }}" width="100%" controls preload="metadata" style="border-radius:8px;">
+                                    <source src="{{ v.video_url }}" type="video/mp4">
+                                </video>
+                                {% else %}
+                                <div class="alert alert-warning">ویدیو تعریف نشده است.</div>
+                                {% endif %}
+                                <div class="d-flex justify-content-between align-items-center" style="margin-top:12px;">
+                                    <button class="boxed-btn3" data-prev="{{ v.id }}">قبلی</button>
+                                    <button class="boxed-btn3 disabled" data-next="{{ v.id }}" id="nextBtn-{{ v.id }}">بعدی</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class="tab-pane fade" id="quiz" role="tabpanel">
+                        <div class="card" style="background:#fff; border:1px solid #eee; border-radius:12px;">
+                            <div class="card-body" style="padding:16px;">
+                                {% if enrollment.passed %}
+                                    <div class="alert alert-success">شما قبلاً قبول شده‌اید. <a href="{% url 'courses:certificate' course.slug %}" class="boxed-btn3">مشاهده گواهینامه</a></div>
+                                {% else %}
+                                    {% if questions %}
+                                        <div class="d-flex justify-content-between align-items-center" style="margin-bottom:12px;">
+                                            <div>زمان باقی‌مانده: <span id="quizTime">--:--</span></div>
+                                            <div style="flex:1; margin:0 12px; height:8px; background:#eee; border-radius:6px;">
+                                                <span id="quizProgress" style="display:block; height:100%; width:0; background:linear-gradient(90deg,#ff6b35,#ff9f43); border-radius:6px;"></span>
+                                            </div>
+                                            <div>تلاش‌ها: {{ enrollment.attempts_used }} / 3</div>
+                                        </div>
+                                        <form method="post" action="{% url 'courses:quiz_submit' course.slug %}" id="quizForm">
+                                            {% csrf_token %}
+                                            {% for q in questions %}
+                                                <div class="quiz-question" style="margin-bottom:16px;">
+                                                    <p style="color:#222; font-weight:600;">{{ forloop.counter }}. {{ q.text }}</p>
+                                                    {% for opt in q.options.all %}
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="question_{{ q.id }}" id="opt{{ opt.id }}" value="{{ opt.id }}">
+                                                        <label class="form-check-label" for="opt{{ opt.id }}">{{ opt.text }}</label>
+                                                    </div>
+                                                    {% endfor %}
+                                                </div>
+                                            {% endfor %}
+                                            <button type="submit" class="boxed-btn3" id="quizSubmitBtn">ثبت پاسخ‌ها</button>
+                                        </form>
+                                    {% else %}
+                                        <div class="alert alert-warning">سوالی برای این دوره ثبت نشده است.</div>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    const initialSubmitted = {{ initial_form_submitted|yesno:"true,false" }};
+    const tabs = Array.from(document.querySelectorAll('#courseTabs a.nav-link'));
+    const enableTab = (el) => { el.classList.remove('disabled'); el.classList.add('show'); };
+    const selectTab = (el) => { $(el).tab('show'); };
+
+    // Enable first video tab if intro submitted
+    if (initialSubmitted) {
+        const firstVideoLink = document.querySelector('#courseTabs a[href^="#video-"]');
+        if (firstVideoLink) enableTab(firstVideoLink);
+    }
+    const goFirstBtn = document.getElementById('goFirstVideoBtn');
+    if (goFirstBtn) {
+        goFirstBtn.addEventListener('click', function(){
+            const firstVideoLink = document.querySelector('#courseTabs a[href^="#video-"]');
+            if (firstVideoLink) {
+                enableTab(firstVideoLink);
+                selectTab(firstVideoLink);
+            }
+        });
+    }
+
+    // Video gating
+    const videoEls = document.querySelectorAll('video[id^="videoEl-"]');
+    videoEls.forEach((vid) => {
+        vid.addEventListener('ended', function(){
+            const id = this.id.replace('videoEl-', '');
+            const nextBtn = document.getElementById('nextBtn-' + id);
+            if (nextBtn) {
+                nextBtn.classList.remove('disabled');
+            }
+        });
+    });
+    // Next/Prev buttons
+    document.querySelectorAll('button[data-next]').forEach(btn => {
+        btn.addEventListener('click', function(){
+            if (this.classList.contains('disabled')) return;
+            // current tab
+            const li = document.querySelector('#tab-video-' + this.getAttribute('data-next'));
+            if (!li) return;
+            // enable next tab (either next video or quiz)
+            const tabs = Array.from(document.querySelectorAll('#courseTabs a.nav-link'));
+            const idx = tabs.findIndex(x => x.id === ('tab-video-' + this.getAttribute('data-next')));
+            let nextLink = null;
+            for (let i = idx + 1; i < tabs.length; i++) {
+                if (tabs[i].id.startsWith('tab-video-') || tabs[i].id === 'tab-quiz') {
+                    nextLink = tabs[i];
+                    break;
+                }
+            }
+            if (nextLink) {
+                enableTab(nextLink);
+                selectTab(nextLink);
+            }
+        });
+    });
+    document.querySelectorAll('button[data-prev]').forEach(btn => {
+        btn.addEventListener('click', function(){
+            const tabs = Array.from(document.querySelectorAll('#courseTabs a.nav-link'));
+            const idx = tabs.findIndex(x => x.id === ('tab-video-' + this.getAttribute('data-prev')));
+            for (let i = idx - 1; i >= 0; i--) {
+                if (tabs[i].id.startsWith('tab-video-') || tabs[i].id === 'tab-intro') {
+                    selectTab(tabs[i]);
+                    break;
+                }
+            }
+        });
+    });
+
+    // Quiz timer
+    const quizSection = document.getElementById('quiz');
+    if (quizSection) {
+        const totalQuestions = {{ questions|length|default:0 }};
+        const totalSeconds = Math.ceil(totalQuestions * 1.5 * 60);
+        const quizTime = document.getElementById('quizTime');
+        const quizProgress = document.getElementById('quizProgress');
+        const quizSubmitBtn = document.getElementById('quizSubmitBtn');
+        let remaining = totalSeconds;
+        function fmt(secs){
+            const m = Math.floor(secs / 60).toString().padStart(2,'0');
+            const s = (secs % 60).toString().padStart(2,'0');
+            return m + ':' + s;
+        }
+        function tick(){
+            if (!quizTime) return;
+            quizTime.textContent = fmt(remaining);
+            const pct = (1 - (remaining / totalSeconds)) * 100;
+            if (quizProgress) quizProgress.style.width = pct + '%';
+            remaining -= 1;
+            if (remaining < 0) {
+                if (quizSubmitBtn) {
+                    quizSubmitBtn.disabled = true;
+                    quizSubmitBtn.textContent = 'زمان به پایان رسید';
+                }
+                return;
+            }
+            setTimeout(tick, 1000);
+        }
+        if (totalQuestions > 0) {
+            // Start timer only when opening quiz tab
+            const quizTabLink = document.getElementById('tab-quiz');
+            if (quizTabLink) {
+                quizTabLink.addEventListener('shown.bs.tab', function(){
+                    if (quizTime.textContent === '' || quizTime.textContent === '--:--') {
+                        tick();
+                    }
+                });
+            }
+        }
+    }
+});
+</script>
+{% endblock %}
+
+
+
+
+

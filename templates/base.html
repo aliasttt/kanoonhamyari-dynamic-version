@@ -8,7 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     {% load static %}
-    <link rel="shortcut icon" type="image/x-icon" href="{% if site_settings and site_settings.site_favicon %}{{ site_settings.site_favicon.url }}{% else %}{% static 'img/favicon.ico' %}{% endif %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% if site_settings and site_settings.site_favicon %}{{ site_settings.site_favicon.url }}{% else %}{% static 'img/favicon.png' %}{% endif %}">
+    <link rel="icon" type="image/x-icon" href="{% if site_settings and site_settings.site_favicon %}{{ site_settings.site_favicon.url }}{% else %}{% static 'img/favicon.ico' %}{% endif %}">
+    <link rel="apple-touch-icon" href="{% if site_settings and site_settings.site_favicon %}{{ site_settings.site_favicon.url }}{% else %}{% static 'img/favicon.png' %}{% endif %}">
     
     <!-- CSS here -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
@@ -25,10 +27,18 @@
     <link rel="stylesheet" href="{% static 'css/rtl.css' %}">
     <link id="kh-nav-css" rel="stylesheet" href="{% static 'css/nav.css' %}">
     <link id="kh-footer-css" rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
     
     <!-- Beautiful Persian Font Library -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://www.google.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.google.com">
+    <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://maps.gstatic.com">
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
     
@@ -607,6 +617,21 @@
             transform: translateY(-2px) !important;
             box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4) !important;
         }
+        /* Header auth links sizing so Persian text fits neatly */
+        #site-header .brand_tools .auth_links {
+            gap: 8px;
+            margin-right: 12px;
+        }
+        #site-header .brand_tools .auth_links .boxed-btn3 {
+            font-size: 13px !important;
+            padding: 6px 12px !important;
+            height: 34px;
+            line-height: 1.1 !important;
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            border-radius: 8px;
+        }
         
         @media (max-width: 768px) {
             .whatsapp-fixed {
@@ -653,36 +678,36 @@
     {% include 'partials/footer.html' %}
 
     <!-- JS here -->
-    <script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
-    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
-    <script src="{% static 'js/ajax-form.js' %}"></script>
-    <script src="{% static 'js/waypoints.min.js' %}"></script>
-    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
-    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
-    <script src="{% static 'js/scrollIt.js' %}"></script>
-    <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
-    <script src="{% static 'js/wow.min.js' %}"></script>
-    <script src="{% static 'js/gijgo.min.js' %}"></script>
-    <script src="{% static 'js/nice-select.min.js' %}"></script>
-    <script src="{% static 'js/jquery.slicknav.min.js' %}"></script>
-    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-    <script src="{% static 'js/tilt.jquery.js' %}"></script>
-    <script src="{% static 'js/plugins.js' %}"></script>
-    <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
-    <script src="{% static 'js/jquery.form.js' %}"></script>
-    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
-    <script src="{% static 'js/header.js' %}"></script>
-    <script src="{% static 'js/languages.js' %}"></script>
+    <script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}" defer></script>
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}" defer></script>
+    <script src="{% static 'js/popper.min.js' %}" defer></script>
+    <script src="{% static 'js/bootstrap.min.js' %}" defer></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}" defer></script>
+    <script src="{% static 'js/isotope.pkgd.min.js' %}" defer></script>
+    <script src="{% static 'js/ajax-form.js' %}" defer></script>
+    <script src="{% static 'js/waypoints.min.js' %}" defer></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}" defer></script>
+    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}" defer></script>
+    <script src="{% static 'js/scrollIt.js' %}" defer></script>
+    <script src="{% static 'js/jquery.scrollUp.min.js' %}" defer></script>
+    <script src="{% static 'js/wow.min.js' %}" defer></script>
+    <script src="{% static 'js/gijgo.min.js' %}" defer></script>
+    <script src="{% static 'js/nice-select.min.js' %}" defer></script>
+    <script src="{% static 'js/jquery.slicknav.min.js' %}" defer></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}" defer></script>
+    <script src="{% static 'js/tilt.jquery.js' %}" defer></script>
+    <script src="{% static 'js/plugins.js' %}" defer></script>
+    <script src="{% static 'js/jquery.ajaxchimp.min.js' %}" defer></script>
+    <script src="{% static 'js/jquery.form.js' %}" defer></script>
+    <script src="{% static 'js/jquery.validate.min.js' %}" defer></script>
+    <script src="{% static 'js/main.js' %}" defer></script>
+    <script src="{% static 'js/header.js' %}" defer></script>
+    <script src="{% static 'js/languages.js' %}" defer></script>
     
     <!-- Testimonials Carousel JavaScript -->
     <script>
-        $(document).ready(function() {
-            if ($('.testimonials-carousel').length) {
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.jQuery && $('.testimonials-carousel').length) {
                 $('.testimonials-carousel').owlCarousel({
                     loop: true,
                     margin: 30,
@@ -692,17 +717,7 @@
                     autoplayTimeout: 4000,
                     autoplayHoverPause: true,
                     smartSpeed: 800,
-                    responsive: {
-                        0: {
-                            items: 1
-                        },
-                        768: {
-                            items: 2
-                        },
-                        992: {
-                            items: 3
-                        }
-                    },
+                    responsive: { 0:{items:1}, 768:{items:2}, 992:{items:3} },
                     rtl: true
                 });
             }

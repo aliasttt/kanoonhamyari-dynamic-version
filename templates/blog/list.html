@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}وبلاگ{% endblock %}
+
+{% block extra_css %}
+<style>
+    html, body { background:#ffffff !important; color:#222; }
+    .blog-wrap { background:#fff; }
+    .section_title h3 { color:#111 !important; font-weight:900 !important; font-size:44px; }
+    .section_title p { color:#555 !important; font-size:18px; }
+    .blog-toolbar .form-control { border:1px solid #e6e6e6; border-radius:10px; }
+    .blog-card { background:#fff; border:1px solid #eee; border-radius:12px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,.06); transition:transform .2s ease; }
+    .blog-card:hover { transform: translateY(-4px); }
+    .blog-card .cover { height:200px; overflow:hidden; }
+    .blog-card .cover img { width:100%; height:100%; object-fit:cover; display:block; }
+    .blog-card .meta { color:#999; font-size:13px; margin-bottom:6px; }
+    .blog-card .title a { color:#111; text-decoration:none; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="blog-wrap" style="padding: 60px 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section_title mb-40">
+                    <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".2s">وبلاگ کانون همیاری</h3>
+                    <p class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">خبرها و مقالات تازه برای جامعه فارسی‌زبانان ترکیه</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center blog-toolbar" style="margin-bottom: 24px;">
+            <div class="col-md-8">
+                <form method="get" class="d-flex" style="gap:8px;">
+                    <input type="text" name="search" class="form-control" placeholder="جستجو در عنوان پست..." value="{{ request.GET.search }}">
+                    <select name="category" class="form-control" style="max-width: 240px;">
+                        <option value="">همه دسته‌ها</option>
+                        {% for c in categories %}
+                        <option value="{{ c.slug }}" {% if selected_category == c.slug %}selected{% endif %}>{{ c.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <button class="boxed-btn3" type="submit">اعمال</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                    <div class="cover">{% if post.image %}<a href="{{ post.get_absolute_url }}"><img src="{{ post.image.url }}" alt="{{ post.title }}" loading="lazy" decoding="async"></a>{% endif %}</div>
+                    <div class="p-3">
+                        <div class="meta">
+                            نویسنده: {{ post.author|default:'مدیر سایت' }}
+                            {% if post.published_at %} • {{ post.published_at|date:"Y/m/d" }}{% endif %}
+                            {% if post.category %} • <span style="background:#fff3ec; color:#ff6b35; padding:2px 8px; border-radius:999px; border:1px solid #ffd8c2;">{{ post.category.name }}</span>{% endif %}
+                        </div>
+                        <h4 class="title" style="margin-bottom:6px;"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+                        <p style="color:#555; margin-bottom:10px;">{{ post.short_description|truncatechars:150 }}</p>
+                        <a href="{{ post.get_absolute_url }}" class="boxed-btn3">ادامه مطلب</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            {% comment %} Sample placeholders until real posts exist {% endcomment %}
+            {% for i in "123" %}
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card">
+                    <div class="cover">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=70&auto=format&fit=crop" alt="نمونه مطلب" loading="lazy" decoding="async">
+                    </div>
+                    <div class="p-3">
+                        <div class="meta">نویسنده: تحریریه • 1404/01/01</div>
+                        <h4 class="title" style="margin-bottom:6px;">نمونه مطلب وبلاگ</h4>
+                        <p style="color:#555; margin-bottom:10px;">این یک متن نمونه است برای نمایش نمای کلی کارت‌های وبلاگ. بعداً با مطالب واقعی جایگزین می‌شود.</p>
+                        <a href="#" class="boxed-btn3">ادامه مطلب</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
