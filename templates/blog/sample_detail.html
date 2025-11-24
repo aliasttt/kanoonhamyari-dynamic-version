@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ sample.title }}{% endblock %}
+
+{% block extra_css %}
+<style>
+    html, body { background:#ffffff !important; color:#222; }
+    .card { background:#fff !important; border:1px solid #eee !important; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,.06); }
+    .post-content { color:#333 !important; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="blog-detail-wrap" style="padding: 60px 0;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card">
+                    <div class="card-body" style="padding:24px;">
+                        <h1 style="margin-bottom:8px; font-size:28px; font-weight:800;">{{ sample.title }}</h1>
+                        <div style="color:#777; font-size:14px; margin-bottom:16px;">
+                            <span>نویسنده: {{ sample.author }}</span>
+                            <span style="margin:0 8px;">|</span><span>بازدید: {{ sample.views_count }}</span>
+                            <span style="margin:0 8px;">|</span><span style="background:#fff3ec; color:#ff6b35; padding:2px 8px; border-radius:999px; border:1px solid #ffd8c2;">{{ sample.category.name }}</span>
+                        </div>
+                        <img src="{{ sample.image_url }}" alt="{{ sample.title }}" style="width:100%; border-radius:10px; margin-bottom:16px;" loading="lazy" decoding="async">
+                        <div class="post-content" style="line-height:1.9;">
+                            {{ sample.content|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
