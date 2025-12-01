@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{{ tour.title }}{% endblock %}
+
+{% block extra_css %}
+<style>
+    .tour_hero { position: relative; min-height: 52vh; display: flex; align-items: flex-end; padding: 60px 0 30px; background-position: center; background-size: cover; }
+    .tour_hero::before { content:''; position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.6) 60%, rgba(0,0,0,.9) 100%); }
+    .tour_hero .container { position: relative; z-index: 2; }
+    .tour_title { color:#fff; font-weight:900; font-size: 2.2rem; margin:0 0 10px; }
+    .tour_badge { display:inline-block; background: linear-gradient(135deg,#4CAF50,#2E7D32); color:#fff; padding:6px 12px; border-radius:999px; font-size:12px; font-weight:800; margin-inline-start:10px; }
+    .meta_row { display:flex; flex-wrap:wrap; gap:14px; color:#f1f1f1; opacity:.95; }
+    .meta_item { display:flex; align-items:center; gap:8px; font-weight:600; }
+    .meta_item i { color:#ff6b35; }
+
+    .tour_detail_wrap { background:#0f0f0f; padding: 40px 0 80px; }
+    .left_col { color:#ddd; }
+    .feature_grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin: 20px 0 30px; }
+    .feature_card { background:#161616; border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:14px; display:flex; align-items:center; gap:10px; }
+    .feature_card i { color:#ff6b35; font-size:18px; }
+    .tour_cover { border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); box-shadow: 0 18px 40px rgba(0,0,0,.35); margin-bottom: 20px; }
+    .tour_cover img { width: 100%; height: auto; display: block; }
+    .tour_body { color:#e7e7e7; line-height: 2; font-size: 16px; }
+
+    .tour_sidebar { position: sticky; top: 90px; background: #161616; border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 20px; color: #ddd; }
+    .tour_price { color: #ff6b35; font-weight: 900; font-size: 22px; }
+    .tour_action { display:block; text-align:center; background: linear-gradient(135deg,#ff6b35,#f7931e); color:#fff; padding:14px 18px; border-radius:12px; font-weight:800; text-decoration:none; margin-top:12px; }
+    .tour_action:hover { color:#fff; text-decoration:none; box-shadow:0 12px 28px rgba(255,107,53,.35); }
+
+    .section_head { color:#fff; font-weight:900; margin: 34px 0 14px; }
+    .gallery_grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:12px; }
+    .gallery_item { border-radius:10px; overflow:hidden; border:1px solid rgba(255,255,255,.08); }
+    .related_list { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+    .related_card { background:#171717; border:1px solid rgba(255,255,255,.08); border-radius:12px; overflow:hidden; color:#ddd; text-decoration:none; }
+    .related_card img { width:100%; height:150px; object-fit:cover; display:block; }
+    .related_card_body { padding:12px; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="tour_hero" style="background-image:url('{{ tour.image.url }}');">
+    <div class="container">
+        <h1 class="tour_title">{{ tour.title }}{% if tour.category %}<span class="tour_badge">{{ tour.category.name }}</span>{% endif %}</h1>
+        <div class="meta_row">
+            <div class="meta_item"><i class="fa fa-calendar"></i><span>{{ tour.start_date|date:"Y/m/d" }}{% if tour.end_date %} - {{ tour.end_date|date:"Y/m/d" }}{% endif %}</span></div>
+            {% if tour.duration %}<div class="meta_item"><i class="fa fa-clock-o"></i><span>{{ tour.duration }}</span></div>{% endif %}
+            <div class="meta_item"><i class="fa fa-map-marker"></i><span>{{ tour.location }}</span></div>
+            {% if tour.capacity %}<div class="meta_item"><i class="fa fa-users"></i><span>{{ tour.capacity }}</span></div>{% endif %}
+            <div class="meta_item"><i class="fa fa-eye"></i><span>{{ tour.views_count }}</span></div>
+        </div>
+    </div>
+</div>
+
+<div class="tour_detail_wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 left_col">
+                <div class="feature_grid">
+                    <div class="feature_card"><i class="fa fa-calendar"></i><div>{% trans "تاریخ" %}<div style="color:#aaa; font-weight:700;">{{ tour.start_date|date:"l d F Y" }}{% if tour.end_date %} - {{ tour.end_date|date:"l d F Y" }}{% endif %}</div></div></div>
+                    {% if tour.duration %}<div class="feature_card"><i class="fa fa-clock-o"></i><div>{% trans "مدت" %}<div style="color:#aaa; font-weight:700;">{{ tour.duration }}</div></div></div>{% endif %}
+                    <div class="feature_card"><i class="fa fa-map-marker"></i><div>{% trans "مقصد" %}<div style="color:#aaa; font-weight:700;">{{ tour.location }}</div></div></div>
+                    {% if tour.capacity %}<div class="feature_card"><i class="fa fa-users"></i><div>{% trans "ظرفیت" %}<div style="color:#aaa; font-weight:700;">{{ tour.capacity }}</div></div></div>{% endif %}
+                </div>
+
+                <div class="tour_cover"><img src="{{ tour.image.url }}" alt="{{ tour.title }}"></div>
+                <div class="tour_body">{{ tour.description|safe }}</div>
+
+                {% if tour.includes %}
+                <h4 class="section_head">{% trans "شامل" %}</h4>
+                <div class="tour_body">{{ tour.includes|safe }}</div>
+                {% endif %}
+                {% if tour.excludes %}
+                <h4 class="section_head">{% trans "شامل نمی‌شود" %}</h4>
+                <div class="tour_body">{{ tour.excludes|safe }}</div>
+                {% endif %}
+                {% if tour.itinerary %}
+                <h4 class="section_head">{% trans "برنامه سفر" %}</h4>
+                <div class="tour_body">{{ tour.itinerary|safe }}</div>
+                {% endif %}
+
+                {% if tour.images.all %}
+                <h4 class="section_head">{% trans "گالری تصاویر" %}</h4>
+                <div class="gallery_grid">
+                    {% for img in tour.images.all %}
+                    <div class="gallery_item"><img src="{{ img.image.url }}" alt="{{ img.caption|default:tour.title }}"></div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if related_tours %}
+                <h4 class="section_head">{% trans "تورهای مرتبط" %}</h4>
+                <div class="related_list">
+                    {% for rt in related_tours %}
+                    <a href="{% url 'tours:detail' slug=rt.slug %}" class="related_card">
+                        <img src="{{ rt.image.url }}" alt="{{ rt.title }}">
+                        <div class="related_card_body">
+                            <div style="font-weight:800; color:#fff;">{{ rt.title }}</div>
+                            <div style="font-size:12px; color:#aaa;">{{ rt.start_date|date:"Y/m/d" }} - {{ rt.location }}</div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-lg-4">
+                <div class="tour_sidebar">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <span style="color:#aaa;">{% trans "قیمت" %}</span>
+                        <span class="tour_price">{{ tour.price }} TL</span>
+                    </div>
+                    {% if tour.registration_deadline %}<div style="margin:6px 0; color:#999; font-size:14px;"><i class="fa fa-hourglass-half" style="color:#ff6b35;"></i> {% trans "مهلت ثبت‌نام" %}: {{ tour.registration_deadline|date:"Y/m/d H:i" }}</div>{% endif %}
+                    <a href="{% url 'tours:register' slug=tour.slug %}" class="tour_action">{% trans "ثبت‌نام در تور" %}</a>
+                    <a href="{% url 'contact:contact' %}" class="tour_action" style="margin-top:10px; background:linear-gradient(135deg,#5a5a5a,#777);">{% trans "سوال دارید؟ تماس بگیرید" %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
