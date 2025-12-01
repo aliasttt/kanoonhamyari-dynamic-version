@@ -49,6 +49,22 @@
     .event_btn { background: linear-gradient(135deg,#ff6b35,#f7931e); color: #fff; padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: 700; transition: all .3s ease; border: none; cursor: pointer; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; }
     .event_btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255,107,53,.5); color: #fff; text-decoration: none; }
 
+    /* Mini cards (no image) for services subset */
+    .mini_cards_grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 24px; margin-top: 24px; }
+    .mini_card { background: linear-gradient(135deg,#181818 0%,#242424 100%); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 24px; transition: all .3s ease; box-shadow: 0 10px 25px rgba(0,0,0,.25); }
+    .mini_card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,.45); border-color: rgba(255,107,53,.35); }
+    .mini_card_head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .mini_badge { font-size: 12px; padding: 6px 12px; border-radius: 999px; color: #fff; background: linear-gradient(135deg,#ff6b35,#f7931e); box-shadow: 0 6px 18px rgba(255,107,53,.35); font-weight: 700; }
+    .mini_title { color: #fff; font-weight: 800; font-size: 18px; margin: 0; }
+    .mini_loc { display: flex; align-items: center; gap: 6px; color: #bbb; font-size: 13px; }
+    .mini_desc { color: #ccc; font-size: 14px; line-height: 1.8; margin: 14px 0; }
+    .mini_tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+    .mini_tag { font-size: 12px; color: #ddd; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); padding: 6px 10px; border-radius: 999px; }
+    .mini_footer { display: flex; align-items: center; justify-content: space-between; }
+    .mini_price { color: #ff6b35; font-weight: 800; }
+    .mini_link { color: #fff; text-decoration: none; background: linear-gradient(135deg,#ff6b35,#f7931e); padding: 8px 14px; border-radius: 12px; font-size: 13px; font-weight: 700; }
+    .mini_link:hover { color: #fff; text-decoration: none; box-shadow: 0 10px 24px rgba(255,107,53,.4); }
+
     @media (max-width: 1200px) { .events_grid { grid-template-columns: repeat(auto-fit,minmax(380px,1fr)); gap: 35px; } }
     @media (max-width: 768px) { .hero_title{ font-size:3rem;} .hero_subtitle{ font-size:1.3rem;} .events_grid{ grid-template-columns:1fr; gap:30px;} .event_card{ margin:0 15px;} .event_footer{ flex-direction:column; gap:20px; align-items:stretch;} .event_btn{ text-align:center; padding:18px 30px; } }
     @media (max-width: 480px) { .hero_title{ font-size:2.5rem;} .search_box{ flex-direction:column; border-radius:20px;} .search_btn{ border-radius:20px; margin-top:15px; } }
@@ -76,7 +92,62 @@
         <!-- Events Grid -->
         <div class="events_section">
             <div class="container">
-                <div class="row"><div class="col-lg-12"><div class="section_title text-center mb-80"><h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">{% trans "زیرمجموعه خدمات رویداد" %}</h3><p class="section_subtitle">{% trans "خدمات متنوع رویداد و مناسبت برای ایرانیان مقیم ترکیه" %}</p></div></div></div>
+                <div class="row"><div class="col-lg-12"><div class="section_title text-center mb-40"><h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">{% trans "زیرمجموعه خدمات رویداد" %}</h3><p class="section_subtitle">{% trans "خدمات متنوع رویداد و مناسبت برای ایرانیان مقیم ترکیه" %}</p></div></div></div>
+
+                <!-- Mini cards (no images) -->
+                <div class="mini_cards_grid">
+                    <div class="mini_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                        <div class="mini_card_head">
+                            <span class="mini_badge">{% trans "مناسبتی" %}</span>
+                            <div class="mini_loc"><i class="fa fa-map-marker" style="color:#ff6b35;"></i><span>{% trans "ترکیه" %}</span></div>
+                        </div>
+                        <h4 class="mini_title">{% trans "برگزاری جشن‌های مناسبتی" %}</h4>
+                        <p class="mini_desc">{% trans "نوروز، یلدا، روز زن و... با طراحی دکور، موسیقی زنده، پذیرایی و مدیریت کامل" %}</p>
+                        <div class="mini_tags">
+                            <span class="mini_tag">{% trans "مناسبت‌های ایرانی" %}</span>
+                            <span class="mini_tag">{% trans "موسیقی زنده" %}</span>
+                            <span class="mini_tag">{% trans "مدیریت کامل" %}</span>
+                        </div>
+                        <div class="mini_footer">
+                            <span class="mini_price">{% trans "تماس بگیرید" %}</span>
+                            <a href="{% url 'contact:contact' %}" class="mini_link">{% trans "اطلاعات بیشتر" %}</a>
+                        </div>
+                    </div>
+                    <div class="mini_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".25s">
+                        <div class="mini_card_head">
+                            <span class="mini_badge">{% trans "همایش" %}</span>
+                            <div class="mini_loc"><i class="fa fa-map-marker" style="color:#ff6b35;"></i><span>{% trans "ترکیه" %}</span></div>
+                        </div>
+                        <h4 class="mini_title">{% trans "همایش‌ها و گردهمایی‌ها" %}</h4>
+                        <p class="mini_desc">{% trans "سازماندهی رویدادهای فرهنگی و اجتماعی ایرانیان مقیم ترکیه" %}</p>
+                        <div class="mini_tags">
+                            <span class="mini_tag">{% trans "فرهنگی و اجتماعی" %}</span>
+                            <span class="mini_tag">{% trans "ایرانیان مقیم" %}</span>
+                            <span class="mini_tag">{% trans "سازماندهی حرفه‌ای" %}</span>
+                        </div>
+                        <div class="mini_footer">
+                            <span class="mini_price">{% trans "تماس بگیرید" %}</span>
+                            <a href="{% url 'contact:contact' %}" class="mini_link">{% trans "اطلاعات بیشتر" %}</a>
+                        </div>
+                    </div>
+                    <div class="mini_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                        <div class="mini_card_head">
+                            <span class="mini_badge">{% trans "خصوصی" %}</span>
+                            <div class="mini_loc"><i class="fa fa-map-marker" style="color:#ff6b35;"></i><span>{% trans "ترکیه" %}</span></div>
+                        </div>
+                        <h4 class="mini_title">{% trans "جشن تولد، سالگرد و برنامه‌های خصوصی" %}</h4>
+                        <p class="mini_desc">{% trans "برگزاری مراسم به سبک ایرانی و مدرن برای مناسبت‌های شخصی" %}</p>
+                        <div class="mini_tags">
+                            <span class="mini_tag">{% trans "تولد و سالگرد" %}</span>
+                            <span class="mini_tag">{% trans "سبک ایرانی و مدرن" %}</span>
+                            <span class="mini_tag">{% trans "برنامه‌های خصوصی" %}</span>
+                        </div>
+                        <div class="mini_footer">
+                            <span class="mini_price">{% trans "تماس بگیرید" %}</span>
+                            <a href="{% url 'contact:contact' %}" class="mini_link">{% trans "اطلاعات بیشتر" %}</a>
+                        </div>
+                    </div>
+                </div>
 
                 {% if events %}
                 <div class="events_grid">
@@ -92,62 +163,14 @@
                             <div class="event_location"><i class="fa fa-map-marker"></i><span>{{ event.location }}</span></div>
                             <p class="event_description">{{ event.short_description }}</p>
                             <div class="event_features">
-                                <div class="feature_item"><i class="fa fa-calendar"></i><span>{{ event.start_date|date:"Y/m/d" }}</span></div>
-                                <div class="feature_item"><i class="fa fa-clock-o"></i><span>{{ event.start_time|time:"H:i" }}</span></div>
+                                <div class="feature_item"><i class="fa fa-calendar"></i><span>{{ event.event_date|date:"Y/m/d" }}</span></div>
+                                <div class="feature_item"><i class="fa fa-clock-o"></i><span>{{ event.event_date|time:"H:i" }}</span></div>
                                 <div class="feature_item"><i class="fa fa-users"></i><span>{{ event.capacity }}</span></div>
                             </div>
-                            <div class="event_footer"><div class="event_price"><span class="price_amount">{% if event.price > 0 %}{{ event.price }} TL{% else %}{% trans "رایگان" %}{% endif %}</span></div><a href="{% url 'events:register' slug=event.slug %}" class="event_btn">{% trans "ثبت‌نام" %}</a></div>
+                            <div class="event_footer"><div class="event_price"><span class="price_amount">{% if event.price %}{{ event.price }} TL{% else %}{% trans "رایگان" %}{% endif %}</span></div><a href="{% url 'events:detail' slug=event.slug %}" class="event_btn">{% trans "جزئیات" %}</a></div>
                         </div>
                     </div>
                     {% endfor %}
-                </div>
-                {% else %}
-                <div class="events_grid">
-                    <!-- Static Card 1 -->
-                    <div class="event_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
-                        <div class="event_image">
-                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'برگزاری جشن‌های مناسبتی' %}">
-                            <div class="event_badge conference"><span>{% trans "مناسبتی" %}</span></div>
-                            <div class="event_overlay"><div class="overlay_actions"><button class="action_btn"><i class="fa fa-heart"></i></button><button class="action_btn"><i class="fa fa-share"></i></button><a href="{% url 'contact:contact' %}" class="action_btn"><i class="fa fa-eye"></i></a></div></div>
-                        </div>
-                        <div class="event_content">
-                            <h4 class="event_title">{% trans "برگزاری جشن‌های مناسبتی" %}</h4>
-                            <div class="event_location"><i class="fa fa-map-marker"></i><span>{% trans "ترکیه" %}</span></div>
-                            <p class="event_description">{% trans "نوروز، یلدا، روز زن و... با طراحی دکور، موسیقی زنده، پذیرایی و مدیریت کامل" %}</p>
-                            <div class="event_features"><div class="feature_item"><i class="fa fa-calendar"></i><span>{% trans "مناسبت‌های ایرانی" %}</span></div><div class="feature_item"><i class="fa fa-music"></i><span>{% trans "موسیقی زنده" %}</span></div><div class="feature_item"><i class="fa fa-cog"></i><span>{% trans "مدیریت کامل" %}</span></div></div>
-                            <div class="event_footer"><div class="event_price"><span class="price_amount">{% trans "تماس بگیرید" %}</span></div><a href="{% url 'contact:contact' %}" class="event_btn">{% trans "اطلاعات بیشتر" %}</a></div>
-                        </div>
-                    </div>
-                    <!-- Static Card 2 -->
-                    <div class="event_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
-                        <div class="event_image">
-                            <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'همایش‌ها و گردهمایی‌ها' %}">
-                            <div class="event_badge festival"><span>{% trans "همایش" %}</span></div>
-                            <div class="event_overlay"><div class="overlay_actions"><button class="action_btn"><i class="fa fa-heart"></i></button><button class="action_btn"><i class="fa fa-share"></i></button><a href="{% url 'contact:contact' %}" class="action_btn"><i class="fa fa-eye"></i></a></div></div>
-                        </div>
-                        <div class="event_content">
-                            <h4 class="event_title">{% trans "همایش‌ها و گردهمایی‌ها" %}</h4>
-                            <div class="event_location"><i class="fa fa-map-marker"></i><span>{% trans "ترکیه" %}</span></div>
-                            <p class="event_description">{% trans "سازماندهی رویدادهای فرهنگی و اجتماعی ایرانیان مقیم ترکیه" %}</p>
-                            <div class="event_features"><div class="feature_item"><i class="fa fa-users"></i><span>{% trans "فرهنگی و اجتماعی" %}</span></div><div class="feature_item"><i class="fa fa-flag"></i><span>{% trans "ایرانیان مقیم" %}</span></div><div class="feature_item"><i class="fa fa-calendar"></i><span>{% trans "سازماندهی حرفه‌ای" %}</span></div></div>
-                            <div class="event_footer"><div class="event_price"><span class="price_amount">{% trans "تماس بگیرید" %}</span></div><a href="{% url 'contact:contact' %}" class="event_btn">{% trans "اطلاعات بیشتر" %}</a></div>
-                        </div>
-                    </div>
-                    <!-- Static Card 3 -->
-                    <div class="event_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
-                        <div class="event_image">
-                            <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'جشن تولد، سالگرد و برنامه‌های خصوصی' %}">
-                            <div class="event_badge workshop"><span>{% trans "خصوصی" %}</span></div>
-                            <div class="event_overlay"><div class="overlay_actions"><button class="action_btn"><i class="fa fa-heart"></i></button><button class="action_btn"><i class="fa fa-share"></i></button><a href="{% url 'contact:contact' %}" class="action_btn"><i class="fa fa-eye"></i></a></div></div>
-                        </div>
-                        <div class="event_content">
-                            <h4 class="event_title">{% trans "جشن تولد، سالگرد و برنامه‌های خصوصی" %}</h4>
-                            <div class="event_location"><i class="fa fa-map-marker"></i><span>{% trans "ترکیه" %}</span></div>
-                            <p class="event_description">{% trans "برگزاری مراسم به سبک ایرانی و مدرن برای مناسبت‌های شخصی" %}</p>
-                            <div class="event_features"><div class="feature_item"><i class="fa fa-birthday-cake"></i><span>{% trans "تولد و سالگرد" %}</span></div><div class="feature_item"><i class="fa fa-star"></i><span>{% trans "سبک ایرانی و مدرن" %}</span></div><div class="feature_item"><i class="fa fa-home"></i><span>{% trans "برنامه‌های خصوصی" %}</span></div></div>
-                            <div class="event_footer"><div class="event_price"><span class="price_amount">{% trans "تماس بگیرید" %}</span></div><a href="{% url 'contact:contact' %}" class="event_btn">{% trans "اطلاعات بیشتر" %}</a></div>
-                        </div>
-                    </div>
                 </div>
                 {% endif %}
 

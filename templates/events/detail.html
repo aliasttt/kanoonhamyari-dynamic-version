@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{{ event.title }}{% endblock %}
+
+{% block extra_css %}
+<style>
+    .event_detail_wrap { padding: 80px 0; background: #0f0f0f; }
+    .event_header { color: #fff; margin-bottom: 30px; }
+    .event_badge { display: inline-block; background: linear-gradient(135deg,#ff6b35,#f7931e); color: #fff; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; margin-left: 10px; }
+    .event_meta { display: flex; gap: 16px; flex-wrap: wrap; color: #bbb; margin-top: 10px; }
+    .event_meta_item { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+    .event_cover { border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); box-shadow: 0 18px 40px rgba(0,0,0,.4); }
+    .event_cover img { width: 100%; height: auto; display: block; }
+    .event_body { color: #ddd; line-height: 1.9; margin-top: 30px; }
+    .event_sidebar { background: #161616; border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 20px; color: #ddd; }
+    .event_price { color: #ff6b35; font-weight: 800; font-size: 20px; }
+    .event_action { display: block; text-align: center; background: linear-gradient(135deg,#ff6b35,#f7931e); color: #fff; padding: 14px 20px; border-radius: 12px; font-weight: 700; text-decoration: none; margin-top: 12px; }
+    .event_action:hover { color: #fff; text-decoration: none; box-shadow: 0 12px 28px rgba(255,107,53,.35); }
+    .gallery_grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 12px; margin-top: 20px; }
+    .gallery_item { border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); }
+    .related_head { color: #fff; margin: 60px 0 16px; }
+    .related_list { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 18px; }
+    .related_card { background: #171717; border: 1px solid rgba(255,255,255,.08); border-radius: 14px; overflow: hidden; }
+    .related_card img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .related_card_body { padding: 12px; color: #ddd; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="event_detail_wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="event_header">
+                    <h2 style="margin:0; font-weight:800;">{{ event.title }}</h2>
+                    {% if event.category %}
+                        <span class="event_badge">{{ event.category.name }}</span>
+                    {% endif %}
+                    <div class="event_meta">
+                        <div class="event_meta_item"><i class="fa fa-calendar" style="color:#ff6b35;"></i><span>{{ event.event_date|date:"Y/m/d" }}</span></div>
+                        <div class="event_meta_item"><i class="fa fa-clock-o" style="color:#ff6b35;"></i><span>{{ event.event_date|time:"H:i" }}</span></div>
+                        <div class="event_meta_item"><i class="fa fa-map-marker" style="color:#ff6b35;"></i><span>{{ event.location }}</span></div>
+                        {% if event.capacity %}<div class="event_meta_item"><i class="fa fa-users" style="color:#ff6b35;"></i><span>{{ event.capacity }}</span></div>{% endif %}
+                        <div class="event_meta_item"><i class="fa fa-eye" style="color:#ff6b35;"></i><span>{{ event.views_count }}</span></div>
+                    </div>
+                </div>
+
+                <div class="event_cover">
+                    <img src="{{ event.image.url }}" alt="{{ event.title }}">
+                </div>
+
+                <div class="event_body">
+                    {{ event.description|safe }}
+                </div>
+
+                {% if event.images.all %}
+                <h4 class="related_head">{% trans "گالری تصاویر" %}</h4>
+                <div class="gallery_grid">
+                    {% for img in event.images.all %}
+                    <div class="gallery_item">
+                        <img src="{{ img.image.url }}" alt="{{ img.caption|default:event.title }}">
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if related_events %}
+                <h4 class="related_head">{% trans "رویدادهای مرتبط" %}</h4>
+                <div class="related_list">
+                    {% for re in related_events %}
+                    <a href="{% url 'events:detail' slug=re.slug %}" class="related_card">
+                        <img src="{{ re.image.url }}" alt="{{ re.title }}">
+                        <div class="related_card_body">
+                            <div style="font-weight:700; color:#fff;">{{ re.title }}</div>
+                            <div style="font-size:12px; color:#aaa;">{{ re.event_date|date:"Y/m/d" }} - {{ re.location }}</div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-lg-4">
+                <div class="event_sidebar">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span style="color:#aaa;">{% trans "وضعیت" %}</span>
+                        <span style="color:#0bd67c; font-weight:700;">{% if event.is_upcoming %}{% trans "در حال برگزاری/آینده" %}{% else %}{% trans "برگزار شده" %}{% endif %}</span>
+                    </div>
+                    <hr style="border-color:rgba(255,255,255,.08);">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span style="color:#aaa;">{% trans "قیمت" %}</span>
+                        <span class="event_price">{% if event.price %}{{ event.price }} TL{% else %}{% trans "رایگان" %}{% endif %}</span>
+                    </div>
+                    <a href="{% url 'events:register' slug=event.slug %}" class="event_action">{% trans "ثبت‌نام در رویداد" %}</a>
+                    <a href="{% url 'contact:contact' %}" class="event_action" style="margin-top:10px; background:linear-gradient(135deg,#5a5a5a,#777);">{% trans "سوال دارید؟ تماس بگیرید" %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+

@@ -369,6 +369,10 @@ mailChimp();
 
 // Load unified footer on all pages that include main.js
 (function(){
+	// If server-rendered footer exists, don't auto-load JS footer to avoid flicker/override
+	var hasServerFooter = !!document.querySelector('footer.footer.kh-footer');
+	if (hasServerFooter) return;
+
 	if (!document.getElementById('kh-footer-loader')) {
 		var s = document.createElement('script');
 		s.id = 'kh-footer-loader';

@@ -367,15 +367,11 @@ mailChimp();
 
 })(jQuery);	
 
-// Load unified footer on all pages that include main.js
+// Footer loader disabled for Django pages: always use server-rendered footer
 (function(){
-	// Use server-rendered footer if present; only load client footer for static/plain pages
-	var hasServerFooter = !!document.querySelector('footer.kh-footer');
-	if (!hasServerFooter && !document.getElementById('kh-footer-loader')) {
-		var s = document.createElement('script');
-		s.id = 'kh-footer-loader';
-		s.src = 'js/footer.js';
-		s.defer = true;
-		document.head.appendChild(s);
-	}
+	try {
+		// If some page still injected the loader, remove it to avoid duplicate/in-body footer
+		var existing = document.getElementById('kh-footer-loader');
+		if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
+	} catch(e) {}
 })();

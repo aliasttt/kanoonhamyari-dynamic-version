@@ -10,13 +10,22 @@
     }
 
     function buildUnifiedFooter() {
-        var footer = document.querySelector('footer') || document.createElement('footer');
-        footer.classList.add('footer', 'kh-footer');
+        // Only target the site footer (with our classes). Never hijack random <footer> tags inside content.
+        var footer = document.querySelector('footer.footer.kh-footer');
+        if (!footer) {
+            footer = document.createElement('footer');
+            footer.className = 'footer kh-footer';
+        } else {
+            // Ensure correct classes exist in case template omitted one
+            footer.classList.add('footer', 'kh-footer');
+        }
 
         var instagramUrl = 'https://www.instagram.com/kanoon.hamyari';
         var telegramUrl = 'https://t.me/KANOONEHAMYARI';
         var youtubeUrl = 'https://m.youtube.com/@kanoonhamyari';
 
+        // If template already rendered a footer (server-side), keep it. Otherwise, inject default content.
+        if (!footer.childElementCount) {
         footer.innerHTML = '' +
             '<div class="kh-footer__top">' +
             '  <div class="container">' +
@@ -94,9 +103,16 @@
             '    </div>' +
             '  </div>' +
             '</div>';
+        }
 
-        if (!footer.parentNode) {
+        // Ensure footer is at the end of body, not nested inside content
+        if (footer.parentNode !== document.body) {
             document.body.appendChild(footer);
+        } else {
+            // If already in body but not last element, move it to the end
+            if (document.body.lastElementChild !== footer) {
+                document.body.appendChild(footer);
+            }
         }
 
         var y = document.getElementById('kh-year');

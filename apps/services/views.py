@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from apps.core.models import Service, ServiceCategory
 from django.views.decorators.cache import cache_page
+from django.utils.safestring import mark_safe
+import re
 
 
 @cache_page(60 * 10)
@@ -74,6 +76,41 @@ def university_detail(request, slug):
     from .models import University
     
     university = get_object_or_404(University, slug=slug, is_active=True)
+
+    # محتوای ارسالی از ادمین ممکن است شامل فوترهای قالب‌های قدیمی باشد.
+    # این تابع، تمام بلاک‌های فوتر را از HTML حذف می‌کند.
+    def sanitize_html_remove_footer(html: str) -> str:
+        if not html:
+            return ''
+        cleaned = html
+        # 1) حذف هر <footer>...</footer>
+        cleaned = re.sub(r'(?is)<footer[\s\S]*?</footer>', '', cleaned)
+        # 2) حذف هر دیو/سکشن/نَو با id یا کلاس حاوی کلمه footer یا kh-footer
+        cleaned = re.sub(
+            r'(?is)<(div|section|nav|header)[^>]*?(?:id|class)\s*=\s*["\'][^"\']*(?:kh-)?footer[^"\']*["\'][^>]*>[\s\S]*?</\1>',
+            '',
+            cleaned
+        )
+        # 3) حذف بلاک‌های خاص kh-footer__top و kh-footer__bottom اگر باقی مانده باشند
+        cleaned = re.sub(
+            r'(?is)<div[^>]*class[^>]*=["\'][^"\']*kh-footer__(?:top|bottom)[^"\']*["\'][^>]*>[\s\S]*?</div>',
+            '',
+            cleaned
+        )
+        # 4) پاکسازی‌های تکراری برای پوشش تودرتویی‌های احتمالی
+        for _ in range(2):
+            cleaned = re.sub(r'(?is)<footer[\s\S]*?</footer>', '', cleaned)
+            cleaned = re.sub(
+                r'(?is)<(div|section|nav|header)[^>]*?(?:id|class)\s*=\s*["\'][^"\']*(?:kh-)?footer[^"\']*["\'][^>]*>[\s\S]*?</\1>',
+                '',
+                cleaned
+            )
+        return cleaned
+
+    description_html = mark_safe(sanitize_html_remove_footer(university.description or ''))
+    programs_html = mark_safe(sanitize_html_remove_footer(university.programs or ''))
+    admission_requirements_html = mark_safe(sanitize_html_remove_footer(university.admission_requirements or ''))
+    scholarship_info_html = mark_safe(sanitize_html_remove_footer(university.scholarship_info or ''))
     
     # دانشگاه‌های مرتبط
     related_universities = University.objects.filter(
@@ -84,6 +121,10 @@ def university_detail(request, slug):
     context = {
         'university': university,
         'related_universities': related_universities,
+        'description_html': description_html,
+        'programs_html': programs_html,
+        'admission_requirements_html': admission_requirements_html,
+        'scholarship_info_html': scholarship_info_html,
     }
     
     return render(request, 'services/university_detail.html', context)

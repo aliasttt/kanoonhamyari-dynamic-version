@@ -165,6 +165,22 @@
         color: #fff;
         text-decoration: none;
     }
+
+    /* Space after section on this page (same as education page) */
+    .kh-footer { margin-top: 40px; }
+
+    /* Hide any footer injected inside rich text description */
+    .content-section footer,
+    .content-section .footer,
+    .content-section .kh-footer,
+    .content-section [id*="footer"],
+    .content-section [class*="footer"] {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
 </style>
 {% endblock %}
 
@@ -209,7 +225,7 @@
                     
                     <div class="content-section">
                         <h3>{% trans "توضیحات" %}</h3>
-                        {{ university.description|safe }}
+                        {{ description_html }}
                     </div>
                 </div>
 
@@ -217,7 +233,7 @@
                 <div class="detail-card">
                     <div class="content-section">
                         <h3>{% trans "رشته‌های تحصیلی" %}</h3>
-                        {{ university.programs|safe }}
+                        {{ programs_html }}
                     </div>
                 </div>
                 {% endif %}
@@ -226,7 +242,7 @@
                 <div class="detail-card">
                     <div class="content-section">
                         <h3>{% trans "شرایط پذیرش" %}</h3>
-                        {{ university.admission_requirements|safe }}
+                        {{ admission_requirements_html }}
                     </div>
                 </div>
                 {% endif %}
@@ -235,7 +251,7 @@
                 <div class="detail-card">
                     <div class="content-section">
                         <h3>{% trans "اطلاعات بورسیه" %}</h3>
-                        {{ university.scholarship_info|safe }}
+                        {{ scholarship_info_html }}
                     </div>
                 </div>
                 {% endif %}
@@ -317,5 +333,24 @@
         {% endif %}
     </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Remove any footer blocks accidentally pasted inside rich text (from old pages)
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        // Remove kh-footer blocks that are NOT the real site footer
+        document.querySelectorAll('.kh-footer__top, .kh-footer__bottom').forEach(function (el) {
+            var isInsideRealFooter = !!el.closest('footer.kh-footer');
+            if (!isInsideRealFooter || el.closest('.content-section')) {
+                el.remove();
+            }
+        });
+        // Also remove any bare <footer> tags injected inside content sections
+        document.querySelectorAll('.content-section footer').forEach(function (el) { el.remove(); });
+    } catch (e) {}
+});
+</script>
 {% endblock %}
 
