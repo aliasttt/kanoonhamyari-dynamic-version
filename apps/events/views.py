@@ -80,3 +80,14 @@ def event_register(request, slug):
     
     return render(request, 'events/register.html', context)
 
+
+def event_yalda_detail(request):
+    """صفحه جزئیات نمونه برای جشن شب یلدا (استاتیک برای نمایش طرح)"""
+    context = {
+        'title': 'جشن شب یلدا',
+        'price': 300,
+        'date_str': '30 آذر',
+        'time_str': '20:00',
+        'location': 'استانبول، ترکیه',
+    }
+    return render(request, 'events/yalda_detail.html', context)

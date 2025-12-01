@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "جشن شب یلدا" %}{% endblock %}
+
+{% block extra_css %}
+<style>
+    .event_hero { position: relative; min-height: 48vh; display:flex; align-items:flex-end; padding:50px 0 28px; background-position:center; background-size:cover; }
+    .event_hero::before { content:''; position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.6) 60%, rgba(0,0,0,.9) 100%); }
+    .event_hero .container { position:relative; z-index:2; }
+    .event_title { color:#fff; font-weight:900; font-size: 2.1rem; margin:0 0 8px; }
+    .meta_row { display:flex; flex-wrap:wrap; gap:14px; color:#f1f1f1; opacity:.95; }
+    .meta_item { display:flex; align-items:center; gap:8px; font-weight:600; }
+    .meta_item i { color:#ff6b35; }
+    .wrap { background:#0f0f0f; padding: 40px 0 70px; }
+    .feature_grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin: 10px 0 20px; }
+    .feature_card { background:#161616; border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:14px; display:flex; align-items:center; gap:10px; color:#ddd; }
+    .feature_card i { color:#ff6b35; font-size:18px; }
+    .event_body { color:#e7e7e7; line-height:2; font-size:16px; }
+    .side_card { position:sticky; top:90px; background:#161616; border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:18px; color:#ddd; }
+    .price { color:#ff6b35; font-weight:900; font-size:20px; }
+    .cta { display:block; text-align:center; background:linear-gradient(135deg,#ff6b35,#f7931e); color:#fff; padding:12px 16px; border-radius:12px; font-weight:800; text-decoration:none; margin-top:10px; }
+    .cta:hover { color:#fff; text-decoration:none; box-shadow:0 12px 28px rgba(255,107,53,.35); }
+    .cover { border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.08); box-shadow: 0 18px 40px rgba(0,0,0,.35); margin: 16px 0 20px; }
+    .cover img { width:100%; display:block; }
+    .section_head { color:#fff; font-weight:900; margin: 24px 0 12px; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="event_hero" style="background-image:url('https://images.unsplash.com/photo-1542985472-f2e7989b2757?q=80&w=1600&auto=format&fit=crop');">
+    <div class="container">
+        <h1 class="event_title">{% trans "جشن شب یلدا" %}</h1>
+        <div class="meta_row">
+            <div class="meta_item"><i class="fa fa-calendar"></i><span>{{ date_str }}</span></div>
+            <div class="meta_item"><i class="fa fa-clock-o"></i><span>{{ time_str }}</span></div>
+            <div class="meta_item"><i class="fa fa-map-marker"></i><span>{{ location }}</span></div>
+            <div class="meta_item"><i class="fa fa-ticket"></i><span>{% trans "قیمت بلیط" %}: {{ price }} TL</span></div>
+        </div>
+    </div>
+</div>
+
+<div class="wrap">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="feature_grid">
+                <div class="feature_card"><i class="fa fa-calendar"></i><div>{% trans "تاریخ" %}<div style="color:#aaa; font-weight:700;">{{ date_str }}</div></div></div>
+                <div class="feature_card"><i class="fa fa-clock-o"></i><div>{% trans "ساعت" %}<div style="color:#aaa; font-weight:700;">{{ time_str }}</div></div></div>
+                <div class="feature_card"><i class="fa fa-map-marker"></i><div>{% trans "مکان" %}<div style="color:#aaa; font-weight:700;">{{ location }}</div></div></div>
+                <div class="feature_card"><i class="fa fa-ticket"></i><div>{% trans "قیمت بلیط" %}<div style="color:#aaa; font-weight:700;">{{ price }} TL</div></div></div>
+            </div>
+            <div class="cover"><img src="https://images.unsplash.com/photo-1542985472-f2e7989b2757?q=80&w=1600&auto=format&fit=crop" alt="{% trans 'جشن شب یلدا' %}"></div>
+
+            <h4 class="section_head">{% trans "توضیحات رویداد" %}</h4>
+            <p class="event_body">
+                {% trans "شب یلدا، کهن‌ترین جشن ایرانی، با برنامه‌ای شاد و صمیمی در کنار هم برگزار می‌شود. این برنامه شامل موسیقی زنده، قرعه‌کشی، خوانش فال حافظ، اجرای DJ، و پذیرایی ویژه با تم یلدایی است." %}
+            </p>
+            <ul class="event_body" style="margin-bottom:0;">
+                <li>{% trans "موسیقی زنده و DJ با اجرای آثار خاطره‌انگیز ایرانی" %}</li>
+                <li>{% trans "پذیرایی ویژه: آجیل شب یلدا، انار، هندوانه و نوشیدنی" %}</li>
+                <li>{% trans "مسابقه و قرعه‌کشی با جوایز ویژه" %}</li>
+                <li>{% trans "خوانش گروهی فال حافظ" %}</li>
+                <li>{% trans "طراحی دکور و فضای عکاسی با تم یلدا" %}</li>
+            </ul>
+
+            <h4 class="section_head">{% trans "جزئیات برگزاری" %}</h4>
+            <table class="table">
+                <tbody>
+                    <tr><th>{% trans "تاریخ" %}</th><td>{{ date_str }}</td></tr>
+                    <tr><th>{% trans "ساعت" %}</th><td>{{ time_str }}</td></tr>
+                    <tr><th>{% trans "مکان" %}</th><td>{{ location }}</td></tr>
+                    <tr><th>{% trans "قیمت بلیط" %}</th><td>{{ price }} TL</td></tr>
+                    <tr><th>{% trans "شرایط رزرو" %}</th><td>{% trans "لطفاً برای رزرو، اطلاعات تماس و تعداد نفرات را ارسال کنید." %}</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-4">
+            <div class="side_card">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <span style="color:#aaa;">{% trans "قیمت" %}</span>
+                    <span class="price">{{ price }} TL</span>
+                </div>
+                <a class="cta" href="{% url 'contact:contact' %}">{% trans "درخواست رزرو" %}</a>
+                <a class="cta" style="margin-top:10px; background:linear-gradient(135deg,#5a5a5a,#777);" href="{% url 'events:list' %}">{% trans "بازگشت به رویدادها" %}</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+

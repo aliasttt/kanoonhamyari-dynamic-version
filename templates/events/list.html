@@ -22,6 +22,8 @@
     .events_section::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=2000&auto=format&fit=crop') center/cover; opacity: .05; z-index: 1; }
     .events_section > .container { position: relative; z-index: 2; }
     .events_grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(420px,1fr)); gap: 40px; margin-top: 80px; }
+    /* Force exactly two columns when needed (e.g. featured demo) */
+    .events_grid.two_cols { grid-template-columns: repeat(2, minmax(320px,1fr)); }
     .event_card { background: linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%); border-radius: 25px; overflow: hidden; transition: all .5s ease; border: 2px solid rgba(255,255,255,.1); position: relative; box-shadow: 0 10px 40px rgba(0,0,0,.3); }
     .event_card:hover { transform: translateY(-15px) scale(1.02); box-shadow: 0 25px 80px rgba(0,0,0,.6); border-color: rgba(255,107,53,.4); }
     .event_image { position: relative; height: 280px; overflow: hidden; }
@@ -66,6 +68,7 @@
     .mini_link:hover { color: #fff; text-decoration: none; box-shadow: 0 10px 24px rgba(255,107,53,.4); }
 
     @media (max-width: 1200px) { .events_grid { grid-template-columns: repeat(auto-fit,minmax(380px,1fr)); gap: 35px; } }
+    @media (max-width: 992px) { .events_grid.two_cols { grid-template-columns: 1fr; } }
     @media (max-width: 768px) { .hero_title{ font-size:3rem;} .hero_subtitle{ font-size:1.3rem;} .events_grid{ grid-template-columns:1fr; gap:30px;} .event_card{ margin:0 15px;} .event_footer{ flex-direction:column; gap:20px; align-items:stretch;} .event_btn{ text-align:center; padding:18px 30px; } }
     @media (max-width: 480px) { .hero_title{ font-size:2.5rem;} .search_box{ flex-direction:column; border-radius:20px;} .search_btn{ border-radius:20px; margin-top:15px; } }
 </style>
@@ -145,6 +148,37 @@
                         <div class="mini_footer">
                             <span class="mini_price">{% trans "تماس بگیرید" %}</span>
                             <a href="{% url 'contact:contact' %}" class="mini_link">{% trans "اطلاعات بیشتر" %}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured: Yalda Event (demo) -->
+                <div class="events_grid two_cols">
+                    <div class="event_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                        <div class="event_image">
+                            <img src="https://images.unsplash.com/photo-1542985472-f2e7989b2757?q=80&w=1200&auto=format&fit=crop" alt="{% trans 'جشن شب یلدا' %}">
+                            <div class="event_badge conference"><span>{% trans "مناسبتی" %}</span></div>
+                            <div class="event_overlay">
+                                <div class="overlay_actions">
+                                    <button class="action_btn"><i class="fa fa-heart"></i></button>
+                                    <button class="action_btn"><i class="fa fa-share"></i></button>
+                                    <a href="{% url 'events:yalda' %}" class="action_btn"><i class="fa fa-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event_content">
+                            <h4 class="event_title">{% trans "جشن شب یلدا" %}</h4>
+                            <div class="event_location"><i class="fa fa-map-marker"></i><span>{% trans "استانبول، ترکیه" %}</span></div>
+                            <p class="event_description">{% trans "جشن باستانی شب یلدا با موسیقی زنده، پذیرایی سنتی، فال حافظ و برنامه‌های شاد ایرانی." %}</p>
+                            <div class="event_features">
+                                <div class="feature_item"><i class="fa fa-calendar"></i><span>{% trans "30 آذر" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-clock-o"></i><span>20:00</span></div>
+                                <div class="feature_item"><i class="fa fa-users"></i><span>{% trans "ظرفیت محدود" %}</span></div>
+                            </div>
+                            <div class="event_footer">
+                                <div class="event_price"><span class="price_amount">300 TL</span></div>
+                                <a href="{% url 'events:yalda' %}" class="event_btn">{% trans "جزئیات" %}</a>
+                            </div>
                         </div>
                     </div>
                 </div>
