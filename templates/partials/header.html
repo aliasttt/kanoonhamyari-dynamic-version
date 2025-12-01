@@ -1,6 +1,7 @@
-{% load static %}
+{% load static i18n %}
 {% load cache %}
-{% cache 600 header_cache request.user.is_authenticated %}
+{% get_current_language as CURRENT_LANG %}
+{% cache 600 header_cache request.user.is_authenticated CURRENT_LANG %}
 <header id="site-header">
     <div class="header-area">
         <div id="sticky-header" class="main-header-area">
@@ -17,28 +18,33 @@
                                         {% if site_settings and site_settings.site_logo %}
                                         <img src="{{ site_settings.site_logo.url }}" alt="{{ site_settings.site_name|default:'کانون همیاری' }}">
                                         {% else %}
-                                        <img src="{% static 'img/kanoonlogo.jpg' %}" alt="کانون همیاری">
+                                        <img src="{% static 'img/kanoonlogo.jpg' %}" alt="{% trans 'کانون همیاری' %}">
                                         {% endif %}
                                     </a>
                                 </div>
                                 <div class="language_dropdown">
+                                    {% get_current_language as LANGUAGE_CODE %}
                                     <button class="language_dropdown_btn" id="languageBtn">
-                                        <span id="currentLang">فا</span>
+                                        <span id="currentLang">{% if LANGUAGE_CODE == 'fa' %}فا{% elif LANGUAGE_CODE == 'tr' %}TR{% else %}EN{% endif %}</span>
                                         <i class="fa fa-chevron-down"></i>
                                     </button>
                                     <div class="language_dropdown_content" id="languageDropdown">
-                                        <a href="#" class="language-option" data-lang="fa">فارسی</a>
-                                        <a href="#" class="language-option" data-lang="en">English</a>
-                                        <a href="#" class="language-option" data-lang="tr">Türkçe</a>
+                                        <form action="{% url 'set_language' %}" method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                                            <button type="submit" name="language" value="fa" class="language-choice{% if LANGUAGE_CODE == 'fa' %} active{% endif %}">فارسی</button>
+                                            <button type="submit" name="language" value="en" class="language-choice{% if LANGUAGE_CODE == 'en' %} active{% endif %}">English</button>
+                                            <button type="submit" name="language" value="tr" class="language-choice{% if LANGUAGE_CODE == 'tr' %} active{% endif %}">Türkçe</button>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="auth_links" style="display:flex; align-items:center; gap:8px; margin-right:12px;">
                                     {% if request.user.is_authenticated %}
-                                    <a href="{% url 'accounts:dashboard' %}" class="boxed-btn3" style="padding:6px 12px; border-radius:8px;">پنل کاربر</a>
-                                    <a href="{% url 'accounts:logout' %}" class="boxed-btn3" style="padding:6px 12px; border-radius:8px; background:transparent !important; color:#ff6b35 !important;">خروج</a>
+                                    <a href="{% url 'accounts:dashboard' %}" class="boxed-btn3" style="padding:6px 12px; border-radius:8px;" data-i18n="auth.dashboard">{% trans "پنل کاربر" %}</a>
+                                    <a href="{% url 'accounts:logout' %}" class="boxed-btn3" style="padding:6px 12px; border-radius:8px; background:transparent !important; color:#ff6b35 !important;" data-i18n="auth.logout">{% trans "خروج" %}</a>
                                     {% else %}
-                                    <a href="{% url 'accounts:login' %}" class="boxed-btn3" style="padding:6px 12px; border-radius:8px;">ورود</a>
-                                    <a href="{% url 'accounts:signup' %}" class="boxed-btn3" style="padding:6px 12px; border-radius:8px; background:transparent !important; color:#ff6b35 !important;">عضویت</a>
+                                    <a href="{% url 'accounts:login' %}" class="boxed-btn3" style="padding:6px 12px; border-radius:8px;" data-i18n="auth.login">{% trans "ورود" %}</a>
+                                    <a href="{% url 'accounts:signup' %}" class="boxed-btn3" style="padding:6px 12px; border-radius:8px; background:transparent !important; color:#ff6b35 !important;" data-i18n="auth.signup">{% trans "عضویت" %}</a>
                                     {% endif %}
                                 </div>
                             </div>
@@ -47,19 +53,19 @@
                             <div class="main-menu d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="{% url 'core:index' %}" data-translate="home">خانه</a></li>
-                                        <li><a href="{% url 'events:list' %}" data-translate="events">رویدادها</a></li>
-                                        <li><a href="{% url 'tours:list' %}" data-translate="tours">تورها</a></li>
-                                        <li><a href="{% url 'real_estate:list' %}" data-translate="realEstate">املاک</a></li>
-                                        <li><a href="{% url 'services:advertising' %}" data-translate="advertising">تبلیغات</a></li>
-                                        <li><a href="{% url 'services:education' %}" data-translate="educationMenu">دانشجویی</a></li>
-                                        <li><a href="{% url 'services:business' %}" data-translate="business">بیزینس</a></li>
-                                        <li><a href="{% url 'services:decoration' %}" data-translate="decoration">دکوراسیون</a></li>
-                                        <li><a href="{% url 'services:legal' %}" data-translate="legalMenu">حقوقی</a></li>
-                                        <li><a href="{% url 'blog:list' %}">وبلاگ</a></li>
-                                        <li><a href="{% url 'about:about' %}" data-translate="about">درباره ما</a></li>
-                                        <li><a href="{% url 'contact:contact' %}" data-translate="contact">تماس</a></li>
-                                        <li><a href="{% url 'courses:list' %}">دوره آموزشی</a></li>
+                                        <li><a href="{% url 'core:index' %}" data-i18n="menu.home">{% trans "خانه" %}</a></li>
+                                        <li><a href="{% url 'events:list' %}" data-i18n="menu.events">{% trans "رویدادها" %}</a></li>
+                                        <li><a href="{% url 'tours:list' %}" data-i18n="menu.tours">{% trans "تورها" %}</a></li>
+                                        <li><a href="{% url 'real_estate:list' %}" data-i18n="menu.realestate">{% trans "املاک" %}</a></li>
+                                        <li><a href="{% url 'services:advertising' %}" data-i18n="menu.advertising">{% trans "تبلیغات" %}</a></li>
+                                        <li><a href="{% url 'services:education' %}" data-i18n="menu.education">{% trans "دانشجویی" %}</a></li>
+                                        <li><a href="{% url 'services:business' %}" data-i18n="menu.business">{% trans "بیزینس" %}</a></li>
+                                        <li><a href="{% url 'services:decoration' %}" data-i18n="menu.decoration">{% trans "دکوراسیون" %}</a></li>
+                                        <li><a href="{% url 'services:legal' %}" data-i18n="menu.legal">{% trans "حقوقی" %}</a></li>
+                                        <li><a href="{% url 'blog:list' %}" data-i18n="menu.blog">{% trans "وبلاگ" %}</a></li>
+                                        <li><a href="{% url 'about:about' %}" data-i18n="menu.about">{% trans "درباره ما" %}</a></li>
+                                        <li><a href="{% url 'contact:contact' %}" data-i18n="menu.contact">{% trans "تماس" %}</a></li>
+                                        <li><a href="{% url 'courses:list' %}" data-i18n="menu.courses">{% trans "دوره آموزشی" %}</a></li>
                                     </ul>
                                 </nav>
                             </div>

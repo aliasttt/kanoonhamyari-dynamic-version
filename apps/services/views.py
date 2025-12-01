@@ -59,7 +59,34 @@ def advertising_page(request):
 
 def education_page(request):
     """صفحه تحصیلی"""
-    return render(request, 'services/education.html')
+    from .models import University
+    
+    universities = University.objects.filter(is_active=True).order_by('order', '-created_at')
+    
+    context = {
+        'universities': universities,
+    }
+    return render(request, 'services/education.html', context)
+
+
+def university_detail(request, slug):
+    """جزئیات دانشگاه"""
+    from .models import University
+    
+    university = get_object_or_404(University, slug=slug, is_active=True)
+    
+    # دانشگاه‌های مرتبط
+    related_universities = University.objects.filter(
+        is_active=True,
+        university_type=university.university_type
+    ).exclude(id=university.id)[:4]
+    
+    context = {
+        'university': university,
+        'related_universities': related_universities,
+    }
+    
+    return render(request, 'services/university_detail.html', context)
 
 
 def business_page(request):

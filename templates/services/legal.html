@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}حقوقی - کانون همیاری{% endblock %}
+{% block title %}{% trans "حقوقی - کانون همیاری" %}{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -48,8 +48,8 @@
         <div class="legal_hero">
             <div class="hero_overlay"></div>
             <div class="hero_content">
-                <h1 class="hero_title">بخش حقوقی و اقامتی</h1>
-                <p class="hero_subtitle">مشاوره حقوقی، اقامت، اجازه کار، رفع ریجکتی و ثبت رسمی اسناد</p>
+                <h1 class="hero_title">{% trans "بخش حقوقی و اقامتی" %}</h1>
+                <p class="hero_subtitle">{% trans "مشاوره حقوقی، اقامت، اجازه کار، رفع ریجکتی و ثبت رسمی اسناد" %}</p>
             </div>
         </div>
 
@@ -58,8 +58,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section_title text-center mb-80">
-                            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">خدمات حقوقی و اقامتی</h3>
-                            <p class="section_subtitle">ارائه خدمات دقیق و مطابق قوانین روز ترکیه</p>
+                            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">{% trans "خدمات حقوقی و اقامتی" %}</h3>
+                            <p class="section_subtitle">{% trans "ارائه خدمات دقیق و مطابق قوانین روز ترکیه" %}</p>
                         </div>
                     </div>
                 </div>
@@ -67,27 +67,27 @@
         <div class="legal_grid">
             <div class="legal_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
                 <div class="legal_image">
-                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1000&auto=format&fit=crop" alt="مشاوره حقوقی تخصصی">
-                    <div class="legal_badge consultation"><span>مشاوره</span></div>
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'مشاوره حقوقی تخصصی' %}">
+                    <div class="legal_badge consultation"><span>{% trans "مشاوره" %}</span></div>
                 </div>
                 <div class="legal_content">
-                    <h4 class="legal_title">مشاوره حقوقی تخصصی</h4>
-                    <div class="legal_category"><i class="fa fa-gavel"></i><span>مشاوره</span></div>
-                    <p class="legal_description">بررسی وضعیت اقامت، سرمایه‌گذاری، مالی و قراردادها با وکلای مجرب</p>
-                    <a href="{% url 'contact:contact' %}" class="legal_btn">مشاوره</a>
+                    <h4 class="legal_title">{% trans "مشاوره حقوقی تخصصی" %}</h4>
+                    <div class="legal_category"><i class="fa fa-gavel"></i><span>{% trans "مشاوره" %}</span></div>
+                    <p class="legal_description">{% trans "بررسی وضعیت اقامت، سرمایه‌گذاری، مالی و قراردادها با وکلای مجرب" %}</p>
+                    <a href="{% url 'contact:contact' %}" class="legal_btn">{% trans "مشاوره" %}</a>
                 </div>
             </div>
 
             <div class="legal_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
                 <div class="legal_image">
-                    <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?q=80&w=1000&auto=format&fit=crop" alt="اقامت ترکیه">
-                    <div class="legal_badge advocacy"><span>اقامت</span></div>
+                    <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'اقامت ترکیه' %}">
+                    <div class="legal_badge advocacy"><span>{% trans "اقامت" %}</span></div>
                 </div>
                 <div class="legal_content">
-                    <h4 class="legal_title">دریافت اقامت ترکیه</h4>
-                    <div class="legal_category"><i class="fa fa-passport"></i><span>اقامت</span></div>
-                    <p class="legal_description">ثبت و تمدید اقامت توریستی، کاری، خانوادگی و دانشجویی</p>
-                    <a href="{% url 'contact:contact' %}" class="legal_btn">درخواست</a>
+                    <h4 class="legal_title">{% trans "دریافت اقامت ترکیه" %}</h4>
+                    <div class="legal_category"><i class="fa fa-passport"></i><span>{% trans "اقامت" %}</span></div>
+                    <p class="legal_description">{% trans "ثبت و تمدید اقامت توریستی، کاری، خانوادگی و دانشجویی" %}</p>
+                    <a href="{% url 'contact:contact' %}" class="legal_btn">{% trans "درخواست" %}</a>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}وبلاگ{% endblock %}
+{% block title %}{% trans "وبلاگ" %}{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -25,8 +25,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="section_title mb-40">
-                    <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".2s">وبلاگ کانون همیاری</h3>
-                    <p class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">خبرها و مقالات تازه برای جامعه فارسی‌زبانان ترکیه</p>
+                    <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".2s">{% trans "وبلاگ کانون همیاری" %}</h3>
+                    <p class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">{% trans "خبرها و مقالات تازه برای جامعه فارسی‌زبانان ترکیه" %}</p>
                 </div>
             </div>
         </div>
@@ -34,14 +34,14 @@
         <div class="row align-items-center blog-toolbar" style="margin-bottom: 24px;">
             <div class="col-md-8">
                 <form method="get" class="d-flex" style="gap:8px;">
-                    <input type="text" name="search" class="form-control" placeholder="جستجو در عنوان پست..." value="{{ request.GET.search }}">
+                    <input type="text" name="search" class="form-control" placeholder="{% trans 'جستجو در عنوان پست...' %}" value="{{ request.GET.search }}">
                     <select name="category" class="form-control" style="max-width: 240px;">
-                        <option value="">همه دسته‌ها</option>
+                        <option value="">{% trans "همه دسته‌ها" %}</option>
                         {% for c in categories %}
                         <option value="{{ c.slug }}" {% if selected_category == c.slug %}selected{% endif %}>{{ c.name }}</option>
                         {% endfor %}
                     </select>
-                    <button class="boxed-btn3" type="submit">اعمال</button>
+                    <button class="boxed-btn3" type="submit">{% trans "اعمال" %}</button>
                 </form>
             </div>
         </div>
@@ -53,13 +53,13 @@
                     <div class="cover">{% if post.image %}<a href="{{ post.get_absolute_url }}"><img src="{{ post.image.url }}" alt="{{ post.title }}" loading="lazy" decoding="async"></a>{% endif %}</div>
                     <div class="p-3">
                         <div class="meta">
-                            نویسنده: {{ post.author|default:'مدیر سایت' }}
+                            {% trans "نویسنده:" %} {{ post.author|default:'مدیر سایت' }}
                             {% if post.published_at %} • {{ post.published_at|date:"Y/m/d" }}{% endif %}
                             {% if post.category %} • <span style="background:#fff3ec; color:#ff6b35; padding:2px 8px; border-radius:999px; border:1px solid #ffd8c2;">{{ post.category.name }}</span>{% endif %}
                         </div>
                         <h4 class="title" style="margin-bottom:6px;"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
                         <p style="color:#555; margin-bottom:10px;">{{ post.short_description|truncatechars:150 }}</p>
-                        <a href="{{ post.get_absolute_url }}" class="boxed-btn3">ادامه مطلب</a>
+                        <a href="{{ post.get_absolute_url }}" class="boxed-btn3">{% trans "ادامه مطلب" %}</a>
                     </div>
                 </div>
             </div>
@@ -69,13 +69,13 @@
             <div class="col-lg-4 col-md-6">
                 <div class="blog-card">
                     <div class="cover">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=70&auto=format&fit=crop" alt="نمونه مطلب" loading="lazy" decoding="async">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=70&auto=format&fit=crop" alt="{% trans 'نمونه مطلب' %}" loading="lazy" decoding="async">
                     </div>
                     <div class="p-3">
-                        <div class="meta">نویسنده: تحریریه • 1404/01/01</div>
-                        <h4 class="title" style="margin-bottom:6px;">نمونه مطلب وبلاگ</h4>
-                        <p style="color:#555; margin-bottom:10px;">این یک متن نمونه است برای نمایش نمای کلی کارت‌های وبلاگ. بعداً با مطالب واقعی جایگزین می‌شود.</p>
-                        <a href="{% url 'blog:detail' 'sample-'|add:i %}" class="boxed-btn3">ادامه مطلب</a>
+                        <div class="meta">{% trans "نویسنده:" %} {% trans "تحریریه" %} • 1404/01/01</div>
+                        <h4 class="title" style="margin-bottom:6px;">{% trans "نمونه مطلب وبلاگ" %}</h4>
+                        <p style="color:#555; margin-bottom:10px;">{% trans "این یک متن نمونه است برای نمایش نمای کلی کارت‌های وبلاگ. بعداً با مطالب واقعی جایگزین می‌شود." %}</p>
+                        <a href="{% url 'blog:detail' 'sample-'|add:i %}" class="boxed-btn3">{% trans "ادامه مطلب" %}</a>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}ورود{% endblock %}
+{% block title %}{% trans "ورود" %}{% endblock %}
 
 {% block content %}
 <div class="black_bg" style="padding: 80px 0;">
@@ -9,31 +9,31 @@
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 <div class="section_title text-center mb-40">
-                    <h3>ورود به حساب</h3>
+                    <h3>{% trans "ورود به حساب" %}</h3>
                 </div>
                 <div class="card" style="background:#141414; border:1px solid rgba(255,255,255,.08); border-radius:12px;">
                     <div class="card-body" style="padding:24px;">
                         <form method="post" novalidate>
                             {% csrf_token %}
                             <div class="form-group">
-                                <label for="id_username">نام کاربری</label>
+                                <label for="id_username">{% trans "نام کاربری" %}</label>
                                 {{ form.username }}
                             </div>
                             <div class="form-group">
-                                <label for="id_password">رمز عبور</label>
+                                <label for="id_password">{% trans "رمز عبور" %}</label>
                                 {{ form.password }}
                             </div>
                             {% if form.errors %}
                             <div class="alert alert-danger" style="margin-top:12px;">
-                                ورود ناموفق بود. دوباره تلاش کنید.
+                                {% trans "ورود ناموفق بود. دوباره تلاش کنید." %}
                             </div>
                             {% endif %}
                             <div class="text-center" style="margin-top:16px;">
-                                <button type="submit" class="boxed-btn3">ورود</button>
+                                <button type="submit" class="boxed-btn3">{% trans "ورود" %}</button>
                             </div>
                         </form>
                         <div class="text-center" style="margin-top:16px;">
-                            <a href="{% url 'accounts:signup' %}">حساب ندارید؟ عضویت</a>
+                            <a href="{% url 'accounts:signup' %}">{% trans "حساب ندارید؟ عضویت" %}</a>
                         </div>
                     </div>
                 </div>

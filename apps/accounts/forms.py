@@ -1,36 +1,30 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from .models import UserProfile
 
 
-class SignupForm(UserCreationForm):
-    email = forms.EmailField(required=True)
-    phone = forms.CharField(required=False, max_length=20)
-    address = forms.CharField(required=False, max_length=255)
+class CustomUserCreationForm(UserCreationForm):
+    email = forms.EmailField(required=True, label='ایمیل')
+    phone = forms.CharField(max_length=20, required=False, label='تلفن')
+    address = forms.CharField(widget=forms.Textarea(attrs={'rows': 3}), required=False, label='آدرس')
 
     class Meta:
         model = User
-        fields = ("username", "email", "password1", "password2", "phone", "address")
+        fields = ('username', 'email', 'phone', 'address', 'password1', 'password2')
 
-    def save(self, commit=True):
-        user = super().save(commit)
-        if commit:
-            email = self.cleaned_data.get('email')
-            phone = self.cleaned_data.get('phone')
-            address = self.cleaned_data.get('address')
-            if email:
-                user.email = email
-                user.save(update_fields=['email'])
-            UserProfile.objects.create(user=user, phone=phone or '', address=address or '')
-        return user
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs.update({'class': 'form-control', 'placeholder': 'نام کاربری'})
+        self.fields['email'].widget.attrs.update({'class': 'form-control', 'placeholder': 'ایمیل'})
+        self.fields['phone'].widget.attrs.update({'class': 'form-control', 'placeholder': 'تلفن'})
+        self.fields['address'].widget.attrs.update({'class': 'form-control', 'placeholder': 'آدرس'})
+        self.fields['password1'].widget.attrs.update({'class': 'form-control', 'placeholder': 'رمز عبور'})
+        self.fields['password2'].widget.attrs.update({'class': 'form-control', 'placeholder': 'تکرار رمز عبور'})
 
 
-class LoginForm(AuthenticationForm):
-    username = forms.CharField(label='نام کاربری')
-    password = forms.CharField(widget=forms.PasswordInput, label='رمز عبور')
-
-
-
-
+class CustomAuthenticationForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs.update({'class': 'form-control', 'placeholder': 'نام کاربری'})
+        self.fields['password'].widget.attrs.update({'class': 'form-control', 'placeholder': 'رمز عبور'})
 

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}خدمات - کانون همیاری{% endblock %}
+{% block title %}{% trans "خدمات - کانون همیاری" %}{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -46,8 +46,8 @@
         <div class="services_hero">
             <div class="hero_overlay"></div>
             <div class="hero_content">
-                <h1 class="hero_title" data-translate="ourServices">خدمات ما</h1>
-                <p class="hero_subtitle">ارائه خدمات جامع و حرفه‌ای برای ایرانیان مقیم ترکیه</p>
+                <h1 class="hero_title">{% trans "خدمات ما" %}</h1>
+                <p class="hero_subtitle">{% trans "ارائه خدمات جامع و حرفه‌ای برای ایرانیان مقیم ترکیه" %}</p>
             </div>
         </div>
 
@@ -57,8 +57,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section_title text-center mb-80">
-                            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">خدمات کانون همیاری</h3>
-                            <p class="section_subtitle">انتخاب از بین دسته‌بندی‌های مختلف</p>
+                            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">{% trans "خدمات کانون همیاری" %}</h3>
+                            <p class="section_subtitle">{% trans "انتخاب از بین دسته‌بندی‌های مختلف" %}</p>
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                 <!-- Category Filter -->
                 {% if categories %}
                 <div class="category_filter">
-                    <a href="{% url 'services:list' %}" class="category_btn {% if not selected_category %}active{% endif %}">همه</a>
+                    <a href="{% url 'services:list' %}" class="category_btn {% if not selected_category %}active{% endif %}">{% trans "همه" %}</a>
                     {% for category in categories %}
                     <a href="{% url 'services:list' %}?category={{ category.slug }}" class="category_btn {% if selected_category == category.slug %}active{% endif %}">{{ category.name }}</a>
                     {% endfor %}
@@ -83,14 +83,14 @@
                         <div class="service_content">
                             <h4 class="service_title">{{ service.title }}</h4>
                             <p class="service_description">{{ service.short_description|truncatewords:25 }}</p>
-                            <a href="{% url 'services:detail' service.slug %}" class="service_btn">ادامه مطلب</a>
+                            <a href="{% url 'services:detail' service.slug %}" class="service_btn">{% trans "ادامه مطلب" %}</a>
                         </div>
                     </div>
                     {% empty %}
                     <div class="col-12 text-center">
-                        <p class="text-white">هیچ خدمتی در حال حاضر موجود نیست.</p>
+                        <p class="text-white">{% trans "هیچ خدمتی در حال حاضر موجود نیست." %}</p>
                         {% if selected_category %}
-                        <a href="{% url 'services:list' %}" class="service_btn mt-3">مشاهده همه خدمات</a>
+                        <a href="{% url 'services:list' %}" class="service_btn mt-3">{% trans "مشاهده همه خدمات" %}</a>
                         {% endif %}
                     </div>
                     {% endfor %}

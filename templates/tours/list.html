@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}تورها - کانون همیاری{% endblock %}
+{% block title %}{% trans "تورها - کانون همیاری" %}{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -51,11 +51,11 @@
         <div class="tours_hero">
             <div class="hero_overlay"></div>
             <div class="hero_content">
-                <h1 class="hero_title" data-translate="toursHero">بخش گردشگری و تفریحی</h1>
-                <p class="hero_subtitle" data-translate="toursHeroSub">ما با تیمی از لیدرهای فارسی‌زبان و متخصصان گردشگری، تجربه‌ای امن و دل‌انگیز از سفرهای داخلی ترکیه فراهم می‌کنیم.</p>
+                <h1 class="hero_title">{% trans "بخش گردشگری و تفریحی" %}</h1>
+                <p class="hero_subtitle">{% trans "ما با تیمی از لیدرهای فارسی‌زبان و متخصصان گردشگری، تجربه‌ای امن و دل‌انگیز از سفرهای داخلی ترکیه فراهم می‌کنیم." %}</p>
                 <div class="hero_search">
                     <div class="search_box">
-                        <input type="text" placeholder="جستجو در تورها..." class="search_input">
+                        <input type="text" placeholder="{% trans 'جستجو در تورها...' %}" class="search_input">
                         <button class="search_btn"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
@@ -67,8 +67,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section_title text-center mb-80">
-                            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s" data-translate="ourTours">زیرمجموعه خدمات تفریحی</h3>
-                            <p class="section_subtitle" data-translate="toursSubtitle">خدمات متنوع گردشگری و تفریحی برای تمام سلیقه‌ها</p>
+                            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">{% trans "زیرمجموعه خدمات تفریحی" %}</h3>
+                            <p class="section_subtitle">{% trans "خدمات متنوع گردشگری و تفریحی برای تمام سلیقه‌ها" %}</p>
                         </div>
                     </div>
                 </div>
@@ -76,8 +76,8 @@
                     <!-- Nature Tour -->
                     <div class="tour_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
                         <div class="tour_image">
-                            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop" alt="تور جنگل و طبیعت‌گردی">
-                            <div class="tour_badge nature"><span>طبیعت</span></div>
+                            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'تور جنگل و طبیعت‌گردی' %}">
+                            <div class="tour_badge nature"><span>{% trans "طبیعت" %}</span></div>
                             <div class="tour_overlay">
                                 <div class="overlay_actions">
                                     <button class="action_btn"><i class="fa fa-heart"></i></button>
@@ -88,18 +88,18 @@
                         </div>
                         <div class="tour_content">
                             <div class="tour_header">
-                                <h4 class="tour_title">تور جنگل و طبیعت‌گردی</h4>
-                                <div class="tour_location"><i class="fa fa-map-marker"></i><span>مناطق بکر ترکیه</span></div>
+                                <h4 class="tour_title">{% trans "تور جنگل و طبیعت‌گردی" %}</h4>
+                                <div class="tour_location"><i class="fa fa-map-marker"></i><span>{% trans "مناطق بکر ترکیه" %}</span></div>
                             </div>
-                            <p class="tour_description">برنامه‌های یک‌روزه و چندروزه در مناطق بکر ترکیه با راهنمای فارسی‌زبان</p>
+                            <p class="tour_description">{% trans "برنامه‌های یک‌روزه و چندروزه در مناطق بکر ترکیه با راهنمای فارسی‌زبان" %}</p>
                             <div class="tour_features">
-                                <div class="feature_item"><i class="fa fa-calendar"></i><span>یک‌روزه و چندروزه</span></div>
-                                <div class="feature_item"><i class="fa fa-leaf"></i><span>طبیعت بکر</span></div>
-                                <div class="feature_item"><i class="fa fa-users"></i><span>گروه‌های کوچک</span></div>
+                                <div class="feature_item"><i class="fa fa-calendar"></i><span>{% trans "یک‌روزه و چندروزه" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-leaf"></i><span>{% trans "طبیعت بکر" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-users"></i><span>{% trans "گروه‌های کوچک" %}</span></div>
                             </div>
                             <div class="tour_footer">
-                                <div class="tour_price"><span class="price_amount">تماس بگیرید</span></div>
-                                <a href="{% url 'contact:contact' %}" class="tour_btn">اطلاعات بیشتر</a>
+                                <div class="tour_price"><span class="price_amount">{% trans "تماس بگیرید" %}</span></div>
+                                <a href="{% url 'contact:contact' %}" class="tour_btn">{% trans "اطلاعات بیشتر" %}</a>
                             </div>
                         </div>
                     </div>
@@ -107,8 +107,8 @@
                     <!-- Istanbul City Tour -->
                     <div class="tour_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
                         <div class="tour_image">
-                            <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000&auto=format&fit=crop" alt="تور شهری استانبول">
-                            <div class="tour_badge cultural"><span>شهری</span></div>
+                            <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'تور شهری استانبول' %}">
+                            <div class="tour_badge cultural"><span>{% trans "شهری" %}</span></div>
                             <div class="tour_overlay">
                                 <div class="overlay_actions">
                                     <button class="action_btn"><i class="fa fa-heart"></i></button>
@@ -119,18 +119,18 @@
                         </div>
                         <div class="tour_content">
                             <div class="tour_header">
-                                <h4 class="tour_title">تور شهری استانبول</h4>
-                                <div class="tour_location"><i class="fa fa-map-marker"></i><span>استانبول</span></div>
+                                <h4 class="tour_title">{% trans "تور شهری استانبول" %}</h4>
+                                <div class="tour_location"><i class="fa fa-map-marker"></i><span>{% trans "استانبول" %}</span></div>
                             </div>
-                            <p class="tour_description">بازدید از جاذبه‌ها، مراکز خرید و رستوران‌های معروف استانبول</p>
+                            <p class="tour_description">{% trans "بازدید از جاذبه‌ها، مراکز خرید و رستوران‌های معروف استانبول" %}</p>
                             <div class="tour_features">
-                                <div class="feature_item"><i class="fa fa-building"></i><span>جاذبه‌های تاریخی</span></div>
-                                <div class="feature_item"><i class="fa fa-shopping-bag"></i><span>مراکز خرید</span></div>
-                                <div class="feature_item"><i class="fa fa-cutlery"></i><span>رستوران‌های معروف</span></div>
+                                <div class="feature_item"><i class="fa fa-building"></i><span>{% trans "جاذبه‌های تاریخی" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-shopping-bag"></i><span>{% trans "مراکز خرید" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-cutlery"></i><span>{% trans "رستوران‌های معروف" %}</span></div>
                             </div>
                             <div class="tour_footer">
-                                <div class="tour_price"><span class="price_amount">تماس بگیرید</span></div>
-                                <a href="{% url 'contact:contact' %}" class="tour_btn">اطلاعات بیشتر</a>
+                                <div class="tour_price"><span class="price_amount">{% trans "تماس بگیرید" %}</span></div>
+                                <a href="{% url 'contact:contact' %}" class="tour_btn">{% trans "اطلاعات بیشتر" %}</a>
                             </div>
                         </div>
                     </div>
@@ -138,8 +138,8 @@
                     <!-- Family Programs -->
                     <div class="tour_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
                         <div class="tour_image">
-                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1000&auto=format&fit=crop" alt="برنامه‌های خانوادگی و گروهی">
-                            <div class="tour_badge adventure"><span>خانوادگی</span></div>
+                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'برنامه‌های خانوادگی و گروهی' %}">
+                            <div class="tour_badge adventure"><span>{% trans "خانوادگی" %}</span></div>
                             <div class="tour_overlay">
                                 <div class="overlay_actions">
                                     <button class="action_btn"><i class="fa fa-heart"></i></button>
@@ -150,25 +150,25 @@
                         </div>
                         <div class="tour_content">
                             <div class="tour_header">
-                                <h4 class="tour_title">برنامه‌های خانوادگی و گروهی</h4>
-                                <div class="tour_location"><i class="fa fa-map-marker"></i><span>ترکیه</span></div>
+                                <h4 class="tour_title">{% trans "برنامه‌های خانوادگی و گروهی" %}</h4>
+                                <div class="tour_location"><i class="fa fa-map-marker"></i><span>{% trans "ترکیه" %}</span></div>
                             </div>
-                            <p class="tour_description">پیک‌نیک، دورهمی، تفریحات آبی و کوه‌نوردی برای خانواده‌ها و گروه‌ها</p>
+                            <p class="tour_description">{% trans "پیک‌نیک، دورهمی، تفریحات آبی و کوه‌نوردی برای خانواده‌ها و گروه‌ها" %}</p>
                             <div class="tour_features">
-                                <div class="feature_item"><i class="fa fa-users"></i><span>خانوادگی</span></div>
-                                <div class="feature_item"><i class="fa fa-tint"></i><span>تفریحات آبی</span></div>
-                                <div class="feature_item"><i class="fa fa-mountain"></i><span>کوه‌نوردی</span></div>
+                                <div class="feature_item"><i class="fa fa-users"></i><span>{% trans "خانوادگی" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-tint"></i><span>{% trans "تفریحات آبی" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-mountain"></i><span>{% trans "کوه‌نوردی" %}</span></div>
                             </div>
                             <div class="tour_footer">
-                                <div class="tour_price"><span class="price_amount">تماس بگیرید</span></div>
-                                <a href="{% url 'contact:contact' %}" class="tour_btn">اطلاعات بیشتر</a>
+                                <div class="tour_price"><span class="price_amount">{% trans "تماس بگیرید" %}</span></div>
+                                <a href="{% url 'contact:contact' %}" class="tour_btn">{% trans "اطلاعات بیشتر" %}</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="text-center mt-80">
-                    <a href="#" class="load_more_btn" data-translate="loadMore">مشاهده تورهای بیشتر</a>
+                    <a href="#" class="load_more_btn">{% trans "مشاهده تورهای بیشتر" %}</a>
                 </div>
             </div>
         </div>

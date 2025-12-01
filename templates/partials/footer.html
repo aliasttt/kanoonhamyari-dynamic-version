@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 <!-- footer_start  -->
 <footer class="footer kh-footer">
     <div class="kh-footer__top">
@@ -7,9 +7,9 @@
                 <div class="col-xl-4 col-md-6">
                     <div class="kh-footer__about">
                         <a href="{% url 'core:index' %}" class="kh-footer__logo">
-                            <img src="{% if site_settings and site_settings.site_logo %}{{ site_settings.site_logo.url }}{% else %}{% static 'img/logo.png' %}{% endif %}" alt="کانون همیاری">
+                            <img src="{% if site_settings and site_settings.site_logo %}{{ site_settings.site_logo.url }}{% else %}{% static 'img/logo.png' %}{% endif %}" alt="{% trans 'کانون همیاری' %}">
                         </a>
-                        <p>{% if site_settings %}{{ site_settings.site_description }}{% else %}کانون همیاری ارائه‌دهنده خدمات جامع در زمینه رویدادها، تورها، املاک، تبلیغات، تحصیلی و امور حقوقی{% endif %}</p>
+                        <p>{% if site_settings %}{{ site_settings.site_description }}{% else %}{% trans "کانون همیاری ارائه‌دهنده خدمات جامع در زمینه رویدادها، تورها، املاک، تبلیغات، تحصیلی و امور حقوقی" %}{% endif %}</p>
                         {% if site_settings %}
                         <div class="kh-footer__social">
                             {% if site_settings.instagram %}
@@ -27,28 +27,28 @@
                 </div>
                 <div class="col-xl-3 col-sm-6">
                     <div class="kh-footer__widget">
-                        <h4>لینک‌های سریع</h4>
+                        <h4>{% trans "لینک‌های سریع" %}</h4>
                         <ul class="kh-list kh-list--grid">
-                            <li><a href="{% url 'core:index' %}"><i class="fa fa-angle-left"></i> خانه</a></li>
-                            <li><a href="{% url 'events:list' %}"><i class="fa fa-angle-left"></i> رویدادها</a></li>
-                            <li><a href="{% url 'tours:list' %}"><i class="fa fa-angle-left"></i> تورها</a></li>
-                            <li><a href="{% url 'real_estate:list' %}"><i class="fa fa-angle-left"></i> املاک</a></li>
+                            <li><a href="{% url 'core:index' %}"><i class="fa fa-angle-left"></i> {% trans "خانه" %}</a></li>
+                            <li><a href="{% url 'events:list' %}"><i class="fa fa-angle-left"></i> {% trans "رویدادها" %}</a></li>
+                            <li><a href="{% url 'tours:list' %}"><i class="fa fa-angle-left"></i> {% trans "تورها" %}</a></li>
+                            <li><a href="{% url 'real_estate:list' %}"><i class="fa fa-angle-left"></i> {% trans "املاک" %}</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-2 col-sm-6">
                     <div class="kh-footer__widget">
-                        <h4>خدمات</h4>
+                        <h4>{% trans "خدمات" %}</h4>
                         <ul class="kh-list">
-                            <li><a href="{% url 'services:list' %}"><i class="fa fa-bullhorn"></i> خدمات</a></li>
-                            <li><a href="{% url 'blog:list' %}"><i class="fa fa-graduation-cap"></i> وبلاگ</a></li>
-                            <li><a href="{% url 'contact:contact' %}"><i class="fa fa-phone"></i> تماس</a></li>
+                            <li><a href="{% url 'services:list' %}"><i class="fa fa-bullhorn"></i> {% trans "خدمات" %}</a></li>
+                            <li><a href="{% url 'blog:list' %}"><i class="fa fa-graduation-cap"></i> {% trans "وبلاگ" %}</a></li>
+                            <li><a href="{% url 'contact:contact' %}"><i class="fa fa-phone"></i> {% trans "تماس" %}</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6">
                     <div class="kh-footer__widget">
-                        <h4>اطلاعات تماس</h4>
+                        <h4>{% trans "اطلاعات تماس" %}</h4>
                         <ul class="kh-contact">
                             {% if site_settings %}
                             <li><i class="fa fa-map-marker"></i><span>{{ site_settings.address }}</span></li>
@@ -70,7 +70,8 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <p>تمام حقوق محفوظ است © {% now "Y" %} کانون همیاری</p>
+                    {% now "Y" as current_year %}
+                    <p>{% blocktrans with year=current_year %}تمام حقوق محفوظ است © {{ year }} کانون همیاری{% endblocktrans %}</p>
                 </div>
             </div>
         </div>

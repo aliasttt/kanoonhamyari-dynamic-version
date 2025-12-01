@@ -1,0 +1,2049 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Kanoon Hamyari\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-27 11:29+0300\n"
+"PO-Revision-Date: 2025-11-27 11:45+0300\n"
+"Last-Translator: Kanoon Team <info@kanoon.com>\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# Navigation / Authentication
+msgid "خانه"
+msgstr "Home"
+
+msgid "رویدادها"
+msgstr "Events"
+
+msgid "تورها"
+msgstr "Tours"
+
+msgid "املاک"
+msgstr "Real Estate"
+
+msgid "تبلیغات"
+msgstr "Advertising"
+
+msgid "دانشجویی"
+msgstr "Student"
+
+msgid "بیزینس"
+msgstr "Business"
+
+msgid "دکوراسیون"
+msgstr "Decoration"
+
+msgid "حقوقی"
+msgstr "Legal"
+
+msgid "وبلاگ"
+msgstr "Blog"
+
+msgid "درباره ما"
+msgstr "About Us"
+
+msgid "تماس"
+msgstr "Contact"
+
+msgid "دوره آموزشی"
+msgstr "Courses"
+
+msgid "ورود"
+msgstr "Login"
+
+msgid "عضویت"
+msgstr "Sign Up"
+
+msgid "خروج"
+msgstr "Logout"
+
+msgid "پنل کاربر"
+msgstr "Dashboard"
+
+# Home hero
+msgid "کانون همیاری فارسی‌زبانان ترکیه"
+msgstr "Kanoon Hamyari of Persian Speakers in Turkey"
+
+msgid "مجموعه‌ای اجتماعی، خدماتی و حمایتی برای ایرانیان و فارسی‌زبانان مقیم ترکیه"
+msgstr "A social, supportive and professional hub for Persian speakers in Turkey"
+
+# Business page
+msgid "بخش بیزینس و رشد کسب‌وکار"
+msgstr "Business Growth Department"
+
+msgid "مشاوره ثبت شرکت، مالیات، مجوزها، استراتژی بازار و همکاری‌های بین‌المللی"
+msgstr "Consulting for company registration, tax, licenses, market strategy and international partnerships"
+
+msgid "زیرمجموعه خدمات بیزینسی"
+msgstr "Business service categories"
+
+msgid "خدمات کامل مشاوره و پشتیبانی کسب‌وکار در ترکیه"
+msgstr "Complete business consulting and support in Turkey"
+
+msgid "مشاوره ثبت شرکت"
+msgstr "Company registration consulting"
+
+msgid "ثبت رسمی"
+msgstr "Official registration"
+
+msgid "انتخاب نوع شرکت و انجام کامل مراحل ثبت رسمی"
+msgstr "Selecting the company type and completing all registration steps"
+
+msgid "مشاوره مالیاتی و حسابداری"
+msgstr "Tax and accounting consulting"
+
+msgid "مالیاتی"
+msgstr "Tax"
+
+msgid "گزارش‌های مالی شفاف و همکاری با حسابداران رسمی"
+msgstr "Transparent financial reports and cooperation with certified accountants"
+
+msgid "اخذ مجوزهای تجاری"
+msgstr "Obtaining commercial licenses"
+
+msgid "مجوز فعالیت"
+msgstr "Activity license"
+
+msgid "دریافت مجوز برای رستوران، فروشگاه، کلینیک و…"
+msgstr "Licensing for restaurants, stores, clinics and more"
+
+msgid "مشاوره"
+msgstr "Consult"
+
+msgid "درخواست"
+msgstr "Request"
+
+# Advertising page
+msgid "🎨 بخش تبلیغات، چاپ و برندینگ"
+msgstr "🎨 Advertising, Printing & Branding"
+
+msgid "ما تمامی مراحل از طراحی تا اجرا را به‌صورت حرفه‌ای و خلاقانه انجام می‌دهیم."
+msgstr "We handle every stage from design to execution professionally and creatively."
+
+msgid "طراحی هویت بصری برند"
+msgstr "Brand visual identity design"
+
+msgid "طراحی و چاپ"
+msgstr "Design & Printing"
+
+msgid "مدیریت شبکه‌های اجتماعی"
+msgstr "Social media management"
+
+msgid "تبلیغات هدفمند"
+msgstr "Targeted advertising"
+
+msgid "عکاسی و فیلم‌برداری"
+msgstr "Photography & Videography"
+
+msgid "طراحی وب‌سایت و فروشگاه آنلاین"
+msgstr "Website & online shop design"
+
+# About page
+msgid "درباره ما - کانون همیاری"
+msgstr "About Kanoon Hamyari"
+
+msgid "درباره کانون همیاری فارسی‌زبانان ترکیه"
+msgstr "About Kanoon Hamyari of Persian Speakers in Turkey"
+
+msgid "تیمی حرفه‌ای از کارشناسان، مشاوران و فعالان اجتماعی"
+msgstr "A professional team of experts, consultants and social activists"
+
+msgid "⚖️ بخش حقوقی و اقامتی"
+msgstr "⚖️ Legal & Residency Department"
+
+msgid "🛠️ دکوراسیون داخلی و بازسازی"
+msgstr "🛠️ Interior Design & Renovation"
+
+msgid "🌲 تورها و برنامه‌های تفریحی"
+msgstr "🌲 Tours & Recreational Programs"
+
+msgid "🎉 رویدادها و جشن‌ها"
+msgstr "🎉 Events & Celebrations"
+
+# Blog / misc
+msgid "وبلاگ"
+msgstr "Blog"
+
+msgid "تماس"
+msgstr "Contact"
+
+msgid "اطلاعات تماس"
+msgstr "Contact information"
+
+msgid "سوالات یا درخواست‌های خود را برای ما ارسال کنید."
+msgstr "Send us your questions or requests."
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-27 11:29+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\templates\about\about.html:4
+msgid "درباره ما - کانون همیاری"
+msgstr ""
+
+#: .\templates\about\about.html:79
+msgid "درباره کانون همیاری فارسی‌زبانان ترکیه"
+msgstr ""
+
+#: .\templates\about\about.html:80
+msgid "تیمی حرفه‌ای از کارشناسان، مشاوران و فعالان اجتماعی"
+msgstr ""
+
+#: .\templates\about\about.html:81
+msgid ""
+"کانون همیاری فارسی‌زبانان ترکیه با تکیه بر تیمی حرفه‌ای از کارشناسان، مشاوران "
+"و فعالان اجتماعی شکل گرفته است تا پلی باشد میان جامعه فارسی‌زبان و فرصت‌های "
+"زندگی، تحصیل و کار در ترکیه. ما خدمات خود را بر پایه سه اصل ارائه می‌دهیم: "
+"اعتماد، تخصص و ارتباط مؤثر."
+msgstr ""
+
+#: .\templates\about\about.html:90 .\templates\real_estate\list.html:64
+msgid "🏠 بخش املاک و سرمایه‌گذاری"
+msgstr ""
+
+#: .\templates\about\about.html:91
+msgid "تیم متخصص املاک با تجربه در بازار ترکیه"
+msgstr ""
+
+#: .\templates\about\about.html:95 .\templates\real_estate\list.html:80
+msgid "خدمات املاک و سرمایه‌گذاری"
+msgstr ""
+
+#: .\templates\about\about.html:96
+msgid ""
+"تیم املاک کانون همیاری متشکل از مشاوران رسمی، مسلط به زبان فارسی و ترکی، و "
+"آشنا به قوانین خرید و فروش ملک در ترکیه است."
+msgstr ""
+
+#: .\templates\about\about.html:98
+msgid "✅ همکاری با شرکت‌های معتبر ساختمانی"
+msgstr ""
+
+#: .\templates\about\about.html:99
+msgid "✅ تیم حقوقی همراه برای بررسی قراردادها"
+msgstr ""
+
+#: .\templates\about\about.html:100
+msgid "✅ مشاوره شخصی‌سازی‌شده برای هر پرونده"
+msgstr ""
+
+#: .\templates\about\about.html:104
+msgid "املاک و سرمایه‌گذاری"
+msgstr ""
+
+#: .\templates\about\about.html:114
+msgid "⚖️ بخش حقوقی و اقامتی"
+msgstr ""
+
+#: .\templates\about\about.html:115
+msgid "تیم حقوقی متخصص با تجربه در قوانین مهاجرت ترکیه"
+msgstr ""
+
+#: .\templates\about\about.html:119 .\templates\about\about.html:128
+#: .\templates\services\legal.html:61
+msgid "خدمات حقوقی و اقامتی"
+msgstr ""
+
+#: .\templates\about\about.html:120
+msgid ""
+"خدمات ثبت و تمدید اقامت، اجازه کار، اعتراض به ریجکتی، ترجمه رسمی و ثبت اسناد."
+msgstr ""
+
+#: .\templates\about\about.html:122
+msgid "✅ همکاری با وکلای ثبت‌شده"
+msgstr ""
+
+#: .\templates\about\about.html:123
+msgid "✅ پشتیبانی کامل فارسی و ترکی"
+msgstr ""
+
+#: .\templates\about\about.html:124
+msgid "✅ مشاوره حضوری و آنلاین"
+msgstr ""
+
+#: .\templates\about\about.html:138
+msgid "🛠️ دکوراسیون داخلی و بازسازی"
+msgstr ""
+
+#: .\templates\about\about.html:139
+msgid "تیم متخصص طراحی و اجرای پروژه‌های ساختمانی"
+msgstr ""
+
+#: .\templates\about\about.html:143
+msgid "خدمات دکوراسیون داخلی و بازسازی"
+msgstr ""
+
+#: .\templates\about\about.html:144
+msgid "بازطراحی فضاهای مسکونی، اداری و تجاری با طراحی سه‌بعدی و نظارت فنی."
+msgstr ""
+
+#: .\templates\about\about.html:146
+msgid "✅ طراحی سه‌بعدی قبل از اجرا"
+msgstr ""
+
+#: .\templates\about\about.html:147
+msgid "✅ زمان‌بندی دقیق پروژه"
+msgstr ""
+
+#: .\templates\about\about.html:148
+msgid "✅ ضمانت کیفیت"
+msgstr ""
+
+#: .\templates\about\about.html:152
+msgid "دکوراسیون داخلی و بازسازی"
+msgstr ""
+
+#: .\templates\about\about.html:162
+msgid "🌲 تورها و برنامه‌های تفریحی"
+msgstr ""
+
+#: .\templates\about\about.html:163
+msgid "تورهای متنوع شهری و طبیعت‌گردی در سراسر ترکیه"
+msgstr ""
+
+#: .\templates\about\about.html:167
+msgid "تورهای تفریحی و طبیعت‌گردی"
+msgstr ""
+
+#: .\templates\about\about.html:168
+msgid ""
+"از تورهای جنگل و دریا گرفته تا بازدید از شهرهای تاریخی، همه با برنامه‌ریزی "
+"دقیق و لیدر فارسی‌زبان."
+msgstr ""
+
+#: .\templates\about\about.html:171
+msgid "تورها و برنامه‌های تفریحی"
+msgstr ""
+
+#: .\templates\about\about.html:181
+msgid "🎉 رویدادها و جشن‌ها"
+msgstr ""
+
+#: .\templates\about\about.html:182
+msgid "زنده نگه داشتن فرهنگ و حس ایرانی در ترکیه"
+msgstr ""
+
+#: .\templates\about\about.html:186
+msgid "رویدادها و جشن‌های فرهنگی"
+msgstr ""
+
+#: .\templates\about\about.html:187
+msgid ""
+"برگزاری جشن‌های مناسبتی، گردهمایی‌ها و رویدادهای فرهنگی با طراحی و اجرای کامل."
+msgstr ""
+
+#: .\templates\about\about.html:190
+msgid "رویدادها و جشن‌ها"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:4 .\templates\partials\header.html:43
+msgid "پنل کاربر"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:30
+msgid "سلام،"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:31
+#: .\templates\accounts\dashboard.html:57
+msgid "ایمیل:"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:34
+msgid "دوره"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:35
+#: .\templates\courses\certificate.html:4
+msgid "گواهینامه"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:42
+msgid "منو"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:43
+msgid "داشبورد"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:44 .\templates\courses\list.html:4
+msgid "دوره‌ها"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:45 .\templates\blog\list.html:4
+#: .\templates\partials\footer.html:44 .\templates\partials\header.html:65
+msgid "وبلاگ"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:46 .\templates\partials\header.html:44
+msgid "خروج"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:53
+msgid "اطلاعات کاربر"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:56
+msgid "نام کاربری:"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:61
+msgid "تلفن:"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:62
+msgid "آدرس:"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:72
+msgid "دوره‌های من"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:78
+msgid "قبول"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:78
+msgid "ادامه"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:83
+msgid "هنوز در دوره‌ای ثبت‌نام نکرده‌اید."
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:91
+msgid "مدارک و گواهینامه‌ها"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:97
+msgid "کد:"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:98
+msgid "مشاهده"
+msgstr ""
+
+#: .\templates\accounts\dashboard.html:103
+msgid "در حال حاضر مدرکی ثبت نشده است."
+msgstr ""
+
+#: .\templates\accounts\login.html:4 .\templates\accounts\login.html:32
+#: .\templates\partials\header.html:46
+msgid "ورود"
+msgstr ""
+
+#: .\templates\accounts\login.html:12
+msgid "ورود به حساب"
+msgstr ""
+
+#: .\templates\accounts\login.html:19 .\templates\accounts\signup.html:20
+msgid "نام کاربری"
+msgstr ""
+
+#: .\templates\accounts\login.html:23 .\templates\accounts\signup.html:36
+msgid "رمز عبور"
+msgstr ""
+
+#: .\templates\accounts\login.html:28
+msgid "ورود ناموفق بود. دوباره تلاش کنید."
+msgstr ""
+
+#: .\templates\accounts\login.html:36
+msgid "حساب ندارید؟ عضویت"
+msgstr ""
+
+#: .\templates\accounts\signup.html:4 .\templates\contact\contact.html:181
+#: .\templates\core\index.html:133 .\templates\partials\header.html:47
+msgid "عضویت"
+msgstr ""
+
+#: .\templates\accounts\signup.html:12
+msgid "عضویت در کانون"
+msgstr ""
+
+#: .\templates\accounts\signup.html:13
+msgid "فرم زیر را تکمیل کنید تا حساب کاربری شما ایجاد شود."
+msgstr ""
+
+#: .\templates\accounts\signup.html:24 .\templates\contact\contact.html:148
+msgid "ایمیل"
+msgstr ""
+
+#: .\templates\accounts\signup.html:28 .\templates\core\index.html:272
+msgid "تلفن"
+msgstr ""
+
+#: .\templates\accounts\signup.html:32
+msgid "آدرس"
+msgstr ""
+
+#: .\templates\accounts\signup.html:40
+msgid "تکرار رمز عبور"
+msgstr ""
+
+#: .\templates\accounts\signup.html:45
+msgid "لطفاً فیلدهای اجباری را بررسی کنید."
+msgstr ""
+
+#: .\templates\accounts\signup.html:49
+msgid "ایجاد حساب"
+msgstr ""
+
+#: .\templates\accounts\signup.html:53
+msgid "حساب دارید؟ ورود"
+msgstr ""
+
+#: .\templates\base.html:8 .\templates\core\index.html:130
+msgid "کانون همیاری فارسی‌زبانان ترکیه"
+msgstr ""
+
+#: .\templates\base.html:9
+msgid "کانون همیاری فارسی‌زبانان ترکیه - ارائه خدمات جامع ایرانیان در ترکیه"
+msgstr ""
+
+#: .\templates\blog\detail.html:28 .\templates\blog\list.html:56
+#: .\templates\blog\list.html:76 .\templates\blog\sample_detail.html:23
+msgid "نویسنده:"
+msgstr ""
+
+#: .\templates\blog\detail.html:30 .\templates\blog\sample_detail.html:24
+msgid "بازدید:"
+msgstr ""
+
+#: .\templates\blog\detail.html:47
+msgid "مطالب مرتبط"
+msgstr ""
+
+#: .\templates\blog\detail.html:61 .\templates\blog\list.html:62
+#: .\templates\blog\list.html:79 .\templates\core\index.html:239
+#: .\templates\core\index.html:240 .\templates\core\index.html:241
+#: .\templates\core\index.html:242 .\templates\core\index.html:243
+#: .\templates\core\index.html:244 .\templates\services\list.html:86
+msgid "ادامه مطلب"
+msgstr ""
+
+#: .\templates\blog\detail.html:72
+msgid "نظرات"
+msgstr ""
+
+#: .\templates\blog\detail.html:82
+msgid "نظری ثبت نشده است."
+msgstr ""
+
+#: .\templates\blog\detail.html:84
+msgid "افزودن نظر"
+msgstr ""
+
+#: .\templates\blog\detail.html:88
+msgid "نام"
+msgstr ""
+
+#: .\templates\blog\detail.html:92
+msgid "ایمیل (اختیاری)"
+msgstr ""
+
+#: .\templates\blog\detail.html:96
+msgid "متن نظر"
+msgstr ""
+
+#: .\templates\blog\detail.html:99
+msgid "ارسال نظر"
+msgstr ""
+
+#: .\templates\blog\list.html:28
+msgid "وبلاگ کانون همیاری"
+msgstr ""
+
+#: .\templates\blog\list.html:29
+msgid "خبرها و مقالات تازه برای جامعه فارسی‌زبانان ترکیه"
+msgstr ""
+
+#: .\templates\blog\list.html:37
+msgid "جستجو در عنوان پست..."
+msgstr ""
+
+#: .\templates\blog\list.html:39
+msgid "همه دسته‌ها"
+msgstr ""
+
+#: .\templates\blog\list.html:44
+msgid "اعمال"
+msgstr ""
+
+#: .\templates\blog\list.html:73
+msgid "نمونه مطلب"
+msgstr ""
+
+#: .\templates\blog\list.html:76
+msgid "تحریریه"
+msgstr ""
+
+#: .\templates\blog\list.html:77
+msgid "نمونه مطلب وبلاگ"
+msgstr ""
+
+#: .\templates\blog\list.html:78
+msgid ""
+"این یک متن نمونه است برای نمایش نمای کلی کارت‌های وبلاگ. بعداً با مطالب واقعی "
+"جایگزین می‌شود."
+msgstr ""
+
+#: .\templates\contact\contact.html:4
+msgid "تماس - کانون همیاری"
+msgstr ""
+
+#: .\templates\contact\contact.html:97 .\templates\core\index.html:134
+#: .\templates\core\index.html:269
+msgid "تماس با ما"
+msgstr ""
+
+#: .\templates\contact\contact.html:98
+msgid "آماده پاسخگویی به شما هستیم"
+msgstr ""
+
+#: .\templates\contact\contact.html:99
+msgid ""
+"تیم کانون همیاری آماده پاسخگویی به تمام سوالات شماست. از طریق فرم تماس، "
+"شبکه‌های اجتماعی یا تماس مستقیم با ما در ارتباط باشید."
+msgstr ""
+
+#: .\templates\contact\contact.html:108 .\templates\contact\contact.html:127
+msgid "ارسال پیام"
+msgstr ""
+
+#: .\templates\contact\contact.html:109
+msgid "پیام خود را برای ما ارسال کنید و در کمترین زمان پاسخ دریافت کنید"
+msgstr ""
+
+#: .\templates\contact\contact.html:116 .\templates\courses\detail.html:52
+msgid "نام و نام خانوادگی"
+msgstr ""
+
+#: .\templates\contact\contact.html:119
+msgid "آدرس ایمیل"
+msgstr ""
+
+#: .\templates\contact\contact.html:122
+msgid "موضوع پیام"
+msgstr ""
+
+#: .\templates\contact\contact.html:125
+msgid "متن پیام خود را بنویسید..."
+msgstr ""
+
+#: .\templates\contact\contact.html:134
+msgid "آدرس دفتر مرکزی"
+msgstr ""
+
+#: .\templates\contact\contact.html:135 .\templates\core\index.html:271
+#: .\templates\core\index.html:281
+msgid "ترکیه، استانبول، بیلیکدوزو، مرکز خرید بیلیسیوم، طبقه ۴"
+msgstr ""
+
+#: .\templates\contact\contact.html:141 .\templates\courses\detail.html:56
+msgid "شماره تماس"
+msgstr ""
+
+#: .\templates\contact\contact.html:163
+msgid "نقشه گوگل کانون همیاری"
+msgstr ""
+
+#: .\templates\contact\contact.html:173
+msgid "شبکه‌های اجتماعی"
+msgstr ""
+
+#: .\templates\contact\contact.html:174
+msgid "ما را در شبکه‌های اجتماعی دنبال کنید"
+msgstr ""
+
+#: .\templates\contact\contact.html:179
+#: .\templates\services\advertising.html:130
+msgid "تلگرام"
+msgstr ""
+
+#: .\templates\contact\contact.html:180
+msgid "کانال رسمی کانون همیاری"
+msgstr ""
+
+#: .\templates\contact\contact.html:185
+msgid "یوتیوب"
+msgstr ""
+
+#: .\templates\contact\contact.html:186
+msgid "ویدیوهای آموزشی و معرفی خدمات"
+msgstr ""
+
+#: .\templates\contact\contact.html:187
+msgid "مشاهده کنید"
+msgstr ""
+
+#: .\templates\contact\contact.html:191
+#: .\templates\services\advertising.html:129
+#: .\templates\services\advertising.html:148
+msgid "اینستاگرام"
+msgstr ""
+
+#: .\templates\contact\contact.html:192
+msgid "تصاویر و ویدیوهای جذاب از خدمات ما"
+msgstr ""
+
+#: .\templates\contact\contact.html:193
+msgid "دنبال کنید"
+msgstr ""
+
+#: .\templates\contact\contact.html:202
+msgid "آماده شروع همکاری هستید؟"
+msgstr ""
+
+#: .\templates\contact\contact.html:203
+msgid ""
+"با ما در تماس باشید و از خدمات حرفه‌ای ما بهره‌مند شوید. تیم ما آماده پاسخگویی "
+"به تمام سوالات شماست."
+msgstr ""
+
+#: .\templates\contact\contact.html:205
+msgid "تماس مستقیم"
+msgstr ""
+
+#: .\templates\contact\contact.html:206
+msgid "بازگشت به خانه"
+msgstr ""
+
+#: .\templates\core\index.html:4
+msgid "کانون همیاری فارسی‌زبانان ترکیه | خدمات جامع ایرانیان در ترکیه"
+msgstr ""
+
+#: .\templates\core\index.html:5
+msgid ""
+"کانون همیاری فارسی‌زبانان ترکیه - ارائه خدمات جامع املاک، حقوقی، تحصیلی، "
+"تورها، رویدادها و مشاوره برای ایرانیان مقیم ترکیه. همراه شما در استانبول و "
+"سایر شهرهای ترکیه."
+msgstr ""
+
+#: .\templates\core\index.html:131
+msgid ""
+"مجموعه‌ای اجتماعی، خدماتی و حمایتی برای ایرانیان و فارسی‌زبانان مقیم ترکیه"
+msgstr ""
+
+#: .\templates\core\index.html:142
+msgid "ایجاد جامعه‌ای پویا و همدل"
+msgstr ""
+
+#: .\templates\core\index.html:143
+msgid "جایی که هر فارسی‌زبان در ترکیه احساس تعلق، امنیت و فرصت کند"
+msgstr ""
+
+#: .\templates\core\index.html:145
+msgid "دوره‌های آموزشی"
+msgstr ""
+
+#: .\templates\core\index.html:146 .\templates\core\index.html:239
+#: .\templates\partials\footer.html:33 .\templates\partials\header.html:57
+msgid "رویدادها"
+msgstr ""
+
+#: .\templates\core\index.html:154
+msgid "همبستگی و رشد جامعه فارسی‌زبان"
+msgstr ""
+
+#: .\templates\core\index.html:155
+msgid "ایجاد شبکه ارتباطی، ارائه خدمات حرفه‌ای و برگزاری رویدادها و تورها"
+msgstr ""
+
+#: .\templates\core\index.html:157 .\templates\core\index.html:237
+#: .\templates\services\list.html:49
+msgid "خدمات ما"
+msgstr ""
+
+#: .\templates\core\index.html:158 .\templates\core\index.html:241
+#: .\templates\partials\footer.html:35 .\templates\partials\header.html:59
+#: .\templates\real_estate\list.html:126
+msgid "املاک"
+msgstr ""
+
+#: .\templates\core\index.html:172
+msgid "درباره کانون همیاری"
+msgstr ""
+
+#: .\templates\core\index.html:173
+msgid ""
+"کانون همیاری فارسی‌زبانان ترکیه مجموعه‌ای اجتماعی، خدماتی و حمایتی است که با "
+"هدف ایجاد ارتباط، همبستگی و توسعه میان ایرانیان و فارسی‌زبانان مقیم ترکیه "
+"تأسیس شده است. با حضور فعال در استانبول و سایر شهرها، فضایی دوستانه، امن و "
+"حرفه‌ای برای زندگی، کار، تحصیل و رشد جامعه فارسی‌زبانان ایجاد می‌کنیم."
+msgstr ""
+
+#: .\templates\core\index.html:181 .\templates\core\index.html:187
+msgid "همراه هم، قوی‌تر"
+msgstr ""
+
+#: .\templates\core\index.html:188
+msgid ""
+"کانون همیاری تنها یک مجموعه خدماتی نیست؛ خانه‌ای‌ست برای همه فارسی‌زبانانی که "
+"می‌خواهند در ترکیه با آرامش، امنیت و حس تعلق زندگی کنند. ما باور داریم با هم، "
+"مسیر مهاجرت آسان‌تر و آینده روشن‌تر خواهد بود."
+msgstr ""
+
+#: .\templates\core\index.html:189
+msgid "ارتباط با ما"
+msgstr ""
+
+#: .\templates\core\index.html:203
+msgid "مأموریت ما"
+msgstr ""
+
+#: .\templates\core\index.html:204
+msgid ""
+"هدف ما ایجاد جامعه‌ای پویا، همدل و آگاه است؛ جایی که هر فارسی‌زبان در ترکیه "
+"احساس تعلق، امنیت و فرصت کند."
+msgstr ""
+
+#: .\templates\core\index.html:205
+msgid ""
+"ما باور داریم با همدلی و همکاری می‌توانیم مسیر مهاجرت، زندگی و کار در ترکیه "
+"را برای هم‌وطنانمان آسان‌تر و مطمئن‌تر کنیم."
+msgstr ""
+
+#: .\templates\core\index.html:210
+msgid "مأموریت کانون همیاری"
+msgstr ""
+
+#: .\templates\core\index.html:221
+msgid "اهداف ما"
+msgstr ""
+
+#: .\templates\core\index.html:224
+msgid "هدف ۱"
+msgstr ""
+
+#: .\templates\core\index.html:224
+msgid "ایجاد شبکه ارتباطی میان ایرانیان و فارسی‌زبانان ترکیه"
+msgstr ""
+
+#: .\templates\core\index.html:224
+msgid "شبکه ارتباطی"
+msgstr ""
+
+#: .\templates\core\index.html:225
+msgid "هدف ۲"
+msgstr ""
+
+#: .\templates\core\index.html:225
+msgid "ارائه خدمات حرفه‌ای در حوزه حقوقی، اقامت، املاک و آموزش"
+msgstr ""
+
+#: .\templates\core\index.html:225
+msgid "خدمات حرفه‌ای"
+msgstr ""
+
+#: .\templates\core\index.html:226
+msgid "هدف ۳"
+msgstr ""
+
+#: .\templates\core\index.html:226
+msgid "حمایت از کسب‌وکارهای ایرانی و رشد اقتصادی جامعه فارسی‌زبان"
+msgstr ""
+
+#: .\templates\core\index.html:226
+msgid "کسب‌وکار و رشد اقتصادی"
+msgstr ""
+
+#: .\templates\core\index.html:227
+msgid "هدف ۴"
+msgstr ""
+
+#: .\templates\core\index.html:227
+msgid "برگزاری رویدادها، جشن‌ها و تورهای فرهنگی برای حفظ ارتباط اجتماعی"
+msgstr ""
+
+#: .\templates\core\index.html:227
+msgid "رویدادها و تورهای فرهنگی"
+msgstr ""
+
+#: .\templates\core\index.html:228
+msgid "هدف ۵"
+msgstr ""
+
+#: .\templates\core\index.html:228
+msgid "کمک به معرفی فرصت‌های تحصیلی، شغلی و سرمایه‌گذاری در ترکیه"
+msgstr ""
+
+#: .\templates\core\index.html:228
+msgid "فرصت‌های تحصیلی، شغلی و سرمایه‌گذاری"
+msgstr ""
+
+#: .\templates\core\index.html:239
+msgid ""
+"از نوروز گرفته تا یلدا، روز زن یا جشن‌های فرهنگی — کانون همیاری همواره در "
+"کنار ایرانیان است تا حس وطن و شادی در غربت زنده بماند. برگزاری رویدادها و "
+"جشن‌های ایرانی در محیطی خانوادگی و فرهنگی، فرصتی برای آشنایی، شبکه‌سازی و لذت "
+"بردن از لحظات ارزشمند زندگی‌ست."
+msgstr ""
+
+#: .\templates\core\index.html:240 .\templates\partials\footer.html:34
+#: .\templates\partials\header.html:58
+msgid "تورها"
+msgstr ""
+
+#: .\templates\core\index.html:240
+msgid ""
+"زندگی تنها کار و اقامت نیست؛ تجربه زیبایی‌های ترکیه بخش مهمی از حس خوب زندگی "
+"در این کشور است. کانون همیاری با برگزاری تورهای تفریحی، گردش در جنگل‌ها، "
+"سفرهای گروهی، کمپینگ و بازدید از مناطق دیدنی ترکیه، فرصتی برای آشنایی، دوستی "
+"و استراحت فراهم می‌کند."
+msgstr ""
+
+#: .\templates\core\index.html:241
+msgid ""
+"کانون همیاری با همکاری مشاوران متخصص و دارای مجوز رسمی، خدمات کامل در حوزه "
+"خرید و فروش ملک، اجاره سالانه و کوتاه‌مدت در سراسر ترکیه ارائه می‌دهد. از "
+"انتخاب منطقه مناسب گرفته تا انتقال سند و دریافت تاپو، تمامی مراحل با شفافیت، "
+"مشاوره دقیق و پشتیبانی حقوقی انجام می‌شود تا اعضا با اطمینان سرمایه‌گذاری کنند."
+msgstr ""
+
+#: .\templates\core\index.html:242 .\templates\partials\header.html:60
+#: .\templates\real_estate\list.html:149
+#: .\templates\services\advertising.html:141
+msgid "تبلیغات"
+msgstr ""
+
+#: .\templates\core\index.html:242
+msgid ""
+"در دنیای امروز، دیده شدن کلید رشد است. کانون همیاری با تیمی متخصص در زمینه "
+"تبلیغات، طراحی گرافیک، چاپ، تولید محتوا، مدیریت شبکه‌های اجتماعی و برندینگ، "
+"به کسب‌وکارها کمک می‌کند تا در بازار رقابتی ترکیه بدرخشند. از طراحی لوگو تا "
+"ساخت ویدیو و تبلیغات هدفمند، همه چیز در یک مجموعه."
+msgstr ""
+
+#: .\templates\core\index.html:243
+msgid "تحصیلی"
+msgstr ""
+
+#: .\templates\core\index.html:243
+msgid ""
+"دانشجویان فارسی‌زبان یکی از مهم‌ترین بخش‌های جامعه ما هستند. کانون همیاری خدمات "
+"کامل مشاوره تحصیلی و پذیرش در دانشگاه‌های معتبر ترکیه را ارائه می‌دهد. از "
+"انتخاب رشته و دانشگاه تا ثبت‌نام، اقامت دانشجویی، بیمه و پشتیبانی بعد از "
+"ورود، همراه شما خواهیم بود."
+msgstr ""
+
+#: .\templates\core\index.html:244
+msgid "امور حقوقی"
+msgstr ""
+
+#: .\templates\core\index.html:244
+msgid ""
+"زندگی در کشور جدید نیاز به شناخت دقیق قوانین دارد. کانون همیاری با همکاری "
+"وکلای مجرب و مشاوران قانونی، خدمات کامل مشاوره در زمینه اقامت توریستی، اقامت "
+"کاری، تمدید اقامت، اخذ اجازه کار و انواع بیمه‌نامه‌ها را ارائه می‌دهد. هدف ما "
+"اطمینان از طی شدن روند قانونی و بدون خطا در تمام مراحل است."
+msgstr ""
+
+#: .\templates\core\index.html:253
+msgid "نظرات اعضای کانون همیاری"
+msgstr ""
+
+#: .\templates\core\index.html:253
+msgid "تجربیات واقعی اعضای ما از خدمات کانون همیاری"
+msgstr ""
+
+#: .\templates\core\index.html:255
+msgid ""
+"\"کانون همیاری واقعاً زندگی من را در ترکیه تغییر داد. از طریق خدمات املاکشان، "
+"خانه رویایی‌ام را پیدا کردم و با مشاوره حقوقی‌شان، تمام مراحل اقامت را بدون "
+"مشکل پشت سر گذاشتم.\""
+msgstr ""
+
+#: .\templates\core\index.html:255
+msgid "احمد محمدی"
+msgstr ""
+
+#: .\templates\core\index.html:256
+msgid ""
+"\"تورهای کانون همیاری فوق‌العاده است! با خانواده‌ام در تور کاپادوکیا شرکت "
+"کردیم و خاطرات زیبایی ساختیم. تیم راهنمایشان بسیار حرفه‌ای و دوستانه بودند.\""
+msgstr ""
+
+#: .\templates\core\index.html:256
+msgid "فاطمه احمدی"
+msgstr ""
+
+#: .\templates\core\index.html:257
+msgid ""
+"\"مشاوره تحصیلی کانون همیاری کمک بزرگی برای پذیرش در دانشگاه استانبول بود. "
+"از انتخاب رشته تا ثبت‌نام، تمام مراحل را با دقت و حرفه‌ای بودن انجام دادند.\""
+msgstr ""
+
+#: .\templates\core\index.html:257
+msgid "علی رضایی"
+msgstr ""
+
+#: .\templates\core\index.html:258
+msgid ""
+"\"خدمات تبلیغاتی کانون همیاری باعث رشد کسب‌وکار من شد. از طراحی لوگو تا "
+"مدیریت شبکه‌های اجتماعی، همه چیز را حرفه‌ای انجام دادند. مشتریانم چند برابر "
+"شدند!\""
+msgstr ""
+
+#: .\templates\core\index.html:258
+msgid "مریم حسینی"
+msgstr ""
+
+#: .\templates\core\index.html:259
+msgid ""
+"\"رویدادهای کانون همیاری واقعاً خاص است. از جشن نوروز تا مراسم یلدا، همیشه حس "
+"وطن را در دل ما زنده نگه می‌دارند. جامعه‌ای گرم و دوستانه ایجاد کرده‌اند.\""
+msgstr ""
+
+#: .\templates\core\index.html:259
+msgid "حسن کریمی"
+msgstr ""
+
+#: .\templates\core\index.html:260
+msgid ""
+"\"مشاوره بیزینس کانون همیاری کمک کرد تا کسب‌وکارم را در ترکیه راه‌اندازی کنم. "
+"از ثبت شرکت تا بازاریابی، تمام مراحل را با موفقیت پشت سر گذاشتم. تیمشان "
+"واقعاً حرفه‌ای است.\""
+msgstr ""
+
+#: .\templates\core\index.html:260
+msgid "رضا نوری"
+msgstr ""
+
+#: .\templates\core\index.html:271
+msgid "آدرس ما"
+msgstr ""
+
+#: .\templates\core\index.html:281
+msgid "موقعیت ما"
+msgstr ""
+
+#: .\templates\courses\certificate.html:22
+msgid "گواهینامه پایان دوره"
+msgstr ""
+
+#: .\templates\courses\certificate.html:24
+#, python-format
+msgid ""
+"این گواهینامه به <strong>%(request.user.username)s</strong> به دلیل گذراندن "
+"موفق دوره اعطا می‌گردد."
+msgstr ""
+
+#: .\templates\courses\certificate.html:26
+msgid "کد گواهینامه:"
+msgstr ""
+
+#: .\templates\courses\certificate.html:29
+msgid "بازگشت به پنل کاربر"
+msgstr ""
+
+#: .\templates\courses\detail.html:34
+msgid "فرم اولیه"
+msgstr ""
+
+#: .\templates\courses\detail.html:36
+#, python-format
+msgid "ویدیو %(num)s"
+msgstr ""
+
+#: .\templates\courses\detail.html:38
+msgid "آزمون"
+msgstr ""
+
+#: .\templates\courses\detail.html:43
+msgid "فرم اولیه ثبت شده است. می‌توانید به ویدیو اول بروید."
+msgstr ""
+
+#: .\templates\courses\detail.html:44
+msgid "رفتن به ویدیو 1"
+msgstr ""
+
+#: .\templates\courses\detail.html:60
+msgid "شهر"
+msgstr ""
+
+#: .\templates\courses\detail.html:63
+msgid "ثبت و ادامه"
+msgstr ""
+
+#: .\templates\courses\detail.html:83
+msgid "ویدیو تعریف نشده است."
+msgstr ""
+
+#: .\templates\courses\detail.html:86
+msgid "قبلی"
+msgstr ""
+
+#: .\templates\courses\detail.html:87
+msgid "بعدی"
+msgstr ""
+
+#: .\templates\courses\detail.html:97
+msgid "شما قبلاً قبول شده‌اید."
+msgstr ""
+
+#: .\templates\courses\detail.html:97
+msgid "مشاهده گواهینامه"
+msgstr ""
+
+#: .\templates\courses\detail.html:101
+msgid "زمان باقی‌مانده:"
+msgstr ""
+
+#: .\templates\courses\detail.html:105
+msgid "تلاش‌ها:"
+msgstr ""
+
+#: .\templates\courses\detail.html:120
+msgid "ثبت پاسخ‌ها"
+msgstr ""
+
+#: .\templates\courses\detail.html:123
+msgid "سوالی برای این دوره ثبت نشده است."
+msgstr ""
+
+#: .\templates\courses\detail.html:139
+msgid "زمان به پایان رسید"
+msgstr ""
+
+#: .\templates\courses\list.html:21
+msgid "دوره‌های موجود"
+msgstr ""
+
+#: .\templates\courses\list.html:29
+msgid "شروع دوره"
+msgstr ""
+
+#: .\templates\courses\list.html:35
+msgid "دوره‌ای ثبت نشده است."
+msgstr ""
+
+#: .\templates\events\list.html:4
+msgid "رویدادها - کانون همیاری"
+msgstr ""
+
+#: .\templates\events\list.html:66
+msgid ""
+"واحد رویدادهای کانون همیاری با تیمی از برگزارکنندگان حرفه‌ای و طراحان مراسم، "
+"ویژه‌ترین برنامه‌های ایرانیان در ترکیه را اجرا می‌کند."
+msgstr ""
+
+#: .\templates\events\list.html:69
+msgid "جستجو در رویدادها..."
+msgstr ""
+
+#: .\templates\events\list.html:79
+msgid "زیرمجموعه خدمات رویداد"
+msgstr ""
+
+#: .\templates\events\list.html:79
+msgid "خدمات متنوع رویداد و مناسبت برای ایرانیان مقیم ترکیه"
+msgstr ""
+
+#: .\templates\events\list.html:99
+msgid "رایگان"
+msgstr ""
+
+#: .\templates\events\list.html:99
+msgid "ثبت‌نام"
+msgstr ""
+
+#: .\templates\events\list.html:109 .\templates\events\list.html:114
+msgid "برگزاری جشن‌های مناسبتی"
+msgstr ""
+
+#: .\templates\events\list.html:110
+msgid "مناسبتی"
+msgstr ""
+
+#: .\templates\events\list.html:115 .\templates\events\list.html:130
+#: .\templates\events\list.html:145 .\templates\tours\list.html:154
+msgid "ترکیه"
+msgstr ""
+
+#: .\templates\events\list.html:116
+msgid ""
+"نوروز، یلدا، روز زن و... با طراحی دکور، موسیقی زنده، پذیرایی و مدیریت کامل"
+msgstr ""
+
+#: .\templates\events\list.html:117
+msgid "مناسبت‌های ایرانی"
+msgstr ""
+
+#: .\templates\events\list.html:117
+msgid "موسیقی زنده"
+msgstr ""
+
+#: .\templates\events\list.html:117
+msgid "مدیریت کامل"
+msgstr ""
+
+#: .\templates\events\list.html:118 .\templates\events\list.html:133
+#: .\templates\events\list.html:148 .\templates\real_estate\list.html:105
+#: .\templates\real_estate\list.html:129 .\templates\real_estate\list.html:153
+#: .\templates\real_estate\list.html:177 .\templates\real_estate\list.html:201
+#: .\templates\real_estate\list.html:225 .\templates\tours\list.html:101
+#: .\templates\tours\list.html:132 .\templates\tours\list.html:163
+msgid "تماس بگیرید"
+msgstr ""
+
+#: .\templates\events\list.html:118 .\templates\events\list.html:133
+#: .\templates\events\list.html:148 .\templates\tours\list.html:102
+#: .\templates\tours\list.html:133 .\templates\tours\list.html:164
+msgid "اطلاعات بیشتر"
+msgstr ""
+
+#: .\templates\events\list.html:124 .\templates\events\list.html:129
+msgid "همایش‌ها و گردهمایی‌ها"
+msgstr ""
+
+#: .\templates\events\list.html:125
+msgid "همایش"
+msgstr ""
+
+#: .\templates\events\list.html:131
+msgid "سازماندهی رویدادهای فرهنگی و اجتماعی ایرانیان مقیم ترکیه"
+msgstr ""
+
+#: .\templates\events\list.html:132
+msgid "فرهنگی و اجتماعی"
+msgstr ""
+
+#: .\templates\events\list.html:132
+msgid "ایرانیان مقیم"
+msgstr ""
+
+#: .\templates\events\list.html:132
+msgid "سازماندهی حرفه‌ای"
+msgstr ""
+
+#: .\templates\events\list.html:139 .\templates\events\list.html:144
+msgid "جشن تولد، سالگرد و برنامه‌های خصوصی"
+msgstr ""
+
+#: .\templates\events\list.html:140
+msgid "خصوصی"
+msgstr ""
+
+#: .\templates\events\list.html:146
+msgid "برگزاری مراسم به سبک ایرانی و مدرن برای مناسبت‌های شخصی"
+msgstr ""
+
+#: .\templates\events\list.html:147
+msgid "تولد و سالگرد"
+msgstr ""
+
+#: .\templates\events\list.html:147
+msgid "سبک ایرانی و مدرن"
+msgstr ""
+
+#: .\templates\events\list.html:147
+msgid "برنامه‌های خصوصی"
+msgstr ""
+
+#: .\templates\events\list.html:154
+msgid "مشاهده رویدادهای بیشتر"
+msgstr ""
+
+#: .\templates\partials\footer.html:10 .\templates\partials\header.html:21
+msgid "کانون همیاری"
+msgstr ""
+
+#: .\templates\partials\footer.html:12
+msgid ""
+"کانون همیاری ارائه‌دهنده خدمات جامع در زمینه رویدادها، تورها، املاک، تبلیغات، "
+"تحصیلی و امور حقوقی"
+msgstr ""
+
+#: .\templates\partials\footer.html:30
+msgid "لینک‌های سریع"
+msgstr ""
+
+#: .\templates\partials\footer.html:32 .\templates\partials\header.html:56
+msgid "خانه"
+msgstr ""
+
+#: .\templates\partials\footer.html:41 .\templates\partials\footer.html:43
+msgid "خدمات"
+msgstr ""
+
+#: .\templates\partials\footer.html:45 .\templates\partials\header.html:67
+msgid "تماس"
+msgstr ""
+
+#: .\templates\partials\footer.html:51
+msgid "اطلاعات تماس"
+msgstr ""
+
+#: .\templates\partials\footer.html:74
+#, python-format
+msgid "تمام حقوق محفوظ است © %(year)s کانون همیاری"
+msgstr ""
+
+#: .\templates\partials\header.html:61
+msgid "دانشجویی"
+msgstr ""
+
+#: .\templates\partials\header.html:62
+#: .\templates\services\advertising.html:190
+msgid "بیزینس"
+msgstr ""
+
+#: .\templates\partials\header.html:63
+msgid "دکوراسیون"
+msgstr ""
+
+#: .\templates\partials\header.html:64
+msgid "حقوقی"
+msgstr ""
+
+#: .\templates\partials\header.html:66
+msgid "درباره ما"
+msgstr ""
+
+#: .\templates\partials\header.html:68
+msgid "دوره آموزشی"
+msgstr ""
+
+#: .\templates\real_estate\list.html:4
+msgid "املاک - کانون همیاری"
+msgstr ""
+
+#: .\templates\real_estate\list.html:65
+msgid ""
+"کانون همیاری با همکاری مشاوران رسمی املاک و کارشناسان اقتصادی، خدمات جامع "
+"خرید، فروش، اجاره و سرمایه‌گذاری در بازار املاک ترکیه را ارائه می‌دهد."
+msgstr ""
+
+#: .\templates\real_estate\list.html:68
+msgid "جستجو در املاک..."
+msgstr ""
+
+#: .\templates\real_estate\list.html:81
+msgid ""
+"ما تمامی مراحل از انتخاب ملک تا انتقال سند را به‌صورت قانونی و مطمئن انجام "
+"می‌دهیم."
+msgstr ""
+
+#: .\templates\real_estate\list.html:90 .\templates\real_estate\list.html:95
+msgid "مشاوره خرید و سرمایه‌گذاری"
+msgstr ""
+
+#: .\templates\real_estate\list.html:91 .\templates\real_estate\list.html:139
+#: .\templates\real_estate\list.html:187
+msgid "فروش"
+msgstr ""
+
+#: .\templates\real_estate\list.html:96
+msgid "انتخاب ملک مناسب"
+msgstr ""
+
+#: .\templates\real_estate\list.html:98
+msgid "انتخاب ملک مناسب بر اساس بودجه، موقعیت و هدف (اقامت یا سود سرمایه)"
+msgstr ""
+
+#: .\templates\real_estate\list.html:100
+msgid "بودجه"
+msgstr ""
+
+#: .\templates\real_estate\list.html:101
+msgid "موقعیت"
+msgstr ""
+
+#: .\templates\real_estate\list.html:102
+msgid "هدف"
+msgstr ""
+
+#: .\templates\real_estate\list.html:106
+#: .\templates\services\advertising.html:93
+#: .\templates\services\business.html:78
+#: .\templates\services\decoration.html:77
+#: .\templates\services\education.html:71
+#: .\templates\services\education.html:75
+#: .\templates\services\education.html:77 .\templates\services\legal.html:71
+#: .\templates\services\legal.html:75 .\templates\services\legal.html:77
+msgid "مشاوره"
+msgstr ""
+
+#: .\templates\real_estate\list.html:114 .\templates\real_estate\list.html:119
+msgid "خرید ملک با مجوز اقامت"
+msgstr ""
+
+#: .\templates\real_estate\list.html:115 .\templates\real_estate\list.html:163
+#: .\templates\real_estate\list.html:211
+msgid "اجاره"
+msgstr ""
+
+#: .\templates\real_estate\list.html:120
+msgid "مجوز اقامت ترکیه"
+msgstr ""
+
+#: .\templates\real_estate\list.html:122
+msgid "معرفی املاک واجد شرایط دریافت اقامت ترکیه"
+msgstr ""
+
+#: .\templates\real_estate\list.html:124 .\templates\services\legal.html:84
+#: .\templates\services\legal.html:88
+msgid "اقامت"
+msgstr ""
+
+#: .\templates\real_estate\list.html:125
+msgid "واجد شرایط"
+msgstr ""
+
+#: .\templates\real_estate\list.html:130 .\templates\real_estate\list.html:154
+#: .\templates\real_estate\list.html:178 .\templates\real_estate\list.html:202
+#: .\templates\real_estate\list.html:226
+#: .\templates\services\advertising.html:113
+#: .\templates\services\advertising.html:133
+#: .\templates\services\advertising.html:153
+#: .\templates\services\advertising.html:173
+#: .\templates\services\business.html:91 .\templates\services\business.html:104
+#: .\templates\services\decoration.html:90
+#: .\templates\services\education.html:90 .\templates\services\legal.html:90
+msgid "درخواست"
+msgstr ""
+
+#: .\templates\real_estate\list.html:138 .\templates\real_estate\list.html:143
+msgid "فروش ملک"
+msgstr ""
+
+#: .\templates\real_estate\list.html:144
+msgid "بازاریابی هدفمند"
+msgstr ""
+
+#: .\templates\real_estate\list.html:146
+msgid "بازاریابی هدفمند، تبلیغات حرفه‌ای و فروش در کوتاه‌ترین زمان ممکن"
+msgstr ""
+
+#: .\templates\real_estate\list.html:148
+msgid "بازاریابی"
+msgstr ""
+
+#: .\templates\real_estate\list.html:150
+msgid "سریع"
+msgstr ""
+
+#: .\templates\real_estate\list.html:162 .\templates\real_estate\list.html:167
+msgid "اجاره سالانه و کوتاه‌مدت"
+msgstr ""
+
+#: .\templates\real_estate\list.html:168
+msgid "مسکونی و تجاری"
+msgstr ""
+
+#: .\templates\real_estate\list.html:170
+msgid "اجاره مسکونی، تجاری و اقامتی برای ایرانیان در شهرهای مختلف ترکیه"
+msgstr ""
+
+#: .\templates\real_estate\list.html:172
+msgid "مسکونی"
+msgstr ""
+
+#: .\templates\real_estate\list.html:173
+msgid "تجاری"
+msgstr ""
+
+#: .\templates\real_estate\list.html:174
+msgid "شهرهای مختلف"
+msgstr ""
+
+#: .\templates\real_estate\list.html:186 .\templates\real_estate\list.html:191
+msgid "انتقال سند (تاپو)"
+msgstr ""
+
+#: .\templates\real_estate\list.html:192
+msgid "اداره تاپو"
+msgstr ""
+
+#: .\templates\real_estate\list.html:194
+msgid "بررسی مدارک، ترجمه رسمی، ثبت در اداره تاپو و تحویل نهایی سند مالکیت"
+msgstr ""
+
+#: .\templates\real_estate\list.html:196
+msgid "مدارک"
+msgstr ""
+
+#: .\templates\real_estate\list.html:197
+msgid "ترجمه رسمی"
+msgstr ""
+
+#: .\templates\real_estate\list.html:198
+msgid "ثبت"
+msgstr ""
+
+#: .\templates\real_estate\list.html:210 .\templates\real_estate\list.html:215
+msgid "مدیریت ملک"
+msgstr ""
+
+#: .\templates\real_estate\list.html:216
+msgid "نگهداری و اجاره‌دهی"
+msgstr ""
+
+#: .\templates\real_estate\list.html:218
+msgid "نگهداری، اجاره‌دهی و پیگیری امور خدماتی املاک خریداران ایرانی"
+msgstr ""
+
+#: .\templates\real_estate\list.html:220
+msgid "نگهداری"
+msgstr ""
+
+#: .\templates\real_estate\list.html:221
+msgid "اجاره‌دهی"
+msgstr ""
+
+#: .\templates\real_estate\list.html:222
+msgid "خدماتی"
+msgstr ""
+
+#: .\templates\real_estate\list.html:234
+#: .\templates\services\advertising.html:200
+msgid "تماس با ما برای مشاوره"
+msgstr ""
+
+#: .\templates\services\advertising.html:4
+msgid "تبلیغات - کانون همیاری"
+msgstr ""
+
+#: .\templates\services\advertising.html:55
+msgid "🎨 بخش تبلیغات، چاپ و برندینگ"
+msgstr ""
+
+#: .\templates\services\advertising.html:56
+msgid ""
+"تیم خلاقیت و رسانه کانون همیاری با سابقه فعالیت حرفه‌ای در تبلیغات و برندینگ، "
+"همراه بیزینس‌های ایرانی در مسیر دیده‌شدن و رشد است."
+msgstr ""
+
+#: .\templates\services\advertising.html:59
+msgid "جستجو در خدمات تبلیغاتی..."
+msgstr ""
+
+#: .\templates\services\advertising.html:71
+msgid "زیرمجموعه خدمات تبلیغات"
+msgstr ""
+
+#: .\templates\services\advertising.html:72
+msgid ""
+"ما تمامی مراحل از طراحی تا اجرا را به‌صورت حرفه‌ای و خلاقانه انجام می‌دهیم."
+msgstr ""
+
+#: .\templates\services\advertising.html:80
+#: .\templates\services\advertising.html:84
+msgid "طراحی هویت بصری برند"
+msgstr ""
+
+#: .\templates\services\advertising.html:81
+#: .\templates\services\decoration.html:71
+msgid "طراحی"
+msgstr ""
+
+#: .\templates\services\advertising.html:85
+msgid "لوگو، رنگ سازمانی، ست اداری"
+msgstr ""
+
+#: .\templates\services\advertising.html:86
+msgid "طراحی هویت بصری برند (لوگو، رنگ سازمانی، ست اداری)"
+msgstr ""
+
+#: .\templates\services\advertising.html:88
+msgid "لوگو"
+msgstr ""
+
+#: .\templates\services\advertising.html:89
+msgid "رنگ سازمانی"
+msgstr ""
+
+#: .\templates\services\advertising.html:90
+msgid "ست اداری"
+msgstr ""
+
+#: .\templates\services\advertising.html:100
+#: .\templates\services\advertising.html:104
+msgid "طراحی و چاپ"
+msgstr ""
+
+#: .\templates\services\advertising.html:101
+msgid "چاپ"
+msgstr ""
+
+#: .\templates\services\advertising.html:105
+msgid "پوستر، بروشور و بنرهای تبلیغاتی"
+msgstr ""
+
+#: .\templates\services\advertising.html:106
+msgid "طراحی و چاپ پوستر، بروشور و بنرهای تبلیغاتی"
+msgstr ""
+
+#: .\templates\services\advertising.html:108
+msgid "پوستر"
+msgstr ""
+
+#: .\templates\services\advertising.html:109
+msgid "بروشور"
+msgstr ""
+
+#: .\templates\services\advertising.html:110
+msgid "بنر"
+msgstr ""
+
+#: .\templates\services\advertising.html:120
+#: .\templates\services\advertising.html:124
+msgid "مدیریت شبکه‌های اجتماعی"
+msgstr ""
+
+#: .\templates\services\advertising.html:121
+msgid "دیجیتال"
+msgstr ""
+
+#: .\templates\services\advertising.html:125
+msgid "تولید محتوای تخصصی فارسی-ترکی"
+msgstr ""
+
+#: .\templates\services\advertising.html:126
+msgid "مدیریت شبکه‌های اجتماعی و تولید محتوای تخصصی فارسی-ترکی"
+msgstr ""
+
+#: .\templates\services\advertising.html:128
+msgid "فیس‌بوک"
+msgstr ""
+
+#: .\templates\services\advertising.html:140
+#: .\templates\services\advertising.html:144
+msgid "تبلیغات هدفمند"
+msgstr ""
+
+#: .\templates\services\advertising.html:145
+msgid "اینستاگرامی و گوگل ادز"
+msgstr ""
+
+#: .\templates\services\advertising.html:146
+msgid "تبلیغات هدفمند اینستاگرامی و گوگل ادز"
+msgstr ""
+
+#: .\templates\services\advertising.html:149
+msgid "گوگل ادز"
+msgstr ""
+
+#: .\templates\services\advertising.html:150
+msgid "هدفمند"
+msgstr ""
+
+#: .\templates\services\advertising.html:160
+#: .\templates\services\advertising.html:164
+msgid "عکاسی و فیلم‌برداری"
+msgstr ""
+
+#: .\templates\services\advertising.html:161
+msgid "خلاقانه"
+msgstr ""
+
+#: .\templates\services\advertising.html:165
+msgid "صنعتی و تبلیغاتی"
+msgstr ""
+
+#: .\templates\services\advertising.html:166
+msgid "عکاسی و فیلم‌برداری صنعتی و تبلیغاتی"
+msgstr ""
+
+#: .\templates\services\advertising.html:168
+msgid "عکاسی"
+msgstr ""
+
+#: .\templates\services\advertising.html:169
+msgid "فیلم‌برداری"
+msgstr ""
+
+#: .\templates\services\advertising.html:170
+msgid "صنعتی"
+msgstr ""
+
+#: .\templates\services\advertising.html:180
+msgid "طراحی وب‌سایت"
+msgstr ""
+
+#: .\templates\services\advertising.html:181
+msgid "وب"
+msgstr ""
+
+#: .\templates\services\advertising.html:184
+msgid "طراحی وب‌سایت و فروشگاه آنلاین"
+msgstr ""
+
+#: .\templates\services\advertising.html:185
+msgid "برای بیزینس‌ها"
+msgstr ""
+
+#: .\templates\services\advertising.html:186
+msgid "طراحی وب‌سایت و فروشگاه آنلاین برای بیزینس‌ها"
+msgstr ""
+
+#: .\templates\services\advertising.html:188
+msgid "وب‌سایت"
+msgstr ""
+
+#: .\templates\services\advertising.html:189
+msgid "فروشگاه آنلاین"
+msgstr ""
+
+#: .\templates\services\business.html:4
+msgid "بیزینس - کانون همیاری"
+msgstr ""
+
+#: .\templates\services\business.html:52
+msgid "بخش بیزینس و رشد کسب‌وکار"
+msgstr ""
+
+#: .\templates\services\business.html:53
+msgid "مشاوره ثبت شرکت، مالیات، مجوزها، استراتژی بازار و همکاری‌های بین‌المللی"
+msgstr ""
+
+#: .\templates\services\business.html:62
+msgid "زیرمجموعه خدمات بیزینسی"
+msgstr ""
+
+#: .\templates\services\business.html:63
+msgid "خدمات کامل مشاوره و پشتیبانی کسب‌وکار در ترکیه"
+msgstr ""
+
+#: .\templates\services\business.html:71 .\templates\services\business.html:75
+msgid "مشاوره ثبت شرکت"
+msgstr ""
+
+#: .\templates\services\business.html:72
+msgid "ثبت شرکت"
+msgstr ""
+
+#: .\templates\services\business.html:76
+msgid "ثبت رسمی"
+msgstr ""
+
+#: .\templates\services\business.html:77
+msgid "انتخاب نوع شرکت و انجام کامل مراحل ثبت رسمی"
+msgstr ""
+
+#: .\templates\services\business.html:84
+msgid "مشاوره مالیاتی"
+msgstr ""
+
+#: .\templates\services\business.html:85 .\templates\services\business.html:89
+msgid "مالیاتی"
+msgstr ""
+
+#: .\templates\services\business.html:88
+msgid "مشاوره مالیاتی و حسابداری"
+msgstr ""
+
+#: .\templates\services\business.html:90
+msgid "گزارش‌های مالی شفاف و همکاری با حسابداران رسمی"
+msgstr ""
+
+#: .\templates\services\business.html:97
+msgid "مجوزهای تجاری"
+msgstr ""
+
+#: .\templates\services\business.html:98
+msgid "مجوز"
+msgstr ""
+
+#: .\templates\services\business.html:101
+msgid "اخذ مجوزهای تجاری"
+msgstr ""
+
+#: .\templates\services\business.html:102
+msgid "مجوز فعالیت"
+msgstr ""
+
+#: .\templates\services\business.html:103
+msgid "دریافت مجوز برای رستوران، فروشگاه، کلینیک و…"
+msgstr ""
+
+#: .\templates\services\decoration.html:4
+msgid "دکوراسیون - کانون همیاری"
+msgstr ""
+
+#: .\templates\services\decoration.html:51
+msgid "بخش دکوراسیون داخلی و بازسازی"
+msgstr ""
+
+#: .\templates\services\decoration.html:52
+msgid "طراحی داخلی، بازسازی، کاغذ دیواری، کابینت و نظارت فنی"
+msgstr ""
+
+#: .\templates\services\decoration.html:61
+msgid "زیرمجموعه خدمات دکوراسیون"
+msgstr ""
+
+#: .\templates\services\decoration.html:62
+msgid "خدمات کامل طراحی و بازسازی ساختمان"
+msgstr ""
+
+#: .\templates\services\decoration.html:70
+msgid "طراحی داخلی و نقشه سه‌بعدی"
+msgstr ""
+
+#: .\templates\services\decoration.html:74
+msgid "طراحی داخلی و نقشه سه‌بعدی (3D)"
+msgstr ""
+
+#: .\templates\services\decoration.html:75
+msgid "طراحی 3D"
+msgstr ""
+
+#: .\templates\services\decoration.html:76
+msgid "نمایش پیش از اجرا با نرم‌افزارهای حرفه‌ای"
+msgstr ""
+
+#: .\templates\services\decoration.html:83
+msgid "بازسازی کامل"
+msgstr ""
+
+#: .\templates\services\decoration.html:84
+#: .\templates\services\decoration.html:88
+msgid "بازسازی"
+msgstr ""
+
+#: .\templates\services\decoration.html:87
+msgid "بازسازی کامل واحدهای مسکونی و اداری"
+msgstr ""
+
+#: .\templates\services\decoration.html:89
+msgid "کف‌پوش، رنگ، نورپردازی، دیوارپوش و تأسیسات"
+msgstr ""
+
+#: .\templates\services\education.html:4
+msgid "تحصیلی - کانون همیاری"
+msgstr ""
+
+#: .\templates\services\education.html:51
+msgid "بخش تحصیلی و دانشجویی"
+msgstr ""
+
+#: .\templates\services\education.html:52
+msgid "پذیرش تحصیلی، ترجمه رسمی، اقامت دانشجویی و پشتیبانی کامل"
+msgstr ""
+
+#: .\templates\services\education.html:61
+msgid "زیرمجموعه خدمات تحصیلی"
+msgstr ""
+
+#: .\templates\services\education.html:62
+msgid "خدمات کامل پذیرش و پشتیبانی دانشجویان در ترکیه"
+msgstr ""
+
+#: .\templates\services\education.html:70
+msgid "مشاوره تحصیلی"
+msgstr ""
+
+#: .\templates\services\education.html:74
+msgid "مشاوره انتخاب رشته و دانشگاه"
+msgstr ""
+
+#: .\templates\services\education.html:76
+msgid "معرفی گزینه‌های مناسب با توجه به علاقه و بودجه"
+msgstr ""
+
+#: .\templates\services\education.html:83
+msgid "پذیرش دانشگاه"
+msgstr ""
+
+#: .\templates\services\education.html:84
+#: .\templates\services\education.html:88
+msgid "پذیرش"
+msgstr ""
+
+#: .\templates\services\education.html:87
+msgid "پذیرش در دانشگاه‌های دولتی و خصوصی"
+msgstr ""
+
+#: .\templates\services\education.html:89
+msgid "آماده‌سازی مدارک و پیگیری پذیرش رسمی"
+msgstr ""
+
+#: .\templates\services\legal.html:4
+msgid "حقوقی - کانون همیاری"
+msgstr ""
+
+#: .\templates\services\legal.html:51
+msgid "بخش حقوقی و اقامتی"
+msgstr ""
+
+#: .\templates\services\legal.html:52
+msgid "مشاوره حقوقی، اقامت، اجازه کار، رفع ریجکتی و ثبت رسمی اسناد"
+msgstr ""
+
+#: .\templates\services\legal.html:62
+msgid "ارائه خدمات دقیق و مطابق قوانین روز ترکیه"
+msgstr ""
+
+#: .\templates\services\legal.html:70 .\templates\services\legal.html:74
+msgid "مشاوره حقوقی تخصصی"
+msgstr ""
+
+#: .\templates\services\legal.html:76
+msgid "بررسی وضعیت اقامت، سرمایه‌گذاری، مالی و قراردادها با وکلای مجرب"
+msgstr ""
+
+#: .\templates\services\legal.html:83
+msgid "اقامت ترکیه"
+msgstr ""
+
+#: .\templates\services\legal.html:87
+msgid "دریافت اقامت ترکیه"
+msgstr ""
+
+#: .\templates\services\legal.html:89
+msgid "ثبت و تمدید اقامت توریستی، کاری، خانوادگی و دانشجویی"
+msgstr ""
+
+#: .\templates\services\list.html:4
+msgid "خدمات - کانون همیاری"
+msgstr ""
+
+#: .\templates\services\list.html:50
+msgid "ارائه خدمات جامع و حرفه‌ای برای ایرانیان مقیم ترکیه"
+msgstr ""
+
+#: .\templates\services\list.html:60
+msgid "خدمات کانون همیاری"
+msgstr ""
+
+#: .\templates\services\list.html:61
+msgid "انتخاب از بین دسته‌بندی‌های مختلف"
+msgstr ""
+
+#: .\templates\services\list.html:69
+msgid "همه"
+msgstr ""
+
+#: .\templates\services\list.html:91
+msgid "هیچ خدمتی در حال حاضر موجود نیست."
+msgstr ""
+
+#: .\templates\services\list.html:93
+msgid "مشاهده همه خدمات"
+msgstr ""
+
+#: .\templates\tours\list.html:4
+msgid "تورها - کانون همیاری"
+msgstr ""
+
+#: .\templates\tours\list.html:54
+msgid "بخش گردشگری و تفریحی"
+msgstr ""
+
+#: .\templates\tours\list.html:55
+msgid ""
+"ما با تیمی از لیدرهای فارسی‌زبان و متخصصان گردشگری، تجربه‌ای امن و دل‌انگیز از "
+"سفرهای داخلی ترکیه فراهم می‌کنیم."
+msgstr ""
+
+#: .\templates\tours\list.html:58
+msgid "جستجو در تورها..."
+msgstr ""
+
+#: .\templates\tours\list.html:70
+msgid "زیرمجموعه خدمات تفریحی"
+msgstr ""
+
+#: .\templates\tours\list.html:71
+msgid "خدمات متنوع گردشگری و تفریحی برای تمام سلیقه‌ها"
+msgstr ""
+
+#: .\templates\tours\list.html:79 .\templates\tours\list.html:91
+msgid "تور جنگل و طبیعت‌گردی"
+msgstr ""
+
+#: .\templates\tours\list.html:80
+msgid "طبیعت"
+msgstr ""
+
+#: .\templates\tours\list.html:92
+msgid "مناطق بکر ترکیه"
+msgstr ""
+
+#: .\templates\tours\list.html:94
+msgid "برنامه‌های یک‌روزه و چندروزه در مناطق بکر ترکیه با راهنمای فارسی‌زبان"
+msgstr ""
+
+#: .\templates\tours\list.html:96
+msgid "یک‌روزه و چندروزه"
+msgstr ""
+
+#: .\templates\tours\list.html:97
+msgid "طبیعت بکر"
+msgstr ""
+
+#: .\templates\tours\list.html:98
+msgid "گروه‌های کوچک"
+msgstr ""
+
+#: .\templates\tours\list.html:110 .\templates\tours\list.html:122
+msgid "تور شهری استانبول"
+msgstr ""
+
+#: .\templates\tours\list.html:111
+msgid "شهری"
+msgstr ""
+
+#: .\templates\tours\list.html:123
+msgid "استانبول"
+msgstr ""
+
+#: .\templates\tours\list.html:125
+msgid "بازدید از جاذبه‌ها، مراکز خرید و رستوران‌های معروف استانبول"
+msgstr ""
+
+#: .\templates\tours\list.html:127
+msgid "جاذبه‌های تاریخی"
+msgstr ""
+
+#: .\templates\tours\list.html:128
+msgid "مراکز خرید"
+msgstr ""
+
+#: .\templates\tours\list.html:129
+msgid "رستوران‌های معروف"
+msgstr ""
+
+#: .\templates\tours\list.html:141 .\templates\tours\list.html:153
+msgid "برنامه‌های خانوادگی و گروهی"
+msgstr ""
+
+#: .\templates\tours\list.html:142 .\templates\tours\list.html:158
+msgid "خانوادگی"
+msgstr ""
+
+#: .\templates\tours\list.html:156
+msgid "پیک‌نیک، دورهمی، تفریحات آبی و کوه‌نوردی برای خانواده‌ها و گروه‌ها"
+msgstr ""
+
+#: .\templates\tours\list.html:159
+msgid "تفریحات آبی"
+msgstr ""
+
+#: .\templates\tours\list.html:160
+msgid "کوه‌نوردی"
+msgstr ""
+
+#: .\templates\tours\list.html:171
+msgid "مشاهده تورهای بیشتر"
+msgstr ""

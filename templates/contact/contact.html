@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}تماس - کانون همیاری{% endblock %}
+{% block title %}{% trans "تماس - کانون همیاری" %}{% endblock %}
 
 {% block extra_css %}
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -94,9 +94,9 @@
     <!-- Hero Section -->
     <section class="contact-hero">
         <div class="hero-content">
-            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200" data-translate="contactUs">تماس با ما</h1>
-            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">آماده پاسخگویی به شما هستیم</p>
-            <p class="hero-description" data-aos="fade-up" data-aos-delay="600">تیم کانون همیاری آماده پاسخگویی به تمام سوالات شماست. از طریق فرم تماس، شبکه‌های اجتماعی یا تماس مستقیم با ما در ارتباط باشید.</p>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">{% trans "تماس با ما" %}</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">{% trans "آماده پاسخگویی به شما هستیم" %}</p>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="600">{% trans "تیم کانون همیاری آماده پاسخگویی به تمام سوالات شماست. از طریق فرم تماس، شبکه‌های اجتماعی یا تماس مستقیم با ما در ارتباط باشید." %}</p>
         </div>
         <div class="scroll-indicator"><i class="fa fa-chevron-down"></i></div>
     </section>
@@ -105,47 +105,47 @@
     <section class="contact-form-section" id="contact-form-section">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <h2>ارسال پیام</h2>
-                <p>پیام خود را برای ما ارسال کنید و در کمترین زمان پاسخ دریافت کنید</p>
+                <h2>{% trans "ارسال پیام" %}</h2>
+                <p>{% trans "پیام خود را برای ما ارسال کنید و در کمترین زمان پاسخ دریافت کنید" %}</p>
             </div>
             <div class="contact-container">
                 <div class="contact-grid">
                     <div class="contact-form" data-aos="fade-right">
                         <form action="mailto:info@kanoonhamyari.com" method="post" id="contactForm">
                             <div class="form-group">
-                                <input type="text" name="name" id="name" class="form-control" placeholder="نام و نام خانوادگی" required>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="{% trans 'نام و نام خانوادگی' %}" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" name="email" id="email" class="form-control" placeholder="آدرس ایمیل" required>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="{% trans 'آدرس ایمیل' %}" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="subject" id="subject" class="form-control" placeholder="موضوع پیام" required>
+                                <input type="text" name="subject" id="subject" class="form-control" placeholder="{% trans 'موضوع پیام' %}" required>
                             </div>
                             <div class="form-group">
-                                <textarea name="message" id="message" class="form-control" rows="6" placeholder="متن پیام خود را بنویسید..." required></textarea>
+                                <textarea name="message" id="message" class="form-control" rows="6" placeholder="{% trans 'متن پیام خود را بنویسید...' %}" required></textarea>
                             </div>
-                            <button type="submit" class="submit-btn">ارسال پیام</button>
+                            <button type="submit" class="submit-btn">{% trans "ارسال پیام" %}</button>
                         </form>
                     </div>
                     <div class="contact-info-section" data-aos="fade-left">
                         <div class="contact-info-item">
                             <div class="contact-info-icon"><i class="fa fa-map-marker"></i></div>
                             <div class="contact-info-content">
-                                <h3>آدرس دفتر مرکزی</h3>
-                                <p>ترکیه، استانبول، بیلیکدوزو، مرکز خرید بیلیسیوم، طبقه ۴</p>
+                                <h3>{% trans "آدرس دفتر مرکزی" %}</h3>
+                                <p>{% trans "ترکیه، استانبول، بیلیکدوزو، مرکز خرید بیلیسیوم، طبقه ۴" %}</p>
                             </div>
                         </div>
                         <div class="contact-info-item">
                             <div class="contact-info-icon"><i class="fa fa-phone"></i></div>
                             <div class="contact-info-content">
-                                <h3>شماره تماس</h3>
+                                <h3>{% trans "شماره تماس" %}</h3>
                                 <p style="direction:ltr;text-align:left;unicode-bidi:bidi-override;">+90 552 561 22 21</p>
                             </div>
                         </div>
                         <div class="contact-info-item">
                             <div class="contact-info-icon"><i class="fa fa-envelope"></i></div>
                             <div class="contact-info-content">
-                                <h3>ایمیل</h3>
+                                <h3>{% trans "ایمیل" %}</h3>
                                 <p>info@kanoonhamyari.com</p>
                             </div>
                         </div>
@@ -160,7 +160,7 @@
         <div class="container">
             <div class="map-wrapper" data-aos="fade-up" data-aos-delay="200">
                 <div class="map-embed">
-                    <iframe title="نقشه گوگل کانون همیاری" src="https://www.google.com/maps?q=41.0431,29.0082&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe title="{% trans 'نقشه گوگل کانون همیاری' %}" src="https://www.google.com/maps?q=41.0431,29.0082&z=15&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -170,27 +170,27 @@
     <section class="social-section">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <h2>شبکه‌های اجتماعی</h2>
-                <p>ما را در شبکه‌های اجتماعی دنبال کنید</p>
+                <h2>{% trans "شبکه‌های اجتماعی" %}</h2>
+                <p>{% trans "ما را در شبکه‌های اجتماعی دنبال کنید" %}</p>
             </div>
             <div class="social-grid">
                 <div class="social-item" data-aos="fade-up" data-aos-delay="200">
                     <div class="social-icon telegram"><i class="fa fa-telegram"></i></div>
-                    <h3 class="social-title">تلگرام</h3>
-                    <p class="social-description">کانال رسمی کانون همیاری</p>
-                    <a href="https://t.me/KANOONEHAMYARI" target="_blank" class="social-link">عضویت</a>
+                    <h3 class="social-title">{% trans "تلگرام" %}</h3>
+                    <p class="social-description">{% trans "کانال رسمی کانون همیاری" %}</p>
+                    <a href="https://t.me/KANOONEHAMYARI" target="_blank" class="social-link">{% trans "عضویت" %}</a>
                 </div>
                 <div class="social-item" data-aos="fade-up" data-aos-delay="400">
                     <div class="social-icon youtube"><i class="fa fa-youtube-play"></i></div>
-                    <h3 class="social-title">یوتیوب</h3>
-                    <p class="social-description">ویدیوهای آموزشی و معرفی خدمات</p>
-                    <a href="https://m.youtube.com/%40kanoonhamyari" target="_blank" class="social-link">مشاهده کنید</a>
+                    <h3 class="social-title">{% trans "یوتیوب" %}</h3>
+                    <p class="social-description">{% trans "ویدیوهای آموزشی و معرفی خدمات" %}</p>
+                    <a href="https://m.youtube.com/%40kanoonhamyari" target="_blank" class="social-link">{% trans "مشاهده کنید" %}</a>
                 </div>
                 <div class="social-item" data-aos="fade-up" data-aos-delay="600">
                     <div class="social-icon instagram"><i class="fa fa-instagram"></i></div>
-                    <h3 class="social-title">اینستاگرام</h3>
-                    <p class="social-description">تصاویر و ویدیوهای جذاب از خدمات ما</p>
-                    <a href="https://www.instagram.com/kanoon.hamyari" target="_blank" class="social-link">دنبال کنید</a>
+                    <h3 class="social-title">{% trans "اینستاگرام" %}</h3>
+                    <p class="social-description">{% trans "تصاویر و ویدیوهای جذاب از خدمات ما" %}</p>
+                    <a href="https://www.instagram.com/kanoon.hamyari" target="_blank" class="social-link">{% trans "دنبال کنید" %}</a>
                 </div>
             </div>
         </div>
@@ -199,11 +199,11 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="cta-content">
-            <h2 class="cta-title">آماده شروع همکاری هستید؟</h2>
-            <p class="cta-description">با ما در تماس باشید و از خدمات حرفه‌ای ما بهره‌مند شوید. تیم ما آماده پاسخگویی به تمام سوالات شماست.</p>
+            <h2 class="cta-title">{% trans "آماده شروع همکاری هستید؟" %}</h2>
+            <p class="cta-description">{% trans "با ما در تماس باشید و از خدمات حرفه‌ای ما بهره‌مند شوید. تیم ما آماده پاسخگویی به تمام سوالات شماست." %}</p>
             <div class="cta-buttons">
-                <a href="tel:+905525612221" class="cta-button primary">تماس مستقیم</a>
-                <a href="{% url 'core:index' %}" class="cta-button secondary">بازگشت به خانه</a>
+                <a href="tel:+905525612221" class="cta-button primary">{% trans "تماس مستقیم" %}</a>
+                <a href="{% url 'core:index' %}" class="cta-button secondary">{% trans "بازگشت به خانه" %}</a>
             </div>
         </div>
     </section>

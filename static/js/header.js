@@ -72,7 +72,7 @@
             currentLang.textContent = savedLanguage === 'fa' ? 'فا' : savedLanguage.toUpperCase();
         }
 
-        var languageOptions = document.querySelectorAll('.language-option');
+        var languageOptions = document.querySelectorAll('.language-option, .language-choice');
         languageOptions.forEach(function (option) {
             option.classList.toggle('active', option.getAttribute('data-lang') === savedLanguage);
         });
@@ -93,22 +93,25 @@
 
             languageOptions.forEach(function (option) {
                 option.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    var selectedLang = this.getAttribute('data-lang');
+                    var isChoiceButton = this.classList.contains('language-choice');
+                    var selectedLang = this.getAttribute('data-lang') || this.value;
+                    if (!selectedLang) return;
 
-                    languageOptions.forEach(function (opt) { opt.classList.remove('active'); });
-                    this.classList.add('active');
-                    languageDropdown.classList.remove('show');
-                    languageBtn.classList.remove('active');
-
-                    if (currentLang) {
-                        currentLang.textContent = selectedLang === 'fa' ? 'فا' : selectedLang.toUpperCase();
-                    }
-
-                    if (typeof window.switchLanguage === 'function') {
-                        window.switchLanguage(selectedLang);
-                    } else {
-                        localStorage.setItem('selectedLanguage', selectedLang);
+                    // For custom anchors, handle client-side; for buttons, let form submit to Django
+                    if (!isChoiceButton) {
+                        e.preventDefault();
+                        languageOptions.forEach(function (opt) { opt.classList.remove('active'); });
+                        this.classList.add('active');
+                        languageDropdown.classList.remove('show');
+                        languageBtn.classList.remove('active');
+                        if (currentLang) {
+                            currentLang.textContent = selectedLang === 'fa' ? 'فا' : selectedLang.toUpperCase();
+                        }
+                        if (typeof window.switchLanguage === 'function') {
+                            window.switchLanguage(selectedLang);
+                        } else {
+                            localStorage.setItem('selectedLanguage', selectedLang);
+                        }
                     }
                 });
             });

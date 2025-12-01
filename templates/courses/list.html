@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}دوره‌ها{% endblock %}
+{% block title %}{% trans "دوره‌ها" %}{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -18,7 +18,7 @@
 <div class="courses-light" style="padding: 60px 0;">
     <div class="container">
         <div class="row">
-            <div class="col-12"><div class="section_title mb-40"><h3>دوره‌های موجود</h3></div></div>
+            <div class="col-12"><div class="section_title mb-40"><h3>{% trans "دوره‌های موجود" %}</h3></div></div>
             {% for course in courses %}
             <div class="col-lg-4 col-md-6">
                 <div class="service_item">
@@ -26,13 +26,13 @@
                         <div class="service_content">
                             <h3>{{ course.title }}</h3>
                             <p>{{ course.description|truncatechars:150 }}</p>
-                            <a href="{{ course.get_absolute_url }}" class="service_link">شروع دوره</a>
+                            <a href="{{ course.get_absolute_url }}" class="service_link">{% trans "شروع دوره" %}</a>
                         </div>
                     </div>
                 </div>
             </div>
             {% empty %}
-            <div class="col-12"><p>دوره‌ای ثبت نشده است.</p></div>
+            <div class="col-12"><p>{% trans "دوره‌ای ثبت نشده است." %}</p></div>
             {% endfor %}
         </div>
     </div>

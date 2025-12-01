@@ -1,0 +1,321 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{{ university.name }} - {% trans "کانون همیاری" %}{% endblock %}
+
+{% block extra_css %}
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<style>
+    .detail-hero {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+        padding: 100px 0 60px;
+        position: relative;
+        overflow: hidden;
+    }
+    .detail-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2000&auto=format&fit=crop') center/cover;
+        opacity: 0.3;
+        z-index: 1;
+    }
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.7) 50%, rgba(0,0,0,.85) 100%);
+        z-index: 2;
+    }
+    .hero-content {
+        position: relative;
+        z-index: 3;
+    }
+    .detail-section {
+        padding: 60px 0;
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+    }
+    .detail-card {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        border-radius: 20px;
+        padding: 2.5rem;
+        border: 2px solid rgba(255,255,255,0.1);
+        margin-bottom: 2rem;
+    }
+    .detail-image {
+        width: 100%;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+        max-height: 400px;
+        object-fit: cover;
+    }
+    .detail-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #4CAF50, #8BC34A);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .info-badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .info-badge.public {
+        background: rgba(33,150,243,0.2);
+        color: #64B5F6;
+        border: 1px solid rgba(33,150,243,0.3);
+    }
+    .info-badge.private {
+        background: rgba(156,39,176,0.2);
+        color: #BA68C8;
+        border: 1px solid rgba(156,39,176,0.3);
+    }
+    .info-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        color: #ccc;
+    }
+    .info-item strong {
+        color: #4CAF50;
+        margin-left: 0.5rem;
+        min-width: 150px;
+    }
+    .price-display {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #4CAF50;
+        margin: 1rem 0;
+    }
+    .content-section {
+        color: #ccc;
+        line-height: 1.8;
+    }
+    .content-section h3 {
+        color: #4CAF50;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    .content-section h4 {
+        color: #8BC34A;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+    .content-section p {
+        margin-bottom: 1rem;
+    }
+    .content-section ul, .content-section ol {
+        margin-right: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .content-section li {
+        margin-bottom: 0.5rem;
+    }
+    .related-card {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255,255,255,0.1);
+        height: 100%;
+    }
+    .related-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(76,175,80,0.5);
+    }
+    .related-image {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+    .related-content {
+        padding: 1.5rem;
+    }
+    .related-name {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.5rem;
+    }
+    .back-btn {
+        background: linear-gradient(135deg, #4CAF50, #8BC34A);
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-block;
+        margin-bottom: 2rem;
+    }
+    .back-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(76,175,80,0.4);
+        color: #fff;
+        text-decoration: none;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="detail-hero">
+    <div class="hero-overlay"></div>
+    <div class="container mx-auto px-4">
+        <div class="hero-content">
+            <a href="{% url 'services:education' %}" class="back-btn">← {% trans "بازگشت" %}</a>
+            <h1 class="detail-title">{{ university.name }}</h1>
+            <div class="flex flex-wrap items-center gap-4">
+                <span class="info-badge {{ university.university_type }}">
+                    {% if university.university_type == 'public' %}
+                        {% trans "دولتی" %}
+                    {% else %}
+                        {% trans "خصوصی" %}
+                    {% endif %}
+                </span>
+                {% if university.location %}
+                <span class="text-gray-400">📍 {{ university.location }}</span>
+                {% endif %}
+                {% if university.language %}
+                <span class="text-gray-400">🌐 {{ university.language }}</span>
+                {% endif %}
+                {% if university.ranking %}
+                <span class="text-gray-400">⭐ {{ university.ranking }}</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="detail-section">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Main Content -->
+            <div class="lg:col-span-2">
+                <div class="detail-card">
+                    {% if university.image %}
+                    <img src="{{ university.image.url }}" alt="{{ university.name }}" class="detail-image">
+                    {% endif %}
+                    
+                    <div class="content-section">
+                        <h3>{% trans "توضیحات" %}</h3>
+                        {{ university.description|safe }}
+                    </div>
+                </div>
+
+                {% if university.programs %}
+                <div class="detail-card">
+                    <div class="content-section">
+                        <h3>{% trans "رشته‌های تحصیلی" %}</h3>
+                        {{ university.programs|safe }}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if university.admission_requirements %}
+                <div class="detail-card">
+                    <div class="content-section">
+                        <h3>{% trans "شرایط پذیرش" %}</h3>
+                        {{ university.admission_requirements|safe }}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if university.scholarship_info %}
+                <div class="detail-card">
+                    <div class="content-section">
+                        <h3>{% trans "اطلاعات بورسیه" %}</h3>
+                        {{ university.scholarship_info|safe }}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Sidebar -->
+            <div>
+                <div class="detail-card">
+                    <h3 class="text-xl font-bold text-white mb-4">{% trans "اطلاعات کلی" %}</h3>
+                    
+                    {% if university.price %}
+                    <div class="price-display">{{ university.price|floatformat:0 }} {% trans "لیر" %}</div>
+                    {% if university.price_note %}
+                    <p class="text-gray-400 text-sm mb-4">{{ university.price_note }}</p>
+                    {% endif %}
+                    {% endif %}
+
+                    <div class="info-item">
+                        <strong>{% trans "نوع:" %}</strong>
+                        <span>
+                            {% if university.university_type == 'public' %}
+                                {% trans "دولتی" %}
+                            {% else %}
+                                {% trans "خصوصی" %}
+                            {% endif %}
+                        </span>
+                    </div>
+
+                    {% if university.location %}
+                    <div class="info-item">
+                        <strong>{% trans "موقعیت:" %}</strong>
+                        <span>{{ university.location }}</span>
+                    </div>
+                    {% endif %}
+
+                    {% if university.language %}
+                    <div class="info-item">
+                        <strong>{% trans "زبان تدریس:" %}</strong>
+                        <span>{{ university.language }}</span>
+                    </div>
+                    {% endif %}
+
+                    {% if university.ranking %}
+                    <div class="info-item">
+                        <strong>{% trans "رتبه:" %}</strong>
+                        <span>{{ university.ranking }}</span>
+                    </div>
+                    {% endif %}
+
+                    <a href="{% url 'contact:contact' %}" class="read-more-btn w-full text-center mt-4">
+                        {% trans "درخواست مشاوره" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Universities -->
+        {% if related_universities %}
+        <div class="mt-16">
+            <h2 class="text-2xl font-bold text-white mb-8">{% trans "دانشگاه‌های مشابه" %}</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {% for related in related_universities %}
+                <a href="{% url 'services:university_detail' related.slug %}" class="related-card">
+                    {% if related.image %}
+                    <img src="{{ related.image.url }}" alt="{{ related.name }}" class="related-image">
+                    {% else %}
+                    <div class="related-image bg-gradient-to-br from-green-600 to-green-400 flex items-center justify-center">
+                        <span class="text-4xl">🏛️</span>
+                    </div>
+                    {% endif %}
+                    <div class="related-content">
+                        <h4 class="related-name">{{ related.name }}</h4>
+                        <p class="text-gray-400 text-sm">{{ related.short_description|truncatewords:15 }}</p>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+

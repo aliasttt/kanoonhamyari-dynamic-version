@@ -49,4 +49,15 @@
     .kh-footer__bottom-links { justify-content: center; flex-wrap: wrap; }
 }
 
+/* Prevent overlap with page content (override vendor rules aggressively) */
+footer.footer.kh-footer {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    z-index: 0 !important;
+    clear: both !important;
+    float: none !important;
+    margin-top: 32px !important;
+}
+
 

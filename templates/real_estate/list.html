@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}املاک - کانون همیاری{% endblock %}
+{% block title %}{% trans "املاک - کانون همیاری" %}{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -61,11 +61,11 @@
         <div class="real_estate_hero">
             <div class="hero_overlay"></div>
             <div class="hero_content">
-                <h1 class="hero_title">🏠 بخش املاک و سرمایه‌گذاری</h1>
-                <p class="hero_subtitle">کانون همیاری با همکاری مشاوران رسمی املاک و کارشناسان اقتصادی، خدمات جامع خرید، فروش، اجاره و سرمایه‌گذاری در بازار املاک ترکیه را ارائه می‌دهد.</p>
+                <h1 class="hero_title">{% trans "🏠 بخش املاک و سرمایه‌گذاری" %}</h1>
+                <p class="hero_subtitle">{% trans "کانون همیاری با همکاری مشاوران رسمی املاک و کارشناسان اقتصادی، خدمات جامع خرید، فروش، اجاره و سرمایه‌گذاری در بازار املاک ترکیه را ارائه می‌دهد." %}</p>
                 <div class="hero_search">
                     <div class="search_box">
-                        <input type="text" placeholder="جستجو در املاک..." class="search_input">
+                        <input type="text" placeholder="{% trans 'جستجو در املاک...' %}" class="search_input">
                         <button class="search_btn"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
@@ -77,8 +77,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section_title text-center mb-80">
-                            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">خدمات املاک و سرمایه‌گذاری</h3>
-                            <p class="section_subtitle">ما تمامی مراحل از انتخاب ملک تا انتقال سند را به‌صورت قانونی و مطمئن انجام می‌دهیم.</p>
+                            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">{% trans "خدمات املاک و سرمایه‌گذاری" %}</h3>
+                            <p class="section_subtitle">{% trans "ما تمامی مراحل از انتخاب ملک تا انتقال سند را به‌صورت قانونی و مطمئن انجام می‌دهیم." %}</p>
                         </div>
                     </div>
                 </div>
@@ -87,23 +87,23 @@
                     <!-- Property 1 -->
                     <div class="property_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
                         <div class="property_image">
-                            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop" alt="مشاوره خرید و سرمایه‌گذاری">
-                            <div class="property_badge sale"><span>فروش</span></div>
+                            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'مشاوره خرید و سرمایه‌گذاری' %}">
+                            <div class="property_badge sale"><span>{% trans "فروش" %}</span></div>
                         </div>
                         <div class="property_content">
                             <div class="property_header">
-                                <h4 class="property_title">مشاوره خرید و سرمایه‌گذاری</h4>
-                                <div class="property_location"><i class="fa fa-calculator"></i><span>انتخاب ملک مناسب</span></div>
+                                <h4 class="property_title">{% trans "مشاوره خرید و سرمایه‌گذاری" %}</h4>
+                                <div class="property_location"><i class="fa fa-calculator"></i><span>{% trans "انتخاب ملک مناسب" %}</span></div>
                             </div>
-                            <p class="property_description">انتخاب ملک مناسب بر اساس بودجه، موقعیت و هدف (اقامت یا سود سرمایه)</p>
+                            <p class="property_description">{% trans "انتخاب ملک مناسب بر اساس بودجه، موقعیت و هدف (اقامت یا سود سرمایه)" %}</p>
                             <div class="property_features">
-                                <div class="feature_item"><i class="fa fa-calculator"></i><span>بودجه</span></div>
-                                <div class="feature_item"><i class="fa fa-map-marker"></i><span>موقعیت</span></div>
-                                <div class="feature_item"><i class="fa fa-target"></i><span>هدف</span></div>
+                                <div class="feature_item"><i class="fa fa-calculator"></i><span>{% trans "بودجه" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-map-marker"></i><span>{% trans "موقعیت" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-target"></i><span>{% trans "هدف" %}</span></div>
                             </div>
                             <div class="property_footer">
-                                <div class="property_price"><span class="price_amount">تماس بگیرید</span></div>
-                                <a href="{% url 'contact:contact' %}" class="property_btn">مشاوره</a>
+                                <div class="property_price"><span class="price_amount">{% trans "تماس بگیرید" %}</span></div>
+                                <a href="{% url 'contact:contact' %}" class="property_btn">{% trans "مشاوره" %}</a>
                             </div>
                         </div>
                     </div>
@@ -111,23 +111,23 @@
                     <!-- Property 2 -->
                     <div class="property_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
                         <div class="property_image">
-                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop" alt="خرید ملک با مجوز اقامت">
-                            <div class="property_badge rent"><span>اجاره</span></div>
+                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'خرید ملک با مجوز اقامت' %}">
+                            <div class="property_badge rent"><span>{% trans "اجاره" %}</span></div>
                         </div>
                         <div class="property_content">
                             <div class="property_header">
-                                <h4 class="property_title">خرید ملک با مجوز اقامت</h4>
-                                <div class="property_location"><i class="fa fa-passport"></i><span>مجوز اقامت ترکیه</span></div>
+                                <h4 class="property_title">{% trans "خرید ملک با مجوز اقامت" %}</h4>
+                                <div class="property_location"><i class="fa fa-passport"></i><span>{% trans "مجوز اقامت ترکیه" %}</span></div>
                             </div>
-                            <p class="property_description">معرفی املاک واجد شرایط دریافت اقامت ترکیه</p>
+                            <p class="property_description">{% trans "معرفی املاک واجد شرایط دریافت اقامت ترکیه" %}</p>
                             <div class="property_features">
-                                <div class="feature_item"><i class="fa fa-passport"></i><span>اقامت</span></div>
-                                <div class="feature_item"><i class="fa fa-check-circle"></i><span>واجد شرایط</span></div>
-                                <div class="feature_item"><i class="fa fa-home"></i><span>املاک</span></div>
+                                <div class="feature_item"><i class="fa fa-passport"></i><span>{% trans "اقامت" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-check-circle"></i><span>{% trans "واجد شرایط" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-home"></i><span>{% trans "املاک" %}</span></div>
                             </div>
                             <div class="property_footer">
-                                <div class="property_price"><span class="price_amount">تماس بگیرید</span></div>
-                                <a href="{% url 'contact:contact' %}" class="property_btn">درخواست</a>
+                                <div class="property_price"><span class="price_amount">{% trans "تماس بگیرید" %}</span></div>
+                                <a href="{% url 'contact:contact' %}" class="property_btn">{% trans "درخواست" %}</a>
                             </div>
                         </div>
                     </div>
@@ -135,23 +135,23 @@
                     <!-- Property 3 -->
                     <div class="property_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
                         <div class="property_image">
-                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop" alt="فروش ملک">
-                            <div class="property_badge sale"><span>فروش</span></div>
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'فروش ملک' %}">
+                            <div class="property_badge sale"><span>{% trans "فروش" %}</span></div>
                         </div>
                         <div class="property_content">
                             <div class="property_header">
-                                <h4 class="property_title">فروش ملک</h4>
-                                <div class="property_location"><i class="fa fa-chart-line"></i><span>بازاریابی هدفمند</span></div>
+                                <h4 class="property_title">{% trans "فروش ملک" %}</h4>
+                                <div class="property_location"><i class="fa fa-chart-line"></i><span>{% trans "بازاریابی هدفمند" %}</span></div>
                             </div>
-                            <p class="property_description">بازاریابی هدفمند، تبلیغات حرفه‌ای و فروش در کوتاه‌ترین زمان ممکن</p>
+                            <p class="property_description">{% trans "بازاریابی هدفمند، تبلیغات حرفه‌ای و فروش در کوتاه‌ترین زمان ممکن" %}</p>
                             <div class="property_features">
-                                <div class="feature_item"><i class="fa fa-chart-line"></i><span>بازاریابی</span></div>
-                                <div class="feature_item"><i class="fa fa-bullhorn"></i><span>تبلیغات</span></div>
-                                <div class="feature_item"><i class="fa fa-clock"></i><span>سریع</span></div>
+                                <div class="feature_item"><i class="fa fa-chart-line"></i><span>{% trans "بازاریابی" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-bullhorn"></i><span>{% trans "تبلیغات" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-clock"></i><span>{% trans "سریع" %}</span></div>
                             </div>
                             <div class="property_footer">
-                                <div class="property_price"><span class="price_amount">تماس بگیرید</span></div>
-                                <a href="{% url 'contact:contact' %}" class="property_btn">درخواست</a>
+                                <div class="property_price"><span class="price_amount">{% trans "تماس بگیرید" %}</span></div>
+                                <a href="{% url 'contact:contact' %}" class="property_btn">{% trans "درخواست" %}</a>
                             </div>
                         </div>
                     </div>
@@ -159,23 +159,23 @@
                     <!-- Property 4 -->
                     <div class="property_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
                         <div class="property_image">
-                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000&auto=format&fit=crop" alt="اجاره سالانه و کوتاه‌مدت">
-                            <div class="property_badge rent"><span>اجاره</span></div>
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'اجاره سالانه و کوتاه‌مدت' %}">
+                            <div class="property_badge rent"><span>{% trans "اجاره" %}</span></div>
                         </div>
                         <div class="property_content">
                             <div class="property_header">
-                                <h4 class="property_title">اجاره سالانه و کوتاه‌مدت</h4>
-                                <div class="property_location"><i class="fa fa-calendar"></i><span>مسکونی و تجاری</span></div>
+                                <h4 class="property_title">{% trans "اجاره سالانه و کوتاه‌مدت" %}</h4>
+                                <div class="property_location"><i class="fa fa-calendar"></i><span>{% trans "مسکونی و تجاری" %}</span></div>
                             </div>
-                            <p class="property_description">اجاره مسکونی، تجاری و اقامتی برای ایرانیان در شهرهای مختلف ترکیه</p>
+                            <p class="property_description">{% trans "اجاره مسکونی، تجاری و اقامتی برای ایرانیان در شهرهای مختلف ترکیه" %}</p>
                             <div class="property_features">
-                                <div class="feature_item"><i class="fa fa-home"></i><span>مسکونی</span></div>
-                                <div class="feature_item"><i class="fa fa-building"></i><span>تجاری</span></div>
-                                <div class="feature_item"><i class="fa fa-city"></i><span>شهرهای مختلف</span></div>
+                                <div class="feature_item"><i class="fa fa-home"></i><span>{% trans "مسکونی" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-building"></i><span>{% trans "تجاری" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-city"></i><span>{% trans "شهرهای مختلف" %}</span></div>
                             </div>
                             <div class="property_footer">
-                                <div class="property_price"><span class="price_amount">تماس بگیرید</span></div>
-                                <a href="{% url 'contact:contact' %}" class="property_btn">درخواست</a>
+                                <div class="property_price"><span class="price_amount">{% trans "تماس بگیرید" %}</span></div>
+                                <a href="{% url 'contact:contact' %}" class="property_btn">{% trans "درخواست" %}</a>
                             </div>
                         </div>
                     </div>
@@ -183,23 +183,23 @@
                     <!-- Property 5 -->
                     <div class="property_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">
                         <div class="property_image">
-                            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1000&auto=format&fit=crop" alt="انتقال سند (تاپو)">
-                            <div class="property_badge sale"><span>فروش</span></div>
+                            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'انتقال سند (تاپو)' %}">
+                            <div class="property_badge sale"><span>{% trans "فروش" %}</span></div>
                         </div>
                         <div class="property_content">
                             <div class="property_header">
-                                <h4 class="property_title">انتقال سند (تاپو)</h4>
-                                <div class="property_location"><i class="fa fa-file-text"></i><span>اداره تاپو</span></div>
+                                <h4 class="property_title">{% trans "انتقال سند (تاپو)" %}</h4>
+                                <div class="property_location"><i class="fa fa-file-text"></i><span>{% trans "اداره تاپو" %}</span></div>
                             </div>
-                            <p class="property_description">بررسی مدارک، ترجمه رسمی، ثبت در اداره تاپو و تحویل نهایی سند مالکیت</p>
+                            <p class="property_description">{% trans "بررسی مدارک، ترجمه رسمی، ثبت در اداره تاپو و تحویل نهایی سند مالکیت" %}</p>
                             <div class="property_features">
-                                <div class="feature_item"><i class="fa fa-file-text"></i><span>مدارک</span></div>
-                                <div class="feature_item"><i class="fa fa-language"></i><span>ترجمه رسمی</span></div>
-                                <div class="feature_item"><i class="fa fa-stamp"></i><span>ثبت</span></div>
+                                <div class="feature_item"><i class="fa fa-file-text"></i><span>{% trans "مدارک" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-language"></i><span>{% trans "ترجمه رسمی" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-stamp"></i><span>{% trans "ثبت" %}</span></div>
                             </div>
                             <div class="property_footer">
-                                <div class="property_price"><span class="price_amount">تماس بگیرید</span></div>
-                                <a href="{% url 'contact:contact' %}" class="property_btn">درخواست</a>
+                                <div class="property_price"><span class="price_amount">{% trans "تماس بگیرید" %}</span></div>
+                                <a href="{% url 'contact:contact' %}" class="property_btn">{% trans "درخواست" %}</a>
                             </div>
                         </div>
                     </div>
@@ -207,23 +207,23 @@
                     <!-- Property 6 -->
                     <div class="property_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
                         <div class="property_image">
-                            <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?q=80&w=1000&auto=format&fit=crop" alt="مدیریت ملک">
-                            <div class="property_badge rent"><span>اجاره</span></div>
+                            <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'مدیریت ملک' %}">
+                            <div class="property_badge rent"><span>{% trans "اجاره" %}</span></div>
                         </div>
                         <div class="property_content">
                             <div class="property_header">
-                                <h4 class="property_title">مدیریت ملک</h4>
-                                <div class="property_location"><i class="fa fa-cogs"></i><span>نگهداری و اجاره‌دهی</span></div>
+                                <h4 class="property_title">{% trans "مدیریت ملک" %}</h4>
+                                <div class="property_location"><i class="fa fa-cogs"></i><span>{% trans "نگهداری و اجاره‌دهی" %}</span></div>
                             </div>
-                            <p class="property_description">نگهداری، اجاره‌دهی و پیگیری امور خدماتی املاک خریداران ایرانی</p>
+                            <p class="property_description">{% trans "نگهداری، اجاره‌دهی و پیگیری امور خدماتی املاک خریداران ایرانی" %}</p>
                             <div class="property_features">
-                                <div class="feature_item"><i class="fa fa-tools"></i><span>نگهداری</span></div>
-                                <div class="feature_item"><i class="fa fa-key"></i><span>اجاره‌دهی</span></div>
-                                <div class="feature_item"><i class="fa fa-phone"></i><span>خدماتی</span></div>
+                                <div class="feature_item"><i class="fa fa-tools"></i><span>{% trans "نگهداری" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-key"></i><span>{% trans "اجاره‌دهی" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-phone"></i><span>{% trans "خدماتی" %}</span></div>
                             </div>
                             <div class="property_footer">
-                                <div class="property_price"><span class="price_amount">تماس بگیرید</span></div>
-                                <a href="{% url 'contact:contact' %}" class="property_btn">درخواست</a>
+                                <div class="property_price"><span class="price_amount">{% trans "تماس بگیرید" %}</span></div>
+                                <a href="{% url 'contact:contact' %}" class="property_btn">{% trans "درخواست" %}</a>
                             </div>
                         </div>
                     </div>
@@ -231,7 +231,7 @@
 
                 <!-- Load More Button -->
                 <div class="text-center mt-80">
-                    <a href="{% url 'contact:contact' %}" class="load_more_btn">تماس با ما برای مشاوره</a>
+                    <a href="{% url 'contact:contact' %}" class="load_more_btn">{% trans "تماس با ما برای مشاوره" %}</a>
                 </div>
             </div>
         </div>

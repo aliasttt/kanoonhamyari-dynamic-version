@@ -1,0 +1,46 @@
+/* RTL Support for Persian Language */
+
+/* Beautiful Persian Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* RTL Body */
+body.rtl {
+    direction: rtl;
+    text-align: right;
+    font-family: 'Vazirmatn', 'Noto Sans Arabic', 'Amiri', 'Tahoma', 'Arial', sans-serif;
+}
+
+/* Persian Typography */
+body.rtl h1, body.rtl h2, body.rtl h3, body.rtl h4, body.rtl h5, body.rtl h6 {
+    font-family: 'Vazirmatn', 'Noto Sans Arabic', 'Amiri', sans-serif;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+body.rtl p, body.rtl span, body.rtl div {
+    font-family: 'Vazirmatn', 'Noto Sans Arabic', 'Amiri', sans-serif;
+    line-height: 1.6;
+}
+
+/* Navigation (RTL friendly) */
+body.rtl .main-menu ul { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; }
+body.rtl .main-menu ul li { display: inline-block; position: relative; }
+body.rtl .main-menu ul li a { display: block; padding: 8px 14px; font-size: 14px; font-weight: 500; border-radius: 6px; transition: all .3s ease; white-space: nowrap; }
+body.rtl .main-menu ul li .submenu { right: 0; left: auto; text-align: right; }
+
+/* Alternating layout helpers used on home */
+body.rtl .about_info.pl-68 { padding-left: 0; padding-right: 68px; }
+@media (max-width: 768px) { body.rtl .about_info.pl-68 { padding-right: 0; } }
+
+/* Program details alternating timeline */
+body.rtl .single_propram:nth-child(odd) .inner_wrap { text-align: right; padding-right: 20px; }
+body.rtl .single_propram:nth-child(even) .inner_wrap { text-align: left; padding-left: 20px; }
+
+/* Footer tweaks */
+.footer_content { padding: 60px 0 40px; background: #1a1a1a; }
+.footer_bottom { background: #000; padding: 25px 0; border-top: 1px solid #333; }
+
+/* Ensure phones in footer render LTR properly */
+.kh-contact a[href^="tel:"] { direction: ltr; text-align: left; unicode-bidi: bidi-override; }
+
+

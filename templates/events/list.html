@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}رویدادها - کانون همیاری{% endblock %}
+{% block title %}{% trans "رویدادها - کانون همیاری" %}{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -63,10 +63,10 @@
             <div class="hero_overlay"></div>
             <div class="hero_content">
                 <h1 class="hero_title" data-translate="eventsHero">بخش رویدادها و مناسبت‌ها</h1>
-                <p class="hero_subtitle" data-translate="eventsHeroSub">واحد رویدادهای کانون همیاری با تیمی از برگزارکنندگان حرفه‌ای و طراحان مراسم، ویژه‌ترین برنامه‌های ایرانیان در ترکیه را اجرا می‌کند.</p>
+                <p class="hero_subtitle" data-translate="eventsHeroSub">{% trans "واحد رویدادهای کانون همیاری با تیمی از برگزارکنندگان حرفه‌ای و طراحان مراسم، ویژه‌ترین برنامه‌های ایرانیان در ترکیه را اجرا می‌کند." %}</p>
                 <div class="hero_search">
                     <div class="search_box">
-                        <input type="text" placeholder="جستجو در رویدادها..." class="search_input">
+                        <input type="text" placeholder="{% trans 'جستجو در رویدادها...' %}" class="search_input">
                         <button class="search_btn"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
         <!-- Events Grid -->
         <div class="events_section">
             <div class="container">
-                <div class="row"><div class="col-lg-12"><div class="section_title text-center mb-80"><h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s" data-translate="ourEvents">زیرمجموعه خدمات رویداد</h3><p class="section_subtitle" data-translate="eventsSubtitle">خدمات متنوع رویداد و مناسبت برای ایرانیان مقیم ترکیه</p></div></div></div>
+                <div class="row"><div class="col-lg-12"><div class="section_title text-center mb-80"><h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">{% trans "زیرمجموعه خدمات رویداد" %}</h3><p class="section_subtitle">{% trans "خدمات متنوع رویداد و مناسبت برای ایرانیان مقیم ترکیه" %}</p></div></div></div>
 
                 {% if events %}
                 <div class="events_grid">
@@ -96,7 +96,7 @@
                                 <div class="feature_item"><i class="fa fa-clock-o"></i><span>{{ event.start_time|time:"H:i" }}</span></div>
                                 <div class="feature_item"><i class="fa fa-users"></i><span>{{ event.capacity }}</span></div>
                             </div>
-                            <div class="event_footer"><div class="event_price"><span class="price_amount">{% if event.price > 0 %}{{ event.price }} TL{% else %}رایگان{% endif %}</span></div><a href="{% url 'events:register' slug=event.slug %}" class="event_btn">ثبت‌نام</a></div>
+                            <div class="event_footer"><div class="event_price"><span class="price_amount">{% if event.price > 0 %}{{ event.price }} TL{% else %}{% trans "رایگان" %}{% endif %}</span></div><a href="{% url 'events:register' slug=event.slug %}" class="event_btn">{% trans "ثبت‌نام" %}</a></div>
                         </div>
                     </div>
                     {% endfor %}
@@ -106,52 +106,52 @@
                     <!-- Static Card 1 -->
                     <div class="event_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
                         <div class="event_image">
-                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1000&auto=format&fit=crop" alt="برگزاری جشن‌های مناسبتی">
-                            <div class="event_badge conference"><span>مناسبتی</span></div>
+                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'برگزاری جشن‌های مناسبتی' %}">
+                            <div class="event_badge conference"><span>{% trans "مناسبتی" %}</span></div>
                             <div class="event_overlay"><div class="overlay_actions"><button class="action_btn"><i class="fa fa-heart"></i></button><button class="action_btn"><i class="fa fa-share"></i></button><a href="{% url 'contact:contact' %}" class="action_btn"><i class="fa fa-eye"></i></a></div></div>
                         </div>
                         <div class="event_content">
-                            <h4 class="event_title">برگزاری جشن‌های مناسبتی</h4>
-                            <div class="event_location"><i class="fa fa-map-marker"></i><span>ترکیه</span></div>
-                            <p class="event_description">نوروز، یلدا، روز زن و... با طراحی دکور، موسیقی زنده، پذیرایی و مدیریت کامل</p>
-                            <div class="event_features"><div class="feature_item"><i class="fa fa-calendar"></i><span>مناسبت‌های ایرانی</span></div><div class="feature_item"><i class="fa fa-music"></i><span>موسیقی زنده</span></div><div class="feature_item"><i class="fa fa-cog"></i><span>مدیریت کامل</span></div></div>
-                            <div class="event_footer"><div class="event_price"><span class="price_amount">تماس بگیرید</span></div><a href="{% url 'contact:contact' %}" class="event_btn">اطلاعات بیشتر</a></div>
+                            <h4 class="event_title">{% trans "برگزاری جشن‌های مناسبتی" %}</h4>
+                            <div class="event_location"><i class="fa fa-map-marker"></i><span>{% trans "ترکیه" %}</span></div>
+                            <p class="event_description">{% trans "نوروز، یلدا، روز زن و... با طراحی دکور، موسیقی زنده، پذیرایی و مدیریت کامل" %}</p>
+                            <div class="event_features"><div class="feature_item"><i class="fa fa-calendar"></i><span>{% trans "مناسبت‌های ایرانی" %}</span></div><div class="feature_item"><i class="fa fa-music"></i><span>{% trans "موسیقی زنده" %}</span></div><div class="feature_item"><i class="fa fa-cog"></i><span>{% trans "مدیریت کامل" %}</span></div></div>
+                            <div class="event_footer"><div class="event_price"><span class="price_amount">{% trans "تماس بگیرید" %}</span></div><a href="{% url 'contact:contact' %}" class="event_btn">{% trans "اطلاعات بیشتر" %}</a></div>
                         </div>
                     </div>
                     <!-- Static Card 2 -->
                     <div class="event_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
                         <div class="event_image">
-                            <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=1000&auto=format&fit=crop" alt="همایش‌ها و گردهمایی‌ها">
-                            <div class="event_badge festival"><span>همایش</span></div>
+                            <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'همایش‌ها و گردهمایی‌ها' %}">
+                            <div class="event_badge festival"><span>{% trans "همایش" %}</span></div>
                             <div class="event_overlay"><div class="overlay_actions"><button class="action_btn"><i class="fa fa-heart"></i></button><button class="action_btn"><i class="fa fa-share"></i></button><a href="{% url 'contact:contact' %}" class="action_btn"><i class="fa fa-eye"></i></a></div></div>
                         </div>
                         <div class="event_content">
-                            <h4 class="event_title">همایش‌ها و گردهمایی‌ها</h4>
-                            <div class="event_location"><i class="fa fa-map-marker"></i><span>ترکیه</span></div>
-                            <p class="event_description">سازماندهی رویدادهای فرهنگی و اجتماعی ایرانیان مقیم ترکیه</p>
-                            <div class="event_features"><div class="feature_item"><i class="fa fa-users"></i><span>فرهنگی و اجتماعی</span></div><div class="feature_item"><i class="fa fa-flag"></i><span>ایرانیان مقیم</span></div><div class="feature_item"><i class="fa fa-calendar"></i><span>سازماندهی حرفه‌ای</span></div></div>
-                            <div class="event_footer"><div class="event_price"><span class="price_amount">تماس بگیرید</span></div><a href="{% url 'contact:contact' %}" class="event_btn">اطلاعات بیشتر</a></div>
+                            <h4 class="event_title">{% trans "همایش‌ها و گردهمایی‌ها" %}</h4>
+                            <div class="event_location"><i class="fa fa-map-marker"></i><span>{% trans "ترکیه" %}</span></div>
+                            <p class="event_description">{% trans "سازماندهی رویدادهای فرهنگی و اجتماعی ایرانیان مقیم ترکیه" %}</p>
+                            <div class="event_features"><div class="feature_item"><i class="fa fa-users"></i><span>{% trans "فرهنگی و اجتماعی" %}</span></div><div class="feature_item"><i class="fa fa-flag"></i><span>{% trans "ایرانیان مقیم" %}</span></div><div class="feature_item"><i class="fa fa-calendar"></i><span>{% trans "سازماندهی حرفه‌ای" %}</span></div></div>
+                            <div class="event_footer"><div class="event_price"><span class="price_amount">{% trans "تماس بگیرید" %}</span></div><a href="{% url 'contact:contact' %}" class="event_btn">{% trans "اطلاعات بیشتر" %}</a></div>
                         </div>
                     </div>
                     <!-- Static Card 3 -->
                     <div class="event_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
                         <div class="event_image">
-                            <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=1000&auto=format&fit=crop" alt="جشن تولد، سالگرد و برنامه‌های خصوصی">
-                            <div class="event_badge workshop"><span>خصوصی</span></div>
+                            <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'جشن تولد، سالگرد و برنامه‌های خصوصی' %}">
+                            <div class="event_badge workshop"><span>{% trans "خصوصی" %}</span></div>
                             <div class="event_overlay"><div class="overlay_actions"><button class="action_btn"><i class="fa fa-heart"></i></button><button class="action_btn"><i class="fa fa-share"></i></button><a href="{% url 'contact:contact' %}" class="action_btn"><i class="fa fa-eye"></i></a></div></div>
                         </div>
                         <div class="event_content">
-                            <h4 class="event_title">جشن تولد، سالگرد و برنامه‌های خصوصی</h4>
-                            <div class="event_location"><i class="fa fa-map-marker"></i><span>ترکیه</span></div>
-                            <p class="event_description">برگزاری مراسم به سبک ایرانی و مدرن برای مناسبت‌های شخصی</p>
-                            <div class="event_features"><div class="feature_item"><i class="fa fa-birthday-cake"></i><span>تولد و سالگرد</span></div><div class="feature_item"><i class="fa fa-star"></i><span>سبک ایرانی و مدرن</span></div><div class="feature_item"><i class="fa fa-home"></i><span>برنامه‌های خصوصی</span></div></div>
-                            <div class="event_footer"><div class="event_price"><span class="price_amount">تماس بگیرید</span></div><a href="{% url 'contact:contact' %}" class="event_btn">اطلاعات بیشتر</a></div>
+                            <h4 class="event_title">{% trans "جشن تولد، سالگرد و برنامه‌های خصوصی" %}</h4>
+                            <div class="event_location"><i class="fa fa-map-marker"></i><span>{% trans "ترکیه" %}</span></div>
+                            <p class="event_description">{% trans "برگزاری مراسم به سبک ایرانی و مدرن برای مناسبت‌های شخصی" %}</p>
+                            <div class="event_features"><div class="feature_item"><i class="fa fa-birthday-cake"></i><span>{% trans "تولد و سالگرد" %}</span></div><div class="feature_item"><i class="fa fa-star"></i><span>{% trans "سبک ایرانی و مدرن" %}</span></div><div class="feature_item"><i class="fa fa-home"></i><span>{% trans "برنامه‌های خصوصی" %}</span></div></div>
+                            <div class="event_footer"><div class="event_price"><span class="price_amount">{% trans "تماس بگیرید" %}</span></div><a href="{% url 'contact:contact' %}" class="event_btn">{% trans "اطلاعات بیشتر" %}</a></div>
                         </div>
                     </div>
                 </div>
                 {% endif %}
 
-                <div class="text-center mt-80"><a href="#" class="load_more_btn" data-translate="loadMore">مشاهده رویدادهای بیشتر</a></div>
+                <div class="text-center mt-80"><a href="#" class="load_more_btn">{% trans "مشاهده رویدادهای بیشتر" %}</a></div>
             </div>
         </div>
     </div>

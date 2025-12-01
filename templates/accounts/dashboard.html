@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}پنل کاربر{% endblock %}
+{% block title %}{% trans "پنل کاربر" %}{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -27,40 +27,38 @@
     <div class="container">
         <div class="dash-hero">
             <div class="dash-hello">
-                سلام، {{ request.user.username }}
-                <div style="font-size:13px; color:#777; font-weight:400;">ایمیل: {{ request.user.email|default:'—' }}</div>
+                {% trans "سلام،" %} {{ request.user.username }}
+                <div style="font-size:13px; color:#777; font-weight:400;">{% trans "ایمیل:" %} {{ request.user.email|default:'—' }}</div>
             </div>
             <div class="dash-stats">
-                <div class="stat"><span class="num">{{ enrollments|length }}</span><span class="lbl">دوره</span></div>
-                <div class="stat"><span class="num">{{ certificates|length }}</span><span class="lbl">گواهینامه</span></div>
+                <div class="stat"><span class="num">{{ enrollments|length }}</span><span class="lbl">{% trans "دوره" %}</span></div>
+                <div class="stat"><span class="num">{{ certificates|length }}</span><span class="lbl">{% trans "گواهینامه" %}</span></div>
             </div>
         </div>
         <div class="row" style="margin-top:16px;">
             <div class="col-lg-3">
                 <div class="dash-card dash-side">
                     <div class="card-body">
-                        <h5 style="color:#111; font-weight:800;">منو</h5>
-                        <a href="{% url 'accounts:dashboard' %}">داشبورد</a>
-                        <a href="{% url 'courses:list' %}">دوره‌ها</a>
-                        <a href="{% url 'blog:list' %}">وبلاگ</a>
-                        <a href="{% url 'accounts:logout' %}">خروج</a>
+                        <h5 style="color:#111; font-weight:800;">{% trans "منو" %}</h5>
+                        <a href="{% url 'accounts:dashboard' %}">{% trans "داشبورد" %}</a>
+                        <a href="{% url 'courses:list' %}">{% trans "دوره‌ها" %}</a>
+                        <a href="{% url 'blog:list' %}">{% trans "وبلاگ" %}</a>
+                        <a href="{% url 'accounts:logout' %}">{% trans "خروج" %}</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-9">
                 <div class="dash-card">
                     <div class="card-body">
-                        <h4 style="color:#111; margin-bottom:16px; font-weight:800;">اطلاعات کاربر</h4>
+                        <h4 style="color:#111; margin-bottom:16px; font-weight:800;">{% trans "اطلاعات کاربر" %}</h4>
                         <div class="row">
                             <div class="col-md-6">
-                                <p><strong>نام کاربری:</strong> {{ request.user.username }}</p>
-                                <p><strong>ایمیل:</strong> {{ request.user.email|default:'—' }}</p>
+                                <p><strong>{% trans "نام کاربری:" %}</strong> {{ request.user.username }}</p>
+                                <p><strong>{% trans "ایمیل:" %}</strong> {{ request.user.email|default:'—' }}</p>
                             </div>
                             <div class="col-md-6">
-                                {% if request.user.profile %}
-                                    <p><strong>تلفن:</strong> {{ request.user.profile.phone|default:'—' }}</p>
-                                    <p><strong>آدرس:</strong> {{ request.user.profile.address|default:'—' }}</p>
-                                {% endif %}
+                                <p><strong>{% trans "تلفن:" %}</strong> —</p>
+                            <p><strong>{% trans "آدرس:" %}</strong> —</p>
                             </div>
                         </div>
                     </div>
@@ -69,18 +67,18 @@
                     <div class="col-md-6">
                         <div class="dash-card">
                             <div class="card-body">
-                                <h5 style="color:#111; font-weight:800; margin-bottom:10px;">دوره‌های من</h5>
+                                <h5 style="color:#111; font-weight:800; margin-bottom:10px;">{% trans "دوره‌های من" %}</h5>
                                 {% if enrollments %}
                                     <ul class="list-unstyled" style="margin:0;">
                                         {% for e in enrollments|slice:":4" %}
                                         <li class="cert-item">
                                             <span>{{ e.course.title }}</span>
-                                            {% if e.passed %}<span class="boxed-btn3" style="padding:6px 10px;">قبول</span>{% else %}<a class="boxed-btn3" style="padding:6px 10px;" href="{{ e.course.get_absolute_url }}">ادامه</a>{% endif %}
+                                            {% if e.passed %}<span class="boxed-btn3" style="padding:6px 10px;">{% trans "قبول" %}</span>{% else %}<a class="boxed-btn3" style="padding:6px 10px;" href="{{ e.course.get_absolute_url }}">{% trans "ادامه" %}</a>{% endif %}
                                         </li>
                                         {% endfor %}
                                     </ul>
                                 {% else %}
-                                    <p class="empty">هنوز در دوره‌ای ثبت‌نام نکرده‌اید.</p>
+                                    <p class="empty">{% trans "هنوز در دوره‌ای ثبت‌نام نکرده‌اید." %}</p>
                                 {% endif %}
                             </div>
                         </div>
@@ -88,19 +86,19 @@
                     <div class="col-md-6">
                         <div class="dash-card">
                             <div class="card-body">
-                                <h5 style="color:#111; font-weight:800; margin-bottom:10px;">مدارک و گواهینامه‌ها</h5>
+                                <h5 style="color:#111; font-weight:800; margin-bottom:10px;">{% trans "مدارک و گواهینامه‌ها" %}</h5>
                                 <div id="certificatesWrap">
                             {% if certificates %}
                                 <ul class="list-unstyled">
                                     {% for cert in certificates %}
                                     <li class="cert-item">
-                                        <span>{{ cert.course.title }} — <small>کد: {{ cert.certificate_code }}</small></span>
-                                        <a class="boxed-btn3" style="padding:6px 10px;" href="{% url 'courses:certificate' cert.course.slug %}">مشاهده</a>
+                                        <span>{{ cert.course.title }} — <small>{% trans "کد:" %} {{ cert.certificate_code }}</small></span>
+                                        <a class="boxed-btn3" style="padding:6px 10px;" href="{% url 'courses:certificate' cert.course.slug %}">{% trans "مشاهده" %}</a>
                                     </li>
                                     {% endfor %}
                                 </ul>
                             {% else %}
-                                <p class="empty">در حال حاضر مدرکی ثبت نشده است.</p>
+                                <p class="empty">{% trans "در حال حاضر مدرکی ثبت نشده است." %}</p>
                             {% endif %}
                         </div>
                             </div>

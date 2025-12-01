@@ -119,3 +119,8 @@ def certificate_view(request, slug):
 
 
 
+
+
+
+
+

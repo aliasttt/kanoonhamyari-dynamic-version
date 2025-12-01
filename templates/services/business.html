@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}بیزینس - کانون همیاری{% endblock %}
+{% block title %}{% trans "بیزینس - کانون همیاری" %}{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -49,8 +49,8 @@
         <div class="business_hero">
             <div class="hero_overlay"></div>
             <div class="hero_content">
-                <h1 class="hero_title">بخش بیزینس و رشد کسب‌وکار</h1>
-                <p class="hero_subtitle">مشاوره ثبت شرکت، مالیات، مجوزها، استراتژی بازار و همکاری‌های بین‌المللی</p>
+                <h1 class="hero_title">{% trans "بخش بیزینس و رشد کسب‌وکار" %}</h1>
+                <p class="hero_subtitle">{% trans "مشاوره ثبت شرکت، مالیات، مجوزها، استراتژی بازار و همکاری‌های بین‌المللی" %}</p>
             </div>
         </div>
 
@@ -59,8 +59,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section_title text-center mb-80">
-                            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">زیرمجموعه خدمات بیزینسی</h3>
-                            <p class="section_subtitle">خدمات کامل مشاوره و پشتیبانی کسب‌وکار در ترکیه</p>
+                            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">{% trans "زیرمجموعه خدمات بیزینسی" %}</h3>
+                            <p class="section_subtitle">{% trans "خدمات کامل مشاوره و پشتیبانی کسب‌وکار در ترکیه" %}</p>
                         </div>
                     </div>
                 </div>
@@ -68,40 +68,40 @@
                 <div class="business_grid">
                     <div class="business_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
                         <div class="business_image">
-                            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1000&auto=format&fit=crop" alt="مشاوره ثبت شرکت">
-                            <div class="business_badge consultation"><span>ثبت شرکت</span></div>
+                            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'مشاوره ثبت شرکت' %}">
+                            <div class="business_badge consultation"><span>{% trans "ثبت شرکت" %}</span></div>
                         </div>
                         <div class="business_content">
-                            <h4 class="business_title">مشاوره ثبت شرکت</h4>
-                            <div class="business_category"><i class="fa fa-building"></i><span>ثبت رسمی</span></div>
-                            <p class="business_description">انتخاب نوع شرکت و انجام کامل مراحل ثبت رسمی</p>
-                            <a href="{% url 'contact:contact' %}" class="business_btn">مشاوره</a>
+                            <h4 class="business_title">{% trans "مشاوره ثبت شرکت" %}</h4>
+                            <div class="business_category"><i class="fa fa-building"></i><span>{% trans "ثبت رسمی" %}</span></div>
+                            <p class="business_description">{% trans "انتخاب نوع شرکت و انجام کامل مراحل ثبت رسمی" %}</p>
+                            <a href="{% url 'contact:contact' %}" class="business_btn">{% trans "مشاوره" %}</a>
                         </div>
                     </div>
 
                     <div class="business_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
                         <div class="business_image">
-                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1000&auto=format&fit=crop" alt="مشاوره مالیاتی">
-                            <div class="business_badge finance"><span>مالیاتی</span></div>
+                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'مشاوره مالیاتی' %}">
+                            <div class="business_badge finance"><span>{% trans "مالیاتی" %}</span></div>
                         </div>
                         <div class="business_content">
-                            <h4 class="business_title">مشاوره مالیاتی و حسابداری</h4>
-                            <div class="business_category"><i class="fa fa-calculator"></i><span>مالیاتی</span></div>
-                            <p class="business_description">گزارش‌های مالی شفاف و همکاری با حسابداران رسمی</p>
-                            <a href="{% url 'contact:contact' %}" class="business_btn">درخواست</a>
+                            <h4 class="business_title">{% trans "مشاوره مالیاتی و حسابداری" %}</h4>
+                            <div class="business_category"><i class="fa fa-calculator"></i><span>{% trans "مالیاتی" %}</span></div>
+                            <p class="business_description">{% trans "گزارش‌های مالی شفاف و همکاری با حسابداران رسمی" %}</p>
+                            <a href="{% url 'contact:contact' %}" class="business_btn">{% trans "درخواست" %}</a>
                         </div>
                     </div>
 
                     <div class="business_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
                         <div class="business_image">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" alt="مجوزهای تجاری">
-                            <div class="business_badge license"><span>مجوز</span></div>
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'مجوزهای تجاری' %}">
+                            <div class="business_badge license"><span>{% trans "مجوز" %}</span></div>
                         </div>
                         <div class="business_content">
-                            <h4 class="business_title">اخذ مجوزهای تجاری</h4>
-                            <div class="business_category"><i class="fa fa-certificate"></i><span>مجوز فعالیت</span></div>
-                            <p class="business_description">دریافت مجوز برای رستوران، فروشگاه، کلینیک و…</p>
-                            <a href="{% url 'contact:contact' %}" class="business_btn">درخواست</a>
+                            <h4 class="business_title">{% trans "اخذ مجوزهای تجاری" %}</h4>
+                            <div class="business_category"><i class="fa fa-certificate"></i><span>{% trans "مجوز فعالیت" %}</span></div>
+                            <p class="business_description">{% trans "دریافت مجوز برای رستوران، فروشگاه، کلینیک و…" %}</p>
+                            <a href="{% url 'contact:contact' %}" class="business_btn">{% trans "درخواست" %}</a>
                         </div>
                     </div>
                 </div>

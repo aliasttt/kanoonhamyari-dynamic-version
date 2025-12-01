@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}گواهینامه - {{ course.title }}{% endblock %}
+{% block title %}{% trans "گواهینامه" %} - {{ course.title }}{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -19,14 +19,14 @@
             <div class="col-lg-8">
                 <div class="card" style="background:#ffffff; border:1px solid #eee; border-radius:16px; box-shadow:0 8px 24px rgba(0,0,0,.08);">
                     <div class="card-body" style="padding:32px; text-align:center;">
-                        <h2 style="color:#ffd700; margin-bottom:8px;">گواهینامه پایان دوره</h2>
+                        <h2 style="color:#ffd700; margin-bottom:8px;">{% trans "گواهینامه پایان دوره" %}</h2>
                         <h4 style="color:#111; margin-bottom:12px;">{{ course.title }}</h4>
-                        <p style="color:#555;">این گواهینامه به <strong>{{ request.user.username }}</strong> به دلیل گذراندن موفق دوره اعطا می‌گردد.</p>
+                        <p style="color:#555;">{% blocktrans %}این گواهینامه به <strong>{{ request.user.username }}</strong> به دلیل گذراندن موفق دوره اعطا می‌گردد.{% endblocktrans %}</p>
                         <div style="margin:24px auto; max-width:420px; border:1px dashed #e6e6e6; padding:16px; border-radius:12px;">
-                            <p style="margin:0; color:#666;">کد گواهینامه:</p>
+                            <p style="margin:0; color:#666;">{% trans "کد گواهینامه:" %}</p>
                             <p style="margin:0; color:#111; font-weight:700; font-size:20px;">{{ enrollment.certificate_code }}</p>
                         </div>
-                        <a href="{% url 'accounts:dashboard' %}" class="boxed-btn3">بازگشت به پنل کاربر</a>
+                        <a href="{% url 'accounts:dashboard' %}" class="boxed-btn3">{% trans "بازگشت به پنل کاربر" %}</a>
                     </div>
                 </div>
             </div>

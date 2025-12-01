@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}تبلیغات - کانون همیاری{% endblock %}
+{% block title %}{% trans "تبلیغات - کانون همیاری" %}{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -52,11 +52,11 @@
         <div class="advertising_hero">
             <div class="hero_overlay"></div>
             <div class="hero_content">
-                <h1 class="hero_title">🎨 بخش تبلیغات، چاپ و برندینگ</h1>
-                <p class="hero_subtitle">تیم خلاقیت و رسانه کانون همیاری با سابقه فعالیت حرفه‌ای در تبلیغات و برندینگ، همراه بیزینس‌های ایرانی در مسیر دیده‌شدن و رشد است.</p>
+                <h1 class="hero_title">{% trans "🎨 بخش تبلیغات، چاپ و برندینگ" %}</h1>
+                <p class="hero_subtitle">{% trans "تیم خلاقیت و رسانه کانون همیاری با سابقه فعالیت حرفه‌ای در تبلیغات و برندینگ، همراه بیزینس‌های ایرانی در مسیر دیده‌شدن و رشد است." %}</p>
                 <div class="hero_search">
                     <div class="search_box">
-                        <input type="text" placeholder="جستجو در خدمات تبلیغاتی..." class="search_input">
+                        <input type="text" placeholder="{% trans 'جستجو در خدمات تبلیغاتی...' %}" class="search_input">
                         <button class="search_btn"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
@@ -68,8 +68,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section_title text-center mb-80">
-                            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">زیرمجموعه خدمات تبلیغات</h3>
-                            <p class="section_subtitle">ما تمامی مراحل از طراحی تا اجرا را به‌صورت حرفه‌ای و خلاقانه انجام می‌دهیم.</p>
+                            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">{% trans "زیرمجموعه خدمات تبلیغات" %}</h3>
+                            <p class="section_subtitle">{% trans "ما تمامی مراحل از طراحی تا اجرا را به‌صورت حرفه‌ای و خلاقانه انجام می‌دهیم." %}</p>
                         </div>
                     </div>
                 </div>
@@ -77,117 +77,117 @@
                 <div class="services_grid">
                     <div class="service_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
                         <div class="service_image">
-                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1000&auto=format&fit=crop" alt="طراحی هویت بصری برند">
-                            <div class="service_badge design"><span>طراحی</span></div>
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'طراحی هویت بصری برند' %}">
+                            <div class="service_badge design"><span>{% trans "طراحی" %}</span></div>
                         </div>
                         <div class="service_content">
-                            <h4 class="service_title">طراحی هویت بصری برند</h4>
-                            <div class="service_location"><i class="fa fa-paint-brush"></i><span>لوگو، رنگ سازمانی، ست اداری</span></div>
-                            <p class="service_description">طراحی هویت بصری برند (لوگو، رنگ سازمانی، ست اداری)</p>
+                            <h4 class="service_title">{% trans "طراحی هویت بصری برند" %}</h4>
+                            <div class="service_location"><i class="fa fa-paint-brush"></i><span>{% trans "لوگو، رنگ سازمانی، ست اداری" %}</span></div>
+                            <p class="service_description">{% trans "طراحی هویت بصری برند (لوگو، رنگ سازمانی، ست اداری)" %}</p>
                             <div class="service_features">
-                                <div class="feature_item"><i class="fa fa-paint-brush"></i><span>لوگو</span></div>
-                                <div class="feature_item"><i class="fa fa-palette"></i><span>رنگ سازمانی</span></div>
-                                <div class="feature_item"><i class="fa fa-file-text"></i><span>ست اداری</span></div>
+                                <div class="feature_item"><i class="fa fa-paint-brush"></i><span>{% trans "لوگو" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-palette"></i><span>{% trans "رنگ سازمانی" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-file-text"></i><span>{% trans "ست اداری" %}</span></div>
                             </div>
                             <div class="service_footer">
-                                <a href="{% url 'contact:contact' %}" class="service_btn">مشاوره</a>
+                                <a href="{% url 'contact:contact' %}" class="service_btn">{% trans "مشاوره" %}</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="service_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
                         <div class="service_image">
-                            <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?q=80&w=1000&auto=format&fit=crop" alt="طراحی و چاپ">
-                            <div class="service_badge design"><span>چاپ</span></div>
+                            <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'طراحی و چاپ' %}">
+                            <div class="service_badge design"><span>{% trans "چاپ" %}</span></div>
                         </div>
                         <div class="service_content">
-                            <h4 class="service_title">طراحی و چاپ</h4>
-                            <div class="service_location"><i class="fa fa-print"></i><span>پوستر، بروشور و بنرهای تبلیغاتی</span></div>
-                            <p class="service_description">طراحی و چاپ پوستر، بروشور و بنرهای تبلیغاتی</p>
+                            <h4 class="service_title">{% trans "طراحی و چاپ" %}</h4>
+                            <div class="service_location"><i class="fa fa-print"></i><span>{% trans "پوستر، بروشور و بنرهای تبلیغاتی" %}</span></div>
+                            <p class="service_description">{% trans "طراحی و چاپ پوستر، بروشور و بنرهای تبلیغاتی" %}</p>
                             <div class="service_features">
-                                <div class="feature_item"><i class="fa fa-image"></i><span>پوستر</span></div>
-                                <div class="feature_item"><i class="fa fa-file-pdf-o"></i><span>بروشور</span></div>
-                                <div class="feature_item"><i class="fa fa-flag"></i><span>بنر</span></div>
+                                <div class="feature_item"><i class="fa fa-image"></i><span>{% trans "پوستر" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-file-pdf-o"></i><span>{% trans "بروشور" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-flag"></i><span>{% trans "بنر" %}</span></div>
                             </div>
                             <div class="service_footer">
-                                <a href="{% url 'contact:contact' %}" class="service_btn">درخواست</a>
+                                <a href="{% url 'contact:contact' %}" class="service_btn">{% trans "درخواست" %}</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="service_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
                         <div class="service_image">
-                            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?q=80&w=1000&auto=format&fit=crop" alt="مدیریت شبکه‌های اجتماعی">
-                            <div class="service_badge digital"><span>دیجیتال</span></div>
+                            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'مدیریت شبکه‌های اجتماعی' %}">
+                            <div class="service_badge digital"><span>{% trans "دیجیتال" %}</span></div>
                         </div>
                         <div class="service_content">
-                            <h4 class="service_title">مدیریت شبکه‌های اجتماعی</h4>
-                            <div class="service_location"><i class="fa fa-share-alt"></i><span>تولید محتوای تخصصی فارسی-ترکی</span></div>
-                            <p class="service_description">مدیریت شبکه‌های اجتماعی و تولید محتوای تخصصی فارسی-ترکی</p>
+                            <h4 class="service_title">{% trans "مدیریت شبکه‌های اجتماعی" %}</h4>
+                            <div class="service_location"><i class="fa fa-share-alt"></i><span>{% trans "تولید محتوای تخصصی فارسی-ترکی" %}</span></div>
+                            <p class="service_description">{% trans "مدیریت شبکه‌های اجتماعی و تولید محتوای تخصصی فارسی-ترکی" %}</p>
                             <div class="service_features">
-                                <div class="feature_item"><i class="fa fa-facebook"></i><span>فیس‌بوک</span></div>
-                                <div class="feature_item"><i class="fa fa-instagram"></i><span>اینستاگرام</span></div>
-                                <div class="feature_item"><i class="fa fa-telegram"></i><span>تلگرام</span></div>
+                                <div class="feature_item"><i class="fa fa-facebook"></i><span>{% trans "فیس‌بوک" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-instagram"></i><span>{% trans "اینستاگرام" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-telegram"></i><span>{% trans "تلگرام" %}</span></div>
                             </div>
                             <div class="service_footer">
-                                <a href="{% url 'contact:contact' %}" class="service_btn">درخواست</a>
+                                <a href="{% url 'contact:contact' %}" class="service_btn">{% trans "درخواست" %}</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="service_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
                         <div class="service_image">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="تبلیغات هدفمند">
-                            <div class="service_badge digital"><span>تبلیغات</span></div>
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'تبلیغات هدفمند' %}">
+                            <div class="service_badge digital"><span>{% trans "تبلیغات" %}</span></div>
                         </div>
                         <div class="service_content">
-                            <h4 class="service_title">تبلیغات هدفمند</h4>
-                            <div class="service_location"><i class="fa fa-bullseye"></i><span>اینستاگرامی و گوگل ادز</span></div>
-                            <p class="service_description">تبلیغات هدفمند اینستاگرامی و گوگل ادز</p>
+                            <h4 class="service_title">{% trans "تبلیغات هدفمند" %}</h4>
+                            <div class="service_location"><i class="fa fa-bullseye"></i><span>{% trans "اینستاگرامی و گوگل ادز" %}</span></div>
+                            <p class="service_description">{% trans "تبلیغات هدفمند اینستاگرامی و گوگل ادز" %}</p>
                             <div class="service_features">
-                                <div class="feature_item"><i class="fa fa-instagram"></i><span>اینستاگرام</span></div>
-                                <div class="feature_item"><i class="fa fa-google"></i><span>گوگل ادز</span></div>
-                                <div class="feature_item"><i class="fa fa-target"></i><span>هدفمند</span></div>
+                                <div class="feature_item"><i class="fa fa-instagram"></i><span>{% trans "اینستاگرام" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-google"></i><span>{% trans "گوگل ادز" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-target"></i><span>{% trans "هدفمند" %}</span></div>
                             </div>
                             <div class="service_footer">
-                                <a href="{% url 'contact:contact' %}" class="service_btn">درخواست</a>
+                                <a href="{% url 'contact:contact' %}" class="service_btn">{% trans "درخواست" %}</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="service_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">
                         <div class="service_image">
-                            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop" alt="عکاسی و فیلم‌برداری">
-                            <div class="service_badge creative"><span>خلاقانه</span></div>
+                            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'عکاسی و فیلم‌برداری' %}">
+                            <div class="service_badge creative"><span>{% trans "خلاقانه" %}</span></div>
                         </div>
                         <div class="service_content">
-                            <h4 class="service_title">عکاسی و فیلم‌برداری</h4>
-                            <div class="service_location"><i class="fa fa-camera"></i><span>صنعتی و تبلیغاتی</span></div>
-                            <p class="service_description">عکاسی و فیلم‌برداری صنعتی و تبلیغاتی</p>
+                            <h4 class="service_title">{% trans "عکاسی و فیلم‌برداری" %}</h4>
+                            <div class="service_location"><i class="fa fa-camera"></i><span>{% trans "صنعتی و تبلیغاتی" %}</span></div>
+                            <p class="service_description">{% trans "عکاسی و فیلم‌برداری صنعتی و تبلیغاتی" %}</p>
                             <div class="service_features">
-                                <div class="feature_item"><i class="fa fa-camera"></i><span>عکاسی</span></div>
-                                <div class="feature_item"><i class="fa fa-video-camera"></i><span>فیلم‌برداری</span></div>
-                                <div class="feature_item"><i class="fa fa-industry"></i><span>صنعتی</span></div>
+                                <div class="feature_item"><i class="fa fa-camera"></i><span>{% trans "عکاسی" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-video-camera"></i><span>{% trans "فیلم‌برداری" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-industry"></i><span>{% trans "صنعتی" %}</span></div>
                             </div>
                             <div class="service_footer">
-                                <a href="{% url 'contact:contact' %}" class="service_btn">درخواست</a>
+                                <a href="{% url 'contact:contact' %}" class="service_btn">{% trans "درخواست" %}</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="service_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
                         <div class="service_image">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" alt="طراحی وب‌سایت">
-                            <div class="service_badge digital"><span>وب</span></div>
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'طراحی وب‌سایت' %}">
+                            <div class="service_badge digital"><span>{% trans "وب" %}</span></div>
                         </div>
                         <div class="service_content">
-                            <h4 class="service_title">طراحی وب‌سایت و فروشگاه آنلاین</h4>
-                            <div class="service_location"><i class="fa fa-laptop"></i><span>برای بیزینس‌ها</span></div>
-                            <p class="service_description">طراحی وب‌سایت و فروشگاه آنلاین برای بیزینس‌ها</p>
+                            <h4 class="service_title">{% trans "طراحی وب‌سایت و فروشگاه آنلاین" %}</h4>
+                            <div class="service_location"><i class="fa fa-laptop"></i><span>{% trans "برای بیزینس‌ها" %}</span></div>
+                            <p class="service_description">{% trans "طراحی وب‌سایت و فروشگاه آنلاین برای بیزینس‌ها" %}</p>
                             <div class="service_features">
-                                <div class="feature_item"><i class="fa fa-laptop"></i><span>وب‌سایت</span></div>
-                                <div class="feature_item"><i class="fa fa-shopping-cart"></i><span>فروشگاه آنلاین</span></div>
-                                <div class="feature_item"><i class="fa fa-briefcase"></i><span>بیزینس</span></div>
+                                <div class="feature_item"><i class="fa fa-laptop"></i><span>{% trans "وب‌سایت" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-shopping-cart"></i><span>{% trans "فروشگاه آنلاین" %}</span></div>
+                                <div class="feature_item"><i class="fa fa-briefcase"></i><span>{% trans "بیزینس" %}</span></div>
                             </div>
                             <div class="service_footer">
                                 <a href="{% url 'contact:contact' %}" class="service_btn">درخواست</a>
@@ -197,7 +197,7 @@
                 </div>
 
                 <div class="text-center mt-80">
-                    <a href="{% url 'contact:contact' %}" class="load_more_btn">تماس با ما برای مشاوره</a>
+                    <a href="{% url 'contact:contact' %}" class="load_more_btn">{% trans "تماس با ما برای مشاوره" %}</a>
                 </div>
             </div>
         </div>

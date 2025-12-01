@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
 {% block title %}{{ course.title }}{% endblock %}
 
@@ -31,17 +31,17 @@
             </div>
             <div class="col-12">
                 <ul class="nav nav-tabs" id="courseTabs" role="tablist" style="gap:8px; border-bottom: 1px solid #eee;">
-                    <li class="nav-item"><a class="nav-link active" id="tab-intro" data-toggle="tab" href="#intro" role="tab">فرم اولیه</a></li>
+                    <li class="nav-item"><a class="nav-link active" id="tab-intro" data-toggle="tab" href="#intro" role="tab">{% trans "فرم اولیه" %}</a></li>
                     {% for v in videos %}
-                    <li class="nav-item"><a class="nav-link disabled" id="tab-video-{{ v.id }}" data-toggle="tab" href="#video-{{ v.id }}" role="tab">ویدیو {{ forloop.counter }}</a></li>
+                    <li class="nav-item"><a class="nav-link disabled" id="tab-video-{{ v.id }}" data-toggle="tab" href="#video-{{ v.id }}" role="tab">{% blocktrans with num=forloop.counter %}ویدیو {{ num }}{% endblocktrans %}</a></li>
                     {% endfor %}
-                    <li class="nav-item"><a class="nav-link disabled" id="tab-quiz" data-toggle="tab" href="#quiz" role="tab">آزمون</a></li>
+                    <li class="nav-item"><a class="nav-link disabled" id="tab-quiz" data-toggle="tab" href="#quiz" role="tab">{% trans "آزمون" %}</a></li>
                 </ul>
                 <div class="tab-content" id="courseTabsContent" style="padding-top:16px;">
                     <div class="tab-pane fade show active" id="intro" role="tabpanel">
                         {% if initial_form_submitted %}
-                            <div class="alert alert-success">فرم اولیه ثبت شده است. می‌توانید به ویدیو اول بروید.</div>
-                            <button class="boxed-btn3" id="goFirstVideoBtn">رفتن به ویدیو 1</button>
+                            <div class="alert alert-success">{% trans "فرم اولیه ثبت شده است. می‌توانید به ویدیو اول بروید." %}</div>
+                            <button class="boxed-btn3" id="goFirstVideoBtn">{% trans "رفتن به ویدیو 1" %}</button>
                         {% else %}
                             <div class="card" style="background:#fff; border:1px solid #eee; border-radius:12px;">
                                 <div class="card-body" style="padding:24px;">
@@ -49,18 +49,18 @@
                                         {% csrf_token %}
                                         <input type="hidden" name="action" value="initial_form">
                                         <div class="form-group">
-                                            <label for="id_full_name">نام و نام خانوادگی</label>
+                                            <label for="id_full_name">{% trans "نام و نام خانوادگی" %}</label>
                                             {{ initial_form.full_name }}
                                         </div>
                                         <div class="form-group">
-                                            <label for="id_phone">شماره تماس</label>
+                                            <label for="id_phone">{% trans "شماره تماس" %}</label>
                                             {{ initial_form.phone }}
                                         </div>
                                         <div class="form-group">
-                                            <label for="id_city">شهر</label>
+                                            <label for="id_city">{% trans "شهر" %}</label>
                                             {{ initial_form.city }}
                                         </div>
-                                        <button type="submit" class="boxed-btn3">ثبت و ادامه</button>
+                                        <button type="submit" class="boxed-btn3">{% trans "ثبت و ادامه" %}</button>
                                     </form>
                                 </div>
                             </div>
@@ -80,11 +80,11 @@
                                     <source src="{{ v.video_url }}" type="video/mp4">
                                 </video>
                                 {% else %}
-                                <div class="alert alert-warning">ویدیو تعریف نشده است.</div>
+                                <div class="alert alert-warning">{% trans "ویدیو تعریف نشده است." %}</div>
                                 {% endif %}
                                 <div class="d-flex justify-content-between align-items-center" style="margin-top:12px;">
-                                    <button class="boxed-btn3" data-prev="{{ v.id }}">قبلی</button>
-                                    <button class="boxed-btn3 disabled" data-next="{{ v.id }}" id="nextBtn-{{ v.id }}">بعدی</button>
+                                    <button class="boxed-btn3" data-prev="{{ v.id }}">{% trans "قبلی" %}</button>
+                                    <button class="boxed-btn3 disabled" data-next="{{ v.id }}" id="nextBtn-{{ v.id }}">{% trans "بعدی" %}</button>
                                 </div>
                             </div>
                         </div>
@@ -94,15 +94,15 @@
                         <div class="card" style="background:#fff; border:1px solid #eee; border-radius:12px;">
                             <div class="card-body" style="padding:16px;">
                                 {% if enrollment.passed %}
-                                    <div class="alert alert-success">شما قبلاً قبول شده‌اید. <a href="{% url 'courses:certificate' course.slug %}" class="boxed-btn3">مشاهده گواهینامه</a></div>
+                                    <div class="alert alert-success">{% trans "شما قبلاً قبول شده‌اید." %} <a href="{% url 'courses:certificate' course.slug %}" class="boxed-btn3">{% trans "مشاهده گواهینامه" %}</a></div>
                                 {% else %}
                                     {% if questions %}
                                         <div class="d-flex justify-content-between align-items-center" style="margin-bottom:12px;">
-                                            <div>زمان باقی‌مانده: <span id="quizTime">--:--</span></div>
+                                            <div>{% trans "زمان باقی‌مانده:" %} <span id="quizTime">--:--</span></div>
                                             <div style="flex:1; margin:0 12px; height:8px; background:#eee; border-radius:6px;">
                                                 <span id="quizProgress" style="display:block; height:100%; width:0; background:linear-gradient(90deg,#ff6b35,#ff9f43); border-radius:6px;"></span>
                                             </div>
-                                            <div>تلاش‌ها: {{ enrollment.attempts_used }} / 3</div>
+                                            <div>{% trans "تلاش‌ها:" %} {{ enrollment.attempts_used }} / 3</div>
                                         </div>
                                         <form method="post" action="{% url 'courses:quiz_submit' course.slug %}" id="quizForm">
                                             {% csrf_token %}
@@ -117,10 +117,10 @@
                                                     {% endfor %}
                                                 </div>
                                             {% endfor %}
-                                            <button type="submit" class="boxed-btn3" id="quizSubmitBtn">ثبت پاسخ‌ها</button>
+                                            <button type="submit" class="boxed-btn3" id="quizSubmitBtn">{% trans "ثبت پاسخ‌ها" %}</button>
                                         </form>
                                     {% else %}
-                                        <div class="alert alert-warning">سوالی برای این دوره ثبت نشده است.</div>
+                                        <div class="alert alert-warning">{% trans "سوالی برای این دوره ثبت نشده است." %}</div>
                                     {% endif %}
                                 {% endif %}
                             </div>
@@ -136,6 +136,7 @@
 {% block extra_js %}
 <script>
 document.addEventListener('DOMContentLoaded', function(){
+    const TIME_OVER_TEXT = "{% trans 'زمان به پایان رسید' %}";
     const initialSubmitted = {{ initial_form_submitted|yesno:"true,false" }};
     const tabs = Array.from(document.querySelectorAll('#courseTabs a.nav-link'));
     const enableTab = (el) => { el.classList.remove('disabled'); el.classList.add('show'); };
@@ -227,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function(){
             if (remaining < 0) {
                 if (quizSubmitBtn) {
                     quizSubmitBtn.disabled = true;
-                    quizSubmitBtn.textContent = 'زمان به پایان رسید';
+                    quizSubmitBtn.textContent = TIME_OVER_TEXT;
                 }
                 return;
             }

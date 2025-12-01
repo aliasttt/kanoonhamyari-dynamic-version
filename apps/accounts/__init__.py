@@ -1,5 +1,2 @@
-
-
-
-
+# Accounts app
 

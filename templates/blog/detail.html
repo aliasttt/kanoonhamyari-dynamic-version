@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
 {% block title %}{{ post.title }}{% endblock %}
 
@@ -25,9 +25,9 @@
                     <div class="card-body" style="padding:24px;">
                         <h1 style="margin-bottom:8px; font-size:28px; font-weight:800;">{{ post.title }}</h1>
                         <div style="color:#777; font-size:14px; margin-bottom:16px;">
-                            <span>نویسنده: {{ post.author|default:'مدیر سایت' }}</span>
+                            <span>{% trans "نویسنده:" %} {{ post.author|default:'مدیر سایت' }}</span>
                             {% if post.published_at %}<span style="margin:0 8px;">|</span><span>{{ post.published_at|date:"Y/m/d" }}</span>{% endif %}
-                            <span style="margin:0 8px;">|</span><span>بازدید: {{ post.views_count }}</span>
+                            <span style="margin:0 8px;">|</span><span>{% trans "بازدید:" %} {{ post.views_count }}</span>
                             {% if post.category %}<span style="margin:0 8px;">|</span><span style="background:#fff3ec; color:#ff6b35; padding:2px 8px; border-radius:999px; border:1px solid #ffd8c2;">{{ post.category.name }}</span>{% endif %}
                         </div>
                         {% if post.image %}
@@ -44,7 +44,7 @@
         {% if related_posts %}
         <div class="row" style="margin-top:24px;">
             <div class="col-12">
-                <h3 style="color:#fff; margin-bottom:16px;">مطالب مرتبط</h3>
+                <h3 style="color:#fff; margin-bottom:16px;">{% trans "مطالب مرتبط" %}</h3>
             </div>
             {% for rp in related_posts %}
             <div class="col-lg-4 col-md-6">
@@ -58,7 +58,7 @@
                         <div class="service_content">
                             <h3 style="margin-bottom:8px;"><a href="{{ rp.get_absolute_url }}" style="color:#fff; text-decoration:none;">{{ rp.title }}</a></h3>
                             <p>{{ rp.short_description|truncatechars:120 }}</p>
-                            <a href="{{ rp.get_absolute_url }}" class="service_link">ادامه مطلب</a>
+                            <a href="{{ rp.get_absolute_url }}" class="service_link">{% trans "ادامه مطلب" %}</a>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
 
         <div class="row" style="margin-top:24px;">
             <div class="col-lg-8">
-                <h4 style="color:#fff; margin-bottom:12px;">نظرات</h4>
+                <h4 style="color:#fff; margin-bottom:12px;">{% trans "نظرات" %}</h4>
                 {% if comments %}
                     {% for c in comments %}
                     <div style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:10px; padding:12px; margin-bottom:10px;">
@@ -79,24 +79,24 @@
                     </div>
                     {% endfor %}
                 {% else %}
-                    <p style="color:#bbb;">نظری ثبت نشده است.</p>
+                    <p style="color:#bbb;">{% trans "نظری ثبت نشده است." %}</p>
                 {% endif %}
-                <h5 style="color:#fff; margin-top:16px;">افزودن نظر</h5>
+                <h5 style="color:#fff; margin-top:16px;">{% trans "افزودن نظر" %}</h5>
                 <form method="post" action="{% url 'blog:comment' post.slug %}" style="margin-top:8px;">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="name">نام</label>
+                        <label for="name">{% trans "نام" %}</label>
                         <input id="name" type="text" name="name" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">ایمیل (اختیاری)</label>
+                        <label for="email">{% trans "ایمیل (اختیاری)" %}</label>
                         <input id="email" type="email" name="email" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="content">متن نظر</label>
+                        <label for="content">{% trans "متن نظر" %}</label>
                         <textarea id="content" name="content" class="form-control" rows="4" required></textarea>
                     </div>
-                    <button type="submit" class="boxed-btn3">ارسال نظر</button>
+                    <button type="submit" class="boxed-btn3">{% trans "ارسال نظر" %}</button>
                 </form>
             </div>
         </div>

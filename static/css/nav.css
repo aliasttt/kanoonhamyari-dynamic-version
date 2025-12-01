@@ -325,12 +325,31 @@ h1, h2, h3, h4, h5, h6 {
 .brand_tools {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px; /* tighter gap so buttons fit */
     background: rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    padding: 6px 12px 6px 18px; /* extra left padding so auth buttons fully fit */
+    padding: 4px 10px 4px 32px !important; /* make box a bit smaller but keep left room */
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
+    margin-left: 14px !important; /* distance from menu */
+}
+.brand_tools .auth_links a:first-child { margin-left: 14px !important; } /* keep 'signup' away from the left edge */
+.brand_tools .logo img { height: 30px; width: auto; } /* smaller logo */
+
+/* Make header small buttons fit inside the brand box */
+#site-header .brand_tools .auth_links .boxed-btn3 {
+    font-size: 12px !important;
+    padding: 5px 10px !important;
+    height: 30px !important;
+    line-height: 1.1 !important;
+    border-radius: 8px !important;
+}
+.language_dropdown_btn {
+    padding: 6px 10px !important;
+    font-size: 13px !important;
+    height: 30px !important;
+    border-radius: 8px !important;
 }
 .brand_tools .logo img {
     height: 38px;
@@ -418,21 +437,29 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
 }
 
-.language-option {
+.language-option,
+.language-choice {
     color: #333;
     padding: 10px 15px;
     text-decoration: none;
     display: block;
     transition: background-color 0.3s ease;
     font-family: 'Vazirmatn', 'Noto Sans Arabic', Tahoma, Arial, sans-serif !important;
+    background: #fff;
+    border: 0;
+    width: 100%;
+    text-align: right;
+    cursor: pointer;
 }
 
-.language-option:hover {
+.language-option:hover,
+.language-choice:hover {
     background-color: #f1f1f1;
     color: #ff6b35;
 }
 
-.language-option.active {
+.language-option.active,
+.language-choice.active {
     background-color: #ff6b35;
     color: white;
 }

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %}دکوراسیون - کانون همیاری{% endblock %}
+{% block title %}{% trans "دکوراسیون - کانون همیاری" %}{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -48,8 +48,8 @@
         <div class="decoration_hero">
             <div class="hero_overlay"></div>
             <div class="hero_content">
-                <h1 class="hero_title">بخش دکوراسیون داخلی و بازسازی</h1>
-                <p class="hero_subtitle">طراحی داخلی، بازسازی، کاغذ دیواری، کابینت و نظارت فنی</p>
+                <h1 class="hero_title">{% trans "بخش دکوراسیون داخلی و بازسازی" %}</h1>
+                <p class="hero_subtitle">{% trans "طراحی داخلی، بازسازی، کاغذ دیواری، کابینت و نظارت فنی" %}</p>
             </div>
         </div>
 
@@ -58,8 +58,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section_title text-center mb-80">
-                            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">زیرمجموعه خدمات دکوراسیون</h3>
-                            <p class="section_subtitle">خدمات کامل طراحی و بازسازی ساختمان</p>
+                            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">{% trans "زیرمجموعه خدمات دکوراسیون" %}</h3>
+                            <p class="section_subtitle">{% trans "خدمات کامل طراحی و بازسازی ساختمان" %}</p>
                         </div>
                     </div>
                 </div>
@@ -67,27 +67,27 @@
                 <div class="decoration_grid">
                     <div class="decoration_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
                         <div class="decoration_image">
-                            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1000&auto=format&fit=crop" alt="طراحی داخلی و نقشه سه‌بعدی">
-                            <div class="decoration_badge design"><span>طراحی</span></div>
+                            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'طراحی داخلی و نقشه سه‌بعدی' %}">
+                            <div class="decoration_badge design"><span>{% trans "طراحی" %}</span></div>
                         </div>
                         <div class="decoration_content">
-                            <h4 class="decoration_title">طراحی داخلی و نقشه سه‌بعدی (3D)</h4>
-                            <div class="decoration_category"><i class="fa fa-cube"></i><span>طراحی 3D</span></div>
-                            <p class="decoration_description">نمایش پیش از اجرا با نرم‌افزارهای حرفه‌ای</p>
-                            <a href="{% url 'contact:contact' %}" class="decoration_btn">مشاوره</a>
+                            <h4 class="decoration_title">{% trans "طراحی داخلی و نقشه سه‌بعدی (3D)" %}</h4>
+                            <div class="decoration_category"><i class="fa fa-cube"></i><span>{% trans "طراحی 3D" %}</span></div>
+                            <p class="decoration_description">{% trans "نمایش پیش از اجرا با نرم‌افزارهای حرفه‌ای" %}</p>
+                            <a href="{% url 'contact:contact' %}" class="decoration_btn">{% trans "مشاوره" %}</a>
                         </div>
                     </div>
 
                     <div class="decoration_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
                         <div class="decoration_image">
-                            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1000&auto=format&fit=crop" alt="بازسازی کامل">
-                            <div class="decoration_badge renovation"><span>بازسازی</span></div>
+                            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1000&auto=format&fit=crop" alt="{% trans 'بازسازی کامل' %}">
+                            <div class="decoration_badge renovation"><span>{% trans "بازسازی" %}</span></div>
                         </div>
                         <div class="decoration_content">
-                            <h4 class="decoration_title">بازسازی کامل واحدهای مسکونی و اداری</h4>
-                            <div class="decoration_category"><i class="fa fa-home"></i><span>بازسازی</span></div>
-                            <p class="decoration_description">کف‌پوش، رنگ، نورپردازی، دیوارپوش و تأسیسات</p>
-                            <a href="{% url 'contact:contact' %}" class="decoration_btn">درخواست</a>
+                            <h4 class="decoration_title">{% trans "بازسازی کامل واحدهای مسکونی و اداری" %}</h4>
+                            <div class="decoration_category"><i class="fa fa-home"></i><span>{% trans "بازسازی" %}</span></div>
+                            <p class="decoration_description">{% trans "کف‌پوش، رنگ، نورپردازی، دیوارپوش و تأسیسات" %}</p>
+                            <a href="{% url 'contact:contact' %}" class="decoration_btn">{% trans "درخواست" %}</a>
                         </div>
                     </div>
                 </div>
