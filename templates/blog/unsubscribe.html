@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "لغو اشتراک خبرنامه" %}{% endblock %}
+
+{% block content %}
+<div class="container" style="padding: 100px 0; min-height: 60vh;">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.1); text-align: center;">
+                <div style="font-size: 64px; margin-bottom: 20px;">📧</div>
+                <h2 style="color: #111; margin-bottom: 16px; font-weight: 800;">{% trans "لغو اشتراک" %}</h2>
+                <p style="color: #666; font-size: 16px; line-height: 1.8;">
+                    {% trans "اشتراک شما با موفقیت لغو شد. دیگر خبرنامه‌ای دریافت نخواهید کرد." %}
+                </p>
+                <a href="{% url 'blog:list' %}" class="boxed-btn3" style="margin-top: 24px; display: inline-block;">{% trans "بازگشت به وبلاگ" %}</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

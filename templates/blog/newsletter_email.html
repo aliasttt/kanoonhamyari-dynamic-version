@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ campaign.subject }}</title>
+    <style>
+        body { font-family: Tahoma, Arial, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; margin: 0; padding: 0; }
+        .email-container { max-width: 600px; margin: 0 auto; background: white; }
+        .email-header { background: linear-gradient(135deg, #ff6b35, #f7931e); padding: 30px; text-align: center; color: white; }
+        .email-header h1 { margin: 0; font-size: 28px; }
+        .email-body { padding: 30px; }
+        .section { margin-bottom: 40px; }
+        .section-title { font-size: 22px; font-weight: 700; color: #111; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #ff6b35; }
+        .post-item { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+        .post-item:last-child { border-bottom: none; }
+        .post-title { font-size: 18px; font-weight: 700; color: #111; margin-bottom: 8px; }
+        .post-title a { color: #ff6b35; text-decoration: none; }
+        .post-meta { color: #999; font-size: 13px; margin-bottom: 8px; }
+        .post-description { color: #666; line-height: 1.6; }
+        .post-image { width: 100%; max-width: 500px; height: auto; border-radius: 8px; margin-bottom: 12px; }
+        .email-footer { background: #f9f9f9; padding: 20px; text-align: center; font-size: 12px; color: #999; }
+        .unsubscribe-link { color: #ff6b35; text-decoration: none; }
+        .cta-button { display: inline-block; background: linear-gradient(135deg, #ff6b35, #f7931e); color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 700; margin-top: 12px; }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            <h1>{% trans "خبرنامه کانون همیاری" %}</h1>
+            <p style="margin: 10px 0 0 0; opacity: 0.9;">{{ campaign.subject }}</p>
+        </div>
+        
+        <div class="email-body">
+            {% for section in sections %}
+            <div class="section">
+                <h2 class="section-title">{{ section.name }}</h2>
+                {% for post in posts %}
+                {% if post.newsletter_section == section or not section %}
+                <div class="post-item">
+                    {% if post.image %}
+                    <img src="{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+                    {% endif %}
+                    <h3 class="post-title">
+                        <a href="{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}">{{ post.title }}</a>
+                    </h3>
+                    {% if post.subtitle %}
+                    <p style="color: #666; font-size: 15px; margin-bottom: 8px;">{{ post.subtitle }}</p>
+                    {% endif %}
+                    <div class="post-meta">
+                        {% trans "نویسنده:" %} {{ post.author|default:'مدیر سایت' }}
+                        {% if post.published_at %} • {{ post.published_at|date:"Y/m/d" }}{% endif %}
+                    </div>
+                    <p class="post-description">{{ post.short_description|truncatechars:200 }}</p>
+                    <a href="{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}" class="cta-button">{% trans "ادامه مطلب" %}</a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% empty %}
+            {% for post in posts %}
+            <div class="post-item">
+                {% if post.image %}
+                <img src="{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+                {% endif %}
+                <h3 class="post-title">
+                    <a href="{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}">{{ post.title }}</a>
+                </h3>
+                {% if post.subtitle %}
+                <p style="color: #666; font-size: 15px; margin-bottom: 8px;">{{ post.subtitle }}</p>
+                {% endif %}
+                <div class="post-meta">
+                    {% trans "نویسنده:" %} {{ post.author|default:'مدیر سایت' }}
+                    {% if post.published_at %} • {{ post.published_at|date:"Y/m/d" }}{% endif %}
+                </div>
+                <p class="post-description">{{ post.short_description|truncatechars:200 }}</p>
+                <a href="{{ request.scheme }}://{{ request.get_host }}{{ post.get_absolute_url }}" class="cta-button">{% trans "ادامه مطلب" %}</a>
+            </div>
+            {% endfor %}
+            {% endfor %}
+        </div>
+        
+        <div class="email-footer">
+            <p>{% trans "این ایمیل از طرف کانون همیاری برای شما ارسال شده است." %}</p>
+            <p>
+                <a href="{{unsubscribe_url}}" class="unsubscribe-link">{% trans "لغو اشتراک" %}</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+

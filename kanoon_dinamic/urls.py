@@ -23,5 +23,6 @@ urlpatterns = [
     path('advertising/', include('apps.advertising.urls')),
     path('business/', include('apps.business.urls')),
     path('decoration/', include('apps.decoration.urls')),
+    path('legal/', include('apps.legal.urls')),
 ]
  

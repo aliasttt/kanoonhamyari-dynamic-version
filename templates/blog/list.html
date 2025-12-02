@@ -1,89 +1,744 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "وبلاگ" %}{% endblock %}
+{% block title %}{% trans "وبلاگ و خبرنامه" %}{% endblock %}
 
 {% block extra_css %}
 <style>
-    html, body { background:#ffffff !important; color:#222; }
-    .blog-wrap { background:#fff; }
-    .section_title h3 { color:#111 !important; font-weight:900 !important; font-size:44px; }
-    .section_title p { color:#555 !important; font-size:18px; }
-    .blog-toolbar .form-control { border:1px solid #e6e6e6; border-radius:10px; }
-    .blog-card { background:#fff; border:1px solid #eee; border-radius:12px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,.06); transition:transform .2s ease; }
-    .blog-card:hover { transform: translateY(-4px); }
-    .blog-card .cover { height:200px; overflow:hidden; }
-    .blog-card .cover img { width:100%; height:100%; object-fit:cover; display:block; }
-    .blog-card .meta { color:#999; font-size:13px; margin-bottom:6px; }
-    .blog-card .title a { color:#111; text-decoration:none; }
+    /* Modern Professional Blog Design */
+    html, body { 
+        background: #0a0a0a !important; 
+        color: #e0e0e0 !important; 
+    }
+    
+    .blog-wrap { 
+        background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+        padding: 80px 0 100px;
+        min-height: 100vh;
+    }
+    
+    /* Hero Section */
+    .blog-hero {
+        text-align: center;
+        padding: 60px 0 80px;
+        background: linear-gradient(135deg, rgba(255,107,53,0.1) 0%, rgba(247,147,30,0.05) 100%);
+        border-radius: 24px;
+        margin-bottom: 60px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .blog-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 50% 50%, rgba(255,107,53,0.15) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    
+    .blog-hero h3 {
+        color: #ffffff !important;
+        font-weight: 900 !important;
+        font-size: 56px !important;
+        margin-bottom: 20px;
+        text-shadow: 0 4px 20px rgba(255,107,53,0.3);
+        position: relative;
+        z-index: 1;
+    }
+    
+    .blog-hero p {
+        color: #b0b0b0 !important;
+        font-size: 20px !important;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.8;
+        position: relative;
+        z-index: 1;
+    }
+    
+    /* Search and Filter Bar */
+    .blog-toolbar {
+        background: #161616;
+        padding: 24px;
+        border-radius: 16px;
+        margin-bottom: 40px;
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    
+    .blog-toolbar .form-control {
+        background: #1f1f1f !important;
+        border: 1px solid rgba(255,255,255,0.1) !important;
+        border-radius: 12px !important;
+        color: #e0e0e0 !important;
+        padding: 14px 18px;
+        transition: all 0.3s ease;
+    }
+    
+    .blog-toolbar .form-control:focus {
+        border-color: #ff6b35 !important;
+        box-shadow: 0 0 0 3px rgba(255,107,53,0.1) !important;
+        outline: none;
+    }
+    
+    .blog-toolbar .form-control::placeholder {
+        color: #666;
+    }
+    
+    .blog-toolbar select.form-control {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ff6b35' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: left 15px center;
+        padding-left: 40px;
+    }
+    
+    /* Tag Filters */
+    .tag-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 50px;
+        padding: 20px;
+        background: #161616;
+        border-radius: 16px;
+        border: 1px solid rgba(255,255,255,0.08);
+    }
+    
+    .tag-filter {
+        padding: 10px 20px;
+        border-radius: 999px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255,255,255,0.1);
+        color: #b0b0b0;
+        font-weight: 600;
+        font-size: 14px;
+        background: #1f1f1f;
+    }
+    
+    .tag-filter:hover {
+        border-color: #ff6b35;
+        color: #ff6b35;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255,107,53,0.2);
+    }
+    
+    .tag-filter.active {
+        background: linear-gradient(135deg, #ff6b35, #f7931e);
+        color: white;
+        border-color: #ff6b35;
+        box-shadow: 0 4px 16px rgba(255,107,53,0.4);
+    }
+    
+    /* Newsletter Sections */
+    .newsletter-section {
+        margin: 80px 0;
+    }
+    
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid rgba(255,107,53,0.2);
+    }
+    
+    .section-header h4 {
+        font-size: 32px;
+        font-weight: 900;
+        color: #ffffff;
+        margin: 0;
+        background: linear-gradient(135deg, #ffffff, #ff6b35);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .section-header .section-badge {
+        background: linear-gradient(135deg, #ff6b35, #f7931e);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 700;
+        box-shadow: 0 4px 16px rgba(255,107,53,0.3);
+    }
+    
+    .section-description {
+        color: #999;
+        font-size: 16px;
+        margin-bottom: 30px;
+        line-height: 1.8;
+    }
+    
+    /* Blog Cards - Professional Design */
+    .blog-card {
+        background: linear-gradient(135deg, #161616 0%, #1f1f1f 100%);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+    
+    .blog-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #ff6b35, #f7931e);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .blog-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 48px rgba(255,107,53,0.2);
+        border-color: rgba(255,107,53,0.3);
+    }
+    
+    .blog-card:hover::before {
+        opacity: 1;
+    }
+    
+    .blog-card .cover {
+        height: 240px;
+        overflow: hidden;
+        position: relative;
+        background: #0a0a0a;
+    }
+    
+    .blog-card .cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .blog-card:hover .cover img {
+        transform: scale(1.1);
+    }
+    
+    .blog-card .cover::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%);
+        pointer-events: none;
+    }
+    
+    .blog-card .featured-badge {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: linear-gradient(135deg, #ff6b35, #f7931e);
+        color: white;
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 700;
+        z-index: 2;
+        box-shadow: 0 4px 12px rgba(255,107,53,0.4);
+    }
+    
+    .blog-card .content {
+        padding: 28px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .blog-card .meta {
+        color: #888;
+        font-size: 13px;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    
+    .blog-card .meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+    }
+    
+    .blog-card .title {
+        margin-bottom: 10px;
+    }
+    
+    .blog-card .title a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        transition: color 0.3s ease;
+    }
+    
+    .blog-card .title a:hover {
+        color: #ff6b35;
+    }
+    
+    .blog-card .subtitle {
+        color: #b0b0b0;
+        font-size: 15px;
+        margin-bottom: 12px;
+        font-weight: 500;
+        line-height: 1.6;
+    }
+    
+    .blog-card .description {
+        color: #999;
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 16px;
+        flex: 1;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .blog-card .tags {
+        margin-top: auto;
+        margin-bottom: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .blog-card .tag {
+        display: inline-block;
+        background: rgba(255,107,53,0.1);
+        color: #ff6b35;
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 600;
+        border: 1px solid rgba(255,107,53,0.2);
+        transition: all 0.3s ease;
+    }
+    
+    .blog-card .tag:hover {
+        background: rgba(255,107,53,0.2);
+        transform: scale(1.05);
+    }
+    
+    /* Newsletter Signup Form - Premium Design */
+    .newsletter-signup {
+        background: linear-gradient(135deg, #161616 0%, #1f1f1f 100%);
+        padding: 60px 50px;
+        border-radius: 24px;
+        margin: 80px 0;
+        border: 2px solid rgba(255,107,53,0.2);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .newsletter-signup::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,107,53,0.1) 0%, transparent 70%);
+        animation: pulse 4s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 0.5; }
+        50% { transform: scale(1.1); opacity: 0.8; }
+    }
+    
+    .newsletter-signup h3 {
+        color: #ffffff;
+        font-size: 36px;
+        font-weight: 900;
+        margin-bottom: 16px;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .newsletter-signup p {
+        color: #b0b0b0;
+        margin-bottom: 32px;
+        font-size: 16px;
+        line-height: 1.8;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .newsletter-form {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .newsletter-form input {
+        flex: 1;
+        min-width: 250px;
+        padding: 16px 20px;
+        border: 2px solid rgba(255,255,255,0.1);
+        border-radius: 12px;
+        font-size: 15px;
+        background: #0a0a0a;
+        color: #e0e0e0;
+        transition: all 0.3s ease;
+    }
+    
+    .newsletter-form input:focus {
+        outline: none;
+        border-color: #ff6b35;
+        box-shadow: 0 0 0 4px rgba(255,107,53,0.1);
+    }
+    
+    .newsletter-form input::placeholder {
+        color: #666;
+    }
+    
+    .newsletter-form button {
+        padding: 16px 40px;
+        background: linear-gradient(135deg, #ff6b35, #f7931e);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 16px rgba(255,107,53,0.3);
+    }
+    
+    .newsletter-form button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(255,107,53,0.4);
+    }
+    
+    .tag-checkboxes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 24px;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .tag-checkboxes p {
+        width: 100%;
+        color: #b0b0b0;
+        margin-bottom: 12px;
+        font-size: 14px;
+    }
+    
+    .tag-checkboxes label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        padding: 8px 16px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 999px;
+        color: #b0b0b0;
+        transition: all 0.3s ease;
+    }
+    
+    .tag-checkboxes label:hover {
+        background: rgba(255,107,53,0.1);
+        border-color: rgba(255,107,53,0.3);
+        color: #ff6b35;
+    }
+    
+    .tag-checkboxes input[type="checkbox"] {
+        margin: 0;
+        accent-color: #ff6b35;
+    }
+    
+    /* Button Styles */
+    .boxed-btn3 {
+        background: linear-gradient(135deg, #ff6b35, #f7931e);
+        color: white;
+        padding: 12px 28px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        border: none;
+        display: inline-block;
+        box-shadow: 0 4px 16px rgba(255,107,53,0.3);
+    }
+    
+    .boxed-btn3:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(255,107,53,0.4);
+        color: white;
+        text-decoration: none;
+    }
+    
+    /* Empty State */
+    .empty-state {
+        text-align: center;
+        padding: 100px 20px;
+        color: #666;
+    }
+    
+    .empty-state p {
+        font-size: 18px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .blog-hero h3 {
+            font-size: 36px !important;
+        }
+        
+        .blog-hero p {
+            font-size: 16px !important;
+        }
+        
+        .section-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        
+        .section-header h4 {
+            font-size: 24px;
+        }
+        
+        .newsletter-signup {
+            padding: 40px 24px;
+        }
+        
+        .newsletter-signup h3 {
+            font-size: 28px;
+        }
+        
+        .newsletter-form {
+            flex-direction: column;
+        }
+        
+        .newsletter-form input {
+            min-width: 100%;
+        }
+    }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="blog-wrap" style="padding: 60px 0;">
+<div class="blog-wrap">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section_title mb-40">
-                    <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".2s">{% trans "وبلاگ کانون همیاری" %}</h3>
-                    <p class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">{% trans "خبرها و مقالات تازه برای جامعه فارسی‌زبانان ترکیه" %}</p>
-                </div>
-            </div>
+        <!-- Hero Section -->
+        <div class="blog-hero">
+            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".2s">{% trans "وبلاگ و خبرنامه کانون همیاری" %}</h3>
+            <p class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">{% trans "خبرها، مقالات و نکات تازه برای جامعه فارسی‌زبانان ترکیه" %}</p>
         </div>
 
-        <div class="row align-items-center blog-toolbar" style="margin-bottom: 24px;">
-            <div class="col-md-8">
-                <form method="get" class="d-flex" style="gap:8px;">
-                    <input type="text" name="search" class="form-control" placeholder="{% trans 'جستجو در عنوان پست...' %}" value="{{ request.GET.search }}">
+        <!-- Search and Filters -->
+        <div class="row align-items-center blog-toolbar">
+            <div class="col-md-12">
+                <form method="get" class="d-flex" style="gap:12px;">
+                    <input type="text" name="search" class="form-control" placeholder="{% trans 'جستجو در عنوان پست...' %}" value="{{ search_query }}">
                     <select name="category" class="form-control" style="max-width: 240px;">
                         <option value="">{% trans "همه دسته‌ها" %}</option>
                         {% for c in categories %}
                         <option value="{{ c.slug }}" {% if selected_category == c.slug %}selected{% endif %}>{{ c.name }}</option>
                         {% endfor %}
                     </select>
-                    <button class="boxed-btn3" type="submit">{% trans "اعمال" %}</button>
+                    <button class="boxed-btn3" type="submit" style="white-space: nowrap;">{% trans "اعمال" %}</button>
                 </form>
             </div>
         </div>
 
-        <div class="row">
-            {% for post in posts %}
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
-                    <div class="cover">{% if post.image %}<a href="{{ post.get_absolute_url }}"><img src="{{ post.image.url }}" alt="{{ post.title }}" loading="lazy" decoding="async"></a>{% endif %}</div>
-                    <div class="p-3">
-                        <div class="meta">
-                            {% trans "نویسنده:" %} {{ post.author|default:'مدیر سایت' }}
-                            {% if post.published_at %} • {{ post.published_at|date:"Y/m/d" }}{% endif %}
-                            {% if post.category %} • <span style="background:#fff3ec; color:#ff6b35; padding:2px 8px; border-radius:999px; border:1px solid #ffd8c2;">{{ post.category.name }}</span>{% endif %}
-                        </div>
-                        <h4 class="title" style="margin-bottom:6px;"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
-                        <p style="color:#555; margin-bottom:10px;">{{ post.short_description|truncatechars:150 }}</p>
-                        <a href="{{ post.get_absolute_url }}" class="boxed-btn3">{% trans "ادامه مطلب" %}</a>
-                    </div>
-                </div>
-            </div>
-            {% empty %}
-            {% comment %} Sample placeholders until real posts exist {% endcomment %}
-            {% for i in "123" %}
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-card">
-                    <div class="cover">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=70&auto=format&fit=crop" alt="{% trans 'نمونه مطلب' %}" loading="lazy" decoding="async">
-                    </div>
-                    <div class="p-3">
-                        <div class="meta">{% trans "نویسنده:" %} {% trans "تحریریه" %} • 1404/01/01</div>
-                        <h4 class="title" style="margin-bottom:6px;">{% trans "نمونه مطلب وبلاگ" %}</h4>
-                        <p style="color:#555; margin-bottom:10px;">{% trans "این یک متن نمونه است برای نمایش نمای کلی کارت‌های وبلاگ. بعداً با مطالب واقعی جایگزین می‌شود." %}</p>
-                        <a href="{% url 'blog:detail' 'sample-'|add:i %}" class="boxed-btn3">{% trans "ادامه مطلب" %}</a>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
+        <!-- Tag Filters -->
+        {% if tags %}
+        <div class="tag-filters">
+            <a href="{% url 'blog:list' %}" class="tag-filter {% if not selected_tag %}active{% endif %}">{% trans "همه" %}</a>
+            {% for tag in tags %}
+            <a href="{% url 'blog:list' %}?tag={{ tag.slug }}" class="tag-filter {% if selected_tag == tag.slug %}active{% endif %}" style="{% if selected_tag == tag.slug %}border-color: {{ tag.color }};{% endif %}">
+                {{ tag.name }}
+            </a>
             {% endfor %}
         </div>
+        {% endif %}
+
+        <!-- Dynamic Newsletter Sections -->
+        {% for section, posts in sections.items %}
+        {% if posts %}
+        <div class="newsletter-section wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+            <div class="section-header">
+                <div>
+                    <h4>{{ section.name }}</h4>
+                    {% if section.description %}
+                    <p class="section-description">{{ section.description }}</p>
+                    {% endif %}
+                </div>
+                <span class="section-badge">{{ section.get_section_type_display }}</span>
+            </div>
+            <div class="row">
+                {% for post in posts %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="blog-card">
+                        <div class="cover">
+                            {% if post.image %}
+                            <a href="{{ post.get_absolute_url }}"><img src="{{ post.image.url }}" alt="{{ post.title }}" loading="lazy" decoding="async"></a>
+                            {% endif %}
+                            {% if post.is_featured %}<span class="featured-badge">{% trans "ویژه" %}</span>{% endif %}
+                        </div>
+                        <div class="content">
+                            <div class="meta">
+                                <span><i class="fa fa-user"></i> {{ post.author|default:'مدیر سایت' }}</span>
+                                {% if post.published_at %}<span><i class="fa fa-calendar"></i> {{ post.published_at|date:"Y/m/d" }}</span>{% endif %}
+                                {% if post.category %}<span style="background:rgba(255,107,53,0.15); color:#ff6b35; padding:2px 10px; border-radius:999px; border:1px solid rgba(255,107,53,0.3);">{{ post.category.name }}</span>{% endif %}
+                            </div>
+                            <h4 class="title">
+                                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                            </h4>
+                            {% if post.subtitle %}
+                            <div class="subtitle">{{ post.subtitle }}</div>
+                            {% endif %}
+                            <p class="description">{{ post.short_description|truncatechars:150 }}</p>
+                            {% if post.tags.all %}
+                            <div class="tags">
+                                {% for tag in post.tags.all|slice:":3" %}
+                                <span class="tag" style="border-color: {{ tag.color }}; color: {{ tag.color }};">{{ tag.name }}</span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            <a href="{{ post.get_absolute_url }}" class="boxed-btn3" style="margin-top: auto;">{% trans "ادامه مطلب" %}</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        <!-- Newsletter Signup Form -->
+        <div class="newsletter-signup wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+            <h3>📧 {% trans "در خبرنامه ما عضو شوید" %}</h3>
+            <p>{% trans "با عضویت در خبرنامه، از آخرین اخبار، مقالات و پیشنهادات ویژه ما باخبر شوید." %}</p>
+            <form method="post" action="{% url 'blog:subscribe' %}" class="newsletter-form" id="newsletterForm">
+                {% csrf_token %}
+                <input type="email" name="email" placeholder="{% trans 'ایمیل شما' %}" required>
+                <input type="text" name="name" placeholder="{% trans 'نام شما (اختیاری)' %}">
+                <button type="submit">{% trans "عضویت" %}</button>
+            </form>
+            {% if tags %}
+            <div class="tag-checkboxes">
+                <p>{% trans "دسته‌بندی‌های مورد علاقه:" %}</p>
+                {% for tag in tags %}
+                <label>
+                    <input type="checkbox" name="tags" value="{{ tag.id }}">
+                    <span>{{ tag.name }}</span>
+                </label>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- All Posts Grid (if no sections) -->
+        {% if not sections and all_posts %}
+        <div class="newsletter-section">
+            <div class="section-header">
+                <h4>{% trans "همه مطالب" %}</h4>
+            </div>
+            <div class="row">
+                {% for post in all_posts %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="blog-card">
+                        <div class="cover">
+                            {% if post.image %}
+                            <a href="{{ post.get_absolute_url }}"><img src="{{ post.image.url }}" alt="{{ post.title }}" loading="lazy" decoding="async"></a>
+                            {% endif %}
+                            {% if post.is_featured %}<span class="featured-badge">{% trans "ویژه" %}</span>{% endif %}
+                        </div>
+                        <div class="content">
+                            <div class="meta">
+                                <span><i class="fa fa-user"></i> {{ post.author|default:'مدیر سایت' }}</span>
+                                {% if post.published_at %}<span><i class="fa fa-calendar"></i> {{ post.published_at|date:"Y/m/d" }}</span>{% endif %}
+                                {% if post.category %}<span style="background:rgba(255,107,53,0.15); color:#ff6b35; padding:2px 10px; border-radius:999px; border:1px solid rgba(255,107,53,0.3);">{{ post.category.name }}</span>{% endif %}
+                            </div>
+                            <h4 class="title">
+                                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                            </h4>
+                            {% if post.subtitle %}
+                            <div class="subtitle">{{ post.subtitle }}</div>
+                            {% endif %}
+                            <p class="description">{{ post.short_description|truncatechars:150 }}</p>
+                            {% if post.tags.all %}
+                            <div class="tags">
+                                {% for tag in post.tags.all|slice:":3" %}
+                                <span class="tag" style="border-color: {{ tag.color }}; color: {{ tag.color }};">{{ tag.name }}</span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            <a href="{{ post.get_absolute_url }}" class="boxed-btn3" style="margin-top: auto;">{% trans "ادامه مطلب" %}</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Empty State -->
+        {% if not sections and not all_posts %}
+        <div class="empty-state">
+            <p>{% trans "هنوز مطلبی منتشر نشده است." %}</p>
+        </div>
+        {% endif %}
     </div>
 </div>
+
+<script>
+document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const tags = Array.from(document.querySelectorAll('input[name="tags"]:checked')).map(cb => cb.value);
+    tags.forEach(tag => formData.append('tags', tag));
+    
+    fetch('{% url "blog:subscribe" %}', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert(data.message || 'اشتراک شما با موفقیت ثبت شد.');
+            this.reset();
+        } else {
+            alert('خطا: ' + (data.message || 'لطفاً دوباره تلاش کنید.'));
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('خطا در ارسال فرم. لطفاً دوباره تلاش کنید.');
+    });
+});
+</script>
 {% endblock %}
-
-

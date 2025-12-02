@@ -1,0 +1,288 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "خدمات حقوقی - کانون همیاری" %}{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Modern Legal Page Styles */
+    .legal_hero { position: relative; height: 100vh; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .legal_hero::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2000&auto=format&fit=crop') center/cover; opacity: 0.3; z-index: 1; }
+    .hero_overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8) 100%); z-index: 2; }
+    .hero_content { position: relative; z-index: 3; text-align: center; color: white; max-width: 800px; padding: 0 20px; }
+    .hero_title { font-size: 4rem; font-weight: 700; margin-bottom: 20px; background: linear-gradient(135deg, #ff6b35, #f7931e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero_subtitle { font-size: 1.5rem; margin-bottom: 40px; opacity: 0.9; }
+    .search_box { display: flex; max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.1); border-radius: 50px; padding: 5px; backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.2); }
+    .search_input { flex: 1; background: transparent; border: none; padding: 15px 20px; color: white; font-size: 16px; outline: none; }
+    .search_input::placeholder { color: rgba(255,255,255,.7); }
+    .search_btn { background: linear-gradient(135deg, #ff6b35, #f7931e); border: none; padding: 15px 25px; border-radius: 50px; color: white; cursor: pointer; transition: all 0.3s ease; }
+    .search_btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(255,107,53,0.4); }
+
+    .legal_section { padding: 100px 0; background: #0a0a0a; }
+    .section_subtitle { color: #888; font-size: 1.1rem; margin-top: 15px; }
+
+    /* Mini cards (no image) for legal services */
+    .mini_cards_grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 24px; margin-top: 40px; margin-bottom: 60px; }
+    .mini_card { background: linear-gradient(135deg,#181818 0%,#242424 100%); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 24px; transition: all .3s ease; box-shadow: 0 10px 25px rgba(0,0,0,.25); }
+    .mini_card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,.45); border-color: rgba(255,107,53,.35); }
+    .mini_card_head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .mini_badge { font-size: 12px; padding: 6px 12px; border-radius: 999px; color: #fff; background: linear-gradient(135deg,#ff6b35,#f7931e); box-shadow: 0 6px 18px rgba(255,107,53,.35); font-weight: 700; }
+    .mini_badge.residence { background: linear-gradient(135deg,#4CAF50,#2E7D32); box-shadow: 0 6px 18px rgba(76,175,80,.35); }
+    .mini_badge.work_permit { background: linear-gradient(135deg,#2196F3,#1976D2); box-shadow: 0 6px 18px rgba(33,150,243,.35); }
+    .mini_badge.rejection { background: linear-gradient(135deg,#F44336,#D32F2F); box-shadow: 0 6px 18px rgba(244,67,54,.35); }
+    .mini_badge.tax { background: linear-gradient(135deg,#FF9800,#F57C00); box-shadow: 0 6px 18px rgba(255,152,0,.35); }
+    .mini_badge.documents { background: linear-gradient(135deg,#9C27B0,#7B1FA2); box-shadow: 0 6px 18px rgba(156,39,176,.35); }
+    .mini_badge.insurance { background: linear-gradient(135deg,#00BCD4,#0097A7); box-shadow: 0 6px 18px rgba(0,188,212,.35); }
+    .mini_title { color: #fff; font-weight: 800; font-size: 18px; margin: 0 0 8px 0; }
+    .mini_desc { color: #ccc; font-size: 14px; line-height: 1.8; margin: 14px 0; }
+    .mini_tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+    .mini_tag { font-size: 12px; color: #ddd; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); padding: 6px 10px; border-radius: 999px; }
+    .mini_footer { display: flex; align-items: center; justify-content: space-between; }
+    .mini_price { color: #ff6b35; font-weight: 800; }
+    .mini_link { color: #fff; text-decoration: none; background: linear-gradient(135deg,#ff6b35,#f7931e); padding: 8px 14px; border-radius: 12px; font-size: 13px; font-weight: 700; transition: all .3s ease; }
+    .mini_link:hover { color: #fff; text-decoration: none; box-shadow: 0 10px 24px rgba(255,107,53,.4); transform: translateY(-2px); }
+
+    /* Dynamic services grid */
+    .services_grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-top: 60px; }
+    .services_grid.two_cols { grid-template-columns: repeat(2, minmax(350px,1fr)); }
+    .service_card { background: #1a1a1a; border-radius: 20px; overflow: hidden; transition: all 0.4s ease; border: 1px solid rgba(255, 255, 255, 0.1); position: relative; }
+    .service_card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); border-color: rgba(255, 107, 53, 0.3); }
+    .service_image { position: relative; height: 250px; overflow: hidden; }
+    .service_image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .service_card:hover .service_image img { transform: scale(1.1); }
+    .service_badge { position: absolute; top: 15px; right: 15px; padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; z-index: 2; }
+    .service_badge.consultation { background: linear-gradient(135deg, #ff6b35, #f7931e); color: white; }
+    .service_badge.residence { background: linear-gradient(135deg, #4CAF50, #45a049); color: white; }
+    .service_badge.work_permit { background: linear-gradient(135deg, #2196F3, #1976D2); color: white; }
+    .service_badge.rejection { background: linear-gradient(135deg, #F44336, #D32F2F); color: white; }
+    .service_badge.tax { background: linear-gradient(135deg, #FF9800, #F57C00); color: white; }
+    .service_badge.documents { background: linear-gradient(135deg, #9C27B0, #7B1FA2); color: white; }
+    .service_badge.insurance { background: linear-gradient(135deg, #00BCD4, #0097A7); color: white; }
+    .service_overlay { position: absolute; inset: 0; background: rgba(0,0,0,.7); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .3s ease; }
+    .service_card:hover .service_overlay { opacity: 1; }
+    .overlay_actions { display: flex; gap: 15px; }
+    .action_btn { width: 45px; height: 45px; border-radius: 50%; background: rgba(255, 255, 255, 0.2); border: none; color: white; cursor: pointer; transition: all 0.3s ease; backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; text-decoration: none; }
+    .action_btn:hover { background: #ff6b35; transform: scale(1.1); }
+    .service_content { padding: 25px; }
+    .service_title { font-size: 1.4rem; font-weight: 700; color: white; margin-bottom: 8px; }
+    .service_location { display: flex; align-items: center; color: #888; font-size: 14px; margin-bottom: 10px; }
+    .service_location i { margin-left: 5px; color: #ff6b35; }
+    .service_description { color: #ccc; line-height: 1.6; margin-bottom: 20px; font-size: 14px; }
+    .service_features { display: flex; gap: 20px; margin-bottom: 25px; flex-wrap: wrap; }
+    .feature_item { display: flex; align-items: center; color: #888; font-size: 14px; }
+    .feature_item i { margin-left: 8px; color: #ff6b35; width: 16px; }
+    .service_rating { display: flex; align-items: center; gap: 5px; color: #ffd700; font-size: 14px; margin-bottom: 10px; }
+    .service_24_7 { display: inline-block; background: rgba(76,175,80,0.2); color: #4CAF50; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; margin-bottom: 10px; }
+    .service_footer { display: flex; justify-content: space-between; align-items: center; }
+    .service_price { flex: 1; }
+    .price_amount { font-size: 1.3rem; font-weight: 700; color: #ff6b35; }
+    .service_btn { background: linear-gradient(135deg, #ff6b35, #f7931e); color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; border: none; cursor: pointer; }
+    .service_btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4); color: white; text-decoration: none; }
+    .load_more_btn { background: transparent; color: #ff6b35; border: 2px solid #ff6b35; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-block; }
+    .load_more_btn:hover { background: #ff6b35; color: white; transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255, 107, 53, 0.3); text-decoration: none; }
+
+    @media (max-width: 1200px) { .services_grid { grid-template-columns: repeat(auto-fit,minmax(350px,1fr)); gap: 25px; } }
+    @media (max-width: 992px) { .services_grid.two_cols { grid-template-columns: 1fr; } .mini_cards_grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .hero_title { font-size: 2.5rem; } .services_grid { grid-template-columns: 1fr; gap: 20px; } .service_card { margin: 0 10px; } .service_footer { flex-direction: column; gap: 15px; align-items: stretch; } .service_btn { text-align: center; } }
+    @media (max-width: 480px) { .hero_title { font-size: 2rem; } .search_box { flex-direction: column; border-radius: 20px; } .search_btn { border-radius: 20px; margin-top: 15px; } }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="legal_area black_bg">
+    <div class="container-fluid px-0">
+        <!-- Hero Section -->
+        <div class="legal_hero">
+            <div class="hero_overlay"></div>
+            <div class="hero_content">
+                <h1 class="hero_title">{% trans "⚖️ بخش خدمات حقوقی" %}</h1>
+                <p class="hero_subtitle">{% trans "مشاوره حقوقی تخصصی با وکلای مجرب" %}</p>
+                <div class="hero_search">
+                    <div class="search_box">
+                        <input type="text" placeholder="{% trans 'جستجو در خدمات حقوقی...' %}" class="search_input">
+                        <button class="search_btn"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legal Section -->
+        <div class="legal_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section_title text-center mb-40">
+                            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">{% trans "زیرمجموعه خدمات حقوقی" %}</h3>
+                            <p class="section_subtitle">{% trans "خدمات کامل مشاوره و پشتیبانی حقوقی در ترکیه" %}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mini cards (no images) -->
+                <div class="mini_cards_grid">
+                    <div class="mini_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                        <div class="mini_card_head">
+                            <span class="mini_badge">{% trans "مشاوره" %}</span>
+                        </div>
+                        <h4 class="mini_title">{% trans "مشاوره حقوقی تخصصی" %}</h4>
+                        <p class="mini_desc">{% trans "بررسی وضعیت اقامت، سرمایه‌گذاری، مالی و قراردادها با وکلای مجرب" %}</p>
+                        <div class="mini_tags">
+                            <span class="mini_tag">{% trans "۲۴/۷" %}</span>
+                            <span class="mini_tag">{% trans "متخصص" %}</span>
+                            <span class="mini_tag">{% trans "۴.۹ امتیاز" %}</span>
+                        </div>
+                        <div class="mini_footer">
+                            <span class="mini_price">{% trans "مشاوره" %}</span>
+                            <a href="{% url 'contact:contact' %}" class="mini_link">{% trans "تماس" %}</a>
+                        </div>
+                    </div>
+
+                    <div class="mini_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".25s">
+                        <div class="mini_card_head">
+                            <span class="mini_badge residence">{% trans "اقامت" %}</span>
+                        </div>
+                        <h4 class="mini_title">{% trans "دریافت اقامت ترکیه" %}</h4>
+                        <p class="mini_desc">{% trans "ارائه کامل خدمات ثبت و تمدید اقامت توریستی، کاری، خانوادگی و دانشجویی" %}</p>
+                        <div class="mini_tags">
+                            <span class="mini_tag">{% trans "توریستی" %}</span>
+                            <span class="mini_tag">{% trans "کاری" %}</span>
+                            <span class="mini_tag">{% trans "دانشجویی" %}</span>
+                        </div>
+                        <div class="mini_footer">
+                            <span class="mini_price">{% trans "درخواست" %}</span>
+                            <a href="{% url 'contact:contact' %}" class="mini_link">{% trans "درخواست" %}</a>
+                        </div>
+                    </div>
+
+                    <div class="mini_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                        <div class="mini_card_head">
+                            <span class="mini_badge work_permit">{% trans "اجازه کار" %}</span>
+                        </div>
+                        <h4 class="mini_title">{% trans "دریافت اجازه کار (İzin Çalışma)" %}</h4>
+                        <p class="mini_desc">{% trans "آماده‌سازی مدارک، تنظیم پرونده و پیگیری مجوز از وزارت کار ترکیه" %}</p>
+                        <div class="mini_tags">
+                            <span class="mini_tag">{% trans "مدارک" %}</span>
+                            <span class="mini_tag">{% trans "تنظیم" %}</span>
+                            <span class="mini_tag">{% trans "پیگیری" %}</span>
+                        </div>
+                        <div class="mini_footer">
+                            <span class="mini_price">{% trans "درخواست" %}</span>
+                            <a href="{% url 'contact:contact' %}" class="mini_link">{% trans "درخواست" %}</a>
+                        </div>
+                    </div>
+
+                    <div class="mini_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".35s">
+                        <div class="mini_card_head">
+                            <span class="mini_badge rejection">{% trans "رفع ریجکتی" %}</span>
+                        </div>
+                        <h4 class="mini_title">{% trans "رفع ریجکتی اقامت" %}</h4>
+                        <p class="mini_desc">{% trans "بررسی علت ریجکت، آماده‌سازی اعتراض رسمی و تشکیل پرونده جدید با استراتژی دقیق" %}</p>
+                        <div class="mini_tags">
+                            <span class="mini_tag">{% trans "بررسی" %}</span>
+                            <span class="mini_tag">{% trans "اعتراض" %}</span>
+                            <span class="mini_tag">{% trans "پرونده جدید" %}</span>
+                        </div>
+                        <div class="mini_footer">
+                            <span class="mini_price">{% trans "درخواست" %}</span>
+                            <a href="{% url 'contact:contact' %}" class="mini_link">{% trans "درخواست" %}</a>
+                        </div>
+                    </div>
+
+                    <div class="mini_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+                        <div class="mini_card_head">
+                            <span class="mini_badge tax">{% trans "مالیاتی" %}</span>
+                        </div>
+                        <h4 class="mini_title">{% trans "پیگیری پرونده‌های مالی و مالیاتی" %}</h4>
+                        <p class="mini_desc">{% trans "همکاری با حسابداران رسمی و کارشناسان مالی برای تسویه و اصلاح پرونده‌های مالیاتی" %}</p>
+                        <div class="mini_tags">
+                            <span class="mini_tag">{% trans "مالیاتی" %}</span>
+                            <span class="mini_tag">{% trans "حسابدار" %}</span>
+                            <span class="mini_tag">{% trans "تسویه" %}</span>
+                        </div>
+                        <div class="mini_footer">
+                            <span class="mini_price">{% trans "درخواست" %}</span>
+                            <a href="{% url 'contact:contact' %}" class="mini_link">{% trans "درخواست" %}</a>
+                        </div>
+                    </div>
+
+                    <div class="mini_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".45s">
+                        <div class="mini_card_head">
+                            <span class="mini_badge documents">{% trans "ثبت رسمی" %}</span>
+                        </div>
+                        <h4 class="mini_title">{% trans "ثبت رسمی اسناد و قراردادها" %}</h4>
+                        <p class="mini_desc">{% trans "تنظیم و ترجمه رسمی انواع قراردادها (خرید، اجاره، شراکت و…) با مهر نوتر" %}</p>
+                        <div class="mini_tags">
+                            <span class="mini_tag">{% trans "اسناد" %}</span>
+                            <span class="mini_tag">{% trans "قرارداد" %}</span>
+                            <span class="mini_tag">{% trans "مهر نوتر" %}</span>
+                        </div>
+                        <div class="mini_footer">
+                            <span class="mini_price">{% trans "درخواست" %}</span>
+                            <a href="{% url 'contact:contact' %}" class="mini_link">{% trans "درخواست" %}</a>
+                        </div>
+                    </div>
+
+                    <div class="mini_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+                        <div class="mini_card_head">
+                            <span class="mini_badge insurance">{% trans "بیمه" %}</span>
+                        </div>
+                        <h4 class="mini_title">{% trans "انواع بیمه‌نامه‌ها" %}</h4>
+                        <p class="mini_desc">{% trans "ارائه بیمه سلامت، درمانی، کار، خودرو و اقامت برای متقاضیان ایرانی" %}</p>
+                        <div class="mini_tags">
+                            <span class="mini_tag">{% trans "سلامت" %}</span>
+                            <span class="mini_tag">{% trans "خودرو" %}</span>
+                            <span class="mini_tag">{% trans "اقامت" %}</span>
+                        </div>
+                        <div class="mini_footer">
+                            <span class="mini_price">{% trans "درخواست" %}</span>
+                            <a href="{% url 'contact:contact' %}" class="mini_link">{% trans "درخواست" %}</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Services Grid -->
+                {% if services %}
+                <div class="services_grid two_cols">
+                    {% for service in services %}
+                    <div class="service_card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                        <div class="service_image">
+                            <img src="{{ service.image.url }}" alt="{{ service.title }}">
+                            {% if service.category %}<div class="service_badge {{ service.category.slug }}"><span>{{ service.category.name }}</span></div>{% endif %}
+                            <div class="service_overlay">
+                                <div class="overlay_actions">
+                                    <button class="action_btn"><i class="fa fa-heart"></i></button>
+                                    <button class="action_btn"><i class="fa fa-share"></i></button>
+                                    <a href="{% url 'legal:detail' slug=service.slug %}" class="action_btn"><i class="fa fa-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service_content">
+                            <div class="service_header">
+                                <h4 class="service_title">{{ service.title }}</h4>
+                                {% if service.is_24_7 %}<span class="service_24_7">{% trans "۲۴/۷" %}</span>{% endif %}
+                                {% if service.rating > 0 %}<div class="service_rating"><i class="fa fa-star"></i><span>{{ service.rating }}</span></div>{% endif %}
+                                {% if service.location %}<div class="service_location"><i class="fa fa-map-marker"></i><span>{{ service.location }}</span></div>{% endif %}
+                            </div>
+                            <p class="service_description">{{ service.short_description }}</p>
+                            {% if service.duration %}<div class="service_features">
+                                <div class="feature_item"><i class="fa fa-clock-o"></i><span>{{ service.duration }}</span></div>
+                            </div>{% endif %}
+                            <div class="service_footer">
+                                {% if service.price %}<div class="service_price"><span class="price_amount">{{ service.price|floatformat:0 }} TL</span></div>{% else %}<div class="service_price"><span class="price_amount">{% trans "تماس بگیرید" %}</span></div>{% endif %}
+                                <a href="{% url 'legal:detail' slug=service.slug %}" class="service_btn">{% trans "جزئیات" %}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <div class="text-center mt-80">
+                    <a href="{% url 'contact:contact' %}" class="load_more_btn">{% trans "تماس با ما برای مشاوره" %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

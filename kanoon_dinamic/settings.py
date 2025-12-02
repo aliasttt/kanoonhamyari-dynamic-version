@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'ckeditor',
     'ckeditor_uploader',
     'django_cleanup.apps.CleanupConfig',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'apps.advertising',
     'apps.business',
     'apps.decoration',
+    'apps.legal',
 ]
 
 MIDDLEWARE = [
@@ -191,4 +193,20 @@ CACHES = {
         'LOCATION': 'kanoon-dinamic-cache',
     }
 }
+
+# Sites Framework
+SITE_ID = 1
+
+# Email Settings
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For development - use SMTP in production
+DEFAULT_FROM_EMAIL = 'noreply@kanoon-hamayari.com'
+SERVER_EMAIL = 'server@kanoon-hamayari.com'
+
+# Production Email Settings (uncomment and configure for production)
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'  # or your SMTP server
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'your-email@gmail.com'
+# EMAIL_HOST_PASSWORD = 'your-app-password'
 
