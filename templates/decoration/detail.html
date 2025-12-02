@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{{ service.title }}{% endblock %}
+
+{% block extra_css %}
+<style>
+    .service_hero { position: relative; min-height: 60vh; display: flex; align-items: flex-end; padding: 60px 0 30px; background-position: center; background-size: cover; }
+    .service_hero::before { content:''; position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,.2) 0%, rgba(0,0,0,.5) 50%, rgba(0,0,0,.85) 100%); }
+    .service_hero .container { position: relative; z-index: 2; }
+    .service_title { color:#fff; font-weight:900; font-size: 2.5rem; margin:0 0 10px; }
+    .service_badge { display:inline-block; background: linear-gradient(135deg,#ff6b35,#f7931e); color:#fff; padding:8px 16px; border-radius:999px; font-size:13px; font-weight:800; margin-inline-start:12px; }
+    .service_badge.renovation { background: linear-gradient(135deg,#4CAF50,#2E7D32); }
+    .service_badge.kitchen { background: linear-gradient(135deg,#2196F3,#1976D2); }
+    .service_badge.wallpaper { background: linear-gradient(135deg,#9C27B0,#7B1FA2); }
+    .service_badge.supervision { background: linear-gradient(135deg,#FF9800,#F57C00); }
+    .meta_row { display:flex; flex-wrap:wrap; gap:16px; color:#f1f1f1; opacity:.95; margin-top:12px; }
+    .meta_item { display:flex; align-items:center; gap:8px; font-weight:600; font-size:15px; }
+    .meta_item i { color:#ff6b35; font-size:16px; }
+
+    .service_detail_wrap { background:#0f0f0f; padding: 50px 0 80px; }
+    .left_col { color:#ddd; }
+    .feature_grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin: 24px 0 30px; }
+    .feature_card { background:#161616; border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:16px; display:flex; align-items:center; gap:12px; transition: all .3s ease; }
+    .feature_card:hover { border-color: rgba(255,107,53,.3); transform: translateY(-2px); }
+    .feature_card i { color:#ff6b35; font-size:20px; min-width:24px; }
+    .feature_card_content { flex:1; }
+    .feature_card_label { color:#aaa; font-size:13px; margin-bottom:4px; }
+    .feature_card_value { color:#fff; font-weight:700; font-size:15px; }
+    .service_cover { border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); box-shadow: 0 18px 40px rgba(0,0,0,.35); margin-bottom: 30px; }
+    .service_cover img { width: 100%; height: auto; display: block; }
+    .service_body { color:#e7e7e7; line-height: 2; font-size: 16px; }
+
+    .service_sidebar { position: sticky; top: 90px; background: #161616; border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 24px; color: #ddd; }
+    .service_price { color: #ff6b35; font-weight: 900; font-size: 28px; margin-bottom: 8px; }
+    .service_action { display:block; text-align:center; background: linear-gradient(135deg,#ff6b35,#f7931e); color:#fff; padding:16px 20px; border-radius:12px; font-weight:800; text-decoration:none; margin-top:12px; transition: all .3s ease; }
+    .service_action:hover { color:#fff; text-decoration:none; box-shadow:0 12px 28px rgba(255,107,53,.35); transform: translateY(-2px); }
+    .service_action.secondary { background:linear-gradient(135deg,#5a5a5a,#777); }
+    .service_action.secondary:hover { box-shadow:0 12px 28px rgba(90,90,90,.35); }
+
+    .section_head { color:#fff; font-weight:900; margin: 40px 0 16px; font-size:1.5rem; }
+    .gallery_grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin-top:20px; }
+    .gallery_item { border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,.08); cursor:pointer; transition: all .3s ease; }
+    .gallery_item:hover { transform: scale(1.05); border-color: rgba(255,107,53,.4); }
+    .gallery_item img { width:100%; height:180px; object-fit:cover; display:block; }
+    .related_list { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin-top:20px; }
+    .related_card { background:#171717; border:1px solid rgba(255,255,255,.08); border-radius:14px; overflow:hidden; color:#ddd; text-decoration:none; transition: all .3s ease; }
+    .related_card:hover { transform: translateY(-5px); border-color: rgba(255,107,53,.3); box-shadow: 0 15px 40px rgba(0,0,0,.4); text-decoration:none; }
+    .related_card img { width:100%; height:180px; object-fit:cover; display:block; }
+    .related_card_body { padding:16px; }
+    .related_card_title { font-weight:800; color:#fff; margin-bottom:8px; }
+    .related_card_meta { font-size:13px; color:#aaa; }
+
+    @media (max-width: 768px) {
+        .service_title { font-size: 1.8rem; }
+        .feature_grid { grid-template-columns: 1fr; }
+        .gallery_grid { grid-template-columns: repeat(2,1fr); }
+        .related_list { grid-template-columns: 1fr; }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="service_hero" style="background-image:url('{{ service.image.url }}');">
+    <div class="container">
+        <h1 class="service_title">{{ service.title }}{% if service.category %}<span class="service_badge {{ service.category.slug }}">{{ service.category.name }}</span>{% endif %}</h1>
+        <div class="meta_row">
+            {% if service.location %}<div class="meta_item"><i class="fa fa-map-marker"></i><span>{{ service.location }}</span></div>{% endif %}
+            {% if service.duration %}<div class="meta_item"><i class="fa fa-clock-o"></i><span>{{ service.duration }}</span></div>{% endif %}
+            <div class="meta_item"><i class="fa fa-eye"></i><span>{{ service.views_count }} {% trans "بازدید" %}</span></div>
+        </div>
+    </div>
+</div>
+
+<div class="service_detail_wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 left_col">
+                <div class="feature_grid">
+                    {% if service.price %}<div class="feature_card"><i class="fa fa-money"></i><div class="feature_card_content"><div class="feature_card_label">{% trans "قیمت" %}</div><div class="feature_card_value">{{ service.price|floatformat:0 }} TL</div></div></div>{% endif %}
+                    {% if service.duration %}<div class="feature_card"><i class="fa fa-clock-o"></i><div class="feature_card_content"><div class="feature_card_label">{% trans "مدت زمان" %}</div><div class="feature_card_value">{{ service.duration }}</div></div></div>{% endif %}
+                    {% if service.location %}<div class="feature_card"><i class="fa fa-map-marker"></i><div class="feature_card_content"><div class="feature_card_label">{% trans "مکان" %}</div><div class="feature_card_value">{{ service.location }}</div></div></div>{% endif %}
+                    {% if service.category %}<div class="feature_card"><i class="fa fa-tag"></i><div class="feature_card_content"><div class="feature_card_label">{% trans "دسته‌بندی" %}</div><div class="feature_card_value">{{ service.category.name }}</div></div></div>{% endif %}
+                </div>
+
+                <div class="service_cover"><img src="{{ service.image.url }}" alt="{{ service.title }}"></div>
+                <div class="service_body">{{ service.description|safe }}</div>
+
+                {% if service.images.all %}
+                <h4 class="section_head">{% trans "گالری تصاویر" %}</h4>
+                <div class="gallery_grid">
+                    {% for img in service.images.all %}
+                    <div class="gallery_item">
+                        <img src="{{ img.image.url }}" alt="{{ img.caption|default:service.title }}">
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if related_services %}
+                <h4 class="section_head">{% trans "خدمات مرتبط" %}</h4>
+                <div class="related_list">
+                    {% for rs in related_services %}
+                    <a href="{% url 'decoration:detail' slug=rs.slug %}" class="related_card">
+                        <img src="{{ rs.image.url }}" alt="{{ rs.title }}">
+                        <div class="related_card_body">
+                            <div class="related_card_title">{{ rs.title }}</div>
+                            <div class="related_card_meta">{% if rs.price %}{{ rs.price|floatformat:0 }} TL{% else %}{% trans "تماس بگیرید" %}{% endif %}</div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-lg-4">
+                <div class="service_sidebar">
+                    {% if service.price %}
+                    <div class="service_price">{{ service.price|floatformat:0 }} TL</div>
+                    {% else %}
+                    <div style="color:#aaa; font-size:18px; margin-bottom:8px;">{% trans "قیمت بر اساس توافق" %}</div>
+                    {% endif %}
+                    <div style="margin:16px 0; padding:16px 0; border-top:1px solid rgba(255,255,255,.08); border-bottom:1px solid rgba(255,255,255,.08);">
+                        {% if service.duration %}<div style="display:flex; justify-content:space-between; margin-bottom:8px;"><span style="color:#aaa;">{% trans "مدت" %}</span><span style="color:#fff; font-weight:700;">{{ service.duration }}</span></div>{% endif %}
+                        {% if service.location %}<div style="display:flex; justify-content:space-between;"><span style="color:#aaa;">{% trans "مکان" %}</span><span style="color:#fff; font-weight:700;">{{ service.location }}</span></div>{% endif %}
+                    </div>
+                    <a href="{% url 'decoration:inquiry' slug=service.slug %}" class="service_action">{% trans "استعلام قیمت و اطلاعات" %}</a>
+                    <a href="{% url 'contact:contact' %}" class="service_action secondary">{% trans "تماس با ما" %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

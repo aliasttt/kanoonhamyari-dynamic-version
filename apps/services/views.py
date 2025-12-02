@@ -187,7 +187,32 @@ def business_page(request):
 
 def decoration_page(request):
     """صفحه دکوراسیون"""
-    return render(request, 'services/decoration.html')
+    from apps.decoration.models import DecorationService, DecorationCategory
+    
+    services = DecorationService.objects.filter(is_active=True, is_published=True)
+    categories = DecorationCategory.objects.filter(is_active=True)
+    
+    # فیلتر بر اساس دسته‌بندی
+    category_slug = request.GET.get('category')
+    if category_slug:
+        try:
+            category = DecorationCategory.objects.get(slug=category_slug, is_active=True)
+            services = services.filter(category=category)
+        except DecorationCategory.DoesNotExist:
+            pass
+    
+    # جستجو
+    search_query = request.GET.get('search')
+    if search_query:
+        services = services.filter(title__icontains=search_query)
+    
+    context = {
+        'services': services,
+        'categories': categories,
+        'selected_category': category_slug,
+    }
+    
+    return render(request, 'decoration/list.html', context)
 
 
 def legal_page(request):
