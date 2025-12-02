@@ -3,55 +3,286 @@
 
 {% block title %}{% trans "عضویت" %}{% endblock %}
 
+{% block extra_css %}
+<style>
+    /* Modern Signup Page - Green Color Scheme - Professional Style */
+    .signup_wrap {
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+        padding: 100px 0;
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+    
+    .signup_wrap::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2000&auto=format&fit=crop') center/cover;
+        opacity: .05;
+        z-index: 1;
+        pointer-events: none;
+    }
+    
+    .signup_wrap > .container {
+        position: relative;
+        z-index: 2;
+    }
+    
+    .signup_hero {
+        position: relative;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    .signup_title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        background: linear-gradient(135deg, #4CAF50, #2E7D32, #1B5E20);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 0 30px rgba(76, 175, 80, 0.5);
+        line-height: 1.2;
+    }
+    
+    .signup_subtitle {
+        font-size: 1.2rem;
+        color: #b0b0b0;
+        font-weight: 400;
+    }
+    
+    .signup_card {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        border: 2px solid rgba(255,255,255,0.1);
+        border-radius: 25px;
+        padding: 50px 40px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        transition: all 0.5s ease;
+        position: relative;
+        overflow: hidden;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .signup_card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #4CAF50, #2E7D32);
+        opacity: 1;
+    }
+    
+    .signup_card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+        border-color: rgba(76,175,80,0.4);
+    }
+    
+    .signup_form_group {
+        margin-bottom: 24px;
+    }
+    
+    .signup_form_group label {
+        display: block;
+        color: #ffffff;
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+    
+    .signup_form_group input[type="text"],
+    .signup_form_group input[type="password"],
+    .signup_form_group input[type="email"],
+    .signup_form_group input[type="tel"],
+    .signup_form_group textarea {
+        width: 100%;
+        background: rgba(255,255,255,0.05);
+        border: 2px solid rgba(255,255,255,0.1);
+        border-radius: 12px;
+        padding: 14px 18px;
+        color: #fff;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        outline: none;
+        font-family: inherit;
+    }
+    
+    .signup_form_group textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+    
+    .signup_form_group input:focus,
+    .signup_form_group textarea:focus {
+        background: rgba(255,255,255,0.08);
+        border-color: #4CAF50;
+        box-shadow: 0 0 0 3px rgba(76,175,80,0.2);
+    }
+    
+    .signup_form_group input::placeholder,
+    .signup_form_group textarea::placeholder {
+        color: rgba(255,255,255,0.4);
+    }
+    
+    .signup_btn {
+        width: 100%;
+        background: linear-gradient(135deg, #4CAF50, #2E7D32);
+        border: none;
+        color: #fff;
+        padding: 16px 30px;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 16px rgba(76,175,80,0.3);
+        margin-top: 8px;
+    }
+    
+    .signup_btn:hover {
+        background: linear-gradient(135deg, #2E7D32, #1B5E20);
+        box-shadow: 0 8px 24px rgba(76,175,80,0.5);
+        transform: translateY(-2px);
+    }
+    
+    .signup_btn:active {
+        transform: translateY(0);
+    }
+    
+    .signup_alert {
+        background: rgba(244,67,54,0.15);
+        border: 1px solid rgba(244,67,54,0.3);
+        border-radius: 12px;
+        padding: 14px 18px;
+        margin-bottom: 24px;
+        color: #ffcdd2;
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    .signup_login_link {
+        text-align: center;
+        margin-top: 28px;
+        padding-top: 28px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .signup_login_link a {
+        color: #4CAF50;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+    
+    .signup_login_link a:hover {
+        color: #81C784;
+        text-decoration: none;
+        transform: translateX(-3px);
+    }
+    
+    .signup_login_link a::before {
+        content: '←';
+        font-size: 18px;
+    }
+    
+    @media (max-width: 768px) {
+        .signup_wrap {
+            padding: 60px 0;
+        }
+        
+        .signup_title {
+            font-size: 2.5rem;
+        }
+        
+        .signup_subtitle {
+            font-size: 1rem;
+        }
+        
+        .signup_card {
+            padding: 40px 30px;
+            margin: 0 15px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .signup_title {
+            font-size: 2rem;
+        }
+        
+        .signup_card {
+            padding: 30px 20px;
+        }
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<div class="black_bg" style="padding: 80px 0;">
+<div class="signup_wrap">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <div class="section_title text-center mb-40">
-                    <h3>{% trans "عضویت در کانون" %}</h3>
-                    <p>{% trans "فرم زیر را تکمیل کنید تا حساب کاربری شما ایجاد شود." %}</p>
+            <div class="col-lg-7 col-md-9">
+                <div class="signup_hero">
+                    <h1 class="signup_title">{% trans "عضویت در کانون" %}</h1>
+                    <p class="signup_subtitle">{% trans "فرم زیر را تکمیل کنید تا حساب کاربری شما ایجاد شود." %}</p>
                 </div>
-                <div class="card" style="background:#141414; border:1px solid rgba(255,255,255,.08); border-radius:12px;">
-                    <div class="card-body" style="padding:24px;">
-                        <form method="post" novalidate>
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <label for="id_username">{% trans "نام کاربری" %}</label>
-                                {{ form.username }}
-                            </div>
-                            <div class="form-group">
-                                <label for="id_email">{% trans "ایمیل" %}</label>
-                                {{ form.email }}
-                            </div>
-                            <div class="form-group">
-                                <label for="id_phone">{% trans "تلفن" %}</label>
-                                {{ form.phone }}
-                            </div>
-                            <div class="form-group">
-                                <label for="id_address">{% trans "آدرس" %}</label>
-                                {{ form.address }}
-                            </div>
-                            <div class="form-group">
-                                <label for="id_password1">{% trans "رمز عبور" %}</label>
-                                {{ form.password1 }}
-                            </div>
-                            <div class="form-group">
-                                <label for="id_password2">{% trans "تکرار رمز عبور" %}</label>
-                                {{ form.password2 }}
-                            </div>
-                            {% if form.errors %}
-                            <div class="alert alert-danger" style="margin-top:12px;">
-                                {% trans "لطفاً فیلدهای اجباری را بررسی کنید." %}
-                            </div>
-                            {% endif %}
-                            <div class="text-center" style="margin-top:16px;">
-                                <button type="submit" class="boxed-btn3">{% trans "ایجاد حساب" %}</button>
-                            </div>
-                        </form>
-                        <div class="text-center" style="margin-top:16px;">
-                            <a href="{% url 'accounts:login' %}">{% trans "حساب دارید؟ ورود" %}</a>
+                
+                <div class="signup_card">
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+                        
+                        <div class="signup_form_group">
+                            <label for="id_username">{% trans "نام کاربری" %}</label>
+                            {{ form.username }}
                         </div>
+                        
+                        <div class="signup_form_group">
+                            <label for="id_email">{% trans "ایمیل" %}</label>
+                            {{ form.email }}
+                        </div>
+                        
+                        <div class="signup_form_group">
+                            <label for="id_phone">{% trans "تلفن" %}</label>
+                            {{ form.phone }}
+                        </div>
+                        
+                        <div class="signup_form_group">
+                            <label for="id_address">{% trans "آدرس" %}</label>
+                            {{ form.address }}
+                        </div>
+                        
+                        <div class="signup_form_group">
+                            <label for="id_password1">{% trans "رمز عبور" %}</label>
+                            {{ form.password1 }}
+                        </div>
+                        
+                        <div class="signup_form_group">
+                            <label for="id_password2">{% trans "تکرار رمز عبور" %}</label>
+                            {{ form.password2 }}
+                        </div>
+                        
+                        {% if form.errors %}
+                        <div class="signup_alert">
+                            {% trans "لطفاً فیلدهای اجباری را بررسی کنید و دوباره تلاش کنید." %}
+                        </div>
+                        {% endif %}
+                        
+                        <button type="submit" class="signup_btn">{% trans "ایجاد حساب" %}</button>
+                    </form>
+                    
+                    <div class="signup_login_link">
+                        <a href="{% url 'accounts:login' %}">{% trans "حساب دارید؟ ورود" %}</a>
                     </div>
                 </div>
             </div>

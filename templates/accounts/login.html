@@ -3,38 +3,256 @@
 
 {% block title %}{% trans "ورود" %}{% endblock %}
 
+{% block extra_css %}
+<style>
+    /* Modern Login Page - Blue Color Scheme - Professional Style */
+    .login_wrap {
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+        padding: 100px 0;
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+    
+    .login_wrap::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2000&auto=format&fit=crop') center/cover;
+        opacity: .05;
+        z-index: 1;
+        pointer-events: none;
+    }
+    
+    .login_wrap > .container {
+        position: relative;
+        z-index: 2;
+    }
+    
+    .login_hero {
+        position: relative;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    .login_title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        background: linear-gradient(135deg, #2196F3, #1976D2, #0D47A1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 0 30px rgba(33, 150, 243, 0.5);
+        line-height: 1.2;
+    }
+    
+    .login_subtitle {
+        font-size: 1.2rem;
+        color: #b0b0b0;
+        font-weight: 400;
+    }
+    
+    .login_card {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        border: 2px solid rgba(255,255,255,0.1);
+        border-radius: 25px;
+        padding: 50px 40px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        transition: all 0.5s ease;
+        position: relative;
+        overflow: hidden;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .login_card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #2196F3, #1976D2);
+        opacity: 1;
+    }
+    
+    .login_card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+        border-color: rgba(33,150,243,0.4);
+    }
+    
+    .login_form_group {
+        margin-bottom: 24px;
+    }
+    
+    .login_form_group label {
+        display: block;
+        color: #ffffff;
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+    
+    .login_form_group input[type="text"],
+    .login_form_group input[type="password"],
+    .login_form_group input[type="email"] {
+        width: 100%;
+        background: rgba(255,255,255,0.05);
+        border: 2px solid rgba(255,255,255,0.1);
+        border-radius: 12px;
+        padding: 14px 18px;
+        color: #fff;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        outline: none;
+    }
+    
+    .login_form_group input:focus {
+        background: rgba(255,255,255,0.08);
+        border-color: #2196F3;
+        box-shadow: 0 0 0 3px rgba(33,150,243,0.2);
+    }
+    
+    .login_form_group input::placeholder {
+        color: rgba(255,255,255,0.4);
+    }
+    
+    .login_btn {
+        width: 100%;
+        background: linear-gradient(135deg, #2196F3, #1976D2);
+        border: none;
+        color: #fff;
+        padding: 16px 30px;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 16px rgba(33,150,243,0.3);
+        margin-top: 8px;
+    }
+    
+    .login_btn:hover {
+        background: linear-gradient(135deg, #1976D2, #1565C0);
+        box-shadow: 0 8px 24px rgba(33,150,243,0.5);
+        transform: translateY(-2px);
+    }
+    
+    .login_btn:active {
+        transform: translateY(0);
+    }
+    
+    .login_alert {
+        background: rgba(244,67,54,0.15);
+        border: 1px solid rgba(244,67,54,0.3);
+        border-radius: 12px;
+        padding: 14px 18px;
+        margin-bottom: 24px;
+        color: #ffcdd2;
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    .login_signup_link {
+        text-align: center;
+        margin-top: 28px;
+        padding-top: 28px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .login_signup_link a {
+        color: #2196F3;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+    
+    .login_signup_link a:hover {
+        color: #64B5F6;
+        text-decoration: none;
+        transform: translateX(-3px);
+    }
+    
+    .login_signup_link a::before {
+        content: '←';
+        font-size: 18px;
+    }
+    
+    @media (max-width: 768px) {
+        .login_wrap {
+            padding: 60px 0;
+        }
+        
+        .login_title {
+            font-size: 2.5rem;
+        }
+        
+        .login_subtitle {
+            font-size: 1rem;
+        }
+        
+        .login_card {
+            padding: 40px 30px;
+            margin: 0 15px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .login_title {
+            font-size: 2rem;
+        }
+        
+        .login_card {
+            padding: 30px 20px;
+        }
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<div class="black_bg" style="padding: 80px 0;">
+<div class="login_wrap">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-5">
-                <div class="section_title text-center mb-40">
-                    <h3>{% trans "ورود به حساب" %}</h3>
+            <div class="col-lg-6 col-md-8">
+                <div class="login_hero">
+                    <h1 class="login_title">{% trans "ورود به حساب" %}</h1>
+                    <p class="login_subtitle">{% trans "به حساب کاربری خود وارد شوید" %}</p>
                 </div>
-                <div class="card" style="background:#141414; border:1px solid rgba(255,255,255,.08); border-radius:12px;">
-                    <div class="card-body" style="padding:24px;">
-                        <form method="post" novalidate>
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <label for="id_username">{% trans "نام کاربری" %}</label>
-                                {{ form.username }}
-                            </div>
-                            <div class="form-group">
-                                <label for="id_password">{% trans "رمز عبور" %}</label>
-                                {{ form.password }}
-                            </div>
-                            {% if form.errors %}
-                            <div class="alert alert-danger" style="margin-top:12px;">
-                                {% trans "ورود ناموفق بود. دوباره تلاش کنید." %}
-                            </div>
-                            {% endif %}
-                            <div class="text-center" style="margin-top:16px;">
-                                <button type="submit" class="boxed-btn3">{% trans "ورود" %}</button>
-                            </div>
-                        </form>
-                        <div class="text-center" style="margin-top:16px;">
-                            <a href="{% url 'accounts:signup' %}">{% trans "حساب ندارید؟ عضویت" %}</a>
+                
+                <div class="login_card">
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+                        
+                        <div class="login_form_group">
+                            <label for="id_username">{% trans "نام کاربری" %}</label>
+                            {{ form.username }}
                         </div>
+                        
+                        <div class="login_form_group">
+                            <label for="id_password">{% trans "رمز عبور" %}</label>
+                            {{ form.password }}
+                        </div>
+                        
+                        {% if form.errors %}
+                        <div class="login_alert">
+                            {% trans "ورود ناموفق بود. لطفاً اطلاعات را بررسی کنید و دوباره تلاش کنید." %}
+                        </div>
+                        {% endif %}
+                        
+                        <button type="submit" class="login_btn">{% trans "ورود" %}</button>
+                    </form>
+                    
+                    <div class="login_signup_link">
+                        <a href="{% url 'accounts:signup' %}">{% trans "حساب ندارید؟ عضویت" %}</a>
                     </div>
                 </div>
             </div>
