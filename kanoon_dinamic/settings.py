@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'apps.contact',
     'apps.real_estate',
     'apps.about',
+    'apps.advertising',
+    'apps.business',
 ]
 
 MIDDLEWARE = [

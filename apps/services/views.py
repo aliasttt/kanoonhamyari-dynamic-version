@@ -56,7 +56,32 @@ def service_detail(request, slug):
 # صفحات جداگانه برای هر دسته‌بندی
 def advertising_page(request):
     """صفحه تبلیغات"""
-    return render(request, 'services/advertising.html')
+    from apps.advertising.models import Advertisement, AdvertisingCategory
+    
+    advertisements = Advertisement.objects.filter(is_active=True, is_published=True)
+    categories = AdvertisingCategory.objects.filter(is_active=True)
+    
+    # فیلتر بر اساس دسته‌بندی
+    category_slug = request.GET.get('category')
+    if category_slug:
+        try:
+            category = AdvertisingCategory.objects.get(slug=category_slug, is_active=True)
+            advertisements = advertisements.filter(category=category)
+        except AdvertisingCategory.DoesNotExist:
+            pass
+    
+    # جستجو
+    search_query = request.GET.get('search')
+    if search_query:
+        advertisements = advertisements.filter(title__icontains=search_query)
+    
+    context = {
+        'advertisements': advertisements,
+        'categories': categories,
+        'selected_category': category_slug,
+    }
+    
+    return render(request, 'advertising/list.html', context)
 
 
 def education_page(request):
@@ -132,7 +157,32 @@ def university_detail(request, slug):
 
 def business_page(request):
     """صفحه بیزینس"""
-    return render(request, 'services/business.html')
+    from apps.business.models import BusinessService, BusinessCategory
+    
+    services = BusinessService.objects.filter(is_active=True, is_published=True)
+    categories = BusinessCategory.objects.filter(is_active=True)
+    
+    # فیلتر بر اساس دسته‌بندی
+    category_slug = request.GET.get('category')
+    if category_slug:
+        try:
+            category = BusinessCategory.objects.get(slug=category_slug, is_active=True)
+            services = services.filter(category=category)
+        except BusinessCategory.DoesNotExist:
+            pass
+    
+    # جستجو
+    search_query = request.GET.get('search')
+    if search_query:
+        services = services.filter(title__icontains=search_query)
+    
+    context = {
+        'services': services,
+        'categories': categories,
+        'selected_category': category_slug,
+    }
+    
+    return render(request, 'business/list.html', context)
 
 
 def decoration_page(request):
