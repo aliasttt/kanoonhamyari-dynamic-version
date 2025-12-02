@@ -5,20 +5,310 @@
 
 {% block extra_css %}
 <style>
-    html, body { background: #ffffff !important; color:#222; }
-    .dashboard-wrap { background:#fff; }
-    .dash-hero { background: linear-gradient(135deg,#fff 0%, #fff 60%, #fff 100%); border-radius:14px; padding:18px 20px; border:1px solid #eee; display:flex; justify-content:space-between; align-items:center; }
-    .dash-hello { font-weight:800; font-size:22px; color:#111; }
-    .dash-stats { display:flex; gap:12px; }
-    .dash-card { background:#fff; border:1px solid #eee; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,.06); }
-    .dash-card .card-body { padding:18px; }
-    .dash-side a { color:#444; text-decoration:none; display:block; padding:8px 0; }
-    .dash-side a:hover { color:#ff6b35; }
-    .stat { display:flex; align-items:center; gap:10px; }
-    .stat .num { font-size:20px; font-weight:800; color:#111; }
-    .stat .lbl { color:#666; }
-    .cert-item { border:1px dashed #e6e6e6; border-radius:10px; padding:10px 12px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center; }
-    .empty { color:#777; }
+    /* Modern Dark Theme Dashboard - Red Color Scheme - Matching Site Style */
+    html, body { 
+        background: #0a0a0a !important; 
+        color: #e0e0e0 !important; 
+    }
+    
+    .dashboard-wrap { 
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+        padding: 80px 0 100px;
+        min-height: 100vh;
+        position: relative;
+    }
+    
+    .dashboard-wrap::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2000&auto=format&fit=crop') center/cover;
+        opacity: .05;
+        z-index: 1;
+        pointer-events: none;
+    }
+    
+    .dashboard-wrap > .container {
+        position: relative;
+        z-index: 2;
+    }
+    
+    .dash-hero { 
+        background: linear-gradient(135deg, #181818 0%, #242424 100%);
+        border-radius: 25px;
+        padding: 40px 50px;
+        border: 2px solid rgba(255,255,255,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 40px;
+        transition: all 0.5s ease;
+    }
+    
+    .dash-hero:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+        border-color: rgba(220,38,38,0.4);
+    }
+    
+    .dash-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 50% 50%, rgba(220,38,38,0.15) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    
+    .dash-hello { 
+        font-weight: 800; 
+        font-size: 32px; 
+        color: #ffffff;
+        position: relative;
+        z-index: 1;
+        line-height: 1.3;
+    }
+    
+    .dash-hello div {
+        font-size: 16px;
+        color: #b0b0b0;
+        font-weight: 400;
+        margin-top: 12px;
+    }
+    
+    .dash-stats { 
+        display: flex; 
+        gap: 24px;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .dash-card { 
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        border: 2px solid rgba(255,255,255,0.1);
+        border-radius: 25px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        transition: all 0.5s ease;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 24px;
+    }
+    
+    .dash-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #dc2626, #ef4444);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .dash-card:hover {
+        transform: translateY(-15px) scale(1.02);
+        box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+        border-color: rgba(220,38,38,0.4);
+    }
+    
+    .dash-card:hover::before {
+        opacity: 1;
+    }
+    
+    .dash-card .card-body { 
+        padding: 30px; 
+    }
+    
+    .dash-side a { 
+        color: #ccc; 
+        text-decoration: none; 
+        display: block; 
+        padding: 14px 0;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        font-size: 15px;
+        font-weight: 500;
+    }
+    
+    .dash-side a:last-child {
+        border-bottom: none;
+    }
+    
+    .dash-side a:hover { 
+        color: #ef4444;
+        padding-right: 12px;
+        font-weight: 700;
+    }
+    
+    .dash-side h5 {
+        color: #ffffff;
+        font-weight: 800;
+        margin-bottom: 24px;
+        font-size: 22px;
+        padding-bottom: 16px;
+        border-bottom: 2px solid rgba(220,38,38,0.3);
+    }
+    
+    .stat { 
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        background: rgba(220,38,38,0.15);
+        padding: 24px 36px;
+        border-radius: 20px;
+        border: 1px solid rgba(220,38,38,0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .stat:hover {
+        background: rgba(220,38,38,0.2);
+        transform: scale(1.05);
+    }
+    
+    .stat .num { 
+        font-size: 36px; 
+        font-weight: 900; 
+        color: #ef4444;
+        text-shadow: 0 0 20px rgba(220,38,38,0.5);
+    }
+    
+    .stat .lbl { 
+        color: #b0b0b0;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .cert-item { 
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px; 
+        padding: 18px 24px; 
+        margin-bottom: 14px; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center;
+        background: rgba(255,255,255,0.02);
+        transition: all 0.3s ease;
+    }
+    
+    .cert-item:hover {
+        background: rgba(220,38,38,0.08);
+        border-color: rgba(220,38,38,0.4);
+        transform: translateX(-5px);
+    }
+    
+    .cert-item span {
+        color: #e0e0e0;
+        font-weight: 500;
+        font-size: 15px;
+    }
+    
+    .cert-item small {
+        color: #999;
+        font-size: 12px;
+    }
+    
+    .empty { 
+        color: #888;
+        text-align: center;
+        padding: 30px 20px;
+        font-size: 15px;
+    }
+    
+    .dash-card h4, .dash-card h5 {
+        color: #ffffff;
+        font-weight: 800;
+        margin-bottom: 24px;
+        font-size: 22px;
+    }
+    
+    .dash-card h4 {
+        padding-bottom: 16px;
+        border-bottom: 2px solid rgba(220,38,38,0.3);
+    }
+    
+    .dash-card p {
+        color: #ccc;
+        margin-bottom: 14px;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+    
+    .dash-card p strong {
+        color: #ffffff;
+        font-weight: 700;
+        margin-left: 8px;
+    }
+    
+    .boxed-btn3 {
+        background: linear-gradient(135deg, #dc2626, #ef4444) !important;
+        border: none !important;
+        color: #fff !important;
+        box-shadow: 0 4px 16px rgba(220,38,38,0.3) !important;
+        border-radius: 12px !important;
+        padding: 10px 20px !important;
+        font-weight: 700 !important;
+        transition: all 0.3s ease !important;
+        text-decoration: none !important;
+        display: inline-block !important;
+    }
+    
+    .boxed-btn3:hover {
+        background: linear-gradient(135deg, #b91c1c, #dc2626) !important;
+        box-shadow: 0 8px 24px rgba(220,38,38,0.5) !important;
+        transform: translateY(-3px) !important;
+        color: #fff !important;
+        text-decoration: none !important;
+    }
+    
+    @media (max-width: 992px) {
+        .dash-hero {
+            flex-direction: column;
+            gap: 24px;
+            text-align: center;
+        }
+        
+        .dash-stats {
+            justify-content: center;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .dashboard-wrap {
+            padding: 40px 0 60px;
+        }
+        
+        .dash-hero {
+            padding: 30px 24px;
+        }
+        
+        .dash-hello {
+            font-size: 24px;
+        }
+        
+        .dash-stats {
+            flex-direction: column;
+            width: 100%;
+        }
+        
+        .stat {
+            width: 100%;
+        }
+        
+        .cert-item {
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-start;
+        }
+    }
 </style>
 {% endblock %}
 
@@ -28,7 +318,7 @@
         <div class="dash-hero">
             <div class="dash-hello">
                 {% trans "سلام،" %} {{ request.user.username }}
-                <div style="font-size:13px; color:#777; font-weight:400;">{% trans "ایمیل:" %} {{ request.user.email|default:'—' }}</div>
+                <div>{% trans "ایمیل:" %} {{ request.user.email|default:'—' }}</div>
             </div>
             <div class="dash-stats">
                 <div class="stat"><span class="num">{{ enrollments|length }}</span><span class="lbl">{% trans "دوره" %}</span></div>
@@ -39,7 +329,7 @@
             <div class="col-lg-3">
                 <div class="dash-card dash-side">
                     <div class="card-body">
-                        <h5 style="color:#111; font-weight:800;">{% trans "منو" %}</h5>
+                        <h5>{% trans "منو" %}</h5>
                         <a href="{% url 'accounts:dashboard' %}">{% trans "داشبورد" %}</a>
                         <a href="{% url 'courses:list' %}">{% trans "دوره‌ها" %}</a>
                         <a href="{% url 'blog:list' %}">{% trans "وبلاگ" %}</a>
@@ -50,7 +340,7 @@
             <div class="col-lg-9">
                 <div class="dash-card">
                     <div class="card-body">
-                        <h4 style="color:#111; margin-bottom:16px; font-weight:800;">{% trans "اطلاعات کاربر" %}</h4>
+                        <h4>{% trans "اطلاعات کاربر" %}</h4>
                         <div class="row">
                             <div class="col-md-6">
                                 <p><strong>{% trans "نام کاربری:" %}</strong> {{ request.user.username }}</p>
@@ -63,11 +353,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" style="margin-top:14px;">
+                <div class="row" style="margin-top:20px;">
                     <div class="col-md-6">
                         <div class="dash-card">
                             <div class="card-body">
-                                <h5 style="color:#111; font-weight:800; margin-bottom:10px;">{% trans "دوره‌های من" %}</h5>
+                                <h5>{% trans "دوره‌های من" %}</h5>
                                 {% if enrollments %}
                                     <ul class="list-unstyled" style="margin:0;">
                                         {% for e in enrollments|slice:":4" %}
@@ -86,7 +376,7 @@
                     <div class="col-md-6">
                         <div class="dash-card">
                             <div class="card-body">
-                                <h5 style="color:#111; font-weight:800; margin-bottom:10px;">{% trans "مدارک و گواهینامه‌ها" %}</h5>
+                                <h5>{% trans "مدارک و گواهینامه‌ها" %}</h5>
                                 <div id="certificatesWrap">
                             {% if certificates %}
                                 <ul class="list-unstyled">

@@ -35,6 +35,16 @@ def detail_view(request, slug):
     # بررسی وضعیت کوییز
     can_take_quiz = enrollment.can_attempt_quiz()
     current_attempt = None
+    quiz_in_progress = False
+    
+    # بررسی اینکه آیا کوییز در حال انجام است
+    ongoing_attempt = QuizAttempt.objects.filter(
+        enrollment=enrollment,
+        completed=False
+    ).first()
+    if ongoing_attempt:
+        quiz_in_progress = True
+    
     if active_tab == 'quiz' and can_take_quiz:
         # ایجاد یا دریافت تلاش فعلی
         current_attempt = QuizAttempt.objects.filter(
@@ -68,6 +78,7 @@ def detail_view(request, slug):
         'last_completed_attempt': last_completed_attempt,
         'quiz_time_limit': course.quiz_time_limit * 60,  # تبدیل به ثانیه
         'saved_answers': saved_answers,
+        'quiz_in_progress': quiz_in_progress,
     }
     
     return render(request, 'courses/detail.html', context)

@@ -46,6 +46,40 @@
         margin-bottom: 24px;
     }
     
+    .course-description h2,
+    .course-description h3,
+    .course-description h4 {
+        color: #ffffff;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+    
+    .course-description h2 {
+        font-size: 24px;
+    }
+    
+    .course-description h3 {
+        font-size: 20px;
+    }
+    
+    .course-description p {
+        margin-bottom: 15px;
+        line-height: 1.8;
+    }
+    
+    .course-description ul,
+    .course-description ol {
+        margin-right: 20px;
+        margin-bottom: 15px;
+        padding-right: 20px;
+    }
+    
+    .course-description li {
+        margin-bottom: 8px;
+        line-height: 1.8;
+    }
+    
     .course-meta {
         display: flex;
         flex-wrap: wrap;
@@ -174,16 +208,54 @@
         margin: 0 auto;
     }
     
+    .quiz-header-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+    }
+    
     .quiz-timer {
         background: linear-gradient(135deg, #9333ea, #a855f7);
         color: white;
         padding: 16px 24px;
         border-radius: 12px;
         text-align: center;
-        margin-bottom: 30px;
         font-size: 24px;
         font-weight: 700;
         box-shadow: 0 4px 16px rgba(147,51,234,0.3);
+        flex: 1;
+        min-width: 200px;
+    }
+    
+    .circular-progress-container {
+        position: relative;
+        width: 120px;
+        height: 120px;
+    }
+    
+    .circular-progress {
+        transform: rotate(-90deg);
+    }
+    
+    .progress-ring-fill {
+        transition: stroke-dashoffset 0.5s ease;
+    }
+    
+    .progress-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #ffffff;
+        font-size: 24px;
+        font-weight: 700;
+    }
+    
+    .progress-text span {
+        color: #a855f7;
     }
     
     .quiz-timer.warning {
@@ -445,7 +517,7 @@
                 <!-- Course Header -->
                 <div class="course-header wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
                     <h1 class="course-title">{{ course.title }}</h1>
-                    <p class="course-description">{{ course.description }}</p>
+                    <div class="course-description">{{ course.description|safe }}</div>
                     <div class="course-meta">
                         <div class="course-meta-item">
                             <i class="fa fa-clock-o"></i>
@@ -472,7 +544,7 @@
 
                 <!-- Tabs -->
                 <div class="course-tabs wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
-                    <a href="#videos" class="course-tab {% if active_tab == 'videos' %}active{% endif %}" data-tab="videos">
+                    <a href="#videos" class="course-tab {% if active_tab == 'videos' %}active{% endif %} {% if quiz_in_progress %}disabled{% endif %}" data-tab="videos">
                         <i class="fa fa-video-camera"></i> {% trans "ویدیوها" %}
                     </a>
                     <a href="#quiz" class="course-tab {% if active_tab == 'quiz' %}active{% endif %} {% if not can_take_quiz and not enrollment.passed %}disabled{% endif %}" data-tab="quiz">
@@ -546,27 +618,70 @@
                         </div>
                         {% else %}
                         <div class="quiz-container">
-                            <div class="quiz-timer" id="quizTimer">
-                                <i class="fa fa-clock-o"></i> <span id="timerDisplay">{{ course.quiz_time_limit }}:00</span>
-                            </div>
-                            <div class="quiz-progress">
-                                <div class="quiz-progress-bar" id="quizProgress" style="width: 0%;"></div>
-                            </div>
-                            
-                            <div id="quizQuestions">
-                                <!-- سوالات به صورت داینامیک لود می‌شوند -->
+                            <!-- Start Quiz Button -->
+                            <div id="quizStartScreen" style="text-align:center; padding:60px 20px;">
+                                <h3 style="color:#ffffff; font-size:28px; font-weight:800; margin-bottom:20px;">
+                                    <i class="fa fa-question-circle" style="color:#a855f7; margin-left:12px;"></i>
+                                    {% trans "آماده شروع آزمون هستید؟" %}
+                                </h3>
+                                <p style="color:#b0b0b0; font-size:16px; line-height:1.8; margin-bottom:30px; max-width:600px; margin-left:auto; margin-right:auto;">
+                                    {% trans "این آزمون شامل" %} {{ questions.count }} {% trans "سوال چندگزینه‌ای است و" %} {{ course.quiz_time_limit }} {% trans "دقیقه زمان دارید. پس از شروع، نمی‌توانید به سوالات قبلی برگردید." %}
+                                </p>
+                                <div style="background:rgba(147,51,234,0.1); border:2px solid rgba(147,51,234,0.3); border-radius:16px; padding:24px; margin-bottom:30px; max-width:500px; margin-left:auto; margin-right:auto;">
+                                    <div style="display:flex; justify-content:space-between; margin-bottom:12px;">
+                                        <span style="color:#b0b0b0;">{% trans "زمان آزمون:" %}</span>
+                                        <span style="color:#ffffff; font-weight:700;">{{ course.quiz_time_limit }} {% trans "دقیقه" %}</span>
+                                    </div>
+                                    <div style="display:flex; justify-content:space-between; margin-bottom:12px;">
+                                        <span style="color:#b0b0b0;">{% trans "تعداد سوالات:" %}</span>
+                                        <span style="color:#ffffff; font-weight:700;">{{ questions.count }}</span>
+                                    </div>
+                                    <div style="display:flex; justify-content:space-between; margin-bottom:12px;">
+                                        <span style="color:#b0b0b0;">{% trans "حداقل نمره قبولی:" %}</span>
+                                        <span style="color:#ffffff; font-weight:700;">{{ course.passing_score }}%</span>
+                                    </div>
+                                    <div style="display:flex; justify-content:space-between;">
+                                        <span style="color:#b0b0b0;">{% trans "تلاش‌های باقی‌مانده:" %}</span>
+                                        <span style="color:#a855f7; font-weight:700;">{{ course.max_attempts|add:"-"|add:enrollment.attempts_used|default:course.max_attempts }}</span>
+                                    </div>
                                 </div>
+                                <button class="quiz-btn quiz-btn-primary" id="startQuizBtn" style="font-size:18px; padding:18px 50px;">
+                                    <i class="fa fa-play"></i> {% trans "شروع آزمون" %}
+                                </button>
+                            </div>
                             
-                            <div class="quiz-actions" id="quizActions" style="display:none;">
-                                <button class="quiz-btn quiz-btn-secondary" id="prevQuestionBtn" style="display:none;">
-                                    <i class="fa fa-arrow-right"></i> {% trans "قبلی" %}
-                                </button>
-                                <button class="quiz-btn quiz-btn-primary" id="nextQuestionBtn">
-                                    {% trans "بعدی" %} <i class="fa fa-arrow-left"></i>
-                                </button>
-                                <button class="quiz-btn quiz-btn-primary" id="submitQuizBtn" style="display:none;">
-                                    <i class="fa fa-check"></i> {% trans "ارسال پاسخ‌ها" %}
-                                </button>
+                            <!-- Quiz Content (Hidden Initially) -->
+                            <div id="quizContent" style="display:none;">
+                                <div class="quiz-header-section">
+                                    <div class="quiz-timer" id="quizTimer">
+                                        <i class="fa fa-clock-o"></i> <span id="timerDisplay">{{ course.quiz_time_limit }}:00</span>
+                                    </div>
+                                    <div class="circular-progress-container">
+                                        <svg class="circular-progress" width="120" height="120">
+                                            <circle class="progress-ring" cx="60" cy="60" r="54" fill="transparent" stroke="rgba(255,255,255,0.1)" stroke-width="8"/>
+                                            <circle class="progress-ring-fill" cx="60" cy="60" r="54" fill="transparent" stroke="#a855f7" stroke-width="8" stroke-dasharray="339.292" stroke-dashoffset="339.292" stroke-linecap="round"/>
+                                        </svg>
+                                        <div class="progress-text">
+                                            <span id="progressPercent">0</span>%
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="quizQuestions">
+                                    <!-- سوالات به صورت داینامیک لود می‌شوند -->
+                                </div>
+                                
+                                <div class="quiz-actions" id="quizActions" style="display:none;">
+                                    <button class="quiz-btn quiz-btn-secondary" id="prevQuestionBtn" style="display:none;">
+                                        <i class="fa fa-arrow-right"></i> {% trans "قبلی" %}
+                                    </button>
+                                    <button class="quiz-btn quiz-btn-primary" id="nextQuestionBtn" style="display:none;">
+                                        {% trans "بعدی" %} <i class="fa fa-arrow-left"></i>
+                                    </button>
+                                    <button class="quiz-btn quiz-btn-primary" id="submitQuizBtn" style="display:none;">
+                                        <i class="fa fa-check"></i> {% trans "ارسال پاسخ‌ها" %}
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         {% endif %}
@@ -623,6 +738,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const tabs = document.querySelectorAll('.course-tab');
     const tabPanes = document.querySelectorAll('.tab-pane');
     
+    // Track quiz state globally
+    let quizInProgress = false;
+    
     tabs.forEach(tab => {
         tab.addEventListener('click', function(e) {
             if (this.classList.contains('disabled')) {
@@ -630,8 +748,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            e.preventDefault();
             const targetTab = this.getAttribute('data-tab');
+            
+            // اگر کوییز شروع شده و کاربر می‌خواهد به ویدیوها برود، جلوگیری کن
+            if (quizInProgress && targetTab === 'videos') {
+                e.preventDefault();
+                alert('شما نمی‌توانید در حین آزمون به ویدیوها دسترسی داشته باشید. لطفاً ابتدا آزمون را به پایان برسانید.');
+                return;
+            }
+            
+            e.preventDefault();
             
             // Remove active class from all tabs and panes
             tabs.forEach(t => t.classList.remove('active'));
@@ -680,6 +806,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let timeRemaining = {{ quiz_time_limit }} * 60; // seconds
     let timerInterval;
     let quizStarted = false;
+    let quizActive = false;
+    let nextBtnHandler = null;
+    let quizInProgress = false;
+    let nextBtnHandler = null;
     
     // Timer
     function updateTimer() {
@@ -710,44 +840,87 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    // Update Circular Progress
+    function updateCircularProgress(percentage) {
+        const progressRing = document.querySelector('.progress-ring-fill');
+        const progressText = document.getElementById('progressPercent');
+        if (progressRing) {
+            const circumference = 2 * Math.PI * 54; // r = 54
+            const offset = circumference - (percentage / 100) * circumference;
+            progressRing.style.strokeDashoffset = offset;
+        }
+        if (progressText) {
+            progressText.textContent = Math.round(percentage);
+        }
+    }
+    
     // Render Question
     function renderQuestion(index) {
         if (index < 0 || index >= questions.length) return;
+        if (!quizActive) return;
         
         currentQuestionIndex = index;
         const question = questions[index];
+        const savedAnswer = answers['question_' + question.id];
+        
         const questionHtml = `
             <div class="question-card">
                 <div class="question-number">سوال ${index + 1} از ${questions.length}</div>
                 <div class="question-text">${question.text}</div>
                 <div class="quiz-options">
-                    ${question.options.map((opt, optIndex) => `
-                        <div class="quiz-option ${answers['question_' + question.id] == opt.id ? 'selected' : ''}" 
+                    ${question.options.map((opt, optIndex) => {
+                        const isSelected = savedAnswer == opt.id;
+                        return `
+                        <div class="quiz-option ${isSelected ? 'selected' : ''}" 
                              onclick="selectOption(${question.id}, ${opt.id}, this)">
                             <input type="radio" name="question_${question.id}" 
                                    id="opt_${opt.id}" value="${opt.id}" 
-                                   ${answers['question_' + question.id] == opt.id ? 'checked' : ''}>
+                                   ${isSelected ? 'checked' : ''}>
                             <label for="opt_${opt.id}">${opt.text}</label>
                         </div>
-                    `).join('')}
+                        `;
+                    }).join('')}
                 </div>
             </div>
         `;
         
-        document.getElementById('quizQuestions').innerHTML = questionHtml;
+        const quizQuestionsEl = document.getElementById('quizQuestions');
+        if (quizQuestionsEl) {
+            quizQuestionsEl.innerHTML = questionHtml;
+        }
         
-        // Update progress
+        // Update circular progress
         const progress = ((index + 1) / questions.length) * 100;
-        document.getElementById('quizProgress').style.width = progress + '%';
+        updateCircularProgress(progress);
         
         // Update buttons
-        document.getElementById('prevQuestionBtn').style.display = index > 0 ? 'block' : 'none';
-        document.getElementById('nextQuestionBtn').style.display = index < questions.length - 1 ? 'block' : 'none';
-        document.getElementById('submitQuizBtn').style.display = index === questions.length - 1 ? 'block' : 'none';
-        document.getElementById('quizActions').style.display = 'flex';
+        const prevBtn = document.getElementById('prevQuestionBtn');
+        const nextBtn = document.getElementById('nextQuestionBtn');
+        const submitBtn = document.getElementById('submitQuizBtn');
+        const actionsEl = document.getElementById('quizActions');
+        
+        if (prevBtn) prevBtn.style.display = 'none'; // قبلی غیرفعال
+            if (nextBtn) {
+            nextBtn.style.display = index < questions.length - 1 ? 'block' : 'none';
+            // حذف event listener قبلی
+            if (nextBtnHandler) {
+                nextBtn.removeEventListener('click', nextBtnHandler);
+            }
+            // اضافه کردن event listener جدید
+            nextBtnHandler = function() {
+                if (currentQuestionIndex < questions.length - 1) {
+                    renderQuestion(currentQuestionIndex + 1);
+                }
+            };
+            nextBtn.addEventListener('click', nextBtnHandler);
+        }
+        if (submitBtn) {
+            submitBtn.style.display = index === questions.length - 1 ? 'block' : 'none';
+        }
+        if (actionsEl) actionsEl.style.display = 'flex';
         
         // Start timer on first question
-        if (index === 0) {
+        if (index === 0 && !quizStarted) {
             startTimer();
         }
     }
@@ -776,18 +949,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
-    // Navigation
-    document.getElementById('nextQuestionBtn').addEventListener('click', function() {
-        if (currentQuestionIndex < questions.length - 1) {
-            renderQuestion(currentQuestionIndex + 1);
-        }
-    });
-    
-    document.getElementById('prevQuestionBtn').addEventListener('click', function() {
-        if (currentQuestionIndex > 0) {
-            renderQuestion(currentQuestionIndex - 1);
-        }
-    });
+    // Navigation - باید بعد از تعریف renderQuestion باشد
+    // این event listener ها در انتهای کد اضافه می‌شوند
     
     // Submit Quiz
     function submitQuiz(timeUp = false) {
@@ -817,14 +980,83 @@ document.addEventListener('DOMContentLoaded', function() {
         form.submit();
     }
     
-    document.getElementById('submitQuizBtn').addEventListener('click', function() {
-        if (confirm('آیا مطمئن هستید که می‌خواهید پاسخ‌ها را ارسال کنید؟')) {
-            submitQuiz();
-        }
-    });
+    // Submit button handler
+    const submitBtn = document.getElementById('submitQuizBtn');
+    if (submitBtn) {
+        submitBtn.addEventListener('click', function() {
+            if (confirm('آیا مطمئن هستید که می‌خواهید پاسخ‌ها را ارسال کنید؟')) {
+                submitQuiz();
+            }
+        });
+    }
     
-    // Initialize first question
-    renderQuestion(0);
+    // Start Quiz Button
+    const startBtn = document.getElementById('startQuizBtn');
+    const startScreen = document.getElementById('quizStartScreen');
+    const quizContent = document.getElementById('quizContent');
+    
+    if (startBtn && startScreen && quizContent) {
+        startBtn.addEventListener('click', function() {
+            // Hide start screen
+            startScreen.style.display = 'none';
+            // Show quiz content
+            quizContent.style.display = 'block';
+            // Set quiz as active
+            quizActive = true;
+            quizInProgress = true;
+            // Disable videos tab
+            const videosTab = document.querySelector('.course-tab[data-tab="videos"]');
+            if (videosTab) {
+                videosTab.classList.add('disabled');
+            }
+            // Render first question
+            renderQuestion(0);
+        });
+    } else if (quizContent && quizContent.style.display !== 'none') {
+        // اگر دکمه استارت نیست، یعنی قبلاً شروع شده
+        quizActive = true;
+        quizInProgress = true;
+        // Disable videos tab
+        const videosTab = document.querySelector('.course-tab[data-tab="videos"]');
+        if (videosTab) {
+            videosTab.classList.add('disabled');
+        }
+        renderQuestion(0);
+    }
+    
+    // Tab switching - disable videos tab if quiz in progress
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function(e) {
+            if (this.classList.contains('disabled')) {
+                e.preventDefault();
+                return;
+            }
+            
+            const targetTab = this.getAttribute('data-tab');
+            
+            // اگر کوییز در حال انجام است و کاربر می‌خواهد به ویدیوها برود، جلوگیری کن
+            if (quizInProgress && targetTab === 'videos') {
+                e.preventDefault();
+                alert('در حال انجام آزمون هستید. نمی‌توانید به تب ویدیوها بروید.');
+                return;
+            }
+            
+            e.preventDefault();
+            
+            // Remove active class from all tabs and panes
+            tabs.forEach(t => t.classList.remove('active'));
+            tabPanes.forEach(p => p.classList.remove('active'));
+            
+            // Add active class to clicked tab and corresponding pane
+            this.classList.add('active');
+            document.getElementById(targetTab + '-tab').classList.add('active');
+            
+            // Update URL
+            const url = new URL(window.location);
+            url.searchParams.set('tab', targetTab);
+            window.history.pushState({}, '', url);
+        });
+    });
     {% endif %}
 });
 </script>
