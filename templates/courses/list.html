@@ -1,44 +1,265 @@
 {% extends 'base.html' %}
 {% load static i18n %}
 
-{% block title %}{% trans "دوره‌ها" %}{% endblock %}
+{% block title %}{% trans "دوره‌های آموزشی" %}{% endblock %}
 
 {% block extra_css %}
 <style>
-    html, body { background: #ffffff !important; color: #222; }
-    .courses-light { background: #ffffff; }
-    .section_title h3 { color: #111 !important; }
-    .service_item { background:#fff !important; border:1px solid #eee !important; box-shadow:0 6px 20px rgba(0,0,0,.06) !important; }
-    .service_item .service_content h3 { color:#222 !important; }
-    .service_item .service_content p { color:#555 !important; }
+    /* Modern Professional Courses Design - Purple Theme */
+    html, body { 
+        background: #0a0a0a !important; 
+        color: #e0e0e0 !important; 
+    }
+    
+    .courses-wrap { 
+        background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+        padding: 80px 0 100px;
+        min-height: 100vh;
+    }
+    
+    /* Hero Section */
+    .courses-hero {
+        text-align: center;
+        padding: 60px 0 80px;
+        background: linear-gradient(135deg, rgba(147,51,234,0.1) 0%, rgba(168,85,247,0.05) 100%);
+        border-radius: 24px;
+        margin-bottom: 60px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .courses-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 50% 50%, rgba(147,51,234,0.15) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    
+    .courses-hero h3 {
+        color: #ffffff !important;
+        font-weight: 900 !important;
+        font-size: 56px !important;
+        margin-bottom: 20px;
+        text-shadow: 0 4px 20px rgba(147,51,234,0.3);
+        position: relative;
+        z-index: 1;
+    }
+    
+    .courses-hero p {
+        color: #b0b0b0 !important;
+        font-size: 20px !important;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.8;
+        position: relative;
+        z-index: 1;
+    }
+    
+    /* Course Cards */
+    .course-card {
+        background: linear-gradient(135deg, #161616 0%, #1f1f1f 100%);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+    
+    .course-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #9333ea, #a855f7);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .course-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 48px rgba(147,51,234,0.2);
+        border-color: rgba(147,51,234,0.3);
+    }
+    
+    .course-card:hover::before {
+        opacity: 1;
+    }
+    
+    .course-card .cover {
+        height: 240px;
+        overflow: hidden;
+        position: relative;
+        background: #0a0a0a;
+    }
+    
+    .course-card .cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+    
+    .course-card:hover .cover img {
+        transform: scale(1.1);
+    }
+    
+    .course-card .content {
+        padding: 28px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .course-card .title {
+        color: #ffffff;
+        font-size: 22px;
+        font-weight: 800;
+        margin-bottom: 12px;
+        line-height: 1.4;
+    }
+    
+    .course-card .title a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .course-card .title a:hover {
+        color: #a855f7;
+    }
+    
+    .course-card .description {
+        color: #999;
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        flex: 1;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .course-card .meta {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .course-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: #888;
+        font-size: 13px;
+    }
+    
+    .course-meta-item i {
+        color: #a855f7;
+    }
+    
+    .course-card .btn {
+        background: linear-gradient(135deg, #9333ea, #a855f7);
+        color: white;
+        padding: 12px 28px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        text-align: center;
+        box-shadow: 0 4px 16px rgba(147,51,234,0.3);
+    }
+    
+    .course-card .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(147,51,234,0.4);
+        color: white;
+        text-decoration: none;
+    }
+    
+    /* Empty State */
+    .empty-state {
+        text-align: center;
+        padding: 100px 20px;
+        color: #666;
+    }
+    
+    .empty-state p {
+        font-size: 18px;
+    }
+    
+    @media (max-width: 768px) {
+        .courses-hero h3 {
+            font-size: 36px !important;
+        }
+        
+        .courses-hero p {
+            font-size: 16px !important;
+        }
+    }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="courses-light" style="padding: 60px 0;">
+<div class="courses-wrap">
     <div class="container">
+        <!-- Hero Section -->
+        <div class="courses-hero">
+            <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".2s">{% trans "دوره‌های آموزشی" %}</h3>
+            <p class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">{% trans "دوره‌های تخصصی و کاربردی برای پیشرفت شما" %}</p>
+        </div>
+
+        <!-- Courses Grid -->
+        {% if courses %}
         <div class="row">
-            <div class="col-12"><div class="section_title mb-40"><h3>{% trans "دوره‌های موجود" %}</h3></div></div>
             {% for course in courses %}
-            <div class="col-lg-4 col-md-6">
-                <div class="service_item">
-                    <div class="service_row" style="min-height:auto;">
-                        <div class="service_content">
-                            <h3>{{ course.title }}</h3>
-                            <p>{{ course.description|truncatechars:150 }}</p>
-                            <a href="{{ course.get_absolute_url }}" class="service_link">{% trans "شروع دوره" %}</a>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="course-card wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                    <div class="cover">
+                        {% if course.image %}
+                        <a href="{{ course.get_absolute_url }}"><img src="{{ course.image.url }}" alt="{{ course.title }}" loading="lazy"></a>
+                        {% else %}
+                        <div style="width:100%; height:100%; background: linear-gradient(135deg, #9333ea, #a855f7); display:flex; align-items:center; justify-content:center; color:white; font-size:48px;">📚</div>
+                        {% endif %}
+                    </div>
+                    <div class="content">
+                        <h3 class="title">
+                            <a href="{{ course.get_absolute_url }}">{{ course.title }}</a>
+                        </h3>
+                        <p class="description">{{ course.short_description|default:course.description|truncatechars:150 }}</p>
+                        <div class="meta">
+                            <div class="course-meta-item">
+                                <i class="fa fa-clock-o"></i>
+                                <span>{{ course.quiz_time_limit }} {% trans "دقیقه" %}</span>
+                            </div>
+                            <div class="course-meta-item">
+                                <i class="fa fa-check-circle"></i>
+                                <span>{{ course.passing_score }}% {% trans "قبولی" %}</span>
+                            </div>
                         </div>
+                        <a href="{{ course.get_absolute_url }}" class="btn">{% trans "شروع دوره" %}</a>
                     </div>
                 </div>
             </div>
-            {% empty %}
-            <div class="col-12"><p>{% trans "دوره‌ای ثبت نشده است." %}</p></div>
             {% endfor %}
         </div>
+        {% else %}
+        <div class="empty-state">
+            <p>{% trans "دوره‌ای ثبت نشده است." %}</p>
+        </div>
+        {% endif %}
     </div>
+</div>
 {% endblock %}
-
-
-
-
-

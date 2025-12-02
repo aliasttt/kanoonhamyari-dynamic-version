@@ -5,9 +5,10 @@ app_name = 'courses'
 
 urlpatterns = [
     path('', views.list_view, name='list'),
-    path('<slug:slug>/', views.detail_view, name='detail'),
-    path('<slug:slug>/quiz/submit/', views.quiz_submit_view, name='quiz_submit'),
-    path('<slug:slug>/certificate/', views.certificate_view, name='certificate'),
+    path('<str:slug>/', views.detail_view, name='detail'),
+    path('<str:slug>/quiz/question/<int:question_id>/answer/', views.quiz_answer_view, name='quiz_answer'),
+    path('<str:slug>/quiz/submit/', views.quiz_submit_view, name='quiz_submit'),
+    path('<str:slug>/certificate/', views.certificate_view, name='certificate'),
 ]
 
 

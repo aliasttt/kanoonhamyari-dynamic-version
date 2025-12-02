@@ -29,17 +29,19 @@ def login_view(request):
     if request.user.is_authenticated:
         return redirect('accounts:dashboard')
     
+    next_url = request.GET.get('next', 'accounts:dashboard')
+    
     if request.method == 'POST':
         form = CustomAuthenticationForm(data=request.POST)
         if form.is_valid():
             user = form.get_user()
             login(request, user)
             messages.success(request, 'با موفقیت وارد شدید.')
-            return redirect('accounts:dashboard')
+            return redirect(next_url)
     else:
         form = CustomAuthenticationForm()
     
-    return render(request, 'accounts/login.html', {'form': form})
+    return render(request, 'accounts/login.html', {'form': form, 'next': next_url})
 
 
 @login_required

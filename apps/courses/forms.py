@@ -1,5 +1,5 @@
 from django import forms
-from .models import Enrollment
+from .models import QuizOption
 
 
 class InitialForm(forms.Form):
@@ -13,11 +13,15 @@ class QuizForm(forms.Form):
     pass
 
 
-
-
-
-
-
-
-
-
+class QuizAnswerForm(forms.Form):
+    """فرم پاسخ به یک سوال"""
+    option_id = forms.IntegerField(required=True, widget=forms.HiddenInput())
+    
+    def __init__(self, question, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.question = question
+        options = question.options.all()
+        self.fields['option_id'].widget = forms.RadioSelect(
+            choices=[(opt.id, opt.text) for opt in options],
+            attrs={'class': 'quiz-option-radio'}
+        )

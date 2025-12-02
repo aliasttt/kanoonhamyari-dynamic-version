@@ -1,126 +1,193 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.http import Http404, HttpResponseForbidden
+from django.http import Http404, HttpResponseForbidden, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
+from django.utils import timezone
+from django.views.decorators.http import require_POST
 from math import ceil
+import json
 
-from .models import Course, CourseVideo, Enrollment, QuizQuestion, QuizOption, QuizAttempt
-from .forms import InitialForm, QuizForm
+from .models import Course, CourseVideo, Enrollment, QuizQuestion, QuizOption, QuizAttempt, Certificate
+from .forms import InitialForm
 
 
 def list_view(request):
+    """لیست دوره‌ها - اگر لاگین نبود، به لاگین ریدایرکت می‌شود"""
+    if not request.user.is_authenticated:
+        messages.info(request, 'لطفاً ابتدا وارد حساب کاربری خود شوید.')
+        return redirect(reverse('accounts:login') + '?next=' + reverse('courses:list'))
+    
     courses = Course.objects.filter(is_active=True).order_by('-created_at')
     return render(request, 'courses/list.html', {'courses': courses})
 
 
 @login_required
 def detail_view(request, slug):
+    """صفحه جزئیات دوره با تب‌های ویدیو، کوییز و موفقیت"""
     course = get_object_or_404(Course, slug=slug, is_active=True)
     enrollment, _ = Enrollment.objects.get_or_create(user=request.user, course=course)
-    videos = list(course.videos.all()[:6])
+    
+    videos = course.videos.all()
     questions = course.questions.all()
-
-    initial_form = None
-    if enrollment.initial_form_data:
-        initial_form_submitted = True
-    else:
-        initial_form_submitted = False
-        if request.method == 'POST' and request.POST.get('action') == 'initial_form':
-            initial_form = InitialForm(request.POST)
-            if initial_form.is_valid():
-                enrollment.initial_form_data = initial_form.cleaned_data
-                enrollment.current_step = 1
-                enrollment.save(update_fields=['initial_form_data', 'current_step'])
-                messages.success(request, 'فرم اولیه با موفقیت ثبت شد.')
-                return redirect(course.get_absolute_url())
-        else:
-            initial_form = InitialForm()
-
-    return render(request, 'courses/detail.html', {
+    active_tab = request.GET.get('tab', 'videos')
+    
+    # بررسی وضعیت کوییز
+    can_take_quiz = enrollment.can_attempt_quiz()
+    current_attempt = None
+    if active_tab == 'quiz' and can_take_quiz:
+        # ایجاد یا دریافت تلاش فعلی
+        current_attempt = QuizAttempt.objects.filter(
+            enrollment=enrollment,
+            completed=False
+        ).first()
+        
+        if not current_attempt:
+            current_attempt = QuizAttempt.objects.create(
+                enrollment=enrollment,
+                answers={},
+                total=questions.count()
+            )
+    
+    # آخرین تلاش تکمیل شده
+    last_completed_attempt = enrollment.attempts.filter(completed=True).first()
+    
+    # بارگذاری پاسخ‌های ذخیره شده
+    saved_answers = {}
+    if current_attempt:
+        saved_answers = current_attempt.answers or {}
+    
+    context = {
         'course': course,
         'enrollment': enrollment,
         'videos': videos,
-        'initial_form': initial_form,
-        'initial_form_submitted': initial_form_submitted,
         'questions': questions,
-    })
+        'active_tab': active_tab,
+        'can_take_quiz': can_take_quiz,
+        'current_attempt': current_attempt,
+        'last_completed_attempt': last_completed_attempt,
+        'quiz_time_limit': course.quiz_time_limit * 60,  # تبدیل به ثانیه
+        'saved_answers': saved_answers,
+    }
+    
+    return render(request, 'courses/detail.html', context)
 
 
 @login_required
-def quiz_submit_view(request, slug):
+@require_POST
+def quiz_answer_view(request, slug, question_id):
+    """ذخیره پاسخ یک سوال"""
     course = get_object_or_404(Course, slug=slug, is_active=True)
     enrollment = get_object_or_404(Enrollment, user=request.user, course=course)
+    question = get_object_or_404(QuizQuestion, id=question_id, course=course)
+    
+    if not enrollment.can_attempt_quiz():
+        return JsonResponse({'error': 'شما نمی‌توانید در این آزمون شرکت کنید.'}, status=403)
+    
+    # دریافت یا ایجاد تلاش فعلی
+    current_attempt = QuizAttempt.objects.filter(
+        enrollment=enrollment,
+        completed=False
+    ).first()
+    
+    if not current_attempt:
+        current_attempt = QuizAttempt.objects.create(
+            enrollment=enrollment,
+            answers={},
+            total=course.questions.count()
+        )
+    
+    # بارگذاری پاسخ‌های قبلی
+    saved_answers = current_attempt.answers or {}
+    
+    # ذخیره پاسخ
+    option_id = request.POST.get('option_id')
+    if option_id:
+        try:
+            option = QuizOption.objects.get(id=int(option_id), question=question)
+            current_attempt.answers[f'question_{question.id}'] = option_id
+            current_attempt.save(update_fields=['answers'])
+            return JsonResponse({'success': True, 'message': 'پاسخ ذخیره شد.'})
+        except (QuizOption.DoesNotExist, ValueError):
+            return JsonResponse({'error': 'گزینه نامعتبر است.'}, status=400)
+    
+    return JsonResponse({'error': 'پاسخ ارسال نشد.'}, status=400)
+
+
+@login_required
+@require_POST
+def quiz_submit_view(request, slug):
+    """ارسال نهایی آزمون و محاسبه نمره"""
+    course = get_object_or_404(Course, slug=slug, is_active=True)
+    enrollment = get_object_or_404(Enrollment, user=request.user, course=course)
+    
+    if not enrollment.can_attempt_quiz():
+        messages.error(request, 'شما نمی‌توانید در این آزمون شرکت کنید.')
+        return redirect('courses:detail', slug=slug)
+    
     questions = list(course.questions.all())
     if not questions:
         raise Http404("سوالی تعریف نشده است.")
 
-    if not enrollment.can_attempt_quiz():
-        messages.error(request, 'حداکثر سه تلاش مجاز است یا قبلاً قبول شده‌اید.')
-        return redirect(course.get_absolute_url())
-
-    if request.method != 'POST':
-        return HttpResponseForbidden('Method not allowed')
-
-    # Evaluate answers
-    total = len(questions)
-    correct = 0
-    for q in questions:
-        chosen = request.POST.get(f'question_{q.id}')
-        if not chosen:
-            continue
-        try:
-            option = QuizOption.objects.get(id=int(chosen), question=q)
-            if option.is_correct:
-                correct += 1
-        except (QuizOption.DoesNotExist, ValueError):
-            pass
-
-    passed = correct >= ceil(total / 2)
-
-    # Save attempt and update enrollment
-    attempt = QuizAttempt.objects.create(
+    # دریافت تلاش فعلی
+    current_attempt = QuizAttempt.objects.filter(
         enrollment=enrollment,
-        score=correct,
-        total=total,
-        passed=passed,
-    )
+        completed=False
+    ).first()
+    
+    if not current_attempt:
+        current_attempt = QuizAttempt.objects.create(
+            enrollment=enrollment,
+            answers={},
+            total=len(questions)
+        )
+    
+    # دریافت زمان صرف شده
+    time_taken = int(request.POST.get('time_taken', 0))
+    current_attempt.time_taken = time_taken
+    current_attempt.completed = True
+    current_attempt.save(update_fields=['time_taken', 'completed'])
+    
+    # محاسبه نمره
+    current_attempt.calculate_score(questions)
+    
+    # به‌روزرسانی enrollment
     enrollment.attempts_used += 1
-    if passed:
+    
+    if current_attempt.passed:
         enrollment.passed = True
-        if not enrollment.certificate_code:
-            enrollment.certificate_code = f"CERT-{enrollment.id:06d}"
+        enrollment.generate_certificate_code()
+        # ایجاد گواهینامه
+        Certificate.objects.get_or_create(
+            enrollment=enrollment,
+            defaults={'certificate_code': enrollment.certificate_code}
+        )
+        messages.success(request, f'تبریک! شما با نمره {current_attempt.percentage:.1f}% قبول شدید.')
+    else:
+        remaining = max(0, course.max_attempts - enrollment.attempts_used)
+        if remaining > 0:
+            messages.warning(request, f'نمره شما {current_attempt.percentage:.1f}% بود. {remaining} تلاش دیگر دارید.')
+        else:
+            messages.error(request, f'نمره شما {current_attempt.percentage:.1f}% بود. تلاش‌ها به پایان رسید.')
+    
     enrollment.save(update_fields=['attempts_used', 'passed', 'certificate_code'])
 
-    if passed:
-        messages.success(request, f'تبریک! با امتیاز {correct} از {total} قبول شدید.')
-    else:
-        remaining = max(0, 3 - enrollment.attempts_used)
-        if remaining:
-            messages.warning(request, f'نمره شما {correct} از {total} بود. {remaining} تلاش دیگر دارید.')
-        else:
-            messages.error(request, f'نمره شما {correct} از {total} بود. تلاش‌ها به پایان رسید.')
-
-    return redirect(course.get_absolute_url() + "#quiz")
+    return redirect('courses:detail', slug=slug) + '?tab=success'
 
 
 @login_required
 def certificate_view(request, slug):
+    """نمایش گواهینامه"""
     course = get_object_or_404(Course, slug=slug, is_active=True)
     enrollment = get_object_or_404(Enrollment, user=request.user, course=course)
+    
     if not enrollment.passed:
         return HttpResponseForbidden('گواهینامه در دسترس نیست.')
+    
+    certificate = Certificate.objects.filter(enrollment=enrollment).first()
+    
     return render(request, 'courses/certificate.html', {
         'course': course,
         'enrollment': enrollment,
+        'certificate': certificate,
     })
-
-
-
-
-
-
-
-
-
-
