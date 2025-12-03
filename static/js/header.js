@@ -58,7 +58,15 @@
         var desktopNav = document.getElementById('navigation');
         var mobileNav = document.getElementById('khMobileNavigation');
         if (desktopNav && mobileNav) {
-            mobileNav.innerHTML = desktopNav.innerHTML;
+            // Clone nodes instead of innerHTML to preserve Django translations
+            // Clear mobile nav first
+            mobileNav.innerHTML = '';
+            // Clone each menu item to preserve translations
+            var items = desktopNav.querySelectorAll('li');
+            items.forEach(function(item) {
+                var clonedItem = item.cloneNode(true);
+                mobileNav.appendChild(clonedItem);
+            });
         }
     }
 
@@ -68,6 +76,9 @@
         var currentLang = document.getElementById('currentLang');
         var savedLanguage = localStorage.getItem('selectedLanguage') || 'fa';
 
+        // DISABLED: Don't override Django's language setting
+        // Let Django i18n handle the current language display
+        /*
         if (currentLang) {
             currentLang.textContent = savedLanguage === 'fa' ? 'فا' : savedLanguage.toUpperCase();
         }
@@ -76,6 +87,7 @@
         languageOptions.forEach(function (option) {
             option.classList.toggle('active', option.getAttribute('data-lang') === savedLanguage);
         });
+        */
 
         if (languageBtn && languageDropdown) {
             languageBtn.addEventListener('click', function (e) {
@@ -104,6 +116,9 @@
                         this.classList.add('active');
                         languageDropdown.classList.remove('show');
                         languageBtn.classList.remove('active');
+                        // DISABLED: Don't override Django translations
+                        // Let fast_language_switch.js handle language switching
+                        /*
                         if (currentLang) {
                             currentLang.textContent = selectedLang === 'fa' ? 'فا' : selectedLang.toUpperCase();
                         }
@@ -112,6 +127,7 @@
                         } else {
                             localStorage.setItem('selectedLanguage', selectedLang);
                         }
+                        */
                     }
                 });
             });

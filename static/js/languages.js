@@ -122,18 +122,32 @@
     });
   }
 
+  // DISABLED: Don't override Django translations
+  // Use Django's set_language view instead via fast_language_switch.js
+  /*
   window.switchLanguage = function (lang) {
     if (!translations[lang]) lang = 'fa';
     localStorage.setItem('selectedLanguage', lang);
     setHtmlDir(lang);
     translateElements(lang);
   };
+  */
+  
+  // Keep a dummy function to prevent errors if other code calls it
+  window.switchLanguage = function (lang) {
+    // Do nothing - let Django handle translations
+    console.log('switchLanguage called but disabled - using Django i18n instead');
+  };
 
+  // DISABLED: Let Django i18n handle translations instead of overriding them
+  // This was causing menu items to be forced to Persian after Django had already translated them
+  /*
   document.addEventListener('DOMContentLoaded', function () {
     var initial = localStorage.getItem('selectedLanguage') || 'fa';
     setHtmlDir(initial);
     translateElements(initial);
   });
+  */
 })();
 
 

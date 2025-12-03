@@ -8,8 +8,8 @@ from .forms import TourRegistrationForm
 @cache_page(60 * 10)
 def tour_list(request):
     """لیست تورها"""
-    tours = Tour.objects.filter(is_active=True, is_published=True)
-    categories = TourCategory.objects.filter(is_active=True)
+    tours = Tour.objects.filter(is_active=True, is_published=True).select_related('category').order_by('-created_at')
+    categories = TourCategory.objects.filter(is_active=True).order_by('order', 'name')
     
     # فیلتر بر اساس دسته‌بندی
     category_slug = request.GET.get('category')
@@ -51,7 +51,7 @@ def tour_detail(request, slug):
         is_active=True, 
         is_published=True,
         category=tour.category
-    ).exclude(id=tour.id)[:4]
+    ).select_related('category').exclude(id=tour.id).order_by('-created_at')[:4]
     
     context = {
         'tour': tour,

@@ -8,8 +8,8 @@ from .forms import EventRegistrationForm
 @cache_page(60 * 10)
 def event_list(request):
     """لیست رویدادها"""
-    events = Event.objects.filter(is_active=True, is_published=True)
-    categories = EventCategory.objects.filter(is_active=True)
+    events = Event.objects.filter(is_active=True, is_published=True).select_related('category').order_by('-created_at')
+    categories = EventCategory.objects.filter(is_active=True).order_by('order', 'name')
     
     # فیلتر بر اساس دسته‌بندی
     category_slug = request.GET.get('category')
@@ -52,7 +52,7 @@ def event_detail(request, slug):
         is_active=True, 
         is_published=True,
         category=event.category
-    ).exclude(id=event.id)[:4]
+    ).select_related('category').exclude(id=event.id).order_by('-created_at')[:4]
     
     context = {
         'event': event,

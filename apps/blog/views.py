@@ -27,7 +27,7 @@ def blog_list(request):
         is_published=True
     ).filter(
         Q(published_at__lte=timezone.now()) | Q(published_at__isnull=True)
-    )
+    ).select_related('category', 'author').prefetch_related('tags').order_by('-published_at', '-created_at')
     
     # فیلتر بر اساس دسته‌بندی
     category_slug = request.GET.get('category')

@@ -8,8 +8,8 @@ from .forms import PropertyInquiryForm
 @cache_page(60 * 10)
 def property_list(request):
     """لیست املاک"""
-    properties = Property.objects.filter(is_active=True, is_published=True)
-    types = PropertyType.objects.filter(is_active=True)
+    properties = Property.objects.filter(is_active=True, is_published=True).select_related('property_type').order_by('-created_at')
+    types = PropertyType.objects.filter(is_active=True).order_by('order', 'name')
     
     # فیلتر بر اساس نوع
     type_slug = request.GET.get('type')

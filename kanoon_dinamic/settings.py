@@ -191,7 +191,16 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
         'LOCATION': 'kanoon-dinamic-cache',
+        'OPTIONS': {
+            'MAX_ENTRIES': 1000,
+        },
+        'TIMEOUT': 600,  # 10 minutes default
     }
+}
+
+# Database query optimization
+DATABASES['default']['OPTIONS'] = {
+    'timeout': 20,
 }
 
 # Sites Framework

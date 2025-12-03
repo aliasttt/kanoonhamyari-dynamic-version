@@ -29,12 +29,12 @@
                                         <i class="fa fa-chevron-down"></i>
                                     </button>
                                     <div class="language_dropdown_content" id="languageDropdown">
-                                        <form action="{% url 'set_language' %}" method="post">
+                                        <form action="{% url 'set_language' %}" method="post" id="languageForm">
                                             {% csrf_token %}
                                             <input type="hidden" name="next" value="{{ request.get_full_path }}">
-                                            <button type="submit" name="language" value="fa" class="language-choice{% if LANGUAGE_CODE == 'fa' %} active{% endif %}">فارسی</button>
-                                            <button type="submit" name="language" value="en" class="language-choice{% if LANGUAGE_CODE == 'en' %} active{% endif %}">English</button>
-                                            <button type="submit" name="language" value="tr" class="language-choice{% if LANGUAGE_CODE == 'tr' %} active{% endif %}">Türkçe</button>
+                                            <button type="button" name="language" value="fa" class="language-choice{% if LANGUAGE_CODE == 'fa' %} active{% endif %}" data-lang="fa">فارسی</button>
+                                            <button type="button" name="language" value="en" class="language-choice{% if LANGUAGE_CODE == 'en' %} active{% endif %}" data-lang="en">English</button>
+                                            <button type="button" name="language" value="tr" class="language-choice{% if LANGUAGE_CODE == 'tr' %} active{% endif %}" data-lang="tr">Türkçe</button>
                                         </form>
                                     </div>
                                 </div>
