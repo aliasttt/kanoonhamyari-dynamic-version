@@ -32,3 +32,5 @@ class BusinessInquiryForm(forms.ModelForm):
             'message': 'پیام',
         }
 
+
+

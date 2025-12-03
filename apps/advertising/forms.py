@@ -32,3 +32,5 @@ class AdvertisementInquiryForm(forms.ModelForm):
             'message': 'پیام',
         }
 
+
+

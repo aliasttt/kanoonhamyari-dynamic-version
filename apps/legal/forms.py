@@ -32,3 +32,5 @@ class LegalInquiryForm(forms.ModelForm):
             'message': 'پیام',
         }
 
+
+

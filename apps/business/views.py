@@ -17,15 +17,22 @@ def business_list(request):
         category = get_object_or_404(BusinessCategory, slug=category_slug, is_active=True)
         services = services.filter(category=category)
     
-    # جستجو
+    # جستجو پیشرفته در چند فیلد
     search_query = request.GET.get('search')
     if search_query:
-        services = services.filter(title__icontains=search_query)
+        from django.db.models import Q
+        services = services.filter(
+            Q(title__icontains=search_query) |
+            Q(short_description__icontains=search_query) |
+            Q(description__icontains=search_query) |
+            Q(location__icontains=search_query)
+        )
     
     context = {
         'services': services,
         'categories': categories,
         'selected_category': category_slug,
+        'search_query': search_query if 'search_query' in locals() else '',
     }
     
     return render(request, 'business/list.html', context)

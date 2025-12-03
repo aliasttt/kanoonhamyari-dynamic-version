@@ -17,15 +17,23 @@ def event_list(request):
         category = get_object_or_404(EventCategory, slug=category_slug, is_active=True)
         events = events.filter(category=category)
     
-    # جستجو
+    # جستجو پیشرفته در چند فیلد
     search_query = request.GET.get('search')
     if search_query:
-        events = events.filter(title__icontains=search_query)
+        from django.db.models import Q
+        events = events.filter(
+            Q(title__icontains=search_query) |
+            Q(short_description__icontains=search_query) |
+            Q(description__icontains=search_query) |
+            Q(location__icontains=search_query) |
+            Q(address__icontains=search_query)
+        )
     
     context = {
         'events': events,
         'categories': categories,
         'selected_category': category_slug,
+        'search_query': search_query if 'search_query' in locals() else '',
     }
     
     return render(request, 'events/list.html', context)

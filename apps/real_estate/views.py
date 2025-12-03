@@ -22,16 +22,24 @@ def property_list(request):
     if status:
         properties = properties.filter(status=status)
     
-    # جستجو
+    # جستجو پیشرفته در چند فیلد
     search_query = request.GET.get('search')
     if search_query:
-        properties = properties.filter(title__icontains=search_query)
+        from django.db.models import Q
+        properties = properties.filter(
+            Q(title__icontains=search_query) |
+            Q(short_description__icontains=search_query) |
+            Q(description__icontains=search_query) |
+            Q(location__icontains=search_query) |
+            Q(address__icontains=search_query)
+        )
     
     context = {
         'properties': properties,
         'types': types,
         'selected_type': type_slug,
         'selected_status': status,
+        'search_query': search_query if 'search_query' in locals() else '',
     }
     
     return render(request, 'real_estate/list.html', context)

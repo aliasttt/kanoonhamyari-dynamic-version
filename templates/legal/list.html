@@ -98,10 +98,10 @@
                 <h1 class="hero_title">{% trans "⚖️ بخش خدمات حقوقی" %}</h1>
                 <p class="hero_subtitle">{% trans "مشاوره حقوقی تخصصی با وکلای مجرب" %}</p>
                 <div class="hero_search">
-                    <div class="search_box">
-                        <input type="text" placeholder="{% trans 'جستجو در خدمات حقوقی...' %}" class="search_input">
-                        <button class="search_btn"><i class="fa fa-search"></i></button>
-                    </div>
+                    <form method="get" action="{% url 'services:legal' %}" class="search_box">
+                        <input type="text" name="search" value="{{ search_query|default:'' }}" placeholder="{% trans 'جستجو در خدمات حقوقی...' %}" class="search_input">
+                        <button type="submit" class="search_btn"><i class="fa fa-search"></i></button>
+                    </form>
                 </div>
             </div>
         </div>

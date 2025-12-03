@@ -32,3 +32,5 @@ class DecorationInquiryForm(forms.ModelForm):
             'message': 'پیام',
         }
 
+
+

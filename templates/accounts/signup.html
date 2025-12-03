@@ -63,8 +63,49 @@
         transition: all 0.5s ease;
         position: relative;
         overflow: hidden;
-        max-width: 600px;
+        max-width: 900px;
         margin: 0 auto;
+    }
+    
+    .form_section {
+        margin-bottom: 40px;
+        padding-bottom: 30px;
+        border-bottom: 2px solid rgba(76,175,80,0.2);
+    }
+    
+    .form_section:last-of-type {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    
+    .section_title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #4CAF50;
+        margin-bottom: 24px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid rgba(76,175,80,0.3);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .section_title::before {
+        content: '🔵';
+        font-size: 1.2rem;
+    }
+    
+    .form_row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    @media (max-width: 768px) {
+        .form_row {
+            grid-template-columns: 1fr;
+        }
     }
     
     .signup_card::before {
@@ -100,6 +141,10 @@
     .signup_form_group input[type="password"],
     .signup_form_group input[type="email"],
     .signup_form_group input[type="tel"],
+    .signup_form_group input[type="date"],
+    .signup_form_group input[type="number"],
+    .signup_form_group input[type="url"],
+    .signup_form_group select,
     .signup_form_group textarea {
         width: 100%;
         background: rgba(255,255,255,0.05);
@@ -113,12 +158,41 @@
         font-family: inherit;
     }
     
+    .signup_form_group select {
+        cursor: pointer;
+    }
+    
+    .signup_form_group select option {
+        background: #1a1a1a;
+        color: #fff;
+    }
+    
+    .signup_form_group input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        margin-left: 10px;
+        cursor: pointer;
+        accent-color: #4CAF50;
+    }
+    
+    .checkbox_group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .checkbox_group label {
+        margin-bottom: 0;
+        cursor: pointer;
+    }
+    
     .signup_form_group textarea {
         resize: vertical;
         min-height: 100px;
     }
     
     .signup_form_group input:focus,
+    .signup_form_group select:focus,
     .signup_form_group textarea:focus {
         background: rgba(255,255,255,0.08);
         border-color: #4CAF50;
@@ -242,39 +316,204 @@
                     <form method="post" novalidate>
                         {% csrf_token %}
                         
-                        <div class="signup_form_group">
-                            <label for="id_username">{% trans "نام کاربری" %}</label>
-                            {{ form.username }}
+                        <!-- 1. اطلاعات شخصی -->
+                        <div class="form_section">
+                            <h3 class="section_title">{% trans "1. اطلاعات شخصی" %}</h3>
+                            <div class="form_row">
+                                <div class="signup_form_group">
+                                    <label for="id_first_name">{% trans "نام" %} <span style="color:#4CAF50;">*</span></label>
+                                    {{ form.first_name }}
+                                </div>
+                                <div class="signup_form_group">
+                                    <label for="id_last_name">{% trans "نام خانوادگی" %} <span style="color:#4CAF50;">*</span></label>
+                                    {{ form.last_name }}
+                                </div>
+                            </div>
+                            <div class="form_row">
+                                <div class="signup_form_group">
+                                    <label for="id_gender">{% trans "جنسیت" %}</label>
+                                    {{ form.gender }}
+                                </div>
+                                <div class="signup_form_group">
+                                    <label for="id_birth_date">{% trans "تاریخ تولد" %}</label>
+                                    {{ form.birth_date }}
+                                </div>
+                            </div>
+                            <div class="signup_form_group">
+                                <label for="id_mobile">{% trans "شماره موبایل" %} <span style="color:#4CAF50;">*</span></label>
+                                {{ form.mobile }}
+                            </div>
                         </div>
                         
-                        <div class="signup_form_group">
-                            <label for="id_email">{% trans "ایمیل" %}</label>
-                            {{ form.email }}
+                        <!-- 2. اطلاعات ورود -->
+                        <div class="form_section">
+                            <h3 class="section_title">{% trans "2. اطلاعات ورود (Login & Security)" %}</h3>
+                            <div class="signup_form_group">
+                                <label for="id_username">{% trans "نام کاربری" %} <span style="color:#4CAF50;">*</span></label>
+                                {{ form.username }}
+                            </div>
+                            <div class="signup_form_group">
+                                <label for="id_email">{% trans "ایمیل" %} <span style="color:#4CAF50;">*</span></label>
+                                {{ form.email }}
+                            </div>
+                            <div class="form_row">
+                                <div class="signup_form_group">
+                                    <label for="id_password1">{% trans "رمز عبور" %} <span style="color:#4CAF50;">*</span></label>
+                                    {{ form.password1 }}
+                                </div>
+                                <div class="signup_form_group">
+                                    <label for="id_password2">{% trans "تکرار رمز عبور" %} <span style="color:#4CAF50;">*</span></label>
+                                    {{ form.password2 }}
+                                </div>
+                            </div>
+                            <div class="signup_form_group">
+                                <div class="checkbox_group">
+                                    {{ form.terms_accepted }}
+                                    <label for="id_terms_accepted">{% trans "تیک قبول قوانین و حریم خصوصی" %} <span style="color:#4CAF50;">*</span></label>
+                                </div>
+                            </div>
                         </div>
                         
-                        <div class="signup_form_group">
-                            <label for="id_phone">{% trans "تلفن" %}</label>
-                            {{ form.phone }}
+                        <!-- 3. اطلاعات آدرس -->
+                        <div class="form_section">
+                            <h3 class="section_title">{% trans "3. اطلاعات آدرس" %}</h3>
+                            <div class="form_row">
+                                <div class="signup_form_group">
+                                    <label for="id_country">{% trans "کشور" %}</label>
+                                    {{ form.country }}
+                                </div>
+                                <div class="signup_form_group">
+                                    <label for="id_city">{% trans "شهر" %}</label>
+                                    {{ form.city }}
+                                </div>
+                            </div>
+                            <div class="signup_form_group">
+                                <label for="id_district">{% trans "منطقه/محله" %}</label>
+                                {{ form.district }}
+                            </div>
+                            <div class="signup_form_group">
+                                <label for="id_full_address">{% trans "آدرس کامل" %}</label>
+                                {{ form.full_address }}
+                            </div>
+                            <div class="form_row">
+                                <div class="signup_form_group">
+                                    <label for="id_postal_code">{% trans "کد پستی" %}</label>
+                                    {{ form.postal_code }}
+                                </div>
+                                <div class="signup_form_group">
+                                    <label for="id_landline">{% trans "شماره تلفن ثابت (اختیاری)" %}</label>
+                                    {{ form.landline }}
+                                </div>
+                            </div>
                         </div>
                         
-                        <div class="signup_form_group">
-                            <label for="id_address">{% trans "آدرس" %}</label>
-                            {{ form.address }}
+                        <!-- 4. اطلاعات شغلی -->
+                        <div class="form_section">
+                            <h3 class="section_title">{% trans "4. اطلاعات شغلی" %}</h3>
+                            <div class="form_row">
+                                <div class="signup_form_group">
+                                    <label for="id_current_job">{% trans "شغل فعلی" %}</label>
+                                    {{ form.current_job }}
+                                </div>
+                                <div class="signup_form_group">
+                                    <label for="id_field_of_activity">{% trans "زمینه فعالیت" %}</label>
+                                    {{ form.field_of_activity }}
+                                </div>
+                            </div>
+                            <div class="form_row">
+                                <div class="signup_form_group">
+                                    <label for="id_company_name">{% trans "نام شرکت" %}</label>
+                                    {{ form.company_name }}
+                                </div>
+                                <div class="signup_form_group">
+                                    <label for="id_job_position">{% trans "سمت شغلی" %}</label>
+                                    {{ form.job_position }}
+                                </div>
+                            </div>
+                            <div class="form_row">
+                                <div class="signup_form_group">
+                                    <label for="id_years_of_experience">{% trans "سال‌های تجربه" %}</label>
+                                    {{ form.years_of_experience }}
+                                </div>
+                                <div class="signup_form_group">
+                                    <label for="id_website">{% trans "وب‌سایت شخصی یا کاری" %}</label>
+                                    {{ form.website }}
+                                </div>
+                            </div>
+                            <div class="form_row">
+                                <div class="signup_form_group">
+                                    <label for="id_linkedin">{% trans "لینکدین" %}</label>
+                                    {{ form.linkedin }}
+                                </div>
+                                <div class="signup_form_group">
+                                    <label for="id_instagram">{% trans "اینستاگرام / شبکه‌های اجتماعی" %}</label>
+                                    {{ form.instagram }}
+                                </div>
+                            </div>
                         </div>
                         
-                        <div class="signup_form_group">
-                            <label for="id_password1">{% trans "رمز عبور" %}</label>
-                            {{ form.password1 }}
+                        <!-- 5. اطلاعات تحصیلی -->
+                        <div class="form_section">
+                            <h3 class="section_title">{% trans "5. اطلاعات تحصیلی" %}</h3>
+                            <div class="form_row">
+                                <div class="signup_form_group">
+                                    <label for="id_education_level">{% trans "آخرین مدرک تحصیلی" %}</label>
+                                    {{ form.education_level }}
+                                </div>
+                                <div class="signup_form_group">
+                                    <label for="id_field_of_study">{% trans "رشته" %}</label>
+                                    {{ form.field_of_study }}
+                                </div>
+                            </div>
+                            <div class="form_row">
+                                <div class="signup_form_group">
+                                    <label for="id_university">{% trans "دانشگاه / موسسه" %}</label>
+                                    {{ form.university }}
+                                </div>
+                                <div class="signup_form_group">
+                                    <label for="id_graduation_year">{% trans "سال فارغ‌التحصیلی" %}</label>
+                                    {{ form.graduation_year }}
+                                </div>
+                            </div>
                         </div>
                         
-                        <div class="signup_form_group">
-                            <label for="id_password2">{% trans "تکرار رمز عبور" %}</label>
-                            {{ form.password2 }}
+                        <!-- 6. ترجیحات -->
+                        <div class="form_section">
+                            <h3 class="section_title">{% trans "6. ترجیحات" %}</h3>
+                            <div class="signup_form_group">
+                                <label for="id_favorite_categories">{% trans "دسته‌بندی‌های مورد علاقه" %}</label>
+                                {{ form.favorite_categories }}
+                            </div>
+                            <div class="form_row">
+                                <div class="signup_form_group">
+                                    <label for="id_preferred_content_type">{% trans "نوع محتوای مورد علاقه" %}</label>
+                                    {{ form.preferred_content_type }}
+                                </div>
+                                <div class="signup_form_group">
+                                    <label for="id_preferred_message_hours">{% trans "ساعات ترجیحی دریافت پیام‌ها" %}</label>
+                                    {{ form.preferred_message_hours }}
+                                </div>
+                            </div>
+                            <div class="signup_form_group">
+                                <label for="id_followed_topics">{% trans "انتخاب موضوعاتی که دنبال می‌کند" %}</label>
+                                {{ form.followed_topics }}
+                            </div>
+                            <div class="signup_form_group">
+                                <label for="id_how_did_you_hear">{% trans "نحوه آشنایی با سایت" %}</label>
+                                {{ form.how_did_you_hear }}
+                            </div>
                         </div>
                         
                         {% if form.errors %}
                         <div class="signup_alert">
                             {% trans "لطفاً فیلدهای اجباری را بررسی کنید و دوباره تلاش کنید." %}
+                            <ul style="margin-top:10px; text-align:right;">
+                                {% for field, errors in form.errors.items %}
+                                    {% for error in errors %}
+                                        <li>{{ field }}: {{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
                         </div>
                         {% endif %}
                         

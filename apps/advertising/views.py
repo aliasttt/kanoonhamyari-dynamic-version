@@ -17,15 +17,22 @@ def advertisement_list(request):
         category = get_object_or_404(AdvertisingCategory, slug=category_slug, is_active=True)
         advertisements = advertisements.filter(category=category)
     
-    # جستجو
+    # جستجو پیشرفته در چند فیلد
     search_query = request.GET.get('search')
     if search_query:
-        advertisements = advertisements.filter(title__icontains=search_query)
+        from django.db.models import Q
+        advertisements = advertisements.filter(
+            Q(title__icontains=search_query) |
+            Q(short_description__icontains=search_query) |
+            Q(description__icontains=search_query) |
+            Q(location__icontains=search_query)
+        )
     
     context = {
         'advertisements': advertisements,
         'categories': categories,
         'selected_category': category_slug,
+        'search_query': search_query if 'search_query' in locals() else '',
     }
     
     return render(request, 'advertising/list.html', context)

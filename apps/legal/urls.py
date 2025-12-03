@@ -9,3 +9,5 @@ urlpatterns = [
     path('<str:slug>/inquiry/', views.legal_inquiry, name='inquiry'),
 ]
 
+
+

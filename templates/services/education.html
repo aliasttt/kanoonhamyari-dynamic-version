@@ -46,6 +46,46 @@
         font-size: 1.4rem;
         opacity: 0.9;
         font-weight: 300;
+        margin-bottom: 2rem;
+    }
+    .search_box {
+        display: flex;
+        max-width: 600px;
+        margin: 0 auto;
+        background: rgba(255,255,255,.1);
+        border-radius: 50px;
+        padding: 8px;
+        backdrop-filter: blur(20px);
+        border: 2px solid rgba(255,255,255,.2);
+        box-shadow: 0 10px 40px rgba(0,0,0,.3);
+    }
+    .search_input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        padding: 18px 25px;
+        color: #fff;
+        font-size: 18px;
+        outline: none;
+        font-weight: 500;
+    }
+    .search_input::placeholder {
+        color: rgba(255,255,255,.7);
+    }
+    .search_btn {
+        background: linear-gradient(135deg,#4CAF50,#8BC34A);
+        border: none;
+        padding: 18px 30px;
+        border-radius: 50px;
+        color: #fff;
+        cursor: pointer;
+        transition: all .3s ease;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .search_btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(76,175,80,.5);
     }
 
     /* Services Section */
@@ -245,6 +285,12 @@
         <div class="hero-content">
             <h1 class="hero-title">{% trans "بخش تحصیلی و دانشجویی" %}</h1>
             <p class="hero-subtitle">{% trans "پذیرش تحصیلی، ترجمه رسمی، اقامت دانشجویی و پشتیبانی کامل" %}</p>
+            <div class="hero_search">
+                <form method="get" action="{% url 'services:education' %}" class="search_box">
+                    <input type="text" name="search" value="{{ search_query|default:'' }}" placeholder="{% trans 'جستجو در دانشگاه‌ها...' %}" class="search_input">
+                    <button type="submit" class="search_btn"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

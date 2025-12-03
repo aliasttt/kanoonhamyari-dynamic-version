@@ -89,10 +89,10 @@
                 <h1 class="hero_title">{% trans "🎨 بخش تبلیغات، چاپ و برندینگ" %}</h1>
                 <p class="hero_subtitle">{% trans "تیم خلاقیت و رسانه کانون همیاری با سابقه فعالیت حرفه‌ای در تبلیغات و برندینگ، همراه بیزینس‌های ایرانی در مسیر دیده‌شدن و رشد است." %}</p>
                 <div class="hero_search">
-                    <div class="search_box">
-                        <input type="text" placeholder="{% trans 'جستجو در خدمات تبلیغاتی...' %}" class="search_input">
-                        <button class="search_btn"><i class="fa fa-search"></i></button>
-                    </div>
+                    <form method="get" action="{% url 'services:advertising' %}" class="search_box">
+                        <input type="text" name="search" value="{{ search_query|default:'' }}" placeholder="{% trans 'جستجو در خدمات تبلیغاتی...' %}" class="search_input">
+                        <button type="submit" class="search_btn"><i class="fa fa-search"></i></button>
+                    </form>
                 </div>
             </div>
         </div>

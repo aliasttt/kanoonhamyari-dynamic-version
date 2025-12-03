@@ -84,10 +84,10 @@
                 <h1 class="hero_title" data-translate="eventsHero">بخش رویدادها و مناسبت‌ها</h1>
                 <p class="hero_subtitle" data-translate="eventsHeroSub">{% trans "واحد رویدادهای کانون همیاری با تیمی از برگزارکنندگان حرفه‌ای و طراحان مراسم، ویژه‌ترین برنامه‌های ایرانیان در ترکیه را اجرا می‌کند." %}</p>
                 <div class="hero_search">
-                    <div class="search_box">
-                        <input type="text" placeholder="{% trans 'جستجو در رویدادها...' %}" class="search_input">
-                        <button class="search_btn"><i class="fa fa-search"></i></button>
-                    </div>
+                    <form method="get" action="{% url 'events:list' %}" class="search_box">
+                        <input type="text" name="search" value="{{ search_query|default:'' }}" placeholder="{% trans 'جستجو در رویدادها...' %}" class="search_input">
+                        <button type="submit" class="search_btn"><i class="fa fa-search"></i></button>
+                    </form>
                 </div>
             </div>
         </div>

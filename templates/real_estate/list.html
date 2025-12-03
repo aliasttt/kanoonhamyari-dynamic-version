@@ -87,10 +87,10 @@
                 <h1 class="hero_title">{% trans "🏠 بخش املاک و سرمایه‌گذاری" %}</h1>
                 <p class="hero_subtitle">{% trans "کانون همیاری با همکاری مشاوران رسمی املاک و کارشناسان اقتصادی، خدمات جامع خرید، فروش، اجاره و سرمایه‌گذاری در بازار املاک ترکیه را ارائه می‌دهد." %}</p>
                 <div class="hero_search">
-                    <div class="search_box">
-                        <input type="text" placeholder="{% trans 'جستجو در املاک...' %}" class="search_input">
-                        <button class="search_btn"><i class="fa fa-search"></i></button>
-                    </div>
+                    <form method="get" action="{% url 'real_estate:list' %}" class="search_box">
+                        <input type="text" name="search" value="{{ search_query|default:'' }}" placeholder="{% trans 'جستجو در املاک...' %}" class="search_input">
+                        <button type="submit" class="search_btn"><i class="fa fa-search"></i></button>
+                    </form>
                 </div>
             </div>
         </div>

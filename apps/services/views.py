@@ -70,15 +70,22 @@ def advertising_page(request):
         except AdvertisingCategory.DoesNotExist:
             pass
     
-    # جستجو
+    # جستجو پیشرفته در چند فیلد
     search_query = request.GET.get('search')
     if search_query:
-        advertisements = advertisements.filter(title__icontains=search_query)
+        from django.db.models import Q
+        advertisements = advertisements.filter(
+            Q(title__icontains=search_query) |
+            Q(short_description__icontains=search_query) |
+            Q(description__icontains=search_query) |
+            Q(location__icontains=search_query)
+        )
     
     context = {
         'advertisements': advertisements,
         'categories': categories,
         'selected_category': category_slug,
+        'search_query': search_query if 'search_query' in locals() else '',
     }
     
     return render(request, 'advertising/list.html', context)
@@ -90,8 +97,20 @@ def education_page(request):
     
     universities = University.objects.filter(is_active=True).order_by('order', '-created_at')
     
+    # جستجو پیشرفته در چند فیلد
+    search_query = request.GET.get('search')
+    if search_query:
+        from django.db.models import Q
+        universities = universities.filter(
+            Q(name__icontains=search_query) |
+            Q(short_description__icontains=search_query) |
+            Q(description__icontains=search_query) |
+            Q(location__icontains=search_query)
+        )
+    
     context = {
         'universities': universities,
+        'search_query': search_query,
     }
     return render(request, 'services/education.html', context)
 
@@ -171,15 +190,22 @@ def business_page(request):
         except BusinessCategory.DoesNotExist:
             pass
     
-    # جستجو
+    # جستجو پیشرفته در چند فیلد
     search_query = request.GET.get('search')
     if search_query:
-        services = services.filter(title__icontains=search_query)
+        from django.db.models import Q
+        services = services.filter(
+            Q(title__icontains=search_query) |
+            Q(short_description__icontains=search_query) |
+            Q(description__icontains=search_query) |
+            Q(location__icontains=search_query)
+        )
     
     context = {
         'services': services,
         'categories': categories,
         'selected_category': category_slug,
+        'search_query': search_query,
     }
     
     return render(request, 'business/list.html', context)
@@ -201,15 +227,22 @@ def decoration_page(request):
         except DecorationCategory.DoesNotExist:
             pass
     
-    # جستجو
+    # جستجو پیشرفته در چند فیلد
     search_query = request.GET.get('search')
     if search_query:
-        services = services.filter(title__icontains=search_query)
+        from django.db.models import Q
+        services = services.filter(
+            Q(title__icontains=search_query) |
+            Q(short_description__icontains=search_query) |
+            Q(description__icontains=search_query) |
+            Q(location__icontains=search_query)
+        )
     
     context = {
         'services': services,
         'categories': categories,
         'selected_category': category_slug,
+        'search_query': search_query,
     }
     
     return render(request, 'decoration/list.html', context)
@@ -231,15 +264,22 @@ def legal_page(request):
         except LegalCategory.DoesNotExist:
             pass
     
-    # جستجو
+    # جستجو پیشرفته در چند فیلد
     search_query = request.GET.get('search')
     if search_query:
-        services = services.filter(title__icontains=search_query)
+        from django.db.models import Q
+        services = services.filter(
+            Q(title__icontains=search_query) |
+            Q(short_description__icontains=search_query) |
+            Q(description__icontains=search_query) |
+            Q(location__icontains=search_query)
+        )
     
     context = {
         'services': services,
         'categories': categories,
         'selected_category': category_slug,
+        'search_query': search_query,
     }
     
     return render(request, 'legal/list.html', context)

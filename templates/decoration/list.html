@@ -91,10 +91,10 @@
                 <h1 class="hero_title">{% trans "🏠 بخش دکوراسیون و بازسازی" %}</h1>
                 <p class="hero_subtitle">{% trans "خدمات کامل طراحی و بازسازی ساختمان در ترکیه" %}</p>
                 <div class="hero_search">
-                    <div class="search_box">
-                        <input type="text" placeholder="{% trans 'جستجو در خدمات دکوراسیون...' %}" class="search_input">
-                        <button class="search_btn"><i class="fa fa-search"></i></button>
-                    </div>
+                    <form method="get" action="{% url 'services:decoration' %}" class="search_box">
+                        <input type="text" name="search" value="{{ search_query|default:'' }}" placeholder="{% trans 'جستجو در خدمات دکوراسیون...' %}" class="search_input">
+                        <button type="submit" class="search_btn"><i class="fa fa-search"></i></button>
+                    </form>
                 </div>
             </div>
         </div>

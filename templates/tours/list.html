@@ -90,10 +90,10 @@
                 <h1 class="hero_title">{% trans "بخش گردشگری و تفریحی" %}</h1>
                 <p class="hero_subtitle">{% trans "ما با تیمی از لیدرهای فارسی‌زبان و متخصصان گردشگری، تجربه‌ای امن و دل‌انگیز از سفرهای داخلی ترکیه فراهم می‌کنیم." %}</p>
                 <div class="hero_search">
-                    <div class="search_box">
-                        <input type="text" placeholder="{% trans 'جستجو در تورها...' %}" class="search_input">
-                        <button class="search_btn"><i class="fa fa-search"></i></button>
-                    </div>
+                    <form method="get" action="{% url 'tours:list' %}" class="search_box">
+                        <input type="text" name="search" value="{{ search_query|default:'' }}" placeholder="{% trans 'جستجو در تورها...' %}" class="search_input">
+                        <button type="submit" class="search_btn"><i class="fa fa-search"></i></button>
+                    </form>
                 </div>
             </div>
         </div>
