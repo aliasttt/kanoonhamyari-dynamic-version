@@ -8,8 +8,9 @@
             <div class="container">
                 <div class="header_bottom_border">
                     <div class="row align-items-center">
-                        <div class="col-xl-3 col-lg-3">
-                            <div class="brand_tools">
+                        <div class="unified-nav">
+                            <!-- Left Section: Logo + Language + Auth -->
+                            <div class="nav-left">
                                 <button class="kh-hamburger d-lg-none" id="khHamburger" aria-label="Toggle navigation" aria-expanded="false">
                                     <i class="fa fa-bars"></i>
                                 </button>
@@ -38,39 +39,40 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="auth_links" style="display:flex; align-items:center; gap:8px; margin-right:12px;">
+                                <div class="auth_links">
                                     {% if request.user.is_authenticated %}
-                                    <a href="{% url 'accounts:dashboard' %}" class="boxed-btn3" style="padding:6px 12px; border-radius:8px;" data-i18n="auth.dashboard">{% trans "پنل کاربر" %}</a>
-                                    <a href="{% url 'accounts:logout' %}" class="boxed-btn3" style="padding:6px 12px; border-radius:8px; background:transparent !important; color:#ff6b35 !important;" data-i18n="auth.logout">{% trans "خروج" %}</a>
+                                    <a href="{% url 'accounts:dashboard' %}" class="boxed-btn3" data-i18n="auth.dashboard">{% trans "پنل کاربر" %}</a>
+                                    <a href="{% url 'accounts:logout' %}" class="boxed-btn3" style="background:transparent !important; color:#ff6b35 !important;" data-i18n="auth.logout">{% trans "خروج" %}</a>
                                     {% else %}
-                                    <a href="{% url 'accounts:login' %}" class="boxed-btn3" style="padding:6px 12px; border-radius:8px;" data-i18n="auth.login">{% trans "ورود" %}</a>
-                                    <a href="{% url 'accounts:signup' %}" class="boxed-btn3" style="padding:6px 12px; border-radius:8px; background:transparent !important; color:#ff6b35 !important;" data-i18n="auth.signup">{% trans "عضویت" %}</a>
+                                    <a href="{% url 'accounts:login' %}" class="boxed-btn3" data-i18n="auth.login">{% trans "ورود" %}</a>
+                                    <a href="{% url 'accounts:signup' %}" class="boxed-btn3" style="background:transparent !important; color:#ff6b35 !important;" data-i18n="auth.signup">{% trans "عضویت" %}</a>
                                     {% endif %}
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xl-9 col-lg-9">
-                            <div class="main-menu d-none d-lg-block">
-                                <nav>
-                                    <ul id="navigation">
-                                        <li><a href="{% url 'core:index' %}" data-i18n="menu.home">{% trans "خانه" %}</a></li>
-                                        <li><a href="{% url 'events:list' %}" data-i18n="menu.events">{% trans "رویدادها" %}</a></li>
-                                        <li><a href="{% url 'tours:list' %}" data-i18n="menu.tours">{% trans "تورها" %}</a></li>
-                                        <li><a href="{% url 'real_estate:list' %}" data-i18n="menu.realestate">{% trans "املاک" %}</a></li>
-                                        <li><a href="{% url 'services:advertising' %}" data-i18n="menu.advertising">{% trans "تبلیغات" %}</a></li>
-                                        <li><a href="{% url 'services:education' %}" data-i18n="menu.education">{% trans "دانشجویی" %}</a></li>
-                                        <li><a href="{% url 'services:business' %}" data-i18n="menu.business">{% trans "بیزینس" %}</a></li>
-                                        <li><a href="{% url 'services:decoration' %}" data-i18n="menu.decoration">{% trans "دکوراسیون" %}</a></li>
-                                        <li><a href="{% url 'services:legal' %}" data-i18n="menu.legal">{% trans "حقوقی" %}</a></li>
-                                        <li><a href="{% url 'blog:list' %}" data-i18n="menu.blog">{% trans "وبلاگ" %}</a></li>
-                                        <li><a href="{% url 'about:about' %}" data-i18n="menu.about">{% trans "درباره ما" %}</a></li>
-                                        <li><a href="{% url 'contact:contact' %}" data-i18n="menu.contact">{% trans "تماس" %}</a></li>
-                                        <li><a href="{% url 'courses:list' %}" data-i18n="menu.courses">{% trans "دوره آموزشی" %}</a></li>
-                                    </ul>
-                                </nav>
+                            
+                            <!-- Center Section: Main Menu -->
+                            <div class="nav-center">
+                                <div class="main-menu">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="{% url 'core:index' %}" data-i18n="menu.home">{% trans "خانه" %}</a></li>
+                                            <li><a href="{% url 'events:list' %}" data-i18n="menu.events">{% trans "رویدادها" %}</a></li>
+                                            <li><a href="{% url 'tours:list' %}" data-i18n="menu.tours">{% trans "تورها" %}</a></li>
+                                            <li><a href="{% url 'real_estate:list' %}" data-i18n="menu.realestate">{% trans "املاک" %}</a></li>
+                                            <li><a href="{% url 'services:advertising' %}" data-i18n="menu.advertising">{% trans "تبلیغات" %}</a></li>
+                                            <li><a href="{% url 'services:education' %}" data-i18n="menu.education">{% trans "دانشجویی" %}</a></li>
+                                            <li><a href="{% url 'services:business' %}" data-i18n="menu.business">{% trans "بیزینس" %}</a></li>
+                                            <li><a href="{% url 'services:decoration' %}" data-i18n="menu.decoration">{% trans "دکوراسیون" %}</a></li>
+                                            <li><a href="{% url 'services:legal' %}" data-i18n="menu.legal">{% trans "حقوقی" %}</a></li>
+                                            <li><a href="{% url 'blog:list' %}" data-i18n="menu.blog">{% trans "وبلاگ" %}</a></li>
+                                            <li><a href="{% url 'about:about' %}" data-i18n="menu.about">{% trans "درباره ما" %}</a></li>
+                                            <li><a href="{% url 'contact:contact' %}" data-i18n="menu.contact">{% trans "تماس" %}</a></li>
+                                            <li><a href="{% url 'courses:list' %}" data-i18n="menu.courses">{% trans "دوره آموزشی" %}</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-12"></div>
                     </div>
                 </div>
             </div>

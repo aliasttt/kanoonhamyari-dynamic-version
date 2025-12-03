@@ -74,24 +74,11 @@
         var languageBtn = document.getElementById('languageBtn');
         var languageDropdown = document.getElementById('languageDropdown');
         var currentLang = document.getElementById('currentLang');
-        var savedLanguage = localStorage.getItem('selectedLanguage') || 'fa';
-
-        // DISABLED: Don't override Django's language setting
-        // Let Django i18n handle the current language display
-        /*
-        if (currentLang) {
-            currentLang.textContent = savedLanguage === 'fa' ? 'فا' : savedLanguage.toUpperCase();
-        }
-
-        var languageOptions = document.querySelectorAll('.language-option, .language-choice');
-        languageOptions.forEach(function (option) {
-            option.classList.toggle('active', option.getAttribute('data-lang') === savedLanguage);
-        });
-        */
 
         if (languageBtn && languageDropdown) {
             languageBtn.addEventListener('click', function (e) {
                 e.stopPropagation();
+                e.preventDefault();
                 languageDropdown.classList.toggle('show');
                 languageBtn.classList.toggle('active');
             });
@@ -101,6 +88,15 @@
                     languageDropdown.classList.remove('show');
                     languageBtn.classList.remove('active');
                 }
+            });
+            
+            // Handle language choice clicks
+            var languageChoices = document.querySelectorAll('.language-choice');
+            languageChoices.forEach(function(choice) {
+                choice.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Let fast_language_switch.js handle the actual switching
+                });
             });
 
             languageOptions.forEach(function (option) {

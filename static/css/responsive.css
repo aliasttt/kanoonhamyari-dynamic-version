@@ -12,15 +12,24 @@
 #navigation li {
     flex-shrink: 0 !important;
     white-space: nowrap !important;
-    margin: 0 2px !important;
+    margin: 0 3px !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
 }
 
 #navigation li a {
-    padding: 6px 10px !important;
-    font-size: 11px !important;
+    padding: 8px 12px !important;
+    font-size: 12px !important;
     white-space: nowrap !important;
-    display: block !important;
+    display: inline-block !important;
     border-radius: 8px !important;
+    min-height: 32px !important;
+    line-height: 1.4 !important;
+    box-sizing: border-box !important;
+    vertical-align: middle !important;
+    text-align: center !important;
+    font-family: 'Vazirmatn', 'Noto Sans Arabic', 'Arial', sans-serif !important;
+    letter-spacing: 0 !important;
 }
 
 /* Ensure navigation container doesn't wrap */
@@ -38,57 +47,61 @@
     margin-top: 5px !important;
 }
 
-/* Additional navigation fixes for different screen sizes */
+/* Additional navigation fixes for different screen sizes - CONSISTENT SIZING */
 @media (max-width: 1400px) {
+    #navigation li {
+        margin: 0 2px !important;
+    }
     #navigation li a {
-        padding: 5px 8px !important;
-        font-size: 10px !important;
+        padding: 7px 10px !important;
+        font-size: 11px !important;
+        min-height: 30px !important;
     }
 }
 
 @media (max-width: 1200px) {
-    #navigation li a {
-        padding: 4px 6px !important;
-        font-size: 9px !important;
-    }
-    
     #navigation li {
         margin: 0 2px !important;
+    }
+    #navigation li a {
+        padding: 6px 9px !important;
+        font-size: 10px !important;
+        min-height: 28px !important;
     }
 }
 
 @media (max-width: 992px) {
-    #navigation li a {
-        padding: 3px 5px !important;
-        font-size: 8px !important;
-    }
-    
     #navigation li {
         margin: 0 1px !important;
+    }
+    #navigation li a {
+        padding: 5px 8px !important;
+        font-size: 9px !important;
+        min-height: 26px !important;
     }
 }
 
 @media (min-width: 1200px) {
-    #navigation li a {
-        padding: 6px 10px !important;
-        font-size: 11px !important;
-    }
-    
     #navigation li {
-        margin: 0 2px !important;
+        margin: 0 3px !important;
+    }
+    #navigation li a {
+        padding: 8px 12px !important;
+        font-size: 12px !important;
+        min-height: 32px !important;
     }
 }
 
 /* Mobile First Approach */
 @media (max-width: 768px) {
-    /* Navigation responsive */
-    #navigation li a {
-        padding: 3px 5px !important;
-        font-size: 8px !important;
-    }
-    
+    /* Navigation responsive - CONSISTENT SIZING */
     #navigation li {
-        margin: 0 !important;
+        margin: 0 1px !important;
+    }
+    #navigation li a {
+        padding: 5px 8px !important;
+        font-size: 9px !important;
+        min-height: 26px !important;
     }
     
     /* Header responsive */

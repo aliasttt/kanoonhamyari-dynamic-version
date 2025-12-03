@@ -1,0 +1,153 @@
+/* FINAL MENU FIX - Load this LAST to override everything */
+/* This file ensures consistent menu sizing across all languages */
+
+/* Override ALL menu styles from other CSS files */
+#navigation,
+.header-area .main-header-area .main-menu ul,
+body.rtl .main-menu ul,
+body.rtl #navigation {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 4px 6px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0px !important;
+}
+
+#navigation li,
+.header-area .main-header-area .main-menu ul li,
+body.rtl .main-menu ul li,
+body.rtl #navigation li {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    margin: 0 3px !important;
+    display: inline-block !important;
+    position: relative !important;
+    vertical-align: middle !important;
+}
+
+#navigation li a,
+.header-area .main-header-area .main-menu ul li a,
+body.rtl .main-menu ul li a,
+body.rtl #navigation li a {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+    display: inline-block !important;
+    text-decoration: none !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease !important;
+    border-radius: 8px !important;
+    position: relative !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    line-height: 1.4 !important;
+    min-height: 32px !important;
+    box-sizing: border-box !important;
+    vertical-align: middle !important;
+    text-align: center !important;
+    font-family: 'Vazirmatn', 'Noto Sans Arabic', 'Arial', sans-serif !important;
+    letter-spacing: 0 !important;
+    /* Override style.css huge padding */
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    /* Override style.css font-size */
+    font-size: 12px !important;
+    text-transform: none !important;
+}
+
+#navigation li a:hover,
+.header-area .main-header-area .main-menu ul li a:hover,
+body.rtl .main-menu ul li a:hover,
+body.rtl #navigation li a:hover {
+    color: #ffffff !important;
+    background: #ff6b35 !important;
+    border-color: #ff6b35 !important;
+    transform: translateY(0) !important;
+    box-shadow: none !important;
+}
+
+#navigation li a.active,
+.header-area .main-header-area .main-menu ul li a.active,
+body.rtl .main-menu ul li a.active,
+body.rtl #navigation li a.active {
+    background: #ff6b35 !important;
+    color: #ffffff !important;
+    border-color: #ff6b35 !important;
+}
+
+/* Responsive - maintain consistency */
+@media (max-width: 1400px) {
+    #navigation li,
+    .header-area .main-header-area .main-menu ul li,
+    body.rtl .main-menu ul li,
+    body.rtl #navigation li {
+        margin: 0 2px !important;
+    }
+    #navigation li a,
+    .header-area .main-header-area .main-menu ul li a,
+    body.rtl .main-menu ul li a,
+    body.rtl #navigation li a {
+        padding: 7px 10px !important;
+        font-size: 11px !important;
+        min-height: 30px !important;
+    }
+}
+
+@media (max-width: 1200px) {
+    #navigation li,
+    .header-area .main-header-area .main-menu ul li,
+    body.rtl .main-menu ul li,
+    body.rtl #navigation li {
+        margin: 0 2px !important;
+    }
+    #navigation li a,
+    .header-area .main-header-area .main-menu ul li a,
+    body.rtl .main-menu ul li a,
+    body.rtl #navigation li a {
+        padding: 6px 9px !important;
+        font-size: 10px !important;
+        min-height: 28px !important;
+    }
+}
+
+@media (max-width: 992px) {
+    #navigation li,
+    .header-area .main-header-area .main-menu ul li,
+    body.rtl .main-menu ul li,
+    body.rtl #navigation li {
+        margin: 0 1px !important;
+    }
+    #navigation li a,
+    .header-area .main-header-area .main-menu ul li a,
+    body.rtl .main-menu ul li a,
+    body.rtl #navigation li a {
+        padding: 5px 8px !important;
+        font-size: 9px !important;
+        min-height: 26px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    #navigation li,
+    .header-area .main-header-area .main-menu ul li,
+    body.rtl .main-menu ul li,
+    body.rtl #navigation li {
+        margin: 0 1px !important;
+    }
+    #navigation li a,
+    .header-area .main-header-area .main-menu ul li a,
+    body.rtl .main-menu ul li a,
+    body.rtl #navigation li a {
+        padding: 5px 8px !important;
+        font-size: 9px !important;
+        min-height: 26px !important;
+    }
+}
+

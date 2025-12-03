@@ -22,10 +22,39 @@ body.rtl p, body.rtl span, body.rtl div {
     line-height: 1.6;
 }
 
-/* Navigation (RTL friendly) */
-body.rtl .main-menu ul { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; }
-body.rtl .main-menu ul li { display: inline-block; position: relative; }
-body.rtl .main-menu ul li a { display: block; padding: 8px 14px; font-size: 14px; font-weight: 500; border-radius: 6px; transition: all .3s ease; white-space: nowrap; }
+/* Navigation (RTL friendly) - Override with consistent sizing */
+body.rtl .main-menu ul,
+body.rtl #navigation {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0px !important;
+}
+body.rtl .main-menu ul li,
+body.rtl #navigation li {
+    display: inline-block !important;
+    position: relative !important;
+    margin: 0 3px !important;
+    vertical-align: middle !important;
+}
+body.rtl .main-menu ul li a,
+body.rtl #navigation li a {
+    display: inline-block !important;
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+    white-space: nowrap !important;
+    min-height: 32px !important;
+    line-height: 1.4 !important;
+    box-sizing: border-box !important;
+    vertical-align: middle !important;
+    text-align: center !important;
+    font-family: 'Vazirmatn', 'Noto Sans Arabic', 'Arial', sans-serif !important;
+    letter-spacing: 0 !important;
+}
 body.rtl .main-menu ul li .submenu { right: 0; left: auto; text-align: right; }
 
 /* Alternating layout helpers used on home */
