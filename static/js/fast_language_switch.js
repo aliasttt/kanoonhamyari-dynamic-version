@@ -28,8 +28,16 @@
     }
 
     // Get CSRF token from multiple sources
-    function getCSRFToken() {
-        // Try from form input (most reliable)
+    function getCSRFToken(formId) {
+        // Try from mobile form first if specified
+        if (formId === 'mobileLanguageForm') {
+            const mobileFormToken = document.querySelector('#mobileLanguageForm [name=csrfmiddlewaretoken]');
+            if (mobileFormToken && mobileFormToken.value) {
+                return mobileFormToken.value;
+            }
+        }
+        
+        // Try from desktop form input (most reliable)
         const formToken = document.querySelector('#languageForm [name=csrfmiddlewaretoken]');
         if (formToken && formToken.value) {
             return formToken.value;
@@ -54,8 +62,9 @@
     }
 
     // Fast language switch using form submit (more reliable than AJAX)
-    function switchLanguageFast(lang) {
-        const form = document.getElementById('languageForm');
+    function switchLanguageFast(lang, formId) {
+        // Try mobile form first, then desktop form
+        const form = document.getElementById(formId || 'mobileLanguageForm') || document.getElementById('languageForm');
         if (!form) {
             console.error('Language form not found');
             return;
@@ -84,42 +93,54 @@
         form.submit();
     }
 
-    // Initialize on DOM ready
-    document.addEventListener('DOMContentLoaded', function() {
-        const languageButtons = document.querySelectorAll('.language-choice');
+    // Handle language button click with event delegation
+    function handleLanguageClick(e) {
+        const target = e.target.closest('.language-choice');
+        if (!target) return;
         
-        languageButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                const lang = this.value || this.getAttribute('data-lang');
-                if (lang) {
-                    // Update UI immediately
-                    const currentLang = document.getElementById('currentLang');
-                    if (currentLang) {
-                        currentLang.textContent = lang === 'fa' ? 'فا' : lang.toUpperCase();
-                    }
-                    
-                    // Remove active class from all buttons
-                    languageButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Close dropdown
-                    const dropdown = document.getElementById('languageDropdown');
-                    if (dropdown) {
-                        dropdown.classList.remove('show');
-                    }
-                    const btn = document.getElementById('languageBtn');
-                    if (btn) {
-                        btn.classList.remove('active');
-                    }
-                    
-                    // Switch language
-                    switchLanguageFast(lang);
-                }
-            });
-        });
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const lang = target.value || target.getAttribute('data-lang');
+        if (!lang) return;
+        
+        // Update UI immediately
+        const currentLang = document.getElementById('currentLang');
+        if (currentLang) {
+            currentLang.textContent = lang === 'fa' ? 'فا' : lang.toUpperCase();
+        }
+        
+        // Remove active class from all buttons (both desktop and mobile)
+        document.querySelectorAll('.language-choice').forEach(btn => btn.classList.remove('active'));
+        target.classList.add('active');
+        
+        // Close dropdown if exists
+        const dropdown = document.getElementById('languageDropdown');
+        if (dropdown) {
+            dropdown.classList.remove('show');
+        }
+        const btn = document.getElementById('languageBtn');
+        if (btn) {
+            btn.classList.remove('active');
+        }
+        
+        // Close mobile menu if open
+        if (document.body.classList.contains('kh-menu-open')) {
+            document.body.classList.remove('kh-menu-open');
+        }
+        
+        // Determine which form to use
+        const isMobile = target.closest('#khMobileNav') || target.closest('#mobileLanguageForm');
+        const formId = isMobile ? 'mobileLanguageForm' : 'languageForm';
+        
+        // Switch language
+        switchLanguageFast(lang, formId);
+    }
+
+    // Initialize on DOM ready with event delegation
+    document.addEventListener('DOMContentLoaded', function() {
+        // Use event delegation to handle clicks on all language buttons (including dynamically added ones)
+        document.addEventListener('click', handleLanguageClick);
     });
 })();
 

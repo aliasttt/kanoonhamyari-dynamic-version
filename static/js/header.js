@@ -81,8 +81,9 @@
                 var clonedForm = languageForm.cloneNode(true);
                 clonedForm.id = 'mobileLanguageForm';
                 clonedForm.style.cssText = 'display: flex; flex-direction: column; gap: 8px; padding: 0 16px;';
-                clonedForm.querySelectorAll('button').forEach(function(btn) {
+                clonedForm.querySelectorAll('button.language-choice').forEach(function(btn) {
                     btn.style.cssText = 'padding: 12px 16px; font-size: 14px; border-radius: 8px; background: rgba(255, 107, 53, 0.2); border: 1px solid rgba(255, 107, 53, 0.3); color: white; cursor: pointer; text-align: right; width: 100%;';
+                    btn.classList.add('language-choice'); // Ensure class exists
                     if (btn.classList.contains('active')) {
                         btn.style.background = 'linear-gradient(135deg, #ff6b35, #ff8533)';
                     }
