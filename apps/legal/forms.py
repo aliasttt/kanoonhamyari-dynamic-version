@@ -34,3 +34,4 @@ class LegalInquiryForm(forms.ModelForm):
 
 
 
+

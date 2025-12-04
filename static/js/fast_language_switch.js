@@ -27,58 +27,61 @@
         }
     }
 
-    // Fast language switch using AJAX
-    function switchLanguageFast(lang) {
-        showLoading();
-        
-        // Get CSRF token
-        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]')?.value || 
-                         document.cookie.match(/csrftoken=([^;]+)/)?.[1];
-        
-        // Get current path
-        const currentPath = window.location.pathname + window.location.search;
-        
-        // Create form data
-        const formData = new FormData();
-        formData.append('language', lang);
-        formData.append('next', currentPath);
-        if (csrfToken) {
-            formData.append('csrfmiddlewaretoken', csrfToken);
+    // Get CSRF token from multiple sources
+    function getCSRFToken() {
+        // Try from form input (most reliable)
+        const formToken = document.querySelector('#languageForm [name=csrfmiddlewaretoken]');
+        if (formToken && formToken.value) {
+            return formToken.value;
         }
         
-        // Send AJAX request
-        fetch('/i18n/setlang/', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'X-CSRFToken': csrfToken || '',
-                'X-Requested-With': 'XMLHttpRequest'
-            },
-            credentials: 'same-origin'
-        })
-        .then(response => {
-            if (response.ok) {
-                // Reload only the content, not full page
-                return response.text();
+        // Try from meta tag
+        const metaToken = document.querySelector('meta[name=csrf-token]');
+        if (metaToken) {
+            const content = metaToken.getAttribute('content');
+            if (content && content.trim()) {
+                return content.trim();
             }
-            throw new Error('Language switch failed');
-        })
-        .then(() => {
-            // Quick reload without cache to get new language
-            window.location.reload(true);
-        })
-        .catch(error => {
-            console.error('Language switch error:', error);
-            hideLoading();
-            // Fallback to normal form submit
-            const form = document.querySelector('form[action*="setlang"]');
-            if (form) {
-                const langInput = form.querySelector(`button[name="language"][value="${lang}"]`);
-                if (langInput) {
-                    langInput.click();
-                }
-            }
-        });
+        }
+        
+        // Try from cookie (Django sets this)
+        const cookieMatch = document.cookie.match(/csrftoken=([^;]+)/);
+        if (cookieMatch && cookieMatch[1]) {
+            return decodeURIComponent(cookieMatch[1]);
+        }
+        
+        return null;
+    }
+
+    // Fast language switch using form submit (more reliable than AJAX)
+    function switchLanguageFast(lang) {
+        const form = document.getElementById('languageForm');
+        if (!form) {
+            console.error('Language form not found');
+            return;
+        }
+        
+        // Show loading indicator
+        showLoading();
+        
+        // Update the next field to current path
+        const nextInput = form.querySelector('input[name="next"]');
+        if (nextInput) {
+            nextInput.value = window.location.pathname + window.location.search;
+        }
+        
+        // Create a hidden input for language if it doesn't exist
+        let langInput = form.querySelector('input[name="language"]');
+        if (!langInput) {
+            langInput = document.createElement('input');
+            langInput.type = 'hidden';
+            langInput.name = 'language';
+            form.appendChild(langInput);
+        }
+        langInput.value = lang;
+        
+        // Submit the form
+        form.submit();
     }
 
     // Initialize on DOM ready

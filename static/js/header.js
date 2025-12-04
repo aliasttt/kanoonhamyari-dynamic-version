@@ -58,15 +58,57 @@
         var desktopNav = document.getElementById('navigation');
         var mobileNav = document.getElementById('khMobileNavigation');
         if (desktopNav && mobileNav) {
-            // Clone nodes instead of innerHTML to preserve Django translations
             // Clear mobile nav first
             mobileNav.innerHTML = '';
+            
             // Clone each menu item to preserve translations
             var items = desktopNav.querySelectorAll('li');
             items.forEach(function(item) {
                 var clonedItem = item.cloneNode(true);
                 mobileNav.appendChild(clonedItem);
             });
+            
+            // Add Language Section
+            var languageSection = document.createElement('div');
+            languageSection.className = 'mobile-language-section';
+            var langTitle = document.createElement('h3');
+            langTitle.textContent = 'زبان'; // Will be translated by Django
+            langTitle.setAttribute('data-i18n', 'menu.language');
+            languageSection.appendChild(langTitle);
+            
+            var languageForm = document.getElementById('languageForm');
+            if (languageForm) {
+                var clonedForm = languageForm.cloneNode(true);
+                clonedForm.id = 'mobileLanguageForm';
+                clonedForm.style.cssText = 'display: flex; flex-direction: column; gap: 8px; padding: 0 16px;';
+                clonedForm.querySelectorAll('button').forEach(function(btn) {
+                    btn.style.cssText = 'padding: 12px 16px; font-size: 14px; border-radius: 8px; background: rgba(255, 107, 53, 0.2); border: 1px solid rgba(255, 107, 53, 0.3); color: white; cursor: pointer; text-align: right; width: 100%;';
+                    if (btn.classList.contains('active')) {
+                        btn.style.background = 'linear-gradient(135deg, #ff6b35, #ff8533)';
+                    }
+                });
+                languageSection.appendChild(clonedForm);
+            }
+            mobileNav.appendChild(languageSection);
+            
+            // Add Auth Section
+            var authSection = document.createElement('div');
+            authSection.className = 'mobile-auth-section';
+            var authTitle = document.createElement('h3');
+            authTitle.textContent = 'حساب کاربری'; // Will be translated by Django
+            authTitle.setAttribute('data-i18n', 'menu.account');
+            authSection.appendChild(authTitle);
+            
+            var authLinks = document.querySelector('.auth_links');
+            if (authLinks) {
+                var authLinksClone = authLinks.cloneNode(true);
+                authLinksClone.style.cssText = 'display: flex; flex-direction: column; gap: 8px; padding: 0 16px;';
+                authLinksClone.querySelectorAll('a').forEach(function(link) {
+                    link.style.cssText = 'display: block; padding: 12px 16px; font-size: 14px; border-radius: 8px; text-align: center; text-decoration: none; width: 100%; box-sizing: border-box;';
+                });
+                authSection.appendChild(authLinksClone);
+                mobileNav.appendChild(authSection);
+            }
         }
     }
 

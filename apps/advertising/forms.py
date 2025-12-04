@@ -34,3 +34,4 @@ class AdvertisementInquiryForm(forms.ModelForm):
 
 
 
+

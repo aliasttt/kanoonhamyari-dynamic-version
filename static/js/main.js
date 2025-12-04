@@ -1,15 +1,20 @@
 (function ($) {
 "use strict";
-// TOP Menu Sticky
+// TOP Menu Sticky - DISABLED: Menu is now always fixed via CSS
+// $(window).on('scroll', function () {
+// 	var scroll = $(window).scrollTop();
+// 	if (scroll < 400) {
+//     $("#sticky-header").removeClass("sticky");
+//     $('#back-top').fadeIn(500);
+// 	} else {
+//     $("#sticky-header").addClass("sticky");
+//     $('#back-top').fadeIn(500);
+// 	}
+// });
+
+// Keep back-top button functionality
 $(window).on('scroll', function () {
-	var scroll = $(window).scrollTop();
-	if (scroll < 400) {
-    $("#sticky-header").removeClass("sticky");
     $('#back-top').fadeIn(500);
-	} else {
-    $("#sticky-header").addClass("sticky");
-    $('#back-top').fadeIn(500);
-	}
 });
 
 
