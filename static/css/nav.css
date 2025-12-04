@@ -306,9 +306,9 @@ html, body {
     background-color: transparent !important;
 }
 
-/* Hide mobile components by default on desktop */
-.kh-mobile-nav, .kh-mobile-overlay { display: none; }
-.kh-hamburger { display: none; }
+/* Hide mobile components by default on desktop - Overridden by new-menu.css */
+/* .kh-mobile-nav, .kh-mobile-overlay { display: none; } */
+/* .kh-hamburger { display: none; } */
 
 /* ================== Mobile Navigation (Hamburger) ================== */
 @media (max-width: 992px) {

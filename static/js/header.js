@@ -137,36 +137,10 @@
             languageChoices.forEach(function(choice) {
                 choice.addEventListener('click', function(e) {
                     e.stopPropagation();
+                    // Close dropdown when language is selected
+                    languageDropdown.classList.remove('show');
+                    languageBtn.classList.remove('active');
                     // Let fast_language_switch.js handle the actual switching
-                });
-            });
-
-            languageOptions.forEach(function (option) {
-                option.addEventListener('click', function (e) {
-                    var isChoiceButton = this.classList.contains('language-choice');
-                    var selectedLang = this.getAttribute('data-lang') || this.value;
-                    if (!selectedLang) return;
-
-                    // For custom anchors, handle client-side; for buttons, let form submit to Django
-                    if (!isChoiceButton) {
-                        e.preventDefault();
-                        languageOptions.forEach(function (opt) { opt.classList.remove('active'); });
-                        this.classList.add('active');
-                        languageDropdown.classList.remove('show');
-                        languageBtn.classList.remove('active');
-                        // DISABLED: Don't override Django translations
-                        // Let fast_language_switch.js handle language switching
-                        /*
-                        if (currentLang) {
-                            currentLang.textContent = selectedLang === 'fa' ? 'فا' : selectedLang.toUpperCase();
-                        }
-                        if (typeof window.switchLanguage === 'function') {
-                            window.switchLanguage(selectedLang);
-                        } else {
-                            localStorage.setItem('selectedLanguage', selectedLang);
-                        }
-                        */
-                    }
                 });
             });
         }
@@ -177,22 +151,27 @@
         var mobileNav = document.getElementById('khMobileNav');
         var overlay = document.getElementById('khMobileOverlay');
 
-        if (!hamburger || !mobileNav || !overlay) return;
+        if (!hamburger || !mobileNav || !overlay) {
+            console.warn('Mobile menu elements not found');
+            return;
+        }
 
         function closeMobile() {
             document.body.classList.remove('kh-menu-open');
-            hamburger.setAttribute('aria-expanded', 'false');
-            mobileNav.setAttribute('aria-hidden', 'true');
+            if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+            if (mobileNav) mobileNav.setAttribute('aria-hidden', 'true');
         }
 
         function openMobile() {
             document.body.classList.add('kh-menu-open');
-            hamburger.setAttribute('aria-expanded', 'true');
-            mobileNav.setAttribute('aria-hidden', 'false');
+            if (hamburger) hamburger.setAttribute('aria-expanded', 'true');
+            if (mobileNav) mobileNav.setAttribute('aria-hidden', 'false');
         }
 
         hamburger.addEventListener('click', function (e) {
+            e.preventDefault();
             e.stopPropagation();
+            console.log('Hamburger clicked, current state:', document.body.classList.contains('kh-menu-open'));
             if (document.body.classList.contains('kh-menu-open')) {
                 closeMobile();
             } else {
@@ -200,19 +179,27 @@
             }
         });
 
-        overlay.addEventListener('click', closeMobile);
+        if (overlay) {
+            overlay.addEventListener('click', function(e) {
+                e.preventDefault();
+                closeMobile();
+            });
+        }
+        
         document.addEventListener('keyup', function (e) {
             if (e.key === 'Escape') {
                 closeMobile();
             }
         });
 
-        mobileNav.addEventListener('click', function (e) {
-            var target = e.target;
-            if (target && target.tagName && target.tagName.toLowerCase() === 'a') {
-                closeMobile();
-            }
-        });
+        if (mobileNav) {
+            mobileNav.addEventListener('click', function (e) {
+                var target = e.target;
+                if (target && target.tagName && target.tagName.toLowerCase() === 'a') {
+                    closeMobile();
+                }
+            });
+        }
     }
 
     document.addEventListener('DOMContentLoaded', function () {
